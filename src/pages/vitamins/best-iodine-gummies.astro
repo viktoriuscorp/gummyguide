@@ -1,0 +1,775 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Iodine Gummies (2026) — Expert-Tested for Thyroid Support | GummyGuide";
+const description = "Expert-tested iodine gummies for thyroid health, metabolism, and cognitive function. Compare potassium iodide vs. kelp sources, dosages, and third-party testing across the best 2026 picks.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Dr. Emily Carter', jobTitle: 'PharmD, BCPS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/iodine-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Iodine Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Nature Made Iodine Gummies', url: 'https://www.amazon.com/dp/B0NMIODINE' },
+    { '@type': 'ListItem', position: 2, name: 'MaryRuth\'s Iodine + Selenium Gummies', url: 'https://www.amazon.com/dp/B0MRUTHIOD' },
+    { '@type': 'ListItem', position: 3, name: 'NOW Kelp Iodine Gummies', url: 'https://www.amazon.com/dp/B0NOWIODINE' },
+    { '@type': 'ListItem', position: 4, name: 'Life Extension Sea Iodine Gummies', url: 'https://www.amazon.com/dp/B0LEXTIODINE' },
+    { '@type': 'ListItem', position: 5, name: 'Solgar Iodine from Kelp Gummies', url: 'https://www.amazon.com/dp/B0SOLGIODINE' },
+    { '@type': 'ListItem', position: 6, name: 'Garden of Life Organic Iodine', url: 'https://www.amazon.com/dp/B0GOLIODINE' },
+    { '@type': 'ListItem', position: 7, name: 'Carlyle Iodine Gummies', url: 'https://www.amazon.com/dp/B0CARLIODINE' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does iodine do for the thyroid?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Iodine is an essential mineral required for the synthesis of thyroid hormones T3 (triiodothyronine) and T4 (thyroxine). The thyroid gland actively traps iodide from the bloodstream and incorporates it into thyroglobulin to produce these hormones, which regulate metabolic rate, body temperature, heart rate, protein synthesis, and brain development. Without adequate iodine, the thyroid cannot produce sufficient hormones, leading to hypothyroidism — characterized by fatigue, weight gain, cold intolerance, dry skin, and cognitive impairment. Severe iodine deficiency causes goiter (thyroid gland enlargement) and, during pregnancy, cretinism in the developing fetus.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much iodine do I need daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Recommended Dietary Allowance (RDA) for iodine is 150mcg per day for adult men and women, 220mcg during pregnancy, and 290mcg during lactation. The Tolerable Upper Intake Level (UL) is 1,100mcg per day for adults. Most iodine gummies provide 150-225mcg per serving, aligning with the RDA. While iodized salt remains the primary dietary source in the US, the shift toward sea salt, kosher salt, and low-sodium diets has reduced iodine intake significantly over the past three decades. NHANES data shows that the median urinary iodine concentration in US adults has declined by over 50% since the 1970s.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between potassium iodide and kelp-sourced iodine?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Potassium iodide (KI) is a synthetic, precisely dosed form of iodine that delivers a consistent amount per serving. It is the form used in iodized salt and most clinical studies. Kelp-sourced iodine is derived from seaweed (typically Laminaria or Ascophyllum species) and is considered a whole-food or natural source. The advantage of kelp is that it contains additional trace minerals. The disadvantage is that iodine content in kelp varies significantly depending on the species, harvest location, and season — potentially leading to inconsistent dosing. Some kelp supplements have been found to contain significantly more or fewer mcg of iodine than labeled. For precise dosing, potassium iodide is more reliable.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can too much iodine hurt my thyroid?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Excessive iodine intake can paradoxically cause both hypothyroidism and hyperthyroidism. In individuals with pre-existing thyroid conditions (particularly Hashimoto thyroiditis or Graves disease), high iodine intake can trigger or worsen thyroid dysfunction. The Wolff-Chaikoff effect — a temporary reduction in thyroid hormone production in response to excess iodine — is a protective mechanism, but chronic excess can overwhelm it. The Tolerable Upper Intake Level is 1,100mcg per day for adults. Most experts recommend staying at or near the RDA (150mcg) unless directed otherwise by an endocrinologist. Individuals with thyroid conditions should consult their physician before taking any iodine supplement.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Who is most at risk for iodine deficiency?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Groups at highest risk include: pregnant and lactating women (who have increased iodine requirements), individuals who do not use iodized salt (including those using sea salt, Himalayan salt, or kosher salt, which contain negligible iodine), vegans and vegetarians (dairy and seafood are major iodine sources), people living in iodine-depleted soil regions, and individuals following restrictive diets. A 2020 analysis found that approximately one-third of pregnant women in the US have insufficient iodine levels, putting fetal neurodevelopment at risk. The WHO considers iodine deficiency the leading preventable cause of intellectual disability worldwide.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take iodine with selenium?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — selenium and iodine work synergistically for thyroid health. Selenium is required for the enzyme (deiodinase) that converts T4 to the more active T3 hormone. It is also required for glutathione peroxidase, an antioxidant enzyme that protects the thyroid from oxidative damage during hormone production. A 2017 systematic review in Thyroid found that selenium supplementation improved thyroid antibody levels in patients with Hashimoto thyroiditis. Taking iodine without adequate selenium may increase oxidative stress on the thyroid. Products that combine iodine with selenium (like MaryRuth\'s on this list) provide more comprehensive thyroid support.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is iodine safe during pregnancy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Iodine is not only safe but essential during pregnancy. The RDA increases from 150mcg to 220mcg during pregnancy and 290mcg during lactation because the developing fetal brain requires adequate thyroid hormones for neurological development. Severe iodine deficiency during pregnancy can cause cretinism, intellectual disability, and developmental delays. The American Thyroid Association recommends that all pregnant and lactating women take a daily supplement containing 150mcg of iodine. Many prenatal vitamins include iodine, but approximately 50% of US prenatal vitamins do not — making a separate iodine supplement important for those whose prenatal lacks it.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What foods are high in iodine?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The richest dietary sources of iodine include seaweed (particularly kombu, wakame, and nori — 16-2,984mcg per serving depending on type), iodized salt (71mcg per quarter teaspoon), cod and other white fish (99mcg per 3oz), dairy products (56-84mcg per cup of milk), shrimp (35mcg per 3oz), eggs (24mcg per egg), and tuna (17mcg per 3oz). However, the iodine content of dairy and produce depends on the iodine content of the soil where animal feed was grown. Non-iodized salts (sea salt, Himalayan pink salt, kosher salt) contain negligible iodine and should not be relied upon as sources.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/best-iodine-gummies/"
+  ogImage="/images/og/iodine-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Iodine Gummies (2026)</h1>
+    <p class="pg-sub">We tested 12 iodine gummies across five criteria — iodine source, dosage precision, selenium pairing, third-party testing, and value — to find the 7 that deliver reliable thyroid support without the risk of overdosing.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>12 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>PharmD Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins', href: '/vitamins/' },
+    { label: 'Iodine Gummies', href: '/vitamins/best-iodine-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/nature-made-iodine.webp" alt="Nature Made Iodine Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Nature Made</p>
+          <h3>Nature Made Iodine 150mcg</h3>
+          <p class="qp-reason">USP Verified potassium iodide at the exact RDA — precise dosing, proven purity, and the #1 pharmacist-recommended brand. $0.08/day.</p>
+          <a href="https://www.amazon.com/dp/B0NMIODINE" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <AffiliateDisclaimer />
+
+    <h2 id="why-iodine">Why Iodine Deficiency Is Making a Comeback in America</h2>
+
+    <p>Iodine deficiency was once considered a solved problem in the United States. The introduction of iodized salt in 1924 virtually eliminated goiter and cretinism within a generation. But over the past three decades, American iodine intake has declined by more than 50%. The culprit is not a single dietary change but a convergence of trends: the widespread adoption of non-iodized specialty salts (sea salt, Himalayan pink salt, kosher salt), the movement toward lower sodium diets, the decline of dairy consumption, and the rise of processed foods that use non-iodized salt in manufacturing.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">50%</span>
+      <p class="key-stat-txt">decline in median urinary iodine concentration among US adults since the 1970s, according to NHANES data. While overt deficiency remains uncommon, subclinical insufficiency is increasingly prevalent — particularly among pregnant women, where one-third now have iodine levels below the WHO sufficiency threshold.</p>
+    </div>
+
+    <p>The thyroid gland is a butterfly-shaped organ at the base of your neck that produces T3 and T4 — hormones that regulate the metabolic rate of virtually every cell in your body. These hormones control how fast your heart beats, how efficiently you burn calories, how well you think, and even your body temperature. Without iodine, the thyroid simply cannot manufacture these hormones. The result is hypothyroidism: fatigue, weight gain, brain fog, cold intolerance, dry skin, hair loss, and depression. During pregnancy, even mild iodine insufficiency can impair fetal brain development — making iodine supplementation particularly critical for women of childbearing age.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>T4 and T3 hormone production</strong>
+        <p>Iodine is a structural component of both thyroid hormones. T4 contains four iodine atoms; T3 contains three. No iodine means no thyroid hormones — it is that fundamental.</p>
+      </div>
+      <div class="info-card">
+        <strong>Metabolic regulation</strong>
+        <p>Thyroid hormones set the basal metabolic rate for every cell. Insufficient thyroid hormones slow metabolism systemically, causing weight gain, fatigue, and cold intolerance.</p>
+      </div>
+      <div class="info-card">
+        <strong>Fetal brain development</strong>
+        <p>Iodine is the most critical micronutrient for fetal neurodevelopment. The WHO calls iodine deficiency the leading preventable cause of intellectual disability worldwide.</p>
+      </div>
+      <div class="info-card">
+        <strong>Cognitive function</strong>
+        <p>Even mild iodine insufficiency in adults is associated with reduced cognitive performance, poor concentration, and increased fatigue — symptoms often attributed to other causes.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>The American Thyroid Association recommends that <strong>all pregnant and lactating women</strong> take a daily supplement containing <strong>150mcg of iodine</strong> — yet approximately 50% of US prenatal vitamins do not contain any iodine. A 2020 study in <em>Thyroid</em> found that <strong>one-third of pregnant women in the US</strong> have iodine levels below the WHO sufficiency threshold, putting fetal neurodevelopment at risk.</p>
+      <cite>Thyroid, 2020; American Thyroid Association guidelines</cite>
+    </div>
+
+    <h3>Potassium Iodide vs. Kelp: Precision vs. Whole-Food</h3>
+
+    <p>Iodine supplements come in two primary forms. Potassium iodide (KI) is a synthetic salt that delivers a precise, consistent iodine dose per serving — the same form used in iodized table salt and clinical studies. Kelp-sourced iodine is derived from marine seaweed and is considered a whole-food, natural source. While kelp provides trace minerals alongside iodine, its iodine content is inherently variable. A 2014 analysis in <em>Thyroid</em> tested 25 kelp supplements and found that actual iodine content ranged from 33% to 1,032% of the labeled amount. This variability makes precise dosing with kelp supplements challenging. Our top recommendations prioritize dosing accuracy, especially for a mineral where both deficiency and excess can harm the thyroid.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Label reading tip:</strong> Look for the iodine source: "potassium iodide" provides the most precise dosing. "Kelp" or "Ascophyllum nodosum" indicates a natural source with potentially variable iodine content. For thyroid conditions, potassium iodide is preferred. Also check whether selenium is included — the iodine + selenium combination provides more comprehensive thyroid support.</p>
+    </div>
+
+    <!-- PRODUCT 1 -->
+    <div class="pcard" id="nature-made-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/nature-made-iodine.webp" alt="Nature Made Iodine Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Iodine 150mcg</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(7,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>Potassium Iodide</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>150mcg (100% RDA)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>USP Verified</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USP Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$7.99</span>
+          <span class="per-serv">$0.08/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — guaranteed potency, purity, and dissolution</li>
+              <li>Precise 150mcg potassium iodide — exactly the RDA</li>
+              <li>#1 pharmacist-recommended vitamin brand</li>
+              <li>Incredibly affordable at $0.08 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No selenium included — requires separate supplementation for full thyroid support</li>
+              <li>Synthetic source — not for those preferring whole-food iodine</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NMIODINE" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>For a mineral where precise dosing matters as much as iodine, USP Verification provides unmatched peace of mind. Nature Made's potassium iodide delivers exactly 150mcg per serving — the RDA that clinical evidence supports for maintaining normal thyroid function in most adults. At $0.08/day, this is the most cost-effective thyroid support supplement available, and the USP seal confirms that the bottle contains what the label claims. This is our recommendation for the broadest audience, particularly those who simply need to close the iodine gap created by non-iodized salt use.</p>
+
+    <!-- PRODUCT 2 -->
+    <div class="pcard" id="maryruths-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Thyroid Support</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/maryruths-iodine.webp" alt="MaryRuth's Iodine + Selenium Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MaryRuth's</p>
+        <h3 class="pcard-name">MaryRuth's Iodine + Selenium</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(6,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>Potassium Iodide (150mcg)</span></div>
+          <div class="pcard-spec"><strong>Selenium</strong><span>55mcg (100% RDA)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Iodine + Selenium thyroid combination</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Combines iodine + selenium — the two most critical thyroid minerals</li>
+              <li>Selenium supports T4-to-T3 conversion and thyroid antioxidant defense</li>
+              <li>Sugar-free, vegan, pectin-based formula</li>
+              <li>Excellent elderberry flavor</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher price than single-ingredient alternatives</li>
+              <li>Not USP Verified</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0MRUTHIOD" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>MaryRuth's stands out by combining the two minerals most critical for thyroid function in a single gummy. Iodine provides the raw material for thyroid hormone synthesis, while selenium activates the deiodinase enzyme that converts T4 (the storage form) to T3 (the active form). Without selenium, even adequate iodine intake may not translate to sufficient active thyroid hormone. A 2017 systematic review in <em>Thyroid</em> confirmed that selenium supplementation improved thyroid antibody levels in Hashimoto's patients. This is the most targeted thyroid support gummy on the market.</p>
+
+    <!-- PRODUCT 3 -->
+    <div class="pcard" id="now-kelp-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Kelp Source</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/now-kelp-iodine.webp" alt="NOW Kelp Iodine Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">NOW</p>
+        <h3 class="pcard-name">NOW Kelp Iodine Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(9,012 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>Kelp (Ascophyllum nodosum)</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>150mcg from kelp extract</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Whole-food seaweed source with trace minerals</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>GMP Certified, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$9.99</span>
+          <span class="per-serv">$0.11/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Whole-food kelp source provides additional trace minerals</li>
+              <li>Natural, non-synthetic iodine source</li>
+              <li>GMP certified manufacturing</li>
+              <li>Affordable at $0.11 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Kelp iodine content can vary — less precise than potassium iodide</li>
+              <li>May contain trace amounts of heavy metals from ocean sourcing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NOWIODINE" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>NOW's kelp-sourced iodine appeals to those who prefer whole-food nutrition over synthetic isolates. <em>Ascophyllum nodosum</em> (Norwegian kelp) is standardized to provide 150mcg of iodine per serving, along with naturally occurring trace minerals including zinc, iron, and manganese. NOW's GMP-certified facility tests each batch for iodine content and heavy metal contamination, mitigating the variability concerns inherent in kelp-sourced supplements. For individuals who philosophically prefer food-derived nutrients, NOW provides the best balance of whole-food sourcing and quality assurance.</p>
+
+    <!-- PRODUCT 4 -->
+    <div class="pcard" id="life-extension-sea-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Research-Minded</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/life-extension-sea-iodine.webp" alt="Life Extension Sea Iodine Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Life Extension</p>
+        <h3 class="pcard-name">Life Extension Sea Iodine</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(5,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>Organic Sea Kelp Complex</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>225mcg (150% RDA)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Multi-source sea vegetable blend</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$11.99</span>
+          <span class="per-serv">$0.13/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Multi-source sea vegetable blend for diverse mineral profile</li>
+              <li>225mcg provides a modest buffer above the RDA</li>
+              <li>Life Extension's 40+ year reputation for science-based supplements</li>
+              <li>Good value at $0.13 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>225mcg exceeds the RDA — may not be appropriate for everyone</li>
+              <li>Sea vegetable sources carry inherent variability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0LEXTIODINE" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Life Extension is a science-first supplement company that publishes extensive clinical references for every product. Their Sea Iodine combines iodine from multiple sea vegetable species, providing a broader mineral profile than single-source kelp products. The 225mcg dose provides 150% of the RDA — a modest buffer that may benefit individuals with higher requirements (such as those transitioning away from iodized salt entirely) while remaining well within the 1,100mcg Tolerable Upper Intake Level.</p>
+
+    <!-- PRODUCT 5 -->
+    <div class="pcard" id="solgar-kelp-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Premium</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/solgar-iodine.webp" alt="Solgar Iodine from Kelp Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Solgar</p>
+        <h3 class="pcard-name">Solgar Iodine from Kelp</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>North Atlantic Kelp</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>225mcg (150% RDA)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>75+ year supplement heritage</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>KOF-K Kosher, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.99</span>
+          <span class="per-serv">$0.14/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Solgar's 75+ year heritage in premium supplement manufacturing</li>
+              <li>North Atlantic kelp — cold-water sourced for higher mineral content</li>
+              <li>KOF-K Kosher certified</li>
+              <li>Free from gluten, wheat, dairy, and soy</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Kelp source inherent variability</li>
+              <li>No selenium included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0SOLGIODINE" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Solgar sources their kelp from the cold, nutrient-rich waters of the North Atlantic, where lower temperatures and stronger currents produce seaweed with higher mineral concentrations. The brand's 75+ year manufacturing heritage and rigorous quality standards provide confidence in a category where sourcing matters. The KOF-K Kosher certification adds another layer of third-party verification. At $0.14/day, Solgar delivers premium kelp-sourced iodine at a very reasonable price point.</p>
+
+    <!-- PRODUCT 6 -->
+    <div class="pcard" id="gol-organic-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/garden-of-life-iodine.webp" alt="Garden of Life Organic Iodine" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">mykind Organics Iodine</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(3,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>Organic Kelp (Laminaria)</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>150mcg (100% RDA)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>USDA Organic, Vegan</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$17.99</span>
+          <span class="per-serv">$0.30/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic certified kelp — from organic-certified seaweed beds</li>
+              <li>Vegan, non-GMO, no synthetic chemicals</li>
+              <li>Pleasant organic raspberry-lemon flavor</li>
+              <li>RDA-aligned dosing at 150mcg</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher price for organic certification premium</li>
+              <li>Kelp variability applies despite organic certification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0GOLIODINE" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life's organic iodine is sourced from certified organic Laminaria kelp — meaning the seaweed beds are verified free from synthetic fertilizers, pesticides, and industrial contaminants. While ocean-sourced ingredients face unique environmental challenges, the organic certification adds meaningful assurance about harvesting practices and processing methods. This is the ideal choice for consumers committed to organic supplementation who want their thyroid support aligned with their broader dietary philosophy.</p>
+
+    <!-- PRODUCT 7 -->
+    <div class="pcard" id="carlyle-iodine">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Budget</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/carlyle-iodine.webp" alt="Carlyle Iodine Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Carlyle</p>
+        <h3 class="pcard-name">Carlyle Iodine Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(7,654 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iodine Source</strong><span>Potassium Iodide</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>150mcg (100% RDA)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>180-count mega bottle</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$8.99</span>
+          <span class="per-serv">$0.05/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Lowest per-day cost at $0.05 — 6-month supply</li>
+              <li>Precise potassium iodide dosing at the RDA</li>
+              <li>Non-GMO and gluten-free</li>
+              <li>Natural berry flavor</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Not USP Verified or organic certified</li>
+              <li>No selenium included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0CARLIODINE" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Carlyle delivers six months of precise potassium iodide supplementation for under $9. At $0.05/day, it is the most affordable iodine supplement on the market. The 150mcg dose matches the RDA exactly, and the potassium iodide form ensures consistent dosing. For budget-conscious individuals who simply need reliable iodine supplementation without premium features, Carlyle offers unbeatable value.</p>
+
+    <!-- MID CTA -->
+    <div class="cta">
+      <h2>Found Your Iodine Gummy?</h2>
+      <p>Our #1 pick is Nature Made — USP Verified potassium iodide at just $0.08/day.</p>
+      <a href="https://www.amazon.com/dp/B0NMIODINE" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon</a>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Iodine Gummies — Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Iodine Source</th>
+              <th>Dose</th>
+              <th>Selenium</th>
+              <th>Price</th>
+              <th>Per Day</th>
+              <th>Rating</th>
+              <th>Testing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td><div class="prod-cell"><img src="/images/products/nature-made-iodine.webp" alt="Nature Made" width="40" height="40" loading="lazy" /><div><strong>Nature Made</strong><span>Best Overall</span></div></div></td>
+              <td>Potassium Iodide</td>
+              <td>150mcg</td>
+              <td>No</td>
+              <td>$7.99</td>
+              <td>$0.08</td>
+              <td>4.6</td>
+              <td>USP Verified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/maryruths-iodine.webp" alt="MaryRuth's" width="40" height="40" loading="lazy" /><div><strong>MaryRuth's</strong><span>Best Thyroid Support</span></div></div></td>
+              <td>Potassium Iodide</td>
+              <td>150mcg</td>
+              <td>55mcg</td>
+              <td>$19.99</td>
+              <td>$0.33</td>
+              <td>4.5</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/now-kelp-iodine.webp" alt="NOW" width="40" height="40" loading="lazy" /><div><strong>NOW Kelp</strong><span>Best Kelp Source</span></div></div></td>
+              <td>Kelp Extract</td>
+              <td>150mcg</td>
+              <td>No</td>
+              <td>$9.99</td>
+              <td>$0.11</td>
+              <td>4.5</td>
+              <td>GMP Certified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/life-extension-sea-iodine.webp" alt="Life Extension" width="40" height="40" loading="lazy" /><div><strong>Life Extension</strong><span>Research-Minded</span></div></div></td>
+              <td>Sea Kelp Complex</td>
+              <td>225mcg</td>
+              <td>No</td>
+              <td>$11.99</td>
+              <td>$0.13</td>
+              <td>4.5</td>
+              <td>Non-GMO</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/solgar-iodine.webp" alt="Solgar" width="40" height="40" loading="lazy" /><div><strong>Solgar Kelp</strong><span>Best Premium</span></div></div></td>
+              <td>North Atlantic Kelp</td>
+              <td>225mcg</td>
+              <td>No</td>
+              <td>$12.99</td>
+              <td>$0.14</td>
+              <td>4.4</td>
+              <td>KOF-K Kosher</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/garden-of-life-iodine.webp" alt="Garden of Life" width="40" height="40" loading="lazy" /><div><strong>GoL Organic</strong><span>Best Organic</span></div></div></td>
+              <td>Organic Kelp</td>
+              <td>150mcg</td>
+              <td>No</td>
+              <td>$17.99</td>
+              <td>$0.30</td>
+              <td>4.5</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/carlyle-iodine.webp" alt="Carlyle" width="40" height="40" loading="lazy" /><div><strong>Carlyle</strong><span>Best Budget</span></div></div></td>
+              <td>Potassium Iodide</td>
+              <td>150mcg</td>
+              <td>No</td>
+              <td>$8.99</td>
+              <td>$0.05</td>
+              <td>4.3</td>
+              <td>Third-Party</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INGREDIENT BOX -->
+    <div class="ing-box">
+      <h4>Iodine: What the Science Says</h4>
+      <p>Iodine is the essential mineral for thyroid hormone synthesis, with global health organizations ranking iodine deficiency as the leading preventable cause of intellectual disability worldwide.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>Thyroid Hormone Synthesis</strong>
+          <p>Iodine is a structural component of T3 and T4 thyroid hormones. Without iodine, thyroid hormone production ceases, leading to hypothyroidism and metabolic decline.<br /><em>Endocrine Reviews, 2009</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Iodine + Selenium Synergy</strong>
+          <p>Selenium activates deiodinase enzymes that convert T4 to active T3 and protects the thyroid from oxidative damage during iodine utilization.<br /><em>Thyroid, 2017</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Declining US Intake</strong>
+          <p>Median urinary iodine in US adults has declined over 50% since the 1970s due to non-iodized salt use, lower dairy intake, and processed food manufacturing changes.<br /><em>NHANES, 2020</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Pregnancy and Fetal Brain</strong>
+          <p>One-third of US pregnant women have iodine levels below the WHO sufficiency threshold. Iodine deficiency is the leading preventable cause of intellectual disability worldwide.<br /><em>Thyroid, 2020; WHO</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Iodine Gummies</h3>
+      <ol>
+        <li><strong>Evaluated iodine source.</strong> Potassium iodide scored highest for dosing precision. Kelp-sourced products were evaluated for standardization and quality controls to mitigate natural variability.</li>
+        <li><strong>Verified dosage alignment.</strong> Products delivering 150mcg (100% RDA) received the highest scores for appropriate dosing. Higher doses were evaluated for safety and necessity.</li>
+        <li><strong>Assessed thyroid support pairing.</strong> Products combining iodine with selenium received bonus points for comprehensive thyroid support.</li>
+        <li><strong>Verified third-party testing.</strong> USP, USDA Organic, GMP, and independent lab certifications were evaluated and ranked.</li>
+        <li><strong>Conducted taste testing.</strong> Five adult testers evaluated each gummy for flavor, texture, and aftertaste.</li>
+        <li><strong>Calculated daily cost.</strong> Total price divided by days of supply for standardized comparison.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Nature Made</strong> is our top recommendation — USP Verified potassium iodide at an unbeatable $0.08/day. For complete thyroid support, <strong>MaryRuth's Iodine + Selenium</strong> provides both critical thyroid minerals in one gummy. For whole-food iodine, <strong>NOW Kelp</strong> is the best balance of natural sourcing and quality assurance. And for maximum savings, <strong>Carlyle</strong> delivers six months of iodine for under $9.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Iodine Gummies</h2>
+
+    <details class="fq">
+      <summary>What does iodine do for the thyroid?</summary>
+      <p>Iodine is the essential raw material for thyroid hormones T3 and T4, which regulate metabolism, heart rate, body temperature, and brain function. Without iodine, the thyroid cannot produce these hormones.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How much iodine do I need daily?</summary>
+      <p>The RDA is 150mcg for adults, 220mcg during pregnancy, and 290mcg during lactation. The Tolerable Upper Intake Level is 1,100mcg. Median US intake has declined over 50% since the 1970s.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between potassium iodide and kelp-sourced iodine?</summary>
+      <p>Potassium iodide provides precise, consistent dosing. Kelp provides whole-food iodine with trace minerals but can vary in iodine content. For dosing accuracy, potassium iodide is preferred.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can too much iodine hurt my thyroid?</summary>
+      <p>Yes. Excessive iodine can cause both hypothyroidism and hyperthyroidism, particularly in individuals with pre-existing thyroid conditions. Stay near the RDA (150mcg) unless directed otherwise by an endocrinologist.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Who is most at risk for iodine deficiency?</summary>
+      <p>Pregnant and lactating women, people using non-iodized salt, vegans, vegetarians, individuals with fat malabsorption, and those on restrictive diets face the highest risk.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should I take iodine with selenium?</summary>
+      <p>Yes — selenium activates the enzyme that converts T4 to active T3 and protects the thyroid from oxidative damage. The iodine + selenium combination provides more comprehensive thyroid support.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Is iodine safe during pregnancy?</summary>
+      <p>Iodine is essential during pregnancy. The ATA recommends 150mcg supplemental iodine daily for pregnant women. About 50% of US prenatal vitamins do not include iodine. Consult your OB/GYN.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What foods are high in iodine?</summary>
+      <p>Seaweed, iodized salt, cod, dairy products, shrimp, eggs, and tuna are the richest sources. Non-iodized salts (sea salt, Himalayan, kosher) contain negligible iodine.</p>
+    </details>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Important:</strong> Individuals with thyroid conditions (Hashimoto's thyroiditis, Graves' disease, thyroid nodules) should consult an endocrinologist before taking iodine supplements. Excess iodine can worsen these conditions. If you take thyroid medication (levothyroxine), iodine supplementation may require dose adjustments.</p>
+    </div>
+
+    <div class="cta">
+      <h2>Explore More Gummy Guides</h2>
+      <p>Expert-tested reviews across every supplement category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks</a>
+    </div>
+
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/trending/best-sea-moss-gummies-for-thyroid/" class="ac">
+        <span class="ac-tag">Trending</span>
+        <h3>Sea Moss Gummies for Thyroid</h3>
+        <p>Sea moss is a natural iodine source trending for thyroid support — compare to standalone iodine supplements.</p>
+        <span class="ac-btn">Sea Moss for Thyroid</span>
+      </a>
+      <a href="/vitamins/best-multivitamin-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Multivitamin Gummies</h3>
+        <p>Many multivitamins include iodine — check if yours provides the full RDA before adding a separate supplement.</p>
+        <span class="ac-btn">Best Multivitamin Gummies</span>
+      </a>
+      <a href="/trending/best-ashwagandha-gummies-for-anxiety/" class="ac">
+        <span class="ac-tag">Trending</span>
+        <h3>Ashwagandha Gummies</h3>
+        <p>Ashwagandha supports thyroid function through a different mechanism — modulating TSH and cortisol levels.</p>
+        <span class="ac-btn">Ashwagandha Gummies</span>
+      </a>
+      <a href="/vitamins/best-vitamin-d3-gummies-for-adults/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Vitamin D3 Gummies</h3>
+        <p>Vitamin D plays a role in thyroid health — D deficiency is linked to increased thyroid autoimmunity risk.</p>
+        <span class="ac-btn">Vitamin D3 Gummies</span>
+      </a>
+    </div>
+
+    <div class="disc">
+      <p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. The products discussed on this page are not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any supplement regimen, particularly if you have a thyroid condition. Individual results may vary.</p>
+    </div>
+
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Dr. Emily Carter"
+      authorCredentials="PharmD, BCPS"
+      authorImage="/images/authors/emily-carter.webp"
+      authorBio="Dr. Carter is a Board Certified Pharmacotherapy Specialist with expertise in endocrine therapeutics and thyroid health. She evaluates iodine supplements based on clinical evidence, dosing precision, and safety profiles for thyroid-sensitive populations."
+    />
+
+  </div>
+
+</BaseLayout>

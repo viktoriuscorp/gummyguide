@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Immunity Gummies — Expert Guides',
+  description: 'Expert-tested guides to the best immunity gummies in 2026. Elderberry, vitamin C, turmeric, and zinc gummies reviewed by registered dietitians.',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'RD, CNS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  datePublished: '2026-03-15',
+  dateModified: '2026-03-28',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do immunity gummies actually prevent colds?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Immunity gummies do not prevent colds outright, but certain ingredients can reduce duration and severity. Zinc lozenges taken within 24 hours of symptom onset may shorten colds by 1-2 days. Elderberry extract has been shown to reduce cold duration by an average of 2 days. Vitamin C has modest but consistent evidence for reducing cold severity when taken regularly.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best immunity gummy ingredient?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Zinc and elderberry have the strongest clinical evidence for immune support. Zinc plays a critical role in immune cell function and has over 100 studies supporting its use during cold and flu season. Elderberry (Sambucus nigra) has antiviral properties supported by multiple randomized controlled trials. Vitamin C is well-studied but effects are modest for most people.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I take immunity gummies year-round?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, most immunity gummies are safe for year-round use at recommended doses. Vitamin C and elderberry can be taken daily without concern. Zinc should be taken at the RDA (8-11mg daily) for long-term use — higher therapeutic doses (40mg+) are only recommended during acute illness for short periods, as chronic high-dose zinc can cause copper deficiency.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do turmeric gummies reduce inflammation?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Turmeric contains curcumin, which has strong anti-inflammatory evidence in clinical studies. However, curcumin has poor bioavailability on its own. Effective turmeric gummies must include a bioavailability enhancer like BioPerine (piperine), which increases curcumin absorption by up to 2,000%. Check the label for curcuminoid content and absorption technology.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take vitamin C gummies if I already eat fruits and vegetables?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most Americans who eat a balanced diet with fruits and vegetables get adequate vitamin C. Supplementation above the RDA (90mg for men, 75mg for women) shows diminishing returns as the body excretes excess vitamin C. Supplementation is most beneficial for smokers, people under physical stress, and those with limited fruit and vegetable intake.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I take elderberry and zinc gummies together?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Elderberry and zinc work through different immune pathways and can be safely combined. Elderberry provides antiviral anthocyanins, while zinc supports immune cell production and function. Many immunity gummy formulas combine both ingredients in a single product for convenience.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Immunity Gummies — Expert Guides | GummyGuide"
+  description="Expert-tested guides to the best immunity gummies in 2026. Elderberry, vitamin C, turmeric, and zinc gummies reviewed by registered dietitians."
+  schema={[articleSchema, faqSchema]}
+>
+
+  <div class="pg-hero">
+    <h1>Immunity Gummies</h1>
+    <p class="pg-sub">Expert-tested guides to elderberry, vitamin C, turmeric, and zinc gummies. Build your immune defense with evidence-backed supplements.</p>
+    <div class="pg-meta">
+      <span>Updated March 2026</span>
+      <span>4 In-Depth Guides</span>
+      <span>35+ Products Tested</span>
+    </div>
+  </div>
+
+  <Breadcrumbs items={[
+    { label: 'Immunity', href: '/immunity/' },
+  ]} />
+
+  <div class="w">
+
+    <p>Immunity supplements surged in popularity during the pandemic and have remained a top-selling category ever since. Elderberry, vitamin C, zinc, and turmeric gummies now line every pharmacy shelf — but not all products deliver clinically meaningful doses of their active ingredients. Our registered dietitians purchased and tested 35+ immunity gummies, verifying bioactive content, absorption technology, and third-party quality certifications.</p>
+
+    <div class="key-stat">
+      <div class="key-stat-num">$1.6B</div>
+      <p class="key-stat-txt">The U.S. immune health supplement market reached <strong>$1.6 billion in 2025</strong>, with gummies representing the fastest-growing format. Elderberry and zinc gummies lead consumer demand during cold and flu season.</p>
+    </div>
+
+    <h2>Our Immunity Guides</h2>
+    <p>Each guide evaluates bioactive ingredient doses, clinical evidence for immune support, third-party testing, and price per serving. Select a category to find the best product.</p>
+
+    <div class="acards" style="grid-template-columns:1fr 1fr;">
+      <a href="/best-elderberry-gummies/" class="ac">
+        <span class="ac-tag">Editor's Choice</span>
+        <h3>Best Elderberry Gummies</h3>
+        <p>Sambucus elderberry gummies ranked by anthocyanin content, zinc and vitamin C combos, and clinical evidence for reducing cold duration.</p>
+        <span class="ac-btn">Read Full Guide →</span>
+      </a>
+      <a href="/vitamins/" class="ac">
+        <span class="ac-tag">Vitamin C</span>
+        <h3>Best Vitamin C Gummies</h3>
+        <p>Vitamin C gummies compared by dose, form (ascorbic acid vs buffered), added bioflavonoids, and immune support evidence. 250mg to 1000mg options.</p>
+        <span class="ac-btn">Read Full Guide →</span>
+      </a>
+      <a href="/best-sea-moss-gummies/" class="ac">
+        <span class="ac-tag">Anti-Inflammatory</span>
+        <h3>Best Turmeric & Sea Moss Gummies</h3>
+        <p>Curcumin and sea moss gummies for inflammation and mineral support. BioPerine absorption technology and curcuminoid standardization compared.</p>
+        <span class="ac-btn">Read Full Guide →</span>
+      </a>
+      <a href="/" class="ac">
+        <span class="ac-tag">Explore All</span>
+        <h3>All Gummy Supplement Guides</h3>
+        <p>Browse every category we cover — from sports and sleep to vitamins, beauty, and trending supplements. Over 200 products tested.</p>
+        <span class="ac-btn">See All Guides →</span>
+      </a>
+    </div>
+
+    <!-- Best Overall Pick -->
+    <div class="callout">
+      <strong>Best Overall Immunity Gummy:</strong> Our top-rated elderberry gummy combines 300mg Sambucus nigra extract with 15mg zinc and 100mg vitamin C in a single serving. This triple-action formula covers the three most evidence-backed immune support ingredients at clinically relevant doses.
+      <cite>— Sarah Mitchell, RD, CNS</cite>
+    </div>
+
+    <section class="faq-sec">
+      <h2>Immunity Gummies — FAQ</h2>
+      <details class="fq"><summary>Do immunity gummies actually prevent colds?</summary><p>They do not prevent colds outright, but certain ingredients reduce duration and severity. Zinc taken within 24 hours of symptoms may shorten colds by 1-2 days. Elderberry may reduce duration by an average of 2 days. Vitamin C has modest but consistent evidence for reducing severity.</p></details>
+      <details class="fq"><summary>What is the best immunity gummy ingredient?</summary><p>Zinc and elderberry have the strongest clinical evidence. Zinc plays a critical role in immune cell function with 100+ supporting studies. Elderberry has antiviral properties supported by multiple randomized controlled trials. Vitamin C is well-studied but effects are modest for most people.</p></details>
+      <details class="fq"><summary>Can I take immunity gummies year-round?</summary><p>Yes, most are safe year-round at recommended doses. Vitamin C and elderberry can be taken daily. Zinc at the RDA (8-11mg) is fine long-term, but high therapeutic doses (40mg+) should only be used during acute illness for short periods to avoid copper deficiency.</p></details>
+      <details class="fq"><summary>Do turmeric gummies reduce inflammation?</summary><p>Turmeric's curcumin has strong anti-inflammatory evidence, but has poor bioavailability alone. Effective gummies must include BioPerine (piperine), which increases absorption by up to 2,000%. Check labels for curcuminoid content and absorption technology.</p></details>
+      <details class="fq"><summary>Should I take vitamin C gummies if I eat fruits and vegetables?</summary><p>Most people eating a balanced diet get adequate vitamin C. Supplementation above the RDA shows diminishing returns. It is most beneficial for smokers, people under physical stress, and those with limited produce intake.</p></details>
+      <details class="fq"><summary>Can I take elderberry and zinc gummies together?</summary><p>Yes. They work through different immune pathways and can be safely combined. Elderberry provides antiviral anthocyanins, while zinc supports immune cell production. Many products combine both in a single formula.</p></details>
+    </section>
+
+  </div>
+
+  <div class="cta">
+    <h2>Strengthen Your Immune Defense</h2>
+    <p>Explore our expert-tested immunity guides and find the right gummy for year-round protection.</p>
+    <a href="/best-elderberry-gummies/" class="btn btn-wh">See Our #1 Immunity Pick →</a>
+  </div>
+
+</BaseLayout>

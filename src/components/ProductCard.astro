@@ -1,0 +1,153 @@
+---
+interface Props {
+  name: string;
+  brand: string;
+  image: string;
+  price: string;
+  pricePerServing?: string;
+  rating: number;
+  reviewCount?: number;
+  affiliateUrl: string;
+  affiliateProgram?: string;
+  amazonUrl?: string;
+  keyIngredient?: string;
+  dosage?: string;
+  servings?: number;
+  thirdPartyTested?: boolean;
+  pros?: string[];
+  cons?: string[];
+  featured?: boolean;
+  badge?: string;
+}
+
+const {
+  name,
+  brand,
+  image,
+  price,
+  pricePerServing,
+  rating,
+  reviewCount,
+  affiliateUrl,
+  affiliateProgram = 'direct',
+  amazonUrl,
+  keyIngredient,
+  dosage,
+  servings,
+  thirdPartyTested,
+  pros = [],
+  cons = [],
+  featured = false,
+  badge,
+} = Astro.props;
+
+const fullStars = Math.floor(rating);
+const hasHalf = rating % 1 >= 0.3;
+const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0);
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name,
+  brand: { '@type': 'Brand', name: brand },
+  image,
+  description: `${name} by ${brand} — ${keyIngredient || 'supplement'} gummies.`,
+  aggregateRating: reviewCount ? {
+    '@type': 'AggregateRating',
+    ratingValue: rating,
+    reviewCount,
+    bestRating: 5,
+    worstRating: 1,
+  } : undefined,
+  offers: {
+    '@type': 'Offer',
+    price: price.replace(/[^0-9.]/g, ''),
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: affiliateUrl,
+  },
+};
+---
+
+<article class={`product-card ${featured ? 'product-card--featured' : ''}`}>
+  {badge && <span class="product-badge">{badge}</span>}
+
+  <div class="product-card__image">
+    <img
+      src={image}
+      alt={`${name} — ${brand} ${keyIngredient || ''} gummies`}
+      width="280"
+      height="280"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div class="product-card__content">
+    <p class="product-card__brand">{brand}</p>
+    <h3 class="product-card__name">{name}</h3>
+
+    <div class="product-card__rating" aria-label={`Rated ${rating} out of 5 stars`}>
+      {Array(fullStars).fill(0).map(() => <span class="star star--full">★</span>)}
+      {hasHalf && <span class="star star--half">★</span>}
+      {Array(emptyStars).fill(0).map(() => <span class="star star--empty">☆</span>)}
+      <span class="rating-text">{rating.toFixed(1)}</span>
+      {reviewCount && <span class="review-count">({reviewCount.toLocaleString('en-US')} reviews)</span>}
+    </div>
+
+    <div class="product-card__details">
+      {keyIngredient && <span class="detail"><strong>Key Ingredient:</strong> {keyIngredient}</span>}
+      {dosage && <span class="detail"><strong>Dosage:</strong> {dosage}</span>}
+      {servings && <span class="detail"><strong>Servings:</strong> {servings}</span>}
+      {thirdPartyTested && <span class="detail badge-tested">Third-Party Tested ✓</span>}
+    </div>
+
+    <div class="product-card__price">
+      <span class="price">{price}</span>
+      {pricePerServing && <span class="price-per-serving">({pricePerServing}/serving)</span>}
+    </div>
+
+    {(pros.length > 0 || cons.length > 0) && (
+      <div class="product-card__pros-cons">
+        {pros.length > 0 && (
+          <div class="pros">
+            <h4>Pros</h4>
+            <ul>{pros.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        )}
+        {cons.length > 0 && (
+          <div class="cons">
+            <h4>Cons</h4>
+            <ul>{cons.map((c) => <li>{c}</li>)}</ul>
+          </div>
+        )}
+      </div>
+    )}
+
+    <div class="product-card__ctas">
+      <a
+        href={affiliateUrl}
+        class="btn btn-cta"
+        rel="nofollow sponsored noopener"
+        target="_blank"
+        data-affiliate={affiliateProgram}
+        data-product={name}
+      >
+        Check Price at {brand}
+      </a>
+      {amazonUrl && (
+        <a
+          href={amazonUrl}
+          class="btn-secondary"
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          data-affiliate="amazon"
+          data-product={name}
+        >
+          Also on Amazon
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+<script type="application/ld+json" set:html={JSON.stringify(productSchema)} />

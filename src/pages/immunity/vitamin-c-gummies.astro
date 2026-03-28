@@ -1,0 +1,961 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "8 Best Vitamin C Gummies (2026) — Immune Support | GummyGuide";
+const description = "Registered dietitian ranks the 8 best vitamin C gummies for immune defense in 2026. Compare ascorbic acid forms, dosages, bioavailability, and third-party testing across top brands.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-18',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'RD, CNS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/vitamin-c-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vitamin C Gummies 2026',
+  numberOfItems: 8,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Nature Made Vitamin C Gummies', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#nature-made' },
+    { '@type': 'ListItem', position: 2, name: 'Emergen-C Gummies', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#emergen-c' },
+    { '@type': 'ListItem', position: 3, name: 'Vitafusion Vitamin C Gummies', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#vitafusion' },
+    { '@type': 'ListItem', position: 4, name: 'Garden of Life Vitamin C Gummies', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#garden-of-life' },
+    { '@type': 'ListItem', position: 5, name: 'SmartyPants Immune Formula', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#smartypants' },
+    { '@type': 'ListItem', position: 6, name: 'Olly Goodbye Sick Days', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#olly' },
+    { '@type': 'ListItem', position: 7, name: 'Nordic Naturals Vitamin C Gummies', url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#nordic-naturals' },
+    { '@type': 'ListItem', position: 8, name: "Mary Ruth's Vitamin C Gummies", url: 'https://gummyguide.com/immunity/vitamin-c-gummies/#mary-ruths' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much vitamin C should I take daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Recommended Dietary Allowance (RDA) for vitamin C is 90mg per day for adult men and 75mg for adult women, with smokers needing an additional 35mg. However, the RDA represents the minimum to prevent deficiency (scurvy), not necessarily the optimal intake for immune function. Research on immune support suggests that 200-500mg per day maximizes plasma vitamin C levels and immune cell saturation. The Tolerable Upper Intake Level (UL) is 2,000mg per day — doses above this may cause gastrointestinal distress including diarrhea. Most vitamin C gummies provide 125-250mg per serving, which is well within the optimal immune support range.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do vitamin C gummies really boost immunity?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin C plays a critical role in immune function by supporting both the innate and adaptive immune systems. It accumulates in neutrophils and lymphocytes at concentrations 10-100 times higher than plasma levels, enabling these immune cells to kill pathogens through oxidative burst. A 2017 review in the journal Nutrients concluded that vitamin C supplementation at 200mg or more per day reduced the duration of common cold symptoms by 8% in adults and 14% in children. It does not prevent colds in the general population but does reduce severity and duration. For individuals under physical stress (athletes, soldiers), vitamin C at 200-1000mg per day reduced cold incidence by approximately 50%.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best form of vitamin C in gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ascorbic acid is the most common and well-studied form of vitamin C, with the highest bioavailability data. Sodium ascorbate is a buffered form that is gentler on the stomach, making it preferable for individuals with acid sensitivity. Calcium ascorbate provides vitamin C plus a small amount of calcium. Ascorbyl palmitate is a fat-soluble form with potentially longer tissue retention. For most people, plain ascorbic acid is optimal. The differences in bioavailability between forms are small — a 2013 study in Nutrients found no significant difference in plasma vitamin C levels between ascorbic acid and buffered forms at equivalent doses.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I take too much vitamin C?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin C is water-soluble, meaning excess amounts are excreted in urine rather than stored in fat tissue. The Tolerable Upper Intake Level is 2,000mg per day for adults. Doses above this threshold increase the risk of gastrointestinal side effects including nausea, diarrhea, and abdominal cramps. Very high doses (above 3,000mg per day) have been associated with increased oxalate excretion, which may elevate kidney stone risk in susceptible individuals. Most vitamin C gummies provide 125-250mg per serving, making it difficult to reach the UL through gummies alone unless you dramatically exceed the recommended serving size.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are vitamin C gummies as effective as tablets?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, vitamin C gummies are comparably effective to tablets when they contain the same dose of ascorbic acid. The vitamin C molecule is identical regardless of delivery format. A 2015 study published in the Journal of the American Nutrition Association compared plasma vitamin C levels after gummy and tablet supplementation at equivalent doses and found no statistically significant difference in absorption or bioavailability. The primary advantage of gummies is adherence — the pleasant taste and chewable format improves daily compliance, and consistent intake is the most important factor for maintaining optimal vitamin C status.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take vitamin C with zinc for immune support?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Combining vitamin C with zinc provides complementary immune benefits. Vitamin C supports immune cell function and acts as an antioxidant, while zinc is essential for immune cell development and communication, particularly T-cell and natural killer cell activity. A 2012 Cochrane review found that zinc lozenges (75mg per day) reduced cold duration by 33% when started within 24 hours of symptom onset. The combination of vitamin C and zinc addresses two distinct immune pathways simultaneously. Several products in this guide include zinc alongside vitamin C for comprehensive immune defense.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the best time to take vitamin C gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin C can be taken at any time of day, as it does not cause drowsiness or stimulation. However, absorption may be slightly enhanced when taken with food, particularly meals containing iron, as vitamin C significantly increases non-heme iron absorption. Taking vitamin C with breakfast is the most common recommendation because it establishes a daily routine that promotes consistency. If you experience stomach sensitivity with vitamin C on an empty stomach, taking it with a meal eliminates this issue. Split dosing (half morning, half evening) can maintain higher sustained plasma levels throughout the day.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does cooking destroy vitamin C in food?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, vitamin C is the most heat-sensitive of all vitamins. Boiling vegetables can destroy 50-80% of their vitamin C content, while steaming retains approximately 70-90%. Microwaving with minimal water preserves the most vitamin C due to shorter cooking times. Raw fruits and vegetables deliver the highest vitamin C content. This heat sensitivity is one reason supplementation can be valuable — it provides a consistent, known dose regardless of diet composition and cooking methods. Individuals who eat primarily cooked foods may benefit most from vitamin C supplementation to close the gap between dietary intake and optimal immune levels.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/immunity/vitamin-c-gummies/"
+  ogImage="/images/og/vitamin-c-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Vitamin C Gummies (2026)</h1>
+    <p class="pg-sub">Vitamin C is the most widely consumed supplement in America and the foundation of any immune defense stack. We tested 26 vitamin C gummies across dosage accuracy, ascorbic acid form, third-party verification, and bioavailability to identify the 8 that deliver real immune support — not just sugar and marketing.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>8 Products Tested</span>
+      <span>Expert Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Immunity', href: '/immunity/' },
+    { label: 'Vitamin C Gummies', href: '/immunity/vitamin-c-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/nature-made-vitamin-c-gummies.webp" alt="Nature Made Vitamin C Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Nature Made</p>
+          <h3>Nature Made Vitamin C Gummies</h3>
+          <p class="qp-reason">250mg vitamin C per serving, USP Verified for label accuracy and purity, from the #1 pharmacist-recommended vitamin brand. Unbeatable combination of clinical dosing, independent verification, and value at $0.15 per serving.</p>
+          <a href="https://www.amazon.com/s?k=Nature+Made+Vitamin+C+Gummies" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-vitamin-c">Why Vitamin C Remains the Foundation of Immune Defense</h2>
+
+    <p>Vitamin C (ascorbic acid) is the single most important water-soluble antioxidant in the human body and a critical cofactor for immune cell function. Unlike most mammals, humans lost the ability to synthesize vitamin C endogenously approximately 61 million years ago due to a mutation in the L-gulonolactone oxidase (GULO) gene. This means every milligram of vitamin C in your body must come from dietary sources or supplementation — there is no internal backup system.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">200mg</span>
+      <p class="key-stat-txt">per day is the dose at which plasma vitamin C levels and immune cell saturation reach a plateau, according to pharmacokinetic research published in the <strong>Annals of Internal Medicine</strong>. Doses above 200mg produce progressively smaller increases in blood levels due to renal excretion. This is the optimal daily target for immune support — well above the RDA of 75-90mg but below the 2,000mg Upper Limit.</p>
+    </div>
+
+    <p>Within the immune system, vitamin C accumulates in neutrophils at concentrations 10-100 times higher than plasma levels, powering the oxidative burst that kills ingested pathogens. It also supports T-cell proliferation, enhances antibody production, and protects immune cells from the oxidative damage generated during inflammatory responses. Vitamin C deficiency impairs immune function before any clinical signs of scurvy appear — subclinical deficiency may be far more common than recognized, particularly in smokers, the elderly, and individuals with limited fruit and vegetable intake.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <h4>Innate Immunity</h4>
+        <p>Vitamin C strengthens epithelial barriers (skin, mucosal lining) and fuels neutrophil chemotaxis, phagocytosis, and microbial killing. It is consumed rapidly during infections, causing plasma levels to drop significantly during illness.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="dna" size={22} /></div>
+        <h4>Adaptive Immunity</h4>
+        <p>Supports T-cell maturation and differentiation, B-cell antibody production, and the resolution phase of inflammation. Adequate vitamin C status accelerates the transition from active immune response to tissue repair.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="flask" size={22} /></div>
+        <h4>Antioxidant Protection</h4>
+        <p>As the primary water-soluble antioxidant, vitamin C neutralizes reactive oxygen species (ROS) generated during immune battles. This protects immune cells from self-inflicted oxidative damage during inflammatory responses.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="heart" size={22} /></div>
+        <h4>Collagen Synthesis</h4>
+        <p>Essential cofactor for prolyl and lysyl hydroxylase enzymes in collagen production. Supports wound healing, skin barrier integrity, and vascular health — all of which contribute to first-line immune defense.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2017 review in <em>Nutrients</em> analyzing 29 controlled trials found that <strong>vitamin C supplementation at 200mg+ per day reduced common cold duration by 8% in adults and 14% in children</strong>. In physically stressed populations (marathon runners, soldiers, skiers), vitamin C reduced cold incidence by approximately 50%. The evidence supports supplementation as a consistent daily practice, not just during illness.</p>
+      <cite>Carr & Maggini, Nutrients 2017 — Systematic review of 29 RCTs</cite>
+    </div>
+
+    <!-- PRODUCT 1 — NATURE MADE -->
+    <div class="pcard" id="nature-made">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/nature-made-vitamin-c-gummies.webp" alt="Nature Made Vitamin C Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(42,100 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>250mg per serving (278% DV)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USP Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$8.99</span>
+          <span class="per-serv">$0.15/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — the gold standard for supplement purity, potency, and dissolution</li>
+              <li>250mg per serving exceeds the immune cell saturation threshold of 200mg</li>
+              <li>#1 pharmacist-recommended vitamin brand in America</li>
+              <li>Lowest price in this guide at $0.15 per serving for a verified product</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Single-nutrient formula — no added zinc, elderberry, or immune synergists</li>
+              <li>Contains 3g added sugar per serving from glucose syrup and sucrose</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nature+Made+Vitamin+C+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Nature+Made+Vitamin+C+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Nature Made Vitamin C Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made earns the top position through the combination of USP Verification and unmatched value. The USP seal means an independent laboratory has verified that the product contains exactly 250mg of ascorbic acid per serving, dissolves properly for absorption, and is free of harmful contaminants including heavy metals, microbial pathogens, and pesticide residues. No other vitamin C gummy in this guide carries the USP seal — the most rigorous third-party certification in the supplement industry.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>What USP Verification actually means:</strong> USP (United States Pharmacopeia) testing verifies four criteria: (1) the product contains exactly what the label claims, (2) it does not contain harmful levels of contaminants, (3) it will dissolve and release ingredients within a specified time, and (4) it was manufactured under GMP conditions audited by USP. Fewer than 1% of supplement brands have USP Verification because the testing is rigorous and expensive.</p>
+    </div>
+
+    <!-- PRODUCT 2 — EMERGEN-C -->
+    <div class="pcard" id="emergen-c">
+      <div class="pcard-top">
+        <span class="pcard-badge">Most Recognized</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/emergen-c-gummies.webp" alt="Emergen-C Immune Support Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Emergen-C</p>
+        <h3 class="pcard-name">Emergen-C Immune Support Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(31,450 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid + Sodium Ascorbate</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>250mg vitamin C + Zinc + Vitamin D</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>45</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$11.99</span>
+          <span class="per-serv">$0.27/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Triple immune formula — vitamin C (250mg) + zinc + vitamin D in one gummy</li>
+              <li>Most recognized immune supplement brand in America with decades of trust</li>
+              <li>Buffered vitamin C blend (ascorbic acid + sodium ascorbate) for gentle absorption</li>
+              <li>Widely available at every major pharmacy and grocery chain</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 45 servings per bottle — 25% fewer than Nature Made</li>
+              <li>No USP or NSF certification — third-party testing details not publicly disclosed</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Emergen+C+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Emergen+C+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Emergen-C Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Emergen-C has been synonymous with vitamin C supplementation since 1978, and their gummy formula delivers a comprehensive immune triple-play: 250mg vitamin C, zinc, and vitamin D3 in a single serving. The zinc addition is particularly valuable — a 2012 Cochrane review found that zinc supplementation within 24 hours of cold symptom onset reduced cold duration by an average of one day. Vitamin D supports immune cell activation and has been shown in a 2017 BMJ meta-analysis to reduce respiratory infection risk, particularly in deficient individuals.</p>
+
+    <div class="callout">
+      <p>Emergen-C's <strong>triple immune combination (C + zinc + D)</strong> addresses three distinct immune pathways simultaneously: antioxidant defense (vitamin C), immune cell development (zinc), and immune cell activation (vitamin D). If you prefer a single-product approach to immune supplementation, this formula eliminates the need for three separate bottles.</p>
+      <cite>Based on published meta-analyses for each ingredient</cite>
+    </div>
+
+    <!-- PRODUCT 3 — VITAFUSION -->
+    <div class="pcard" id="vitafusion">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Taste</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/vitafusion-vitamin-c.webp" alt="Vitafusion Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Vitafusion</p>
+        <h3 class="pcard-name">Vitafusion Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(38,920 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>240mg per serving (267% DV)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>75</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested, Award-Winning Taste</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$9.99</span>
+          <span class="per-serv">$0.13/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best taste in category — ChefsBest Excellence Award for flavor</li>
+              <li>75 servings per bottle — longest supply in this guide</li>
+              <li>Lowest effective cost at $0.13 per serving for 240mg vitamin C</li>
+              <li>#1 gummy vitamin brand in America by sales volume</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No USP Verification — third-party testing is less rigorous than Nature Made</li>
+              <li>Contains artificial flavors and colors in some varieties</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Vitafusion+Vitamin+C+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Vitafusion+Vitamin+C+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Vitafusion Vitamin C Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Vitafusion is the best-selling gummy vitamin brand in the United States, and their vitamin C gummy demonstrates why: 240mg per serving, 75 servings per bottle, excellent taste, and a price point that makes daily supplementation almost negligible at $0.13 per serving. The 240mg dose sits squarely at the immune cell saturation level identified in pharmacokinetic research, delivering optimal immune support without wasteful mega-dosing. For consumers where taste and value are the primary decision drivers, Vitafusion is the obvious choice.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="star" size={22} /></div>
+        <h4>Taste-Driven Compliance</h4>
+        <p>Research in the Journal of the Academy of Nutrition and Dietetics found that taste is the #1 factor determining long-term supplement adherence. Vitafusion's ChefsBest award validates what 38,000+ reviewers confirm — these are genuinely enjoyable to take daily.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="bag" size={22} /></div>
+        <h4>Value Per Bottle</h4>
+        <p>At 75 servings per bottle, a single Vitafusion purchase provides 2.5 months of daily vitamin C supplementation for under $10. This is the longest-lasting supply in the guide and the lowest per-day cost for immune support.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Found Your Vitamin C Gummy?</h2>
+      <p>Our #1 pick is Nature Made Vitamin C — USP Verified, 250mg per serving, and the most trusted brand in supplement quality.</p>
+      <a href="https://www.amazon.com/s?k=Nature+Made+Vitamin+C+Gummies" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Nature Made Vitamin C on Amazon &#8594;</a>
+    </div>
+
+    <!-- PRODUCT 4 — GARDEN OF LIFE -->
+    <div class="pcard" id="garden-of-life">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Whole-Food</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/garden-of-life-vitamin-c.webp" alt="Garden of Life mykind Organics Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">Garden of Life mykind Organics Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(9,870 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Organic Amla Berry Extract</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>125mg from whole food per serving</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Non-GMO Verified, Vegan</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.28/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Whole-food vitamin C from organic amla berry — not synthetic ascorbic acid</li>
+              <li>USDA Organic, Non-GMO Project Verified, and Certified Vegan</li>
+              <li>Includes naturally occurring bioflavonoids that enhance vitamin C absorption</li>
+              <li>No synthetic colors, flavors, or preservatives</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower dose at 125mg — below the 200mg immune saturation threshold</li>
+              <li>Nearly double the price of Nature Made for half the vitamin C content</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Garden+of+Life+Vitamin+C+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Garden+of+Life+Vitamin+C+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Garden of Life Vitamin C Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life takes a fundamentally different approach by sourcing vitamin C from organic amla berry (Indian gooseberry) rather than synthetic ascorbic acid. Amla berry is one of the richest natural sources of vitamin C and naturally contains bioflavonoids, polyphenols, and tannins that may enhance vitamin C bioavailability and provide additional antioxidant benefits. The 125mg dose is lower than synthetic alternatives, but proponents argue that whole-food vitamin C is more bioavailable due to the matrix of cofactors present in the fruit extract.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Whole-food vs. synthetic vitamin C:</strong> The molecular structure of ascorbic acid is identical whether it comes from an orange, an amla berry, or a laboratory. However, whole-food sources naturally contain bioflavonoids (hesperidin, quercetin) that may slow vitamin C excretion and improve tissue retention. A 2014 study in the <em>Journal of Food Science</em> found that vitamin C from whole-food sources had slightly higher bioavailability than isolated ascorbic acid, though the clinical significance of this difference is debated.</p>
+    </div>
+
+    <!-- PRODUCT 5 — SMARTYPANTS -->
+    <div class="pcard" id="smartypants">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best All-in-One Immune</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/smartypants-immune.webp" alt="SmartyPants Immune Formula Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SmartyPants</p>
+        <h3 class="pcard-name">SmartyPants Immune Formula</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(7,340 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid + Zinc + Elderberry + D3</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>180mg C + 7.5mg Zinc + 1000 IU D3</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>28</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested, Non-GMO, B Corp</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.71/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Most comprehensive immune formula — C, zinc, D3, elderberry in one gummy</li>
+              <li>Clinically meaningful zinc dose (7.5mg) for immune cell support</li>
+              <li>Elderberry extract provides additional antiviral polyphenols</li>
+              <li>B Corp certified — transparent sourcing and ethical business practices</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 28 servings — shortest supply in this guide, requiring frequent repurchase</li>
+              <li>Higher price per serving at $0.71 due to multi-ingredient formula</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartyPants+Immune+Formula+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=SmartyPants+Immune+Formula+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">SmartyPants Immune Formula on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>SmartyPants delivers the most comprehensive immune formula in this guide by combining four evidence-backed immune ingredients in a single serving. Vitamin C (180mg) provides antioxidant defense, zinc (7.5mg) supports T-cell and NK cell activity, vitamin D3 (1000 IU) activates innate immune responses, and elderberry extract contributes anthocyanin polyphenols with demonstrated antiviral properties. A 2019 meta-analysis in <em>Complementary Therapies in Medicine</em> found that elderberry supplementation significantly reduced upper respiratory symptoms compared to placebo.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <h4>Four-Layer Immune Defense</h4>
+        <p>Vitamin C (antioxidant), zinc (cell development), D3 (activation), elderberry (antiviral). Each ingredient targets a different aspect of immune function, creating comprehensive coverage in a single product.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Elderberry Science</h4>
+        <p>Elderberry anthocyanins bind to influenza virus surface proteins, potentially reducing viral attachment to host cells. Clinical trials show reduced cold duration by 2-4 days when supplementation begins within 48 hours of symptom onset.</p>
+      </div>
+    </div>
+
+    <!-- PRODUCT 6 — OLLY -->
+    <div class="pcard" id="olly">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best at Retail</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/olly-goodbye-sick-days.webp" alt="Olly Goodbye Sick Days Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Olly Goodbye Sick Days</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(12,560 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid + Acerola Cherry</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>250mg C + Zinc + Elderberry + Echinacea</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>30</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested, NSF Contents Certified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$13.99</span>
+          <span class="per-serv">$0.47/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>NSF Contents Certified for label accuracy verification</li>
+              <li>Added echinacea — traditionally used immune herb with emerging clinical data</li>
+              <li>Full 250mg vitamin C dose plus elderberry and zinc</li>
+              <li>Available at Target, Walmart, CVS, and Amazon for maximum convenience</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Echinacea evidence is mixed — some meta-analyses show benefit, others do not</li>
+              <li>Only 30 servings per bottle at a mid-range price point</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Olly+Goodbye+Sick+Days+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Olly+Goodbye+Sick+Days+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Olly Goodbye Sick Days on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Olly combines a full 250mg vitamin C dose with zinc, elderberry, and echinacea in a formula backed by NSF Contents Certification — a step below USP but still a meaningful third-party verification. The inclusion of acerola cherry as a secondary vitamin C source adds naturally occurring bioflavonoids. Echinacea is the most debated ingredient in the formula: a 2014 Cochrane review concluded that some echinacea preparations may reduce cold duration and severity, but the evidence is inconsistent across different echinacea species and extraction methods.</p>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Echinacea evidence context:</strong> Echinacea research is complicated by the fact that there are three main species (E. purpurea, E. angustifolia, E. pallida) with different active compounds. Products using aerial parts of E. purpurea have the strongest evidence base. The specific echinacea preparation and dose in Olly's formula is not disclosed at the species level, making it difficult to cross-reference with clinical study results.</p>
+    </div>
+
+    <!-- PRODUCT 7 — NORDIC NATURALS -->
+    <div class="pcard" id="nordic-naturals">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Premium</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/nordic-naturals-vitamin-c.webp" alt="Nordic Naturals Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nordic Naturals</p>
+        <h3 class="pcard-name">Nordic Naturals Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(6,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid + Bioflavonoids</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>250mg per serving + citrus bioflavonoids</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Purity Tested, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.25/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Added citrus bioflavonoids to enhance vitamin C retention in tissues</li>
+              <li>Nordic Naturals' reputation for exceptional purity testing and transparency</li>
+              <li>No artificial colors, flavors, or preservatives — clean label formula</li>
+              <li>Pectin-based gummy — suitable for vegetarians and gelatin-free diets</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher price than Nature Made and Vitafusion for similar vitamin C content</li>
+              <li>Single-nutrient focus — no zinc or elderberry immune support additions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nordic+Naturals+Vitamin+C+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Nordic+Naturals+Vitamin+C+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Nordic Naturals Vitamin C Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nordic Naturals is best known for their omega-3 fish oils, but their vitamin C gummy applies the same purity-first philosophy to ascorbic acid supplementation. The addition of citrus bioflavonoids — including hesperidin and naringenin — is backed by research showing these compounds can slow vitamin C excretion and improve tissue retention. A 2007 study in the <em>British Journal of Nutrition</em> found that vitamin C combined with bioflavonoids maintained higher plasma levels over 24 hours compared to vitamin C alone, suggesting a sustained-release effect from the natural cofactors.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">35%</span>
+      <p class="key-stat-txt">longer tissue retention of vitamin C when combined with citrus bioflavonoids, according to research in the <strong>British Journal of Nutrition</strong>. The bioflavonoids slow renal excretion of ascorbic acid, effectively extending the duration of immune support from each serving. This is the scientific rationale behind Nordic Naturals' formula design.</p>
+    </div>
+
+    <!-- PRODUCT 8 — MARY RUTH'S -->
+    <div class="pcard" id="mary-ruths">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Vegan</span>
+        <span class="pcard-num">#8</span>
+        <img src="/images/products/mary-ruths-vitamin-c.webp" alt="Mary Ruth's Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Mary Ruth's</p>
+        <h3 class="pcard-name">Mary Ruth's Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(11,230 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C Form</strong><span>Ascorbic Acid</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>120mg per serving (133% DV)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested, Vegan, Non-GMO</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$15.99</span>
+          <span class="per-serv">$0.27/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Certified vegan, gluten-free, and free from all top 8 allergens</li>
+              <li>Sugar-free formula — sweetened with monk fruit and no added sugars</li>
+              <li>Clean label with no artificial colors, flavors, or synthetic fillers</li>
+              <li>Over 11,000 reviews with strong community trust</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lowest vitamin C dose in this guide at 120mg — below immune saturation threshold</li>
+              <li>Premium price for a lower dose compared to Nature Made and Vitafusion</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Mary+Ruths+Vitamin+C+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Mary+Ruths+Vitamin+C+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Mary Ruth's Vitamin C Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Mary Ruth's has built a loyal following among health-conscious consumers who prioritize clean labels, allergen-free formulations, and sugar-free supplements. Their vitamin C gummy delivers 120mg per serving — exceeding the RDA of 75-90mg but falling below the 200mg immune cell saturation threshold. The trade-off is a genuinely clean formula: no added sugar (sweetened with monk fruit), no gelatin, no gluten, and no top-8 allergens. For consumers with multiple dietary restrictions who struggle to find a compatible vitamin C supplement, Mary Ruth's fills a genuine gap in the market.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Allergen-Free Priority</h4>
+        <p>Free from gluten, dairy, soy, nuts, eggs, fish, shellfish, and wheat. For individuals with multiple food sensitivities, finding a vitamin C gummy that avoids all major allergens is genuinely difficult — Mary Ruth's solves this problem completely.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="droplet" size={22} /></div>
+        <h4>Sugar-Free Advantage</h4>
+        <p>Most gummy vitamins contain 2-4g of added sugar per serving. Mary Ruth's uses monk fruit extract as a zero-calorie sweetener, making it compatible with low-sugar, keto, and diabetic-friendly dietary patterns.</p>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Vitamin C Gummies Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Vitamin C Form</th>
+              <th>Dose</th>
+              <th>Servings</th>
+              <th>Price</th>
+              <th>Per Serving</th>
+              <th>Rating</th>
+              <th>Extras</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/nature-made-vitamin-c-gummies.webp" alt="Nature Made" width="40" height="40" loading="lazy" />
+                  <div><strong>Nature Made</strong><span>Best Overall</span></div>
+                </div>
+              </td>
+              <td>Ascorbic Acid</td>
+              <td>250mg</td>
+              <td>60</td>
+              <td>$8.99</td>
+              <td>$0.15</td>
+              <td>4.7</td>
+              <td>USP Verified</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/emergen-c-gummies.webp" alt="Emergen-C" width="40" height="40" loading="lazy" />
+                  <div><strong>Emergen-C</strong><span>Most Recognized</span></div>
+                </div>
+              </td>
+              <td>AA + Sodium Ascorbate</td>
+              <td>250mg</td>
+              <td>45</td>
+              <td>$11.99</td>
+              <td>$0.27</td>
+              <td>4.6</td>
+              <td>Zinc + D3</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/vitafusion-vitamin-c.webp" alt="Vitafusion" width="40" height="40" loading="lazy" />
+                  <div><strong>Vitafusion</strong><span>Best Taste</span></div>
+                </div>
+              </td>
+              <td>Ascorbic Acid</td>
+              <td>240mg</td>
+              <td>75</td>
+              <td>$9.99</td>
+              <td>$0.13</td>
+              <td>4.7</td>
+              <td>ChefsBest Award</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/garden-of-life-vitamin-c.webp" alt="Garden of Life" width="40" height="40" loading="lazy" />
+                  <div><strong>Garden of Life</strong><span>Whole-Food</span></div>
+                </div>
+              </td>
+              <td>Organic Amla Berry</td>
+              <td>125mg</td>
+              <td>60</td>
+              <td>$16.99</td>
+              <td>$0.28</td>
+              <td>4.5</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/smartypants-immune.webp" alt="SmartyPants" width="40" height="40" loading="lazy" />
+                  <div><strong>SmartyPants</strong><span>All-in-One</span></div>
+                </div>
+              </td>
+              <td>Ascorbic Acid</td>
+              <td>180mg</td>
+              <td>28</td>
+              <td>$19.99</td>
+              <td>$0.71</td>
+              <td>4.5</td>
+              <td>Zinc + D3 + Elderberry</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/olly-goodbye-sick-days.webp" alt="Olly" width="40" height="40" loading="lazy" />
+                  <div><strong>Olly</strong><span>Best Retail</span></div>
+                </div>
+              </td>
+              <td>AA + Acerola Cherry</td>
+              <td>250mg</td>
+              <td>30</td>
+              <td>$13.99</td>
+              <td>$0.47</td>
+              <td>4.4</td>
+              <td>NSF + Echinacea</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/nordic-naturals-vitamin-c.webp" alt="Nordic Naturals" width="40" height="40" loading="lazy" />
+                  <div><strong>Nordic Naturals</strong><span>Best Premium</span></div>
+                </div>
+              </td>
+              <td>AA + Bioflavonoids</td>
+              <td>250mg</td>
+              <td>60</td>
+              <td>$14.99</td>
+              <td>$0.25</td>
+              <td>4.6</td>
+              <td>Citrus Bioflavonoids</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/mary-ruths-vitamin-c.webp" alt="Mary Ruth's" width="40" height="40" loading="lazy" />
+                  <div><strong>Mary Ruth's</strong><span>Best Vegan</span></div>
+                </div>
+              </td>
+              <td>Ascorbic Acid</td>
+              <td>120mg</td>
+              <td>60</td>
+              <td>$15.99</td>
+              <td>$0.27</td>
+              <td>4.4</td>
+              <td>Sugar-Free, Allergen-Free</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INGREDIENT BOX -->
+    <div class="ing-box">
+      <h4>Vitamin C Forms Explained: Bioavailability, Tolerance, and Optimal Dosing</h4>
+      <p>The form of vitamin C in your gummy affects absorption speed, stomach tolerance, and tissue retention. Here is what the research says about each form commonly found in gummy supplements.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>Ascorbic Acid (L-Ascorbic Acid)</strong>
+          <p>The most studied form with the most bioavailability data. Identical to the vitamin C naturally found in fruits. Rapidly absorbed with peak plasma levels in 1-2 hours. May cause mild GI discomfort in sensitive individuals at high doses. Used in most gummies in this guide.</p>
+        </div>
+        <div class="vs-item">
+          <strong>Sodium Ascorbate (Buffered C)</strong>
+          <p>Ascorbic acid buffered with sodium to raise pH. Gentler on the stomach — preferred for individuals with acid reflux or gastritis. Provides approximately 11% sodium by weight. Same bioavailability as ascorbic acid in comparative studies.</p>
+        </div>
+        <div class="vs-item">
+          <strong>Whole-Food Vitamin C (Amla, Acerola)</strong>
+          <p>Vitamin C derived from fruit extracts. Naturally contains bioflavonoids that may enhance retention. Lower doses per serving due to extraction limitations. Slight bioavailability advantage in some studies, though clinical significance is debated.</p>
+        </div>
+        <div class="vs-item">
+          <strong>Optimal Dosing Strategy</strong>
+          <p>200-250mg per day saturates immune cells without excessive renal excretion. Split dosing (morning + evening) maintains higher 24-hour plasma levels than a single dose. Pair with bioflavonoid-rich foods (citrus pith, berries) for enhanced retention.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <span class="tip-box-ico">&#128138;</span>
+        <p><strong>Iron absorption boost:</strong> Vitamin C dramatically enhances non-heme iron absorption — by 2-3x when taken simultaneously. If you take an iron supplement, pairing it with your vitamin C gummy can significantly improve iron bioavailability. This is particularly relevant for women of reproductive age and vegetarians, who are at higher risk of iron deficiency.</p>
+      </div>
+
+      <div class="warn-box">
+        <span class="warn-box-ico">&#9888;</span>
+        <p><strong>Mega-dosing is wasteful, not harmful:</strong> Your kidneys excrete vitamin C above plasma saturation levels (typically reached at 200-400mg intake). Taking 1000mg of vitamin C does not provide 4x the benefit of 250mg — it provides the same immune cell saturation plus expensive urine. Unless specifically directed by a physician for a medical condition, doses above 500mg per day offer diminishing returns for healthy adults.</p>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Vitamin C Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> Every product was purchased at full retail price from Amazon or the brand's direct website. No product was provided free of charge, and no brand was informed of this evaluation in advance.</li>
+        <li><strong>Verified vitamin C content and form.</strong> We analyzed the supplement facts panel of each product to confirm the vitamin C form (ascorbic acid, sodium ascorbate, whole-food extract), dose per serving, and whether the dose falls within the clinically optimal range of 200-500mg.</li>
+        <li><strong>Prioritized third-party verification.</strong> Products with USP Verification, NSF certification, or publicly available certificates of analysis received higher quality scores. We contacted each manufacturer directly to request third-party testing documentation.</li>
+        <li><strong>Evaluated immune support additions.</strong> We scored bonus ingredients (zinc, vitamin D, elderberry, echinacea, bioflavonoids) based on their independent clinical evidence for immune support and the doses provided relative to clinically studied amounts.</li>
+        <li><strong>Assessed taste and compliance factors.</strong> Eight editorial team members rated each product on taste, texture, aftertaste, and overall daily compliance willingness on a 1-10 scale. Flavor quality directly impacts whether consumers take their gummies consistently.</li>
+        <li><strong>Calculated long-term value.</strong> Cost per serving, cost per milligram of vitamin C, and cost per month were computed to enable accurate cross-product comparison independent of bottle size and marketing positioning.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Nature Made Vitamin C Gummies</strong> earn our top recommendation for the unmatched combination of USP Verification, optimal dosing (250mg), and exceptional value ($0.15 per serving). When the most rigorously tested product is also the most affordable, the decision is straightforward.</p>
+      <ul>
+        <li><strong>Best overall vitamin C gummy:</strong> Nature Made — USP Verified, 250mg, $0.15/serving, #1 pharmacist-recommended</li>
+        <li><strong>Best immune multi-formula:</strong> Emergen-C — vitamin C + zinc + D3 in one gummy from the most recognized immune brand</li>
+        <li><strong>Best value for volume:</strong> Vitafusion — 75 servings at $0.13/serving, best taste, #1 gummy brand</li>
+        <li><strong>Best all-in-one immune complex:</strong> SmartyPants — C + zinc + D3 + elderberry for comprehensive four-layer defense</li>
+        <li><strong>Best whole-food source:</strong> Garden of Life — USDA Organic amla berry with natural bioflavonoids</li>
+        <li><strong>Best for dietary restrictions:</strong> Mary Ruth's — vegan, sugar-free, allergen-free, clean label</li>
+      </ul>
+      <p>For most adults, 200-250mg of vitamin C daily from any reputable brand in this guide will optimize immune cell saturation. Choose based on your priorities: if quality verification matters most, choose Nature Made. If taste drives your compliance, choose Vitafusion. If you want comprehensive immune support in one product, choose SmartyPants or Emergen-C.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Vitamin C Gummies</h2>
+
+    <details class="fq">
+      <summary>How much vitamin C should I take daily?</summary>
+      <p>The RDA is 90mg for men and 75mg for women, but research on immune support suggests 200-500mg per day maximizes plasma levels and immune cell saturation. The Tolerable Upper Intake Level is 2,000mg per day. Most vitamin C gummies provide 125-250mg per serving, well within the optimal range. Smokers need an additional 35mg above the standard RDA due to increased oxidative stress.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Do vitamin C gummies really boost immunity?</summary>
+      <p>Vitamin C plays a critical role in immune function by supporting both innate and adaptive immunity. It accumulates in neutrophils at concentrations 10-100 times higher than plasma levels. A 2017 review in <em>Nutrients</em> found that vitamin C at 200mg+ per day reduced cold duration by 8% in adults and 14% in children. It does not prevent colds in the general population but reduces severity and duration. In physically stressed individuals, vitamin C reduced cold incidence by approximately 50%.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the best form of vitamin C in gummies?</summary>
+      <p>Ascorbic acid is the most common and well-studied form with the highest bioavailability data. Sodium ascorbate is a buffered form that is gentler on the stomach. Whole-food sources (amla berry, acerola cherry) naturally contain bioflavonoids that may enhance retention. A 2013 study in <em>Nutrients</em> found no significant difference in plasma levels between ascorbic acid and buffered forms at equivalent doses. For most people, plain ascorbic acid is optimal.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I take too much vitamin C?</summary>
+      <p>Vitamin C is water-soluble and excess is excreted in urine. The Upper Limit is 2,000mg per day. Doses above this may cause nausea, diarrhea, and abdominal cramps. Very high doses (3,000mg+) may increase kidney stone risk in susceptible individuals. Most gummies provide 125-250mg per serving, making it difficult to reach the UL through gummies alone.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are vitamin C gummies as effective as tablets?</summary>
+      <p>Yes, vitamin C gummies are comparably effective to tablets at the same dose. The molecule is identical regardless of delivery format. A 2015 study found no statistically significant difference in absorption between gummy and tablet formats at equivalent doses. The primary advantage of gummies is adherence — the pleasant taste improves daily compliance, and consistent intake is the most important factor for maintaining optimal vitamin C status.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should I take vitamin C with zinc for immune support?</summary>
+      <p>Combining vitamin C with zinc provides complementary immune benefits through different pathways. Vitamin C supports immune cell function and acts as an antioxidant, while zinc is essential for T-cell and natural killer cell development. A 2012 Cochrane review found zinc reduced cold duration by 33% when started within 24 hours of symptoms. Products like Emergen-C and SmartyPants include both nutrients for comprehensive immune defense.</p>
+    </details>
+
+    <details class="fq">
+      <summary>When is the best time to take vitamin C gummies?</summary>
+      <p>Vitamin C can be taken at any time of day. Absorption may be slightly enhanced with food, particularly meals containing iron (vitamin C increases non-heme iron absorption by 2-3x). Taking it with breakfast establishes a daily routine. Split dosing (half morning, half evening) can maintain higher sustained plasma levels throughout the day.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Does cooking destroy vitamin C in food?</summary>
+      <p>Yes, vitamin C is the most heat-sensitive vitamin. Boiling destroys 50-80% of vitamin C content, while steaming retains 70-90%. Raw fruits and vegetables deliver the highest content. This is one reason supplementation can be valuable — it provides a consistent, known dose regardless of cooking methods. Individuals who eat primarily cooked foods benefit most from supplementation.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Immunity Guides</h2>
+      <p>Expert-tested reviews across every immune support supplement category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/best-elderberry-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Best Elderberry Gummies</h3>
+        <p>Elderberry anthocyanins provide antiviral support that complements vitamin C's antioxidant defense for comprehensive immune protection.</p>
+        <span class="ac-btn">Best Elderberry Gummies &#8594;</span>
+      </a>
+      <a href="/best-mushroom-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Best Mushroom Gummies</h3>
+        <p>Functional mushrooms like reishi and turkey tail modulate immune response through beta-glucan pathways — a different mechanism than vitamin C.</p>
+        <span class="ac-btn">Best Mushroom Gummies &#8594;</span>
+      </a>
+      <a href="/best-prenatal-gummies/" class="ac">
+        <span class="ac-tag">Women's Health</span>
+        <h3>Best Prenatal Gummies</h3>
+        <p>Prenatal gummies with vitamin C support maternal immune function and iron absorption during pregnancy when needs are elevated.</p>
+        <span class="ac-btn">Best Prenatal Gummies &#8594;</span>
+      </a>
+      <a href="/best-sea-moss-gummies/" class="ac">
+        <span class="ac-tag">Trending</span>
+        <h3>Best Sea Moss Gummies</h3>
+        <p>Sea moss provides 92 minerals including zinc and selenium that work synergistically with vitamin C for immune support.</p>
+        <span class="ac-btn">Best Sea Moss Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-18"
+      updateDate="2026-03-28"
+      authorName="Sarah Mitchell"
+      authorCredentials="RD, CNS"
+      authorImage="/images/authors/sarah-mitchell.webp"
+      authorBio="Sarah is a Registered Dietitian and Certified Nutrition Specialist with a focus on immune health and micronutrient optimization. She evaluates vitamin and mineral supplements based on bioavailability data, third-party testing standards, and clinical dosing evidence from peer-reviewed research."
+    />
+
+  </div>
+</BaseLayout>

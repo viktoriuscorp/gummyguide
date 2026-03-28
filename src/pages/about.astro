@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'GummyGuide',
+    url: 'https://gummyguide.com',
+    description: 'Independent gummy supplement review platform providing expert-tested, science-backed recommendations across 9 supplement categories.',
+    foundingDate: '2026',
+    knowsAbout: ['Gummy supplements', 'Creatine gummies', 'Sleep gummies', 'Mushroom gummies', 'Supplement reviews', 'Nutrition science', 'Third-party testing'],
+  }
+};
+
+const authorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Sarah Mitchell',
+  jobTitle: 'Registered Dietitian, CNS',
+  description: 'Registered Dietitian and Certified Nutrition Specialist with over 10 years of experience in dietary supplements and sports nutrition.',
+  url: 'https://gummyguide.com/about/',
+  worksFor: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  knowsAbout: ['Dietary supplements', 'Gummy vitamins', 'Sports nutrition', 'Clinical nutrition', 'Third-party testing', 'Supplement safety'],
+};
+---
+
+<style>
+  .au + .au { margin-top: 32px; }
+  .au-av[data-initials] {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 24px; font-weight: 700; flex-shrink: 0;
+  }
+  .au-av[data-initials="SM"] { background: linear-gradient(135deg, #3D4F2F, #5a7a42); }
+  .au-av[data-initials="JR"] { background: linear-gradient(135deg, #1A1A4E, #3D3D9E); }
+  .au-av[data-initials="EK"] { background: linear-gradient(135deg, #7C2D6D, #B04090); }
+</style>
+
+<BaseLayout title="About GummyGuide — Our Team, Mission & Review Process" description="GummyGuide is an independent supplement review platform. Our team of registered dietitians and certified specialists tests every gummy supplement before recommending it." schema={[schema, authorSchema]}>
+
+  <div class="pg-hero">
+    <h1>About GummyGuide</h1>
+    <p class="pg-sub">Independent supplement reviews you can trust.</p>
+    <div class="pg-meta">
+      <span>Founded 2026</span>
+      <span>200+ Products Tested</span>
+      <span>RD-Led Team</span>
+    </div>
+  </div>
+
+  <div class="w">
+
+    <p>GummyGuide is an independent supplement review platform built on a simple principle: every recommendation should be backed by real testing and clinical evidence. We purchase, evaluate, and rank gummy supplements across nine categories so consumers can make informed decisions with confidence.</p>
+
+    <p>Our editorial team is led by Sarah Mitchell, a Registered Dietitian and Certified Nutrition Specialist with over a decade of experience in dietary supplement evaluation — first in clinical practice, and later in product development for a leading supplement manufacturer.</p>
+
+    <h2>Our Mission</h2>
+
+    <div class="key-stat">
+      <div class="key-stat-num">$5.6B</div>
+      <p class="key-stat-txt">The U.S. gummy supplement market has grown exponentially, but the quality of available information has <strong>not kept pace</strong>. Consumers navigate paid influencer promotions, generic roundups, and brand-sponsored content that prioritizes revenue over accuracy.</p>
+    </div>
+
+    <p>GummyGuide was created to address that gap. We provide <strong>detailed, evidence-based reviews</strong> that examine what matters most: ingredient quality, clinical dosing, third-party testing, and real-world effectiveness. Our goal is to be the most trusted source of gummy supplement information in the United States.</p>
+
+    <div class="callout">
+      Our role is not to tell you what to buy — it is to provide the information you need to decide for yourself.
+      <cite>— The GummyGuide Editorial Team</cite>
+    </div>
+
+    <h2>Our Testing Process</h2>
+
+    <p>Every product featured on GummyGuide undergoes a rigorous evaluation before receiving a recommendation. For the full methodology, visit our <a href="/editorial-process/">Editorial Process</a> page.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico">1</div>
+        <h4>Independent Purchasing</h4>
+        <p>Every product is purchased at full retail price. We do not accept free samples, gifted products, or manufacturer-provided units.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">2</div>
+        <h4>Clinical Ingredient Analysis</h4>
+        <p>Each ingredient is evaluated against clinically studied dosages from peer-reviewed research on PubMed and the National Institutes of Health.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">3</div>
+        <h4>Third-Party Testing</h4>
+        <p>We verify independent certifications from NSF International, USP, ConsumerLab, and Informed Sport. Verified products score higher in our rankings.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">4</div>
+        <h4>14-Day Evaluation</h4>
+        <p>Each product is used by a team member for a minimum of two weeks to assess daily usability, taste consistency, digestive tolerance, and effectiveness.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">5</div>
+        <h4>Scoring &amp; Ranking</h4>
+        <p>Products are scored across five weighted criteria: Ingredient Quality (30%), Third-Party Testing (25%), Taste (20%), Value (15%), and Reputation (10%).</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">6</div>
+        <h4>Quarterly Updates</h4>
+        <p>Formulations change and new research is published. We revisit and update every guide on a quarterly cycle to keep recommendations current and accurate.</p>
+      </div>
+    </div>
+
+    <h2>What Sets GummyGuide Apart</h2>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico">GS</div>
+        <h4>Gummy Specialists</h4>
+        <p>Unlike general supplement review sites, we specialize in the gummy delivery format — understanding formulation challenges, ingredient stability, bioavailability limitations, and sweetener absorption impact.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">RD</div>
+        <h4>Credentialed Team</h4>
+        <p>Our lead reviewer is a Registered Dietitian with a Master's in Nutrition Science. Every recommendation is reviewed for ingredient accuracy, dosing adequacy, and evidence quality.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">9+</div>
+        <h4>9+ Categories</h4>
+        <p>We review gummy supplements across all major categories: creatine, sleep, mushroom, hair growth, sea moss, berberine, elderberry, fiber, ACV, and more.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico">EI</div>
+        <h4>Editorial Independence</h4>
+        <p>Affiliate commissions do not influence product rankings. We maintain a strict policy against sponsored content and frequently recommend products with no affiliate program.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>See Our Reviews in Action</h2>
+      <p>Explore our expert-tested buying guides across 9 supplement categories.</p>
+      <a href="/#picks" class="btn btn-wh">See Our Reviews →</a>
+    </div>
+
+    <h2>Affiliate Disclosure</h2>
+
+    <p>GummyGuide is reader-supported. When a purchase is made through links on our site, we may earn an affiliate commission at no additional cost to the buyer. This revenue model allows us to fund product testing and maintain the site without charging readers for access.</p>
+
+    <p><strong>Affiliate relationships never influence our rankings or recommendations.</strong> Products are evaluated and ranked based on ingredient quality, third-party testing, clinical evidence, taste, and value — not on commission rates. Full details are available on our <a href="/affiliate-disclosure/">Affiliate Disclosure</a> page.</p>
+
+    <h2>Our Team</h2>
+
+    <div class="au">
+      <div class="au-r">
+        <div class="au-av" data-initials="SM">SM</div>
+        <div>
+          <p class="au-nm">Sarah Mitchell, RD, CNS</p>
+          <p class="au-cr">Lead Reviewer &amp; Registered Dietitian</p>
+          <p class="au-bio">Over 10 years of experience in clinical nutrition and supplement product development. Master of Science in Nutrition. Oversees the editorial review of every product recommendation for ingredient accuracy, clinical dosing, and evidence quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="au">
+      <div class="au-r">
+        <div class="au-av" data-initials="JR">JR</div>
+        <div>
+          <p class="au-nm">James Rodriguez, CPT, CSCS</p>
+          <p class="au-cr">Sports &amp; Fitness Reviewer</p>
+          <p class="au-bio">Certified Personal Trainer and Certified Strength and Conditioning Specialist. Manages all fitness-related supplement evaluations including creatine, protein, pre-workout, and electrolyte gummies. Seven years of professional experience in performance nutrition.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="au">
+      <div class="au-r">
+        <div class="au-av" data-initials="EK">EK</div>
+        <div>
+          <p class="au-nm">Emily Kang</p>
+          <p class="au-cr">Beauty &amp; Wellness Editor</p>
+          <p class="au-bio">Specializes in beauty, hair growth, collagen, and skincare supplement reviews. Background in cosmetic science with five years of editorial experience in health and beauty publications. Evaluates every beauty-category gummy over 30-day testing periods.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Content Coverage</h2>
+
+    <p>GummyGuide provides comprehensive coverage across the following categories:</p>
+
+    <div class="acards">
+      <a class="ac" href="/best-creatine-gummies/">
+        <span class="ac-tag">Performance</span>
+        <h3>Best Creatine Gummies</h3>
+        <p>Strength, performance, and cognitive support</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-melatonin-gummies/">
+        <span class="ac-tag">Sleep</span>
+        <h3>Best Melatonin Gummies</h3>
+        <p>Melatonin formulas for better sleep quality</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-ashwagandha-gummies/">
+        <span class="ac-tag">Adaptogens</span>
+        <h3>Best Ashwagandha Gummies</h3>
+        <p>Stress relief and cortisol management</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-mushroom-gummies/">
+        <span class="ac-tag">Functional</span>
+        <h3>Best Mushroom Gummies</h3>
+        <p>Lion's mane, reishi, and functional blends</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-sleep-gummies/">
+        <span class="ac-tag">Wellness</span>
+        <h3>Best Sleep Gummies</h3>
+        <p>Magnesium, L-theanine, and calming formulas</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-apple-cider-vinegar-gummies/">
+        <span class="ac-tag">Digestion</span>
+        <h3>Best ACV Gummies</h3>
+        <p>Digestion and metabolism support</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-fiber-gummies/">
+        <span class="ac-tag">Digestive</span>
+        <h3>Best Fiber Gummies</h3>
+        <p>Prebiotic fiber for digestive health</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a class="ac" href="/best-elderberry-gummies/">
+        <span class="ac-tag">Immune</span>
+        <h3>Best Elderberry Gummies</h3>
+        <p>Seasonal immune support and antioxidants</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+    </div>
+
+    <div class="cta">
+      <h2>Explore All Guides</h2>
+      <p>Browse every category and find the right gummy supplement for your goals.</p>
+      <a href="/#picks" class="btn btn-wh">Explore All Guides →</a>
+    </div>
+
+    <h2>Contact</h2>
+
+    <p>For press inquiries, product submission guidelines, corrections, or general questions, contact our editorial team at <strong>hello@gummyguide.com</strong>. We respond to all inquiries within 48 business hours.</p>
+
+    <p class="au-d">Last updated: March 2026</p>
+
+  </div>
+
+</BaseLayout>

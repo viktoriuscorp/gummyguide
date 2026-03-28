@@ -1,0 +1,240 @@
+---
+import '../styles/global.css';
+import { getAllCategories } from '../data/categories';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: object | object[];
+  noindex?: boolean;
+}
+
+const { title, description, canonical, ogImage = '/images/og/default.webp', schema, noindex = false } = Astro.props;
+const site = 'https://gummyguide.com';
+const canonicalUrl = canonical || new URL(Astro.url.pathname, site).href;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site).href;
+const categories = getAllCategories();
+const schemas = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: 'GummyGuide', url: site },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'GummyGuide', url: site },
+  ...(Array.isArray(schema) ? schema : schema ? [schema] : []),
+];
+---
+
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noindex && <meta name="robots" content="noindex,nofollow" />}
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:locale" content="en_US" />
+  <link rel="alternate" hreflang="en-US" href={canonicalUrl} />
+  <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+</head>
+<body>
+
+  <header class="hdr">
+    <div class="hdr-bar">
+      <a href="/" class="hdr-logo">Gummy<b>Guide</b></a>
+      <nav class="hdr-nav">
+        <div class="hdr-nav-item hdr-has-mega">
+          <a href="/#guides" class="hdr-nav-link">All Guides <span class="hdr-arrow">▾</span></a>
+          <div class="mega mega-full">
+            <div class="mega-inner mega-6col">
+              <div class="mega-col">
+                <h4 class="mega-title">Top Picks</h4>
+                <ul>
+                  <li><a href="/#picks">Editor's Choice 2026</a></li>
+                  <li><a href="/best-creatine-gummies/">Best Overall</a></li>
+                  <li><a href="/best-melatonin-gummies/">Best for Sleep</a></li>
+                  <li><a href="/best-ashwagandha-gummies/">Best for Stress</a></li>
+                  <li><a href="/best-hair-growth-gummies/">Best for Hair</a></li>
+                  <li><a href="/best-elderberry-gummies/">Best for Immunity</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Sports & Adaptogens</h4>
+                <ul>
+                  <li><a href="/best-creatine-gummies/">Creatine Gummies</a></li>
+                  <li><a href="/best-mushroom-gummies/">Mushroom Gummies</a></li>
+                  <li><a href="/best-ashwagandha-gummies/">Ashwagandha Gummies</a></li>
+                  <li><a href="/mushroom/lions-mane-gummies/">Lion's Mane Gummies</a></li>
+                  <li><a href="/sports/pre-workout-gummies/">Pre-Workout Gummies</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Sleep & Relaxation</h4>
+                <ul>
+                  <li><a href="/best-sleep-gummies/">Sleep Gummies</a></li>
+                  <li><a href="/best-melatonin-gummies/">Melatonin Gummies</a></li>
+                  <li><a href="/sleep/magnesium-gummies/">Magnesium Gummies</a></li>
+                  <li><a href="/sleep/calm-gummies-review/">Calm & Stress Gummies</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Vitamins & Health</h4>
+                <ul>
+                  <li><a href="/best-fiber-gummies/">Fiber Gummies</a></li>
+                  <li><a href="/best-prenatal-gummies/">Prenatal Gummies</a></li>
+                  <li><a href="/best-elderberry-gummies/">Elderberry Gummies</a></li>
+                  <li><a href="/best-apple-cider-vinegar-gummies/">ACV Gummies</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Beauty & Hair</h4>
+                <ul>
+                  <li><a href="/best-hair-growth-gummies/">Hair Growth Gummies</a></li>
+                  <li><a href="/beauty/collagen-gummies/">Collagen Gummies</a></li>
+                  <li><a href="/beauty/biotin-gummies/">Biotin Gummies</a></li>
+                </ul>
+              </div>
+              <div class="mega-col">
+                <h4 class="mega-title">Trending 2026</h4>
+                <ul>
+                  <li><a href="/trending/berberine-gummies/">Berberine Gummies</a></li>
+                  <li><a href="/best-sea-moss-gummies/">Sea Moss Gummies</a></li>
+                  <li><a href="/trending/shilajit-gummies/">Shilajit Gummies</a></li>
+                  <li><a href="/trending/focus-gummies/">Focus Gummies</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hdr-nav-item">
+          <a href="/about/" class="hdr-nav-link">About</a>
+        </div>
+        <div class="hdr-nav-item">
+          <a href="/editorial-process/" class="hdr-nav-link">How We Test</a>
+        </div>
+      </nav>
+      <button class="hdr-menu" aria-label="Menu" id="hdr-toggle"><i></i></button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mob-menu" id="mob-menu">
+      <div class="mob-section">
+        <h4>Popular Guides</h4>
+        <a href="/best-creatine-gummies/">Best Creatine Gummies</a>
+        <a href="/best-melatonin-gummies/">Best Melatonin Gummies</a>
+        <a href="/best-ashwagandha-gummies/">Best Ashwagandha Gummies</a>
+        <a href="/best-mushroom-gummies/">Best Mushroom Gummies</a>
+        <a href="/best-sleep-gummies/">Best Sleep Gummies</a>
+        <a href="/best-apple-cider-vinegar-gummies/">Best ACV Gummies</a>
+        <a href="/best-fiber-gummies/">Best Fiber Gummies</a>
+        <a href="/best-elderberry-gummies/">Best Elderberry Gummies</a>
+      </div>
+      <div class="mob-section">
+        <h4>Sleep & Wellness</h4>
+        <a href="/sleep/magnesium-gummies/">Magnesium Gummies</a>
+        <a href="/sleep/calm-gummies-review/">Calm & Stress Gummies</a>
+        <a href="/best-prenatal-gummies/">Prenatal Gummies</a>
+        <a href="/best-hair-growth-gummies/">Hair Growth Gummies</a>
+      </div>
+      <div class="mob-section">
+        <h4>Trending</h4>
+        <a href="/trending/berberine-gummies/">Berberine Gummies</a>
+        <a href="/best-sea-moss-gummies/">Sea Moss Gummies</a>
+        <a href="/trending/shilajit-gummies/">Shilajit Gummies</a>
+        <a href="/trending/focus-gummies/">Focus Gummies</a>
+      </div>
+      <div class="mob-section">
+        <h4>Company</h4>
+        <a href="/about/">About</a>
+        <a href="/editorial-process/">How We Test</a>
+        <a href="/affiliate-disclosure/">Disclosure</a>
+      </div>
+    </div>
+  </header>
+
+  <main><slot /></main>
+
+  <footer class="ftr">
+    <div class="ftr-g">
+      <div class="ftr-c">
+        <h3>Top Guides</h3>
+        <ul>
+          <li><a href="/best-creatine-gummies/">Best Creatine Gummies</a></li>
+          <li><a href="/best-melatonin-gummies/">Best Melatonin Gummies</a></li>
+          <li><a href="/best-ashwagandha-gummies/">Best Ashwagandha Gummies</a></li>
+          <li><a href="/best-mushroom-gummies/">Best Mushroom Gummies</a></li>
+          <li><a href="/best-apple-cider-vinegar-gummies/">Best ACV Gummies</a></li>
+          <li><a href="/best-sleep-gummies/">Best Sleep Gummies</a></li>
+        </ul>
+      </div>
+      <div class="ftr-c">
+        <h3>More Guides</h3>
+        <ul>
+          <li><a href="/best-fiber-gummies/">Best Fiber Gummies</a></li>
+          <li><a href="/best-elderberry-gummies/">Best Elderberry Gummies</a></li>
+          <li><a href="/best-prenatal-gummies/">Best Prenatal Gummies</a></li>
+          <li><a href="/best-sea-moss-gummies/">Best Sea Moss Gummies</a></li>
+          <li><a href="/best-hair-growth-gummies/">Best Hair Gummies</a></li>
+          <li><a href="/sleep/magnesium-gummies/">Best Magnesium Gummies</a></li>
+        </ul>
+      </div>
+      <div class="ftr-c">
+        <h3>Trending</h3>
+        <ul>
+          <li><a href="/trending/berberine-gummies/">Berberine Gummies</a></li>
+          <li><a href="/trending/shilajit-gummies/">Shilajit Gummies</a></li>
+          <li><a href="/trending/focus-gummies/">Focus Gummies</a></li>
+          <li><a href="/sleep/calm-gummies-review/">Calm Gummies</a></li>
+          <li><a href="/beauty/collagen-gummies/">Collagen Gummies</a></li>
+          <li><a href="/beauty/biotin-gummies/">Biotin Gummies</a></li>
+        </ul>
+      </div>
+      <div class="ftr-c">
+        <h3>Sports</h3>
+        <ul>
+          <li><a href="/sports/pre-workout-gummies/">Pre-Workout Gummies</a></li>
+          <li><a href="/sports/best-protein-gummies/">Protein Gummies</a></li>
+          <li><a href="/mushroom/lions-mane-gummies/">Lion's Mane Gummies</a></li>
+        </ul>
+      </div>
+      <div class="ftr-c">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/about/">About GummyGuide</a></li>
+          <li><a href="/editorial-process/">How We Test</a></li>
+          <li><a href="/affiliate-disclosure/">Affiliate Disclosure</a></li>
+          <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/legal/terms/">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-b">
+      <p>&copy; {new Date().getFullYear()} GummyGuide. All rights reserved. Independent supplement reviews.</p>
+    </div>
+  </footer>
+
+  <div class="ck" id="ck" style="display:none;">
+    <p>We use cookies. <a href="/legal/privacy-policy/">Privacy</a>.</p>
+    <button class="btn btn-sm btn-wh" id="cko">OK</button>
+  </div>
+
+  <script is:inline>
+    if(!localStorage.getItem('ck')){var b=document.getElementById('ck');if(b)b.style.display='flex';}
+    var o=document.getElementById('cko');if(o)o.addEventListener('click',function(){localStorage.setItem('ck','1');document.getElementById('ck').style.display='none';});
+    document.addEventListener('DOMContentLoaded',function(){
+      var mt=document.getElementById('hdr-toggle'),mm=document.getElementById('mob-menu');
+      if(mt&&mm){mt.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();mm.classList.toggle('mob-open');mt.classList.toggle('hdr-menu-active');});}
+    });
+  </script>
+</body>
+</html>

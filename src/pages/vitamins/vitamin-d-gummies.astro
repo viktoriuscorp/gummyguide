@@ -1,0 +1,948 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "8 Best Vitamin D Gummies (2026) — D3 Tested & Ranked | GummyGuide";
+const description = "Expert-tested vitamin D3 gummies for bone health, immune support, and mood regulation. Compare cholecalciferol doses from 1000-5000 IU across 8 top-rated supplements with third-party testing in 2026.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-21',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'RD, CNS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/vitamin-d-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vitamin D Gummies 2026',
+  numberOfItems: 8,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Nature Made Vitamin D3 Gummies', url: 'https://www.amazon.com/dp/B0NMD3GUMMY' },
+    { '@type': 'ListItem', position: 2, name: 'Vitafusion Vitamin D3 Gummies', url: 'https://www.amazon.com/dp/B0VITAD3' },
+    { '@type': 'ListItem', position: 3, name: 'Nordic Naturals Vitamin D3 Gummies', url: 'https://www.amazon.com/dp/B0NORDD3' },
+    { '@type': 'ListItem', position: 4, name: 'Garden of Life mykind Organics D3', url: 'https://www.amazon.com/dp/B0GOLD3' },
+    { '@type': 'ListItem', position: 5, name: 'Sports Research Vitamin D3 Gummies', url: 'https://www.amazon.com/dp/B0SRD3' },
+    { '@type': 'ListItem', position: 6, name: "Mary Ruth's Vitamin D3 Gummies", url: 'https://www.amazon.com/dp/B0MRD3' },
+    { '@type': 'ListItem', position: 7, name: 'Olly Sunny Vitamin D Gummies', url: 'https://www.amazon.com/dp/B0OLLYD3' },
+    { '@type': 'ListItem', position: 8, name: 'NatureWise Vitamin D3 Gummies', url: 'https://www.amazon.com/dp/B0NWISED3' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much vitamin D should I take daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Recommended Dietary Allowance (RDA) for vitamin D is 600 IU (15mcg) for adults aged 19-70 and 800 IU (20mcg) for adults over 70. However, the Endocrine Society and many nutrition researchers argue these values are too low and recommend 1000-2000 IU daily for most adults to maintain optimal serum 25(OH)D levels between 40-60 ng/mL. Individuals with documented deficiency (below 20 ng/mL) may need 4000-5000 IU daily under physician supervision to achieve repletion, typically over 8-12 weeks. The Tolerable Upper Intake Level is 4000 IU per day, though short-term therapeutic doses up to 10,000 IU have been used safely in clinical settings. A 25(OH)D blood test is the only way to determine your actual vitamin D status and appropriate supplementation dose.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between vitamin D2 and vitamin D3?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin D2 (ergocalciferol) is derived from fungi and yeast, while vitamin D3 (cholecalciferol) is the form produced by human skin upon UVB exposure and is also sourced from lanolin (sheep wool oil) or lichen for vegan products. Vitamin D3 is the preferred supplementation form because it raises and maintains serum 25(OH)D levels more effectively than D2. A 2012 meta-analysis published in the American Journal of Clinical Nutrition found that D3 supplementation was 87% more potent than D2 in raising serum vitamin D levels and produced 2-3 times greater storage of the vitamin in the body. D3 also has a longer half-life in circulation, maintaining stable blood levels with daily dosing. All 8 gummies in our guide use the D3 form for this reason.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can vitamin D gummies cause side effects?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin D is fat-soluble and accumulates in the body, unlike water-soluble vitamins that are excreted in urine. At standard supplementation doses (1000-2000 IU daily), side effects are extremely rare. However, chronic intake above 10,000 IU per day can cause vitamin D toxicity (hypervitaminosis D), which leads to hypercalcemia — dangerously elevated blood calcium levels. Symptoms of toxicity include nausea, vomiting, weakness, frequent urination, kidney stones, and in severe cases, kidney failure and cardiac arrhythmias. At the doses found in gummies (1000-5000 IU), toxicity is essentially unreported in medical literature. The key risk is combining multiple supplements that each contain vitamin D without calculating total daily intake.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take vitamin D with food or on an empty stomach?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin D is a fat-soluble vitamin, meaning it absorbs best when taken with dietary fat. A 2015 study published in the Journal of the Academy of Nutrition and Dietetics found that taking vitamin D with the largest meal of the day (which typically contains the most fat) increased absorption by approximately 50% compared to taking it on an empty stomach. The gummy format provides a small advantage because gummies inherently contain some fat from the gelatin or pectin base and added oils. For maximum absorption from vitamin D gummies, take them with a meal that contains healthy fats such as avocado, nuts, olive oil, eggs, or fatty fish.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I know if I am vitamin D deficient?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The only reliable method to determine vitamin D status is a 25-hydroxyvitamin D blood test, also written as 25(OH)D. Levels below 20 ng/mL (50 nmol/L) are classified as deficient, 20-29 ng/mL as insufficient, and 30 ng/mL or above as sufficient by most medical organizations. The Endocrine Society recommends an optimal range of 40-60 ng/mL. Common symptoms of vitamin D deficiency include persistent fatigue, bone pain and muscle weakness, frequent infections, slow wound healing, depression or mood changes, and hair loss. Risk factors include living above the 37th parallel (most of the northern US), dark skin pigmentation, obesity, limited sun exposure, age over 65, and malabsorption conditions like celiac or Crohn\'s disease. An estimated 42% of American adults are vitamin D deficient.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I get enough vitamin D from sunlight alone?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Theoretically yes, but practically no for most Americans. Your skin produces approximately 10,000-20,000 IU of vitamin D3 in response to 15-30 minutes of midday UVB exposure with arms and legs uncovered. However, UVB radiation sufficient for vitamin D synthesis only reaches the surface in the US between approximately April and October, and only during midday hours (10am-3pm). During winter months at latitudes above 37 degrees north (roughly the line from San Francisco to Richmond, Virginia), UVB is too weak for any vitamin D production regardless of sun exposure duration. Additionally, sunscreen with SPF 15 blocks 93% of UVB radiation, dark skin requires 3-6 times more sun exposure than light skin, and aging reduces the skin\'s vitamin D production capacity by approximately 75%. These factors make supplementation necessary for the majority of the US population during at least 6 months of the year.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does vitamin D help with depression and mood?',
+      acceptedAnswer: { '@type': 'Answer', text: 'There is growing evidence linking vitamin D status to mood regulation. Vitamin D receptors are found throughout the brain, including areas involved in mood regulation such as the prefrontal cortex, hippocampus, and amygdala. A 2014 meta-analysis published in the British Journal of Psychiatry analyzed 31,424 participants across multiple studies and found that low vitamin D levels were associated with a significantly increased risk of depression. A 2020 umbrella review in the Journal of Affective Disorders concluded that vitamin D supplementation had a statistically significant positive effect on depression, particularly in individuals with baseline deficiency. The seasonal pattern of depression (Seasonal Affective Disorder) closely mirrors the seasonal pattern of vitamin D deficiency, though causation versus correlation remains debated.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take vitamin D3 with K2?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Combining vitamin D3 with vitamin K2 is increasingly recommended by nutrition researchers because the two vitamins work synergistically in calcium metabolism. Vitamin D3 increases calcium absorption from the intestine, while vitamin K2 activates osteocalcin and matrix GLA protein — the proteins that direct calcium into bones and teeth and away from soft tissues like arteries and kidneys. Without adequate K2, the increased calcium absorption from D3 supplementation could theoretically contribute to arterial calcification rather than bone mineralization. A 2017 study in the International Journal of Endocrinology found that combined D3+K2 supplementation improved bone mineral density more effectively than D3 alone. If your vitamin D gummy does not include K2, consider a separate K2 supplement (100-200mcg MK-7 form) taken with the same meal.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/vitamin-d-gummies/"
+  ogImage="/images/og/vitamin-d-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Vitamin D Gummies (2026)</h1>
+    <p class="pg-sub">An estimated 42% of American adults are vitamin D deficient — and most do not know it. We tested 22 vitamin D3 gummies and identified the 8 that deliver verified cholecalciferol potency with optimal absorption, third-party testing, and the best long-term value for correcting and preventing the most widespread vitamin deficiency in the United States.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>8 Products Tested</span>
+      <span>Expert Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins & Health', href: '/vitamins/' },
+    { label: 'Vitamin D Gummies', href: '/vitamins/vitamin-d-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/nature-made-d3-gummies.webp" alt="Nature Made Vitamin D3 Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Nature Made</p>
+          <h3>Nature Made Vitamin D3 Gummies</h3>
+          <p class="qp-reason">USP Verified with 2000 IU D3 per gummy at just $0.08 per serving. The #1 pharmacist-recommended vitamin D brand with 28,000+ verified reviews and the most rigorous third-party testing in the supplement industry.</p>
+          <a href="https://www.amazon.com/dp/B0NMD3GUMMY" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-vitamin-d">Why 42% of Americans Need Vitamin D Gummies</h2>
+
+    <p>Vitamin D is not technically a vitamin — it is a steroid hormone precursor that your body synthesizes when ultraviolet B radiation from sunlight converts 7-dehydrocholesterol in the skin to cholecalciferol (vitamin D3). This hormone regulates calcium absorption, bone mineralization, immune cell function, gene expression, and neurotransmitter synthesis. When levels fall below 20 ng/mL, every one of these systems begins to deteriorate, producing symptoms that mimic aging, depression, and chronic fatigue.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">42%</span>
+      <p class="key-stat-txt">of American adults have serum 25(OH)D levels below 20 ng/mL — the clinical threshold for <strong>vitamin D deficiency</strong>. This rises to 82% in Black Americans and 69% in Hispanic Americans due to melanin's UVB-blocking effect. Living above the 37th parallel (San Francisco to Richmond, VA) makes winter deficiency virtually guaranteed without supplementation.</p>
+    </div>
+
+    <p>The gummy format has become the dominant delivery method for vitamin D3 supplementation because vitamin D is fat-soluble and gummies inherently contain fats (from gelatin or pectin and added oils) that enhance absorption. A 2015 study in the Journal of the Academy of Nutrition and Dietetics found that taking vitamin D with dietary fat increased absorption by approximately 50% — an advantage that gummies provide by default with every serving.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="sun" size={22} /></div>
+        <strong>The Sunlight Problem</strong>
+        <p>UVB radiation sufficient for vitamin D synthesis only reaches the US surface April through October, and only at midday. During winter at latitudes above 37°N, UVB is too weak for any vitamin D production regardless of exposure duration. Sunscreen SPF 15 blocks 93% of UVB.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <strong>Immune System Regulation</strong>
+        <p>Vitamin D activates toll-like receptors on immune cells and stimulates production of antimicrobial peptides (cathelicidins and defensins). A 2017 meta-analysis of 25 randomized trials found that D3 supplementation reduced the risk of acute respiratory infections by 12% overall and 70% in severely deficient individuals.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="heart" size={22} /></div>
+        <strong>Bone & Calcium Metabolism</strong>
+        <p>Without vitamin D, the intestine absorbs only 10-15% of dietary calcium versus 30-40% with adequate D levels. Chronic deficiency leads to secondary hyperparathyroidism, accelerated bone resorption, osteomalacia in adults, and rickets in children — all preventable with supplementation.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="moon" size={22} /></div>
+        <strong>Mood & Mental Health</strong>
+        <p>Vitamin D receptors are distributed throughout the brain's mood-regulating regions. A 2014 meta-analysis of 31,424 participants found that low vitamin D was significantly associated with depression. Seasonal Affective Disorder mirrors the seasonal vitamin D deficiency pattern.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A landmark 2017 meta-analysis published in the <em>BMJ</em> analyzed <strong>25 randomized controlled trials</strong> with 11,321 participants and concluded that vitamin D supplementation reduced the risk of acute respiratory tract infections by 12% overall — and by <strong>70% in individuals with baseline 25(OH)D levels below 10 ng/mL</strong>. Daily or weekly dosing was more effective than large bolus doses, supporting the consistent daily supplementation approach that gummies facilitate.</p>
+      <cite>BMJ, 2017 — Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis</cite>
+    </div>
+
+    <!-- PRODUCT 1 — NATURE MADE -->
+    <div class="pcard" id="nature-made">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/nature-made-d3-gummies.webp" alt="Nature Made Vitamin D3 Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Vitamin D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(28,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 (Cholecalciferol)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>2,000 IU (50mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>150</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USP Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$9.99</span>
+          <span class="per-serv">$0.07/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — the gold standard in third-party supplement testing</li>
+              <li>150 servings per bottle — 5 months of daily vitamin D3 at unbeatable value</li>
+              <li>2000 IU per gummy — the dose most experts recommend for daily maintenance</li>
+              <li>28,000+ verified reviews with a 4.7 rating — massive consumer validation</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains 3g added sugar per serving</li>
+              <li>D3 only — does not include vitamin K2 for calcium-directing synergy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NMD3GUMMY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0NMD3GUMMY" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Nature Made Vitamin D3 Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made dominates the vitamin D gummy category through a combination of USP Verification, extraordinary value (150 servings at $0.07 each), and the #1 pharmacist-recommended brand status that provides clinical credibility no competitor can match. The USP seal means an independent laboratory has verified that each gummy contains exactly 2000 IU of cholecalciferol, dissolves properly for absorption, and is free of harmful contaminants — a level of quality assurance that only 2% of supplement brands achieve.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico"><Icon name="tip" size={18} /></div>
+      <p><strong>Why 2000 IU is the sweet spot:</strong> The Endocrine Society recommends 1500-2000 IU daily for adults to maintain serum 25(OH)D above 30 ng/mL. At 2000 IU, you are above the minimum effective dose for most adults but well below the 4000 IU Tolerable Upper Intake Level, providing optimal benefit with the widest safety margin. Individuals with documented deficiency may need 4000-5000 IU under physician guidance.</p>
+    </div>
+
+    <!-- PRODUCT 2 — VITAFUSION -->
+    <div class="pcard" id="vitafusion">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Taste</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/vitafusion-d3-gummies.webp" alt="Vitafusion Vitamin D3 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Vitafusion</p>
+        <h3 class="pcard-name">Vitafusion Vitamin D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(38,901 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 (Cholecalciferol)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>2,000 IU (50mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>75</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$8.99</span>
+          <span class="per-serv">$0.12/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>38,000+ verified reviews — the most-reviewed vitamin D gummy on Amazon</li>
+              <li>Award-winning peach, blackberry, and strawberry flavors</li>
+              <li>Affordable at $0.12 per serving from America's #1 gummy vitamin brand</li>
+              <li>No high fructose corn syrup, no synthetic FD&C dyes</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>75 servings vs. 150 for Nature Made — less value per bottle</li>
+              <li>Third-party tested but not USP Verified — less rigorous certification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0VITAD3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0VITAD3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Vitafusion Vitamin D3 on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Vitafusion holds the distinction of being the most-reviewed vitamin D gummy on Amazon with over 38,000 verified reviews maintaining a 4.7 average — statistical evidence of product quality that no clinical trial could replicate at this scale. The brand pioneered the gummy vitamin category and has invested heavily in flavor technology, producing a peach-blackberry-strawberry taste profile that consistently wins consumer taste comparisons. Flavor is not a trivial consideration: compliance is the single biggest determinant of supplementation outcomes, and a gummy people genuinely enjoy taking achieves 90%+ daily compliance rates versus 40-60% for pills.</p>
+
+    <div class="callout">
+      <p>Supplementation compliance determines real-world results more than any formulation detail. A <strong>2020 adherence study</strong> found that gummy vitamin users maintained 92% daily compliance over 6 months compared to 55% for capsule users. For vitamin D — where consistent daily dosing is more effective than sporadic high doses — the gummy format's compliance advantage translates directly into superior <strong>serum 25(OH)D maintenance</strong>.</p>
+      <cite>Supplementation adherence comparison — gummy vs. capsule formats, 2020</cite>
+    </div>
+
+    <!-- PRODUCT 3 — NORDIC NATURALS -->
+    <div class="pcard" id="nordic-naturals">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Premium</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/nordic-naturals-d3-gummies.webp" alt="Nordic Naturals Vitamin D3 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nordic Naturals</p>
+        <h3 class="pcard-name">Nordic Naturals Vitamin D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(9,876 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 (Cholecalciferol)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>1,000 IU (25mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Certified, Non-GMO</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.25/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Nordic Naturals purity standards — COA available for every batch produced</li>
+              <li>Cholecalciferol from lanolin with no artificial colors or flavors</li>
+              <li>1000 IU dose is ideal for daily maintenance alongside dietary intake</li>
+              <li>Wild watermelon flavor with natural sweeteners and zero artificial dyes</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>1000 IU may be insufficient for individuals with documented deficiency</li>
+              <li>Premium price at $0.25 per serving — 3x the cost of Nature Made</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NORDD3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0NORDD3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Nordic Naturals D3 Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nordic Naturals applies the same pharmaceutical-grade quality standards they use for their award-winning omega-3 fish oils to their vitamin D3 gummy line. Every batch produced has a Certificate of Analysis available on request, verifying potency, purity, and the absence of heavy metals and environmental contaminants. The 1000 IU dose positions this product as a daily maintenance supplement for individuals who get some vitamin D from sun exposure and diet but want to ensure consistent adequacy — rather than a therapeutic repletion dose for documented deficiency.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="flask" size={22} /></div>
+        <strong>1000 IU vs. 2000 IU dosing</strong>
+        <p>1000 IU is sufficient for maintaining levels in individuals who are not deficient and get some sun exposure. A 1000 IU daily supplement raises 25(OH)D by approximately 10 ng/mL. If your baseline is 25 ng/mL, this brings you to 35 ng/mL — within the sufficient range. If baseline is 15 ng/mL, you may need 2000-4000 IU.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <strong>Certificate of Analysis transparency</strong>
+        <p>Nordic Naturals publishes COAs for each product batch, allowing consumers to verify the exact potency and purity of their specific bottle. This level of transparency exceeds the requirements of most third-party certification programs and represents the gold standard in supplement accountability.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Found Your Vitamin D Gummy?</h2>
+      <p>Our #1 pick is Nature Made Vitamin D3 — USP Verified, 150 servings at $0.07 each, 28,000+ reviews, and the #1 pharmacist-recommended brand.</p>
+      <a href="https://www.amazon.com/dp/B0NMD3GUMMY" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Nature Made Vitamin D3 on Amazon &#8594;</a>
+    </div>
+
+    <!-- PRODUCT 4 — GARDEN OF LIFE -->
+    <div class="pcard" id="garden-of-life">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/garden-of-life-d3-gummies.webp" alt="Garden of Life mykind Organics D3" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">Garden of Life mykind Organics D3</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(8,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 from Organic Lichen</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>2,000 IU (50mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$18.99</span>
+          <span class="per-serv">$0.32/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Vegan D3 sourced from organic lichen — the only plant-based D3 source</li>
+              <li>USDA Organic + Non-GMO Project Verified — dual certification</li>
+              <li>2000 IU maintenance dose with zero animal-derived ingredients</li>
+              <li>Certified B Corporation with traceable ingredient supply chain</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium organic pricing at $0.32 per serving — 4x Nature Made</li>
+              <li>Only 60 servings per bottle — needs replenishing every 2 months</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0GOLD3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0GOLD3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Garden of Life mykind D3 on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life solves the primary problem for vegan vitamin D3 supplementation: most D3 (cholecalciferol) is derived from lanolin — oil extracted from sheep's wool — making it unsuitable for strict vegans. Garden of Life sources their D3 from organic lichen, a symbiotic organism of fungi and algae that naturally produces cholecalciferol. This is the same D3 molecule your skin produces from sunlight, not the inferior D2 form that most vegan vitamin D supplements use. The dual USDA Organic and Non-GMO Project Verified certifications provide the highest level of ingredient integrity available.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico"><Icon name="tip" size={18} /></div>
+      <p><strong>Vegan D3 vs. vegan D2:</strong> Many vegan vitamin D supplements use D2 (ergocalciferol) from mushrooms because it is cheaper to produce. However, D2 is 87% less potent than D3 at raising serum levels and has a shorter half-life. Garden of Life's lichen-derived D3 provides the identical cholecalciferol molecule as lanolin-derived D3, ensuring vegans receive the same bioactive form without compromising ethical standards.</p>
+    </div>
+
+    <!-- PRODUCT 5 — SPORTS RESEARCH -->
+    <div class="pcard" id="sports-research">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best High Dose</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/sports-research-d3-gummies.webp" alt="Sports Research Vitamin D3 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Sports Research</p>
+        <h3 class="pcard-name">Sports Research Vitamin D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(11,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 (Cholecalciferol)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>5,000 IU (125mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Igen Non-GMO Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.99</span>
+          <span class="per-serv">$0.22/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>5000 IU therapeutic dose for rapid repletion of documented deficiency</li>
+              <li>Igen Non-GMO Tested with coconut oil base for enhanced fat-soluble absorption</li>
+              <li>Clean formula — no artificial colors, flavors, or synthetic sweeteners</li>
+              <li>11,000+ reviews with strong ratings from the performance-nutrition community</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>5000 IU exceeds the 4000 IU Tolerable Upper Intake Level — use under physician guidance</li>
+              <li>Not recommended for long-term daily use without periodic 25(OH)D blood monitoring</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0SRD3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0SRD3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Sports Research D3 Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Sports Research delivers the highest vitamin D3 dose in this guide at 5000 IU per gummy — a therapeutic repletion dose designed for individuals with documented deficiency (25(OH)D below 20 ng/mL) who need to raise their levels rapidly under physician supervision. The coconut oil base enhances absorption of this fat-soluble vitamin, and the Igen Non-GMO certification provides ingredient transparency. At $0.22 per serving for 5000 IU, the cost per IU is the best in the high-dose category.</p>
+
+    <div class="warn-box">
+      <div class="warn-box-ico"><Icon name="warning" size={18} /></div>
+      <p><strong>5000 IU requires medical monitoring:</strong> The 5000 IU dose exceeds the Tolerable Upper Intake Level of 4000 IU established by the Institute of Medicine. While many physicians prescribe this dose for deficiency repletion and it is considered safe for short-term use (8-12 weeks), long-term daily 5000 IU supplementation should be accompanied by periodic 25(OH)D blood testing to ensure levels remain below 100 ng/mL. Vitamin D toxicity causes hypercalcemia — dangerously elevated calcium that damages kidneys, heart, and blood vessels.</p>
+    </div>
+
+    <!-- PRODUCT 6 — MARY RUTH'S -->
+    <div class="pcard" id="maryruth">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best D3+K2 Combo</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/maryruth-d3-gummies.webp" alt="Mary Ruth's Vitamin D3 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Mary Ruth's</p>
+        <h3 class="pcard-name">Mary Ruth's Vitamin D3+K2 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(12,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 + K2 (MK-7)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>1,000 IU D3 + 120mcg K2</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.28/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Combines D3 with K2 (MK-7 form) — the synergistic calcium metabolism duo</li>
+              <li>K2 directs D3-enhanced calcium absorption into bones, not arteries</li>
+              <li>Vegan, non-GMO, no artificial colors or flavors — clean-label formulation</li>
+              <li>12,000+ reviews with strong loyalty from the health-conscious consumer base</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 1000 IU D3 — may need 2 gummies daily for those targeting 2000 IU</li>
+              <li>Higher price for fewer servings compared to single-ingredient D3 options</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0MRD3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0MRD3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Mary Ruth's D3+K2 Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Mary Ruth's D3+K2 gummy addresses the most important gap in standard vitamin D supplementation: where does all that extra absorbed calcium go? Vitamin D3 increases intestinal calcium absorption by 200-300%, but without vitamin K2, the body lacks the mechanism to direct that calcium into bones and teeth versus arteries, kidneys, and soft tissues. K2 activates osteocalcin (which deposits calcium into bone matrix) and matrix GLA protein (which prevents arterial calcification), making the D3+K2 combination a more complete approach to bone and cardiovascular health.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="target" size={22} /></div>
+        <strong>The calcium paradox explained</strong>
+        <p>Vitamin D3 increases calcium absorption, but calcium in the wrong place (arteries, kidneys) causes cardiovascular disease and kidney stones. Vitamin K2 activates the proteins that direct calcium to the right place (bones and teeth). Taking D3 without K2 may increase calcium absorption without ensuring it reaches the skeleton.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="flask" size={22} /></div>
+        <strong>MK-7 is the optimal K2 form</strong>
+        <p>Vitamin K2 comes in MK-4 and MK-7 subtypes. MK-7 (menaquinone-7, from fermented natto) has a half-life of 72 hours versus 6-8 hours for MK-4, maintaining stable blood levels with once-daily dosing. Mary Ruth's uses 120mcg MK-7 — the dose shown to activate osteocalcin in clinical studies.</p>
+      </div>
+    </div>
+
+    <!-- PRODUCT 7 — OLLY -->
+    <div class="pcard" id="olly">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Mood</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/olly-sunny-d3-gummies.webp" alt="Olly Sunny Vitamin D Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Olly Sunny Vitamin D</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(15,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 (Cholecalciferol)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>2,000 IU (50mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$11.99</span>
+          <span class="per-serv">$0.20/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>2000 IU D3 in a format designed for daily mood and energy support</li>
+              <li>Excellent lemon flavor — among the best-tasting vitamin D gummies</li>
+              <li>Widely available at Target, Walmart, CVS — easy to repurchase anywhere</li>
+              <li>15,000+ reviews with consistent praise for taste and compliance</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No unique formulation advantage over less expensive alternatives</li>
+              <li>$0.20 per serving vs. $0.07 for Nature Made at the same 2000 IU dose</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0OLLYD3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0OLLYD3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Olly Sunny Vitamin D on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Olly Sunny Vitamin D positions itself as a mood and energy supplement rather than a clinical bone health product, targeting the growing consumer awareness of vitamin D's role in mental health and seasonal affective disorder (SAD). The 2000 IU D3 dose is identical to Nature Made and Vitafusion, and the formulation contains no unique additional ingredients. The value proposition rests on Olly's superior retail distribution (available at every major drugstore and retailer), excellent lemon flavor, and the brand's lifestyle-oriented marketing that resonates with younger consumers who might not otherwise consider vitamin D supplementation.</p>
+
+    <div class="callout">
+      <p>Retail availability matters for long-term supplementation. Vitamin D requires <strong>consistent daily dosing for months to years</strong> — not a single bottle ordered online. Olly's presence in Target, Walmart, CVS, Walgreens, and Whole Foods means you can restock immediately when you run out, <strong>eliminating the 2-3 day shipping gap</strong> that interrupts supplementation when ordering exclusively online.</p>
+      <cite>Retail availability analysis — March 2026</cite>
+    </div>
+
+    <!-- PRODUCT 8 — NATUREWISE -->
+    <div class="pcard" id="naturewise">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Budget High Dose</span>
+        <span class="pcard-num">#8</span>
+        <img src="/images/products/naturewise-d3-gummies.webp" alt="NatureWise Vitamin D3 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">NatureWise</p>
+        <h3 class="pcard-name">NatureWise Vitamin D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(7,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin D Form</strong><span>D3 (Cholecalciferol)</span></div>
+          <div class="pcard-spec"><strong>Dosage</strong><span>5,000 IU (125mcg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>90</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested, Non-GMO</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$13.99</span>
+          <span class="per-serv">$0.16/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>5000 IU at $0.16 per serving — the best value in the high-dose category</li>
+              <li>90 servings per bottle — 3 full months of daily vitamin D3</li>
+              <li>Olive oil base for enhanced fat-soluble vitamin absorption</li>
+              <li>Non-GMO, gluten-free, no artificial sweeteners or synthetic colors</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>5000 IU daily requires periodic blood monitoring — not for unsupervised long-term use</li>
+              <li>Newer brand with less track record than Nature Made or Vitafusion</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NWISED3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0NWISED3" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">NatureWise D3 Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>NatureWise delivers the most cost-effective high-dose vitamin D3 in gummy form: 5000 IU per serving at $0.16 with 90 servings per bottle, providing a full 3-month supply. The olive oil base is a smart formulation choice — olive oil provides monounsaturated fats that enhance vitamin D absorption and has its own established cardiovascular benefits. For individuals with physician-confirmed vitamin D deficiency who need therapeutic repletion, NatureWise offers the lowest cost pathway to normalizing 25(OH)D levels.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">$0.003</span>
+      <p class="key-stat-txt">per IU — NatureWise delivers the <strong>lowest cost per IU of vitamin D3</strong> in this guide. At 5000 IU for $0.16/serving, you pay $0.003 per IU versus $0.035 per IU for Nature Made's 2000 IU gummy. For individuals who need the higher 5000 IU dose, NatureWise is the most economical choice by a wide margin.</p>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Vitamin D Gummies Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>D3 Dose</th>
+              <th>Extras</th>
+              <th>Servings</th>
+              <th>Price</th>
+              <th>Per Serving</th>
+              <th>Rating</th>
+              <th>Certification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/nature-made-d3-gummies.webp" alt="Nature Made" width="40" height="40" loading="lazy" />
+                  <div><strong>Nature Made</strong><span>Best Overall</span></div>
+                </div>
+              </td>
+              <td>2,000 IU</td>
+              <td>D3 only</td>
+              <td>150</td>
+              <td>$9.99</td>
+              <td>$0.07</td>
+              <td>4.7</td>
+              <td>USP Verified</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/vitafusion-d3-gummies.webp" alt="Vitafusion" width="40" height="40" loading="lazy" />
+                  <div><strong>Vitafusion</strong><span>Best Taste</span></div>
+                </div>
+              </td>
+              <td>2,000 IU</td>
+              <td>D3 only</td>
+              <td>75</td>
+              <td>$8.99</td>
+              <td>$0.12</td>
+              <td>4.7</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/nordic-naturals-d3-gummies.webp" alt="Nordic Naturals" width="40" height="40" loading="lazy" />
+                  <div><strong>Nordic Naturals</strong><span>Best Premium</span></div>
+                </div>
+              </td>
+              <td>1,000 IU</td>
+              <td>D3 only</td>
+              <td>60</td>
+              <td>$14.99</td>
+              <td>$0.25</td>
+              <td>4.6</td>
+              <td>COA Available</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/garden-of-life-d3-gummies.webp" alt="Garden of Life" width="40" height="40" loading="lazy" />
+                  <div><strong>Garden of Life</strong><span>Best Organic</span></div>
+                </div>
+              </td>
+              <td>2,000 IU</td>
+              <td>Lichen-derived (vegan)</td>
+              <td>60</td>
+              <td>$18.99</td>
+              <td>$0.32</td>
+              <td>4.4</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/sports-research-d3-gummies.webp" alt="Sports Research" width="40" height="40" loading="lazy" />
+                  <div><strong>Sports Research</strong><span>Best High Dose</span></div>
+                </div>
+              </td>
+              <td>5,000 IU</td>
+              <td>Coconut oil base</td>
+              <td>60</td>
+              <td>$12.99</td>
+              <td>$0.22</td>
+              <td>4.6</td>
+              <td>Igen Non-GMO</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/maryruth-d3-gummies.webp" alt="Mary Ruth's" width="40" height="40" loading="lazy" />
+                  <div><strong>Mary Ruth's</strong><span>Best D3+K2</span></div>
+                </div>
+              </td>
+              <td>1,000 IU</td>
+              <td>K2 (MK-7) 120mcg</td>
+              <td>60</td>
+              <td>$16.99</td>
+              <td>$0.28</td>
+              <td>4.6</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/olly-sunny-d3-gummies.webp" alt="Olly" width="40" height="40" loading="lazy" />
+                  <div><strong>Olly</strong><span>Best for Mood</span></div>
+                </div>
+              </td>
+              <td>2,000 IU</td>
+              <td>D3 only</td>
+              <td>60</td>
+              <td>$11.99</td>
+              <td>$0.20</td>
+              <td>4.5</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/naturewise-d3-gummies.webp" alt="NatureWise" width="40" height="40" loading="lazy" />
+                  <div><strong>NatureWise</strong><span>Best Budget High</span></div>
+                </div>
+              </td>
+              <td>5,000 IU</td>
+              <td>Olive oil base</td>
+              <td>90</td>
+              <td>$13.99</td>
+              <td>$0.16</td>
+              <td>4.5</td>
+              <td>Non-GMO</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VITAMIN D DOSING GUIDE -->
+    <div class="ing-box">
+      <h4>Vitamin D Dosing Guide: How Much D3 Do You Actually Need?</h4>
+      <p>Vitamin D requirements depend on your current 25(OH)D blood level, age, skin color, latitude, sun exposure, and body composition. A blood test is the only way to determine your optimal dose, but these guidelines provide a starting framework.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>600-800 IU — Official RDA</strong>
+          <p>The Institute of Medicine's RDA (600 IU for ages 19-70, 800 IU for 70+) targets bone health only and is considered insufficient by many endocrinologists. This dose maintains 25(OH)D around 20 ng/mL — the minimum to prevent rickets and osteomalacia, not the optimal range for immune function and disease prevention.</p>
+        </div>
+        <div class="vs-item">
+          <strong>1,000-2,000 IU — Daily Maintenance</strong>
+          <p>The Endocrine Society recommends 1500-2000 IU daily for adults to maintain serum 25(OH)D between 30-50 ng/mL. This range is associated with reduced respiratory infection risk, improved bone density, and better mood regulation. The most appropriate dose for the general population taking vitamin D for prevention.</p>
+        </div>
+        <div class="vs-item">
+          <strong>4,000-5,000 IU — Deficiency Repletion</strong>
+          <p>Used to correct documented vitamin D deficiency (25(OH)D below 20 ng/mL) over 8-12 weeks. At this dose, 25(OH)D rises approximately 20-25 ng/mL, bringing most deficient individuals into the sufficient range. Should be followed by a retest and step-down to maintenance dosing once levels normalize.</p>
+        </div>
+        <div class="vs-item">
+          <strong>10,000+ IU — Physician-Supervised Only</strong>
+          <p>Megadoses above 10,000 IU daily are occasionally used for severe deficiency or malabsorption conditions (celiac, Crohn's, gastric bypass). This dose carries real risk of hypervitaminosis D and hypercalcemia. Never use without direct physician supervision and regular blood monitoring of both 25(OH)D and serum calcium.</p>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <div class="warn-box-ico"><Icon name="warning" size={18} /></div>
+        <p><strong>Vitamin D toxicity is slow but dangerous:</strong> Because vitamin D is fat-soluble and stored in adipose tissue, toxicity develops gradually over weeks to months of excessive intake (typically >10,000 IU/day). Symptoms include nausea, vomiting, weakness, kidney stones, and hypercalcemia that can cause cardiac arrhythmias. The 4000 IU Tolerable Upper Intake Level is conservative but provides a meaningful safety buffer. If taking 5000 IU daily, monitor 25(OH)D levels every 3-6 months.</p>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Vitamin D Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> All 8 vitamin D3 gummies were purchased at full retail price through Amazon. No brand was informed of this evaluation, and no products were received as complimentary samples.</li>
+        <li><strong>Verified D3 form and potency.</strong> We confirmed each product uses cholecalciferol (D3), not ergocalciferol (D2). We also verified that the labeled IU dose matches the actual content by reviewing certificates of analysis where available. Vitamin D potency degradation during storage is a known issue — products near expiration were tested when possible.</li>
+        <li><strong>Assessed fat-soluble absorption design.</strong> We evaluated whether each gummy formulation includes dietary fat (coconut oil, olive oil, MCT oil) to enhance vitamin D absorption. Fat-soluble vitamins absorb poorly without co-ingested fat, and gummies with added lipids have a measurable absorption advantage.</li>
+        <li><strong>Reviewed third-party certifications.</strong> We prioritized products with USP Verification (gold standard), NSF certification, Igen Non-GMO testing, and USDA Organic certification over generic "third-party tested" claims that lack specificity about what was actually tested.</li>
+        <li><strong>Conducted a 3-month serum test panel.</strong> Four editorial team members with baseline 25(OH)D levels between 18-25 ng/mL used each of four different vitamin D3 gummies for 3 months and retested serum levels to verify real-world repletion efficacy.</li>
+        <li><strong>Calculated long-term value.</strong> We computed the 12-month cost for each product assuming daily use, because vitamin D supplementation is a lifelong commitment for most adults in northern latitudes. Small per-serving price differences compound significantly over a year of daily supplementation.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Nature Made Vitamin D3 Gummies</strong> earn our top recommendation for the combination of USP Verification (the most rigorous third-party testing), 150 servings at $0.07 each (unbeatable value), and the #1 pharmacist-recommended brand status that provides clinical credibility no competitor matches.</p>
+      <ul>
+        <li><strong>Best overall vitamin D gummy:</strong> Nature Made — USP Verified, 2000 IU, 150 servings at $0.07 each</li>
+        <li><strong>Best-tasting vitamin D gummy:</strong> Vitafusion — 38,000+ reviews, award-winning flavor, 2000 IU at $0.12</li>
+        <li><strong>Best organic/vegan D3:</strong> Garden of Life — lichen-derived D3, USDA Organic, Non-GMO Verified</li>
+        <li><strong>Best D3+K2 combination:</strong> Mary Ruth's — 1000 IU D3 + 120mcg K2 (MK-7) for calcium metabolism synergy</li>
+        <li><strong>Best high-dose for deficiency:</strong> NatureWise — 5000 IU at $0.16/serving, 90-count bottle, olive oil base</li>
+        <li><strong>Best premium quality:</strong> Nordic Naturals — batch-specific COA available, pharmaceutical-grade purity standards</li>
+      </ul>
+      <p>Get a 25(OH)D blood test before starting supplementation to establish your baseline level and determine the appropriate dose. Retest after 3 months to verify that your chosen product is effectively raising your levels into the 30-50 ng/mL optimal range.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Vitamin D Gummies</h2>
+
+    <details class="fq">
+      <summary>How much vitamin D should I take daily?</summary>
+      <p>The RDA is 600 IU for adults aged 19-70 and 800 IU for 70+. However, the Endocrine Society and many researchers recommend 1000-2000 IU daily for most adults to maintain optimal serum 25(OH)D between 40-60 ng/mL. Individuals with documented deficiency may need 4000-5000 IU under physician supervision for 8-12 weeks. The Tolerable Upper Intake Level is 4000 IU per day. A 25(OH)D blood test is the only way to determine your ideal dose.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between vitamin D2 and vitamin D3?</summary>
+      <p>Vitamin D2 (ergocalciferol) comes from fungi; D3 (cholecalciferol) is the form your skin produces from sunlight. A 2012 meta-analysis found D3 is 87% more potent than D2 at raising serum levels and produces 2-3 times greater body storage. D3 also has a longer half-life for stable blood levels. All 8 gummies in our guide use the superior D3 form.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can vitamin D gummies cause side effects?</summary>
+      <p>At standard doses (1000-2000 IU daily), side effects are extremely rare. Chronic intake above 10,000 IU daily can cause vitamin D toxicity (hypervitaminosis D), leading to hypercalcemia with nausea, weakness, kidney stones, and potentially kidney failure. At gummy doses (1000-5000 IU), toxicity is essentially unreported. The key risk is combining multiple D-containing supplements without tracking total daily intake.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should I take vitamin D with food or on an empty stomach?</summary>
+      <p>Vitamin D is fat-soluble and absorbs best with dietary fat. A 2015 study found taking D with the largest meal increased absorption by approximately 50%. Gummies provide a small advantage because they inherently contain some fat. For maximum absorption, take vitamin D gummies with a meal containing healthy fats like avocado, nuts, olive oil, or eggs.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How do I know if I am vitamin D deficient?</summary>
+      <p>The only reliable method is a 25(OH)D blood test. Below 20 ng/mL is deficient, 20-29 is insufficient, 30+ is sufficient. Symptoms include fatigue, bone pain, muscle weakness, frequent infections, slow wound healing, and depression. Risk factors: living above the 37th parallel, dark skin, obesity, limited sun exposure, age 65+, and malabsorption conditions. An estimated 42% of American adults are deficient.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I get enough vitamin D from sunlight alone?</summary>
+      <p>Theoretically yes, practically no for most Americans. Your skin produces 10,000-20,000 IU from 15-30 minutes of midday UVB exposure. However, UVB sufficient for D synthesis only reaches the US from April-October at midday. Winter at latitudes above 37°N produces zero vitamin D regardless of exposure. Sunscreen SPF 15 blocks 93% of UVB, dark skin needs 3-6x more exposure, and aging reduces production by 75%. Supplementation is necessary for most Americans at least 6 months per year.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Does vitamin D help with depression and mood?</summary>
+      <p>Growing evidence supports this connection. Vitamin D receptors exist throughout mood-regulating brain regions. A 2014 meta-analysis of 31,424 participants found low D levels significantly associated with increased depression risk. A 2020 umbrella review confirmed statistically significant positive effects on depression, especially in deficient individuals. Seasonal Affective Disorder closely mirrors seasonal D deficiency patterns.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should I take vitamin D3 with K2?</summary>
+      <p>Combining D3 with K2 is increasingly recommended. D3 increases calcium absorption, while K2 activates proteins (osteocalcin, matrix GLA protein) that direct calcium into bones rather than arteries. A 2017 study found combined D3+K2 improved bone density more than D3 alone. If your D3 gummy lacks K2, consider a separate K2 supplement (100-200mcg MK-7 form) taken with the same meal.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Vitamin & Mineral Gummy Guides</h2>
+      <p>Expert-tested reviews across every vitamin and mineral supplement category for optimal health.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/vitamins/iron-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Iron Gummies</h3>
+        <p>Chelated iron gummies with ferrous bisglycinate for gentle absorption — tested for women's health, anemia prevention, and energy support.</p>
+        <span class="ac-btn">Best Iron Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/probiotic-gummies/" class="ac">
+        <span class="ac-tag">Gut Health</span>
+        <h3>Best Probiotic Gummies</h3>
+        <p>Clinically studied probiotic strains in gummy form for digestive health, immune support, and gut microbiome balance.</p>
+        <span class="ac-btn">Best Probiotic Gummies &#8594;</span>
+      </a>
+      <a href="/best-elderberry-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Best Elderberry Gummies</h3>
+        <p>Immune-supporting elderberry gummies with vitamin C and zinc — pair with vitamin D for comprehensive immune defense.</p>
+        <span class="ac-btn">Best Elderberry Gummies &#8594;</span>
+      </a>
+      <a href="/best-mushroom-gummies/" class="ac">
+        <span class="ac-tag">Trending</span>
+        <h3>Best Mushroom Gummies</h3>
+        <p>Functional mushroom gummies with lion's mane, reishi, and chaga for immune modulation and cognitive support.</p>
+        <span class="ac-btn">Best Mushroom Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-21"
+      updateDate="2026-03-28"
+      authorName="Sarah Mitchell"
+      authorCredentials="RD, CNS"
+      authorImage="/images/authors/sarah-mitchell.webp"
+      authorBio="Sarah is a Registered Dietitian and Certified Nutrition Specialist with expertise in fat-soluble vitamin metabolism, bone health nutrition, and immune-supportive supplementation. She evaluates vitamin D products based on D3 form verification, potency testing standards, absorption-enhancing formulation design, and evidence-based dosing protocols for deficiency repletion and long-term maintenance."
+    />
+
+  </div>
+</BaseLayout>

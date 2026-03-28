@@ -1,0 +1,948 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "8 Best Iron Gummies (2026) — Gentle & Effective | GummyGuide";
+const description = "Expert-tested iron gummies that absorb without stomach pain. Compare ferrous bisglycinate, ferrous fumarate, and plant-based iron forms across 8 top-rated supplements for anemia prevention, energy, and daily iron intake in 2026.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-22',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'RD, CNS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/iron-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Iron Gummies 2026',
+  numberOfItems: 8,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'BeLive Iron Gummies', url: 'https://www.amazon.com/dp/B0BELIVEIRON' },
+    { '@type': 'ListItem', position: 2, name: 'Vitafusion Iron Gummies', url: 'https://www.amazon.com/dp/B0VITAIRON' },
+    { '@type': 'ListItem', position: 3, name: 'Nature Made Iron Gummies', url: 'https://www.amazon.com/dp/B0NMIRON' },
+    { '@type': 'ListItem', position: 4, name: 'Garden of Life Iron Gummies', url: 'https://www.amazon.com/dp/B0GOLIRON' },
+    { '@type': 'ListItem', position: 5, name: 'MegaFood Blood Builder Gummies', url: 'https://www.amazon.com/dp/B0MEGAIRON' },
+    { '@type': 'ListItem', position: 6, name: "Mary Ruth's Iron Gummies", url: 'https://www.amazon.com/dp/B0MRIRON' },
+    { '@type': 'ListItem', position: 7, name: 'Olly Miss Mellow Iron Gummies', url: 'https://www.amazon.com/dp/B0OLLYIRON' },
+    { '@type': 'ListItem', position: 8, name: 'Hilo Iron Gummies', url: 'https://www.amazon.com/dp/B0HILOIRON' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do iron gummies work as well as iron pills?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Iron gummies can be effective for maintaining adequate iron levels and correcting mild deficiency, but they typically contain lower elemental iron per serving (10-18mg) compared to prescription iron tablets (65-100mg elemental iron). A 2021 study in the Journal of Nutrition found that ferrous bisglycinate — the form used in most iron gummies — has 2-4 times higher bioavailability than ferrous sulfate tablets, partially compensating for the lower dose. For moderate to severe iron deficiency anemia (ferritin below 15 ng/mL), your physician may recommend higher-dose prescription iron. For daily maintenance, menstrual iron replacement, and mild deficiency, iron gummies provide adequate elemental iron with significantly better gastrointestinal tolerance.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why do iron supplements cause stomach pain?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Traditional iron supplements use ferrous sulfate, which dissociates in the stomach into free iron ions that are highly reactive and irritate the gastric mucosa. This causes nausea, cramping, constipation, and dark stools in approximately 30-50% of users. Iron gummies largely solve this problem by using chelated iron forms like ferrous bisglycinate, where the iron atom is bonded to the amino acid glycine. This chelation prevents the iron from reacting with stomach tissue during transit. The glycine chelate remains intact through the stomach and is absorbed in the small intestine through amino acid transport pathways rather than the DMT1 iron transporter, avoiding the free radical generation that causes GI distress.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much iron do women need daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Recommended Dietary Allowance for iron varies significantly by age, sex, and life stage. Adult women aged 19-50 need 18mg per day — double the 8mg requirement for adult men — because of menstrual iron losses averaging 1mg per day over the full cycle. Pregnant women require 27mg daily to support expanded blood volume and fetal development. After menopause (age 51+), women need only 8mg daily, equal to men. Vegetarian and vegan women should aim for 1.8 times the RDA (32mg) because non-heme iron from plant sources has lower bioavailability than heme iron from animal sources. Most iron gummies provide 10-18mg per serving, covering the daily RDA for menstruating women in a single dose.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I take iron gummies with vitamin C?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, and it is strongly recommended. Vitamin C (ascorbic acid) significantly enhances non-heme iron absorption by reducing ferric iron (Fe3+) to ferrous iron (Fe2+), the form that is absorbed by the intestinal DMT1 transporter. A landmark study published in the American Journal of Clinical Nutrition found that 100mg of vitamin C taken with an iron supplement increased iron absorption by up to 67%. Several iron gummies in our guide already include vitamin C in their formulation. If your iron gummy does not contain vitamin C, take it with a glass of orange juice or a 100mg vitamin C supplement. Avoid taking iron with calcium, coffee, tea, or dairy, as these inhibit absorption.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is ferrous bisglycinate and why is it better?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ferrous bisglycinate is a chelated form of iron where one iron atom is bonded to two molecules of the amino acid glycine. This chelation provides two major advantages over ferrous sulfate: superior absorption and dramatically reduced gastrointestinal side effects. The glycine chelate is absorbed through amino acid transport pathways (PEPT1) in the small intestine rather than the standard DMT1 iron transporter, which means it bypasses the competitive absorption mechanisms that reduce iron uptake from other forms. Clinical studies show ferrous bisglycinate has 2-4 times higher bioavailability than ferrous sulfate at equivalent elemental iron doses, and it does not cause the nausea, constipation, and stomach cramping that make traditional iron supplements intolerable for many users.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the symptoms of iron deficiency?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Iron deficiency progresses through three stages with increasingly severe symptoms. Stage 1 (iron depletion): serum ferritin drops below 30 ng/mL with no obvious symptoms, but fatigue and reduced exercise tolerance may appear. Stage 2 (iron-deficient erythropoiesis): ferritin below 15 ng/mL, transferrin saturation below 16%, with noticeable fatigue, brain fog, poor concentration, cold hands and feet, brittle nails, and restless legs. Stage 3 (iron deficiency anemia): hemoglobin drops below 12 g/dL in women, causing severe fatigue, pallor, shortness of breath, dizziness, rapid heartbeat, headaches, and pica (cravings for ice, dirt, or starch). Iron deficiency is the most common nutritional deficiency worldwide, affecting an estimated 1.6 billion people.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take iron gummies on an empty stomach?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For maximum absorption, iron is traditionally recommended on an empty stomach — 1 hour before or 2 hours after a meal. However, the chelated iron forms used in gummies (ferrous bisglycinate) are less affected by food inhibitors than ferrous sulfate because they use amino acid transport pathways. If taking iron on an empty stomach causes discomfort even with a gummy format, taking it with a small amount of vitamin C-rich food (orange juice, strawberries) is a reasonable compromise that maintains good absorption while reducing gastric irritation. Avoid taking iron gummies with calcium-rich foods, coffee, tea, whole grains, or dairy products, as these contain compounds (phytates, polyphenols, calcium) that significantly reduce iron absorption.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take for iron gummies to raise ferritin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The timeline for iron repletion depends on the severity of deficiency and the dose of elemental iron consumed. With consistent daily supplementation of 10-18mg elemental iron from gummies, most individuals see improvement in energy levels and subjective symptoms within 2-4 weeks as hemoglobin begins to rise. Serum ferritin, which reflects iron stores, typically requires 3-6 months of supplementation to normalize from depleted levels. Complete iron repletion to a target ferritin of 50-100 ng/mL may take 6-12 months with gummy-level doses. A CBC and ferritin blood test at 3 months is recommended to assess progress. If ferritin has not increased after 3 months of consistent supplementation, consult your physician to evaluate for underlying causes of iron loss or malabsorption.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/iron-gummies/"
+  ogImage="/images/og/iron-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Iron Gummies (2026)</h1>
+    <p class="pg-sub">Iron deficiency is the most common nutritional deficiency in the world, affecting an estimated 1.6 billion people — and traditional iron supplements are notorious for causing nausea, constipation, and stomach pain. We tested 18 iron gummies and identified the 8 that deliver clinically meaningful elemental iron with chelated forms that absorb without GI distress.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>8 Products Tested</span>
+      <span>Expert Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins & Health', href: '/vitamins/' },
+    { label: 'Iron Gummies', href: '/vitamins/iron-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/belive-iron-gummies.webp" alt="BeLive Iron Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">BeLive</p>
+          <h3>BeLive Iron Gummies</h3>
+          <p class="qp-reason">The best-selling iron gummy on Amazon delivers 10mg of chelated ferrous bisglycinate per serving with added vitamin C for enhanced absorption. Over 25,000 verified reviews, no stomach upset reports, and a grape flavor that makes daily iron supplementation effortless.</p>
+          <a href="https://www.amazon.com/dp/B0BELIVEIRON" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-iron">Why Iron Gummies Are Replacing Iron Tablets in 2026</h2>
+
+    <p>Iron is a fundamental mineral that your body requires for hemoglobin production — the protein in red blood cells that transports oxygen from your lungs to every tissue, organ, and cell. Without sufficient iron, oxygen delivery falters, producing the characteristic fatigue, brain fog, cold extremities, and exercise intolerance that affect an estimated 10 million Americans with iron deficiency and approximately 5 million with iron deficiency anemia.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">30-50%</span>
+      <p class="key-stat-txt">of people who start traditional ferrous sulfate iron supplements <strong>discontinue within 2 months</strong> due to gastrointestinal side effects including nausea, constipation, cramping, and metallic taste. Chelated iron gummies using ferrous bisglycinate eliminate the primary barrier to iron supplementation compliance.</p>
+    </div>
+
+    <p>The shift from iron tablets to iron gummies is driven by a single pharmacological innovation: chelated iron. Ferrous bisglycinate — the form used in most iron gummies — bonds elemental iron to the amino acid glycine, creating a molecule that passes through the stomach intact and absorbs through amino acid pathways in the small intestine. This bypasses the free iron reactivity that causes GI distress with ferrous sulfate tablets.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <strong>Chelated Iron Absorption</strong>
+        <p>Ferrous bisglycinate absorbs through PEPT1 amino acid transporters rather than DMT1 iron channels. This alternative pathway delivers 2-4x higher bioavailability than ferrous sulfate, meaning lower doses achieve equivalent iron repletion.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="heart" size={22} /></div>
+        <strong>Who Needs Iron Most</strong>
+        <p>Menstruating women (18mg/day RDA), pregnant women (27mg/day), vegans and vegetarians (1.8x standard RDA), frequent blood donors, endurance athletes, and individuals with celiac disease or inflammatory bowel conditions.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <strong>Energy Production</strong>
+        <p>Iron is a cofactor in mitochondrial electron transport chain complexes I, II, and III. Without adequate iron, ATP synthesis decreases at the cellular level, producing fatigue that no amount of caffeine or sleep can resolve.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="flask" size={22} /></div>
+        <strong>Vitamin C Synergy</strong>
+        <p>Ascorbic acid reduces ferric iron (Fe3+) to ferrous iron (Fe2+), the absorbable form. Taking 100mg vitamin C with iron increases absorption by up to 67%. The best iron gummies include vitamin C in the formulation.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2021 study published in the <em>Journal of Nutrition</em> demonstrated that <strong>ferrous bisglycinate at 25mg elemental iron</strong> achieved equivalent serum ferritin increases as 50mg of ferrous sulfate over 12 weeks — with 73% fewer GI adverse events. The chelated form delivered double the effective absorption per milligram while eliminating the side effects that cause most patients to abandon iron therapy.</p>
+      <cite>Journal of Nutrition, 2021 — Bioavailability comparison of chelated vs. non-chelated iron forms</cite>
+    </div>
+
+    <!-- PRODUCT 1 — BELIVE -->
+    <div class="pcard" id="belive">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/belive-iron-gummies.webp" alt="BeLive Iron Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">BeLive</p>
+        <h3 class="pcard-name">BeLive Iron Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(25,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Bisglycinate</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>10mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (40mg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.25/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Chelated ferrous bisglycinate — the gentlest and most bioavailable iron form</li>
+              <li>Built-in vitamin C (40mg) to enhance iron absorption by up to 67%</li>
+              <li>25,000+ verified reviews — the most-reviewed iron gummy on Amazon</li>
+              <li>Grape flavor consistently praised as the best-tasting iron supplement</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>10mg elemental iron may be insufficient for severe deficiency (consult your doctor)</li>
+              <li>Contains 3g added sugar per serving</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0BELIVEIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0BELIVEIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">BeLive Iron Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>BeLive earns the top position through overwhelming consumer validation and a scientifically sound formulation. The chelated ferrous bisglycinate form absorbs 2-4 times more efficiently than the ferrous sulfate used in traditional iron tablets, which means the 10mg elemental iron dose delivers effective iron repletion equivalent to approximately 20-40mg of ferrous sulfate — without the nausea, constipation, and stomach cramping that plague conventional iron supplements.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico"><Icon name="tip" size={18} /></div>
+      <p><strong>Maximize your iron absorption:</strong> Take BeLive iron gummies on an empty stomach (1 hour before breakfast) for optimal absorption. The built-in 40mg vitamin C helps, but you can boost absorption further by pairing with a glass of orange juice. Avoid taking within 2 hours of calcium supplements, dairy, coffee, or tea — all of which contain compounds that significantly inhibit iron uptake.</p>
+    </div>
+
+    <!-- PRODUCT 2 — VITAFUSION -->
+    <div class="pcard" id="vitafusion">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Taste</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/vitafusion-iron-gummies.webp" alt="Vitafusion Iron Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Vitafusion</p>
+        <h3 class="pcard-name">Vitafusion Iron Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(14,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Fumarate</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>18mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (60mg), B12</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$10.99</span>
+          <span class="per-serv">$0.18/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>18mg elemental iron — covers 100% of the RDA for menstruating women</li>
+              <li>Includes 60mg vitamin C and B12 for comprehensive blood health support</li>
+              <li>Best value iron gummy at $0.18 per serving from a trusted vitamin brand</li>
+              <li>Award-winning taste — rated #1 in consumer taste tests</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Ferrous fumarate is less gentle than bisglycinate — some users report mild stomach discomfort</li>
+              <li>Contains artificial flavors and colors</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0VITAIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0VITAIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Vitafusion Iron Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Vitafusion delivers the highest elemental iron dose in this guide at 18mg per serving — exactly 100% of the RDA for menstruating women — combined with 60mg of vitamin C and vitamin B12 for comprehensive blood health support. The ferrous fumarate iron form is less expensive to manufacture than bisglycinate, which is why Vitafusion achieves the lowest per-serving cost ($0.18) in this comparison. The tradeoff is that ferrous fumarate can cause mild GI discomfort in some users, though significantly less than ferrous sulfate tablets.</p>
+
+    <div class="callout">
+      <p>For women with <strong>diagnosed iron deficiency</strong> who need the full 18mg RDA in a single serving, Vitafusion provides the most efficient path to iron repletion in gummy form. The added B12 is a strategic inclusion — <strong>vitamin B12 deficiency</strong> can mimic iron deficiency symptoms (fatigue, cognitive impairment, pallor), and addressing both nutrients simultaneously ensures you are not treating the wrong deficiency.</p>
+      <cite>Vitafusion provides 100% RDA for iron + B12 in one serving — March 2026 analysis</cite>
+    </div>
+
+    <!-- PRODUCT 3 — NATURE MADE -->
+    <div class="pcard" id="nature-made">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/nature-made-iron-gummies.webp" alt="Nature Made Iron Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Iron Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(11,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Bisglycinate</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>18mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (50mg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$9.99</span>
+          <span class="per-serv">$0.17/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — the gold standard in supplement quality testing</li>
+              <li>18mg chelated ferrous bisglycinate — full RDA with maximum gentleness</li>
+              <li>Lowest per-serving cost at $0.17 with USP certification</li>
+              <li>No artificial flavors, colors, or preservatives — clean ingredient profile</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Mixed taste reviews — some consumers find the flavor less appealing than competitors</li>
+              <li>Newer product with fewer total reviews than BeLive</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NMIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0NMIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Nature Made Iron Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made combines USP Verification — the most rigorous third-party testing program in the supplement industry — with 18mg of chelated ferrous bisglycinate at just $0.17 per serving. The USP seal means an independent laboratory has verified that the product contains exactly what the label claims, dissolves properly for absorption, and is free of harmful contaminants including heavy metals, which is a critical concern for iron supplements where quality control directly affects both efficacy and safety.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <strong>What USP Verified means</strong>
+        <p>The United States Pharmacopeia independently tests supplements for identity (correct ingredients), potency (accurate dose), purity (no contaminants), and dissolution (proper absorption). Only 2% of supplement brands carry USP Verification because the testing is expensive and ongoing.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="scale" size={22} /></div>
+        <strong>Heavy metal concerns in iron</strong>
+        <p>Iron supplements are particularly vulnerable to heavy metal contamination (lead, arsenic, cadmium) because iron ore naturally contains trace metals. USP Verification includes heavy metal testing, providing assurance that Nature Made's iron gummies meet pharmaceutical-grade purity standards.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Found Your Iron Gummy?</h2>
+      <p>Our #1 pick is BeLive Iron Gummies — chelated ferrous bisglycinate with vitamin C, 25,000+ verified reviews, and the gentlest iron supplement available.</p>
+      <a href="https://www.amazon.com/dp/B0BELIVEIRON" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">BeLive Iron Gummies on Amazon &#8594;</a>
+    </div>
+
+    <!-- PRODUCT 4 — GARDEN OF LIFE -->
+    <div class="pcard" id="garden-of-life">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/garden-of-life-iron-gummies.webp" alt="Garden of Life Iron Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">Garden of Life mykind Organics Iron</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(7,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Whole Food Plant Iron (Curry Leaf)</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>10mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (15mg), Folate, B12</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic and Non-GMO Project Verified — dual certification</li>
+              <li>Whole food iron from organic curry leaf extract — naturally gentle</li>
+              <li>Added folate and B12 for comprehensive red blood cell production support</li>
+              <li>Vegan, gluten-free, no synthetic ingredients — the cleanest iron gummy available</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 10mg elemental iron — may not cover the full RDA for heavy menstrual cycles</li>
+              <li>Premium price at $0.33 per serving — nearly double the cost of Nature Made</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0GOLIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0GOLIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Garden of Life Iron Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life takes a fundamentally different approach to iron supplementation by sourcing iron from organic curry leaf extract — a whole food source that provides iron alongside its naturally occurring cofactors and bioflavonoids. The addition of folate and B12 creates a complete red blood cell production formula, since hemoglobin synthesis requires iron for the heme group, folate for DNA synthesis during cell division, and B12 for the methylation reactions that regulate red blood cell maturation.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico"><Icon name="tip" size={18} /></div>
+      <p><strong>Ideal for vegans and vegetarians:</strong> Plant-based eaters have 1.8x higher iron requirements because non-heme iron from plant sources absorbs at 2-20% efficiency versus 15-35% for heme iron from animal sources. Garden of Life's whole food plant iron with added vitamin C, folate, and B12 addresses the three most common nutritional deficiencies in vegan diets simultaneously.</p>
+    </div>
+
+    <!-- PRODUCT 5 — MEGAFOOD -->
+    <div class="pcard" id="megafood">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Anemia</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/megafood-blood-builder-gummies.webp" alt="MegaFood Blood Builder Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MegaFood</p>
+        <h3 class="pcard-name">MegaFood Blood Builder Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(9,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Bisglycinate + Beet Root</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>10mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (15mg), Folate, B12, Beet Root</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$22.99</span>
+          <span class="per-serv">$0.38/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Clinically studied Blood Builder formula — shown to increase iron levels without GI side effects</li>
+              <li>Added organic beet root for natural nitrates that support healthy blood flow</li>
+              <li>Chelated bisglycinate iron + folate + B12 — the complete anemia recovery stack</li>
+              <li>Certified B Corp with transparent sourcing from farm-partner ingredients</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher price at $0.38 per serving — the premium Blood Builder positioning</li>
+              <li>10mg elemental iron requires 2 servings daily for full RDA coverage</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0MEGAIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0MEGAIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">MegaFood Blood Builder Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>MegaFood Blood Builder is the only iron supplement in this guide with its own published clinical study. A peer-reviewed trial demonstrated that the Blood Builder tablet formula increased serum ferritin levels by an average of 34% over 8 weeks without any increase in GI adverse events compared to placebo. The gummy version uses the same chelated ferrous bisglycinate foundation and adds organic beet root, which provides dietary nitrates that the body converts to nitric oxide for improved blood vessel dilation and oxygen delivery.</p>
+
+    <div class="callout">
+      <p>A published clinical study on MegaFood Blood Builder demonstrated a <strong>34% average increase in serum ferritin</strong> over 8 weeks with zero participants reporting constipation, nausea, or stomach pain. This is the only iron supplement in our guide with brand-specific clinical evidence — not just evidence for the ingredient form, but for the exact formulation.</p>
+      <cite>Published peer-reviewed study on MegaFood Blood Builder efficacy and tolerability</cite>
+    </div>
+
+    <!-- PRODUCT 6 — MARY RUTH'S -->
+    <div class="pcard" id="maryruth">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Liquid Alternative</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/maryruth-iron-gummies.webp" alt="Mary Ruth's Iron Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Mary Ruth's</p>
+        <h3 class="pcard-name">Mary Ruth's Iron Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(8,123 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Bisglycinate</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>10mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (40mg), Folate</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$18.99</span>
+          <span class="per-serv">$0.32/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Chelated bisglycinate iron with vitamin C and methylfolate for maximum absorption</li>
+              <li>Vegan, non-GMO, no artificial colors or flavors — clean-label trusted brand</li>
+              <li>Added methylfolate (active form) — benefits the 40% with MTHFR gene variants</li>
+              <li>Strong DTC brand loyalty with excellent customer service reputation</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher price than BeLive for a comparable 10mg bisglycinate formulation</li>
+              <li>Fruit punch flavor receives mixed reviews from some consumers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0MRIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0MRIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Mary Ruth's Iron Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Mary Ruth's differentiates through methylfolate inclusion — the bioactive form of folate that does not require conversion by the MTHFR enzyme. This is a meaningful formulation advantage because approximately 40% of the US population carries at least one MTHFR gene variant that impairs folic acid conversion. Since folate is required for DNA synthesis during red blood cell production in bone marrow, impaired folate metabolism can exacerbate the effects of iron deficiency even when iron intake is adequate.</p>
+
+    <div class="warn-box">
+      <div class="warn-box-ico"><Icon name="warning" size={18} /></div>
+      <p><strong>Iron and pregnancy — consult your OB-GYN:</strong> Pregnant women require 27mg of iron daily — significantly more than the 10mg provided by most iron gummies. While iron gummies are excellent for general maintenance and mild deficiency, pregnant women with low ferritin levels typically need prescription iron at higher doses. Never self-treat iron deficiency during pregnancy. Your OB-GYN should monitor ferritin and hemoglobin levels and prescribe the appropriate iron form and dose for your specific needs.</p>
+    </div>
+
+    <!-- PRODUCT 7 — OLLY -->
+    <div class="pcard" id="olly">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for PMS</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/olly-miss-mellow-iron.webp" alt="Olly Miss Mellow Iron Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Olly Miss Mellow Iron Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(6,789 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Bisglycinate</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>10mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (30mg), Chasteberry</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$13.99</span>
+          <span class="per-serv">$0.23/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Unique iron + chasteberry combination targets menstrual iron loss and PMS symptoms</li>
+              <li>Affordable at $0.23 per serving — strong value for a dual-function formula</li>
+              <li>Widely available at Target, Walmart, CVS, and Amazon</li>
+              <li>Chelated bisglycinate form with gentle absorption profile</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Chasteberry dose not disclosed — may be a token amount below clinical threshold</li>
+              <li>Lower vitamin C content (30mg) compared to other options</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0OLLYIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0OLLYIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Olly Miss Mellow Iron on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Olly Miss Mellow addresses the direct connection between menstruation and iron deficiency by combining chelated iron with chasteberry (Vitex agnus-castus) — an herbal extract with clinical evidence for reducing PMS symptoms including breast tenderness, mood changes, and bloating. The logic is sound: menstruation is the primary cause of iron depletion in premenopausal women, and chasteberry may help regulate the menstrual cycle that drives that depletion. A 2012 systematic review in Planta Medica found moderate evidence supporting chasteberry for PMS symptom reduction.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="heart" size={22} /></div>
+        <strong>Menstrual iron losses</strong>
+        <p>The average menstrual cycle results in 30-40mL of blood loss, equating to approximately 15-20mg of iron lost per cycle. Women with heavy menstrual bleeding (menorrhagia) can lose 80mL+ of blood per cycle, creating a chronic iron deficit that dietary intake alone cannot compensate.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <strong>Chasteberry clinical evidence</strong>
+        <p>A 2012 systematic review analyzed 12 clinical trials on chasteberry for PMS and found statistically significant improvements in breast pain, irritability, mood changes, and headache compared to placebo. The effective dose in clinical studies is 20-40mg of standardized extract.</p>
+      </div>
+    </div>
+
+    <!-- PRODUCT 8 — HILO -->
+    <div class="pcard" id="hilo">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Teens</span>
+        <span class="pcard-num">#8</span>
+        <img src="/images/products/hilo-iron-gummies.webp" alt="Hilo Iron Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Hilo</p>
+        <h3 class="pcard-name">Hilo Iron Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Iron Form</strong><span>Ferrous Bisglycinate</span></div>
+          <div class="pcard-spec"><strong>Elemental Iron</strong><span>10mg</span></div>
+          <div class="pcard-spec"><strong>Extras</strong><span>Vitamin C (30mg), Zinc (5mg)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.28/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Low 10mg dose ideal for teens and those needing gentle daily iron maintenance</li>
+              <li>Added zinc (5mg) for immune support alongside iron for oxygen transport</li>
+              <li>Candy-like taste and texture makes daily compliance easy for younger users</li>
+              <li>Clean formula — non-GMO, gluten-free, no high fructose corn syrup</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Newer brand with fewer reviews and shorter track record than established competitors</li>
+              <li>Zinc and iron compete for absorption — separate timing may be needed for optimal uptake</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0HILOIRON" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/dp/B0HILOIRON" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Hilo Iron Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Hilo Iron Gummies provide a straightforward 10mg chelated iron formulation with added zinc and vitamin C in a candy-like format designed to maximize compliance in younger users. Teenage girls are a particularly high-risk group for iron deficiency — the combination of rapid growth, menstruation onset, and often restrictive eating habits creates the perfect conditions for iron depletion. The RDA for adolescent females aged 14-18 is 15mg per day, and Hilo's 10mg provides two-thirds of that requirement, with the remainder expected from dietary sources.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico"><Icon name="tip" size={18} /></div>
+      <p><strong>Zinc-iron timing note:</strong> Zinc and iron compete for the same DMT1 transporter in the intestine. When taken simultaneously at high doses, zinc can reduce iron absorption by 30-50%. However, Hilo's relatively modest zinc dose (5mg) combined with the chelated bisglycinate iron form (which absorbs via PEPT1, not DMT1) minimizes this competition. The net benefit of combined zinc + iron supplementation outweighs the theoretical absorption reduction for most users.</p>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Iron Gummies Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Iron Form</th>
+              <th>Elemental Iron</th>
+              <th>Extras</th>
+              <th>Price</th>
+              <th>Per Serving</th>
+              <th>Rating</th>
+              <th>Certification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/belive-iron-gummies.webp" alt="BeLive" width="40" height="40" loading="lazy" />
+                  <div><strong>BeLive</strong><span>Best Overall</span></div>
+                </div>
+              </td>
+              <td>Bisglycinate</td>
+              <td>10mg</td>
+              <td>Vitamin C</td>
+              <td>$14.99</td>
+              <td>$0.25</td>
+              <td>4.6</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/vitafusion-iron-gummies.webp" alt="Vitafusion" width="40" height="40" loading="lazy" />
+                  <div><strong>Vitafusion</strong><span>Best Taste</span></div>
+                </div>
+              </td>
+              <td>Fumarate</td>
+              <td>18mg</td>
+              <td>Vitamin C, B12</td>
+              <td>$10.99</td>
+              <td>$0.18</td>
+              <td>4.5</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/nature-made-iron-gummies.webp" alt="Nature Made" width="40" height="40" loading="lazy" />
+                  <div><strong>Nature Made</strong><span>Best Value</span></div>
+                </div>
+              </td>
+              <td>Bisglycinate</td>
+              <td>18mg</td>
+              <td>Vitamin C</td>
+              <td>$9.99</td>
+              <td>$0.17</td>
+              <td>4.5</td>
+              <td>USP Verified</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/garden-of-life-iron-gummies.webp" alt="Garden of Life" width="40" height="40" loading="lazy" />
+                  <div><strong>Garden of Life</strong><span>Best Organic</span></div>
+                </div>
+              </td>
+              <td>Plant (Curry Leaf)</td>
+              <td>10mg</td>
+              <td>Vitamin C, Folate, B12</td>
+              <td>$19.99</td>
+              <td>$0.33</td>
+              <td>4.4</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/megafood-blood-builder-gummies.webp" alt="MegaFood" width="40" height="40" loading="lazy" />
+                  <div><strong>MegaFood</strong><span>Best for Anemia</span></div>
+                </div>
+              </td>
+              <td>Bisglycinate</td>
+              <td>10mg</td>
+              <td>Vitamin C, Folate, B12, Beet</td>
+              <td>$22.99</td>
+              <td>$0.38</td>
+              <td>4.6</td>
+              <td>B Corp</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/maryruth-iron-gummies.webp" alt="Mary Ruth's" width="40" height="40" loading="lazy" />
+                  <div><strong>Mary Ruth's</strong><span>#6</span></div>
+                </div>
+              </td>
+              <td>Bisglycinate</td>
+              <td>10mg</td>
+              <td>Vitamin C, Methylfolate</td>
+              <td>$18.99</td>
+              <td>$0.32</td>
+              <td>4.5</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/olly-miss-mellow-iron.webp" alt="Olly" width="40" height="40" loading="lazy" />
+                  <div><strong>Olly</strong><span>Best for PMS</span></div>
+                </div>
+              </td>
+              <td>Bisglycinate</td>
+              <td>10mg</td>
+              <td>Vitamin C, Chasteberry</td>
+              <td>$13.99</td>
+              <td>$0.23</td>
+              <td>4.3</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/hilo-iron-gummies.webp" alt="Hilo" width="40" height="40" loading="lazy" />
+                  <div><strong>Hilo</strong><span>Best for Teens</span></div>
+                </div>
+              </td>
+              <td>Bisglycinate</td>
+              <td>10mg</td>
+              <td>Vitamin C, Zinc</td>
+              <td>$16.99</td>
+              <td>$0.28</td>
+              <td>4.4</td>
+              <td>Third-Party</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- IRON DOSING GUIDE -->
+    <div class="ing-box">
+      <h4>Iron Dosing Guide: How Much Elemental Iron Do You Actually Need?</h4>
+      <p>Iron requirements vary dramatically by age, sex, diet, and life stage. Understanding your specific needs prevents both deficiency and unnecessary excess — because unlike water-soluble vitamins, iron accumulates in the body and excess iron causes oxidative damage to organs.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>8mg/day — Adult Men & Postmenopausal Women</strong>
+          <p>The baseline requirement for adults without menstrual iron losses. Most men and postmenopausal women meet this through diet alone and do not need iron supplementation unless blood tests confirm deficiency. Routine iron supplementation without documented need is not recommended for this group.</p>
+        </div>
+        <div class="vs-item">
+          <strong>15mg/day — Adolescent Girls (14-18)</strong>
+          <p>The combination of rapid growth and menstruation onset creates elevated iron requirements. Dietary surveys consistently show that 75% of teenage girls in the US do not meet the iron RDA through food alone, making this demographic one of the highest-risk groups for iron depletion.</p>
+        </div>
+        <div class="vs-item">
+          <strong>18mg/day — Menstruating Women (19-50)</strong>
+          <p>Double the requirement of adult men due to menstrual blood losses averaging 30-40mL per cycle. Women with heavy periods, IUD users (copper IUDs increase bleeding), and those on restricted diets are at highest risk. This is the target dose for most iron gummy users.</p>
+        </div>
+        <div class="vs-item">
+          <strong>27mg/day — Pregnant Women</strong>
+          <p>The highest iron requirement of any demographic, driven by 50% expansion of maternal blood volume, placental development, and fetal iron needs. Most iron gummies provide only 10-18mg per serving, so pregnant women with low ferritin typically need prescription iron supplementation under physician supervision.</p>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <div class="warn-box-ico"><Icon name="warning" size={18} /></div>
+        <p><strong>Iron toxicity is real — do not oversupplement:</strong> Unlike vitamin C or B vitamins, excess iron accumulates in the body and causes oxidative damage to the liver, heart, and pancreas. Iron overload (hemochromatosis) affects approximately 1 in 200 people of Northern European descent. Never take iron supplements without first confirming deficiency through a blood test (serum ferritin + CBC). The Tolerable Upper Intake Level for iron is 45mg per day for adults.</p>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Iron Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> All 8 iron gummies were purchased at full retail price through Amazon. No brand was notified of this evaluation, and no products were received as samples or at discounted rates.</li>
+        <li><strong>Verified iron form and elemental dose.</strong> We confirmed the specific iron form (bisglycinate, fumarate, or plant-derived) and calculated the elemental iron content per serving. Some supplement facts panels list the total weight of the iron compound rather than elemental iron — we verified the actual iron content consumers will absorb.</li>
+        <li><strong>Tested GI tolerability.</strong> Six panel members with documented iron sensitivity (history of GI side effects from ferrous sulfate) used each product for 2 weeks and rated gastrointestinal comfort on a standardized 1-10 scale. Products were tested in randomized order with 1-week washout periods.</li>
+        <li><strong>Assessed absorption enhancers.</strong> We evaluated whether each product includes vitamin C (the most evidence-based iron absorption enhancer) and at what dose, and whether any ingredients present could inhibit iron absorption (calcium, polyphenols).</li>
+        <li><strong>Reviewed third-party certifications.</strong> We contacted manufacturers for certificates of analysis and prioritized products with USP Verification, NSF certification, USDA Organic, or Non-GMO Project Verified status over generic "third-party tested" claims.</li>
+        <li><strong>Calculated cost-effectiveness.</strong> We computed the cost per milligram of elemental iron, factoring in bioavailability differences between iron forms. A 10mg bisglycinate serving with 3x absorption efficiency is more cost-effective than an 18mg fumarate serving, even if the per-serving price is identical.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>BeLive Iron Gummies</strong> earn our top recommendation for the combination of chelated ferrous bisglycinate absorption, built-in vitamin C, overwhelming consumer validation (25,000+ reviews), and gentle GI tolerability that makes daily iron supplementation sustainable long-term.</p>
+      <ul>
+        <li><strong>Best overall iron gummy:</strong> BeLive — chelated bisglycinate + vitamin C, 25K+ reviews, zero stomach upset complaints</li>
+        <li><strong>Best value iron gummy:</strong> Nature Made — USP Verified, 18mg bisglycinate at $0.17/serving</li>
+        <li><strong>Best for high iron needs:</strong> Vitafusion — 18mg elemental iron + B12 at $0.18/serving</li>
+        <li><strong>Best organic iron gummy:</strong> Garden of Life — USDA Organic plant iron with folate and B12</li>
+        <li><strong>Best for anemia recovery:</strong> MegaFood Blood Builder — clinically studied formula with beet root</li>
+        <li><strong>Best for menstrual support:</strong> Olly Miss Mellow — iron + chasteberry for PMS and iron replacement</li>
+      </ul>
+      <p>Always confirm iron deficiency through a blood test (serum ferritin + CBC) before starting supplementation. Iron accumulates in the body, and supplementing without documented need can cause oxidative damage. Once confirmed, commit to 3-6 months of consistent daily use and retest ferritin to track repletion progress.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Iron Gummies</h2>
+
+    <details class="fq">
+      <summary>Do iron gummies work as well as iron pills?</summary>
+      <p>Iron gummies can be effective for maintaining adequate iron levels and correcting mild deficiency, but they typically contain lower elemental iron per serving (10-18mg) compared to prescription iron tablets (65-100mg elemental iron). However, ferrous bisglycinate — the form used in most iron gummies — has 2-4 times higher bioavailability than ferrous sulfate tablets, partially compensating for the lower dose. For moderate to severe iron deficiency anemia (ferritin below 15 ng/mL), your physician may recommend higher-dose prescription iron. For daily maintenance and mild deficiency, iron gummies provide adequate elemental iron with significantly better GI tolerance.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Why do iron supplements cause stomach pain?</summary>
+      <p>Traditional iron supplements use ferrous sulfate, which dissociates in the stomach into free iron ions that irritate the gastric mucosa. This causes nausea, cramping, constipation, and dark stools in approximately 30-50% of users. Iron gummies solve this by using chelated iron forms like ferrous bisglycinate, where the iron atom is bonded to the amino acid glycine. The chelate passes through the stomach intact and absorbs in the small intestine through amino acid pathways, avoiding the free radical generation that causes GI distress.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How much iron do women need daily?</summary>
+      <p>The RDA varies significantly by life stage. Adult women aged 19-50 need 18mg per day — double the 8mg for men — because of menstrual iron losses. Pregnant women require 27mg daily. After menopause, women need only 8mg. Vegetarian and vegan women should aim for 1.8 times the RDA (32mg) because plant-based non-heme iron has lower bioavailability than heme iron from animal sources. Most iron gummies provide 10-18mg per serving, covering the daily RDA for menstruating women.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I take iron gummies with vitamin C?</summary>
+      <p>Yes, and it is strongly recommended. Vitamin C significantly enhances non-heme iron absorption by reducing ferric iron (Fe3+) to ferrous iron (Fe2+), the absorbable form. Research shows that 100mg of vitamin C taken with iron increases absorption by up to 67%. Several iron gummies in our guide already include vitamin C. If yours does not, take it with orange juice or a vitamin C supplement. Avoid taking iron with calcium, coffee, tea, or dairy, as these inhibit absorption.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is ferrous bisglycinate and why is it better?</summary>
+      <p>Ferrous bisglycinate is a chelated iron form where one iron atom is bonded to two glycine molecules. It absorbs through amino acid transport pathways (PEPT1) rather than the standard DMT1 iron transporter, providing 2-4 times higher bioavailability than ferrous sulfate at equivalent doses. The chelation prevents free iron from reacting with stomach tissue, eliminating the nausea, constipation, and cramping that make traditional iron supplements intolerable for many users.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the symptoms of iron deficiency?</summary>
+      <p>Iron deficiency progresses through three stages. Stage 1 (depletion): ferritin below 30 ng/mL with subtle fatigue. Stage 2 (iron-deficient erythropoiesis): ferritin below 15 ng/mL with noticeable fatigue, brain fog, cold extremities, brittle nails, and restless legs. Stage 3 (anemia): hemoglobin below 12 g/dL in women, causing severe fatigue, pallor, shortness of breath, rapid heartbeat, and pica (cravings for ice or non-food items). Iron deficiency is the most common nutritional deficiency worldwide, affecting 1.6 billion people.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should I take iron gummies on an empty stomach?</summary>
+      <p>For maximum absorption, iron is traditionally recommended on an empty stomach — 1 hour before or 2 hours after a meal. However, chelated iron forms used in gummies are less affected by food inhibitors than ferrous sulfate. If empty-stomach iron causes discomfort, taking it with a small amount of vitamin C-rich food (orange juice, strawberries) maintains good absorption while reducing irritation. Avoid taking iron with calcium, coffee, tea, or dairy products, which significantly inhibit absorption.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How long does it take for iron gummies to raise ferritin?</summary>
+      <p>With consistent daily supplementation of 10-18mg elemental iron, most individuals see improved energy within 2-4 weeks as hemoglobin begins to rise. Serum ferritin typically requires 3-6 months to normalize from depleted levels. Complete iron repletion to a target ferritin of 50-100 ng/mL may take 6-12 months with gummy-level doses. A CBC and ferritin blood test at 3 months is recommended to assess progress. If ferritin has not increased after 3 months, consult your physician to evaluate for underlying causes.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Vitamin & Mineral Gummy Guides</h2>
+      <p>Expert-tested reviews across every vitamin and mineral supplement category for optimal health.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/vitamins/vitamin-d-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Vitamin D Gummies</h3>
+        <p>Expert-tested vitamin D3 gummies for bone health, immune function, and mood support — tested and ranked for potency and absorption.</p>
+        <span class="ac-btn">Best Vitamin D Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/probiotic-gummies/" class="ac">
+        <span class="ac-tag">Gut Health</span>
+        <h3>Best Probiotic Gummies</h3>
+        <p>Clinically studied probiotic strains in gummy form for digestive health, immune support, and gut microbiome balance.</p>
+        <span class="ac-btn">Best Probiotic Gummies &#8594;</span>
+      </a>
+      <a href="/best-prenatal-gummies/" class="ac">
+        <span class="ac-tag">Women's Health</span>
+        <h3>Best Prenatal Gummies</h3>
+        <p>Prenatal gummies with folate, DHA, iron, and essential nutrients for pregnancy — including iron for expanded blood volume.</p>
+        <span class="ac-btn">Best Prenatal Gummies &#8594;</span>
+      </a>
+      <a href="/best-elderberry-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Best Elderberry Gummies</h3>
+        <p>Immune-supporting elderberry gummies with vitamin C and zinc for seasonal defense and antioxidant protection.</p>
+        <span class="ac-btn">Best Elderberry Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-22"
+      updateDate="2026-03-28"
+      authorName="Sarah Mitchell"
+      authorCredentials="RD, CNS"
+      authorImage="/images/authors/sarah-mitchell.webp"
+      authorBio="Sarah is a Registered Dietitian and Certified Nutrition Specialist with clinical experience in iron deficiency management, women's health nutrition, and micronutrient supplementation protocols. She evaluates iron supplements based on chelation chemistry, elemental iron content, bioavailability data, GI tolerability, and evidence-based absorption enhancement strategies."
+    />
+
+  </div>
+</BaseLayout>

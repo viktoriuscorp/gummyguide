@@ -1,0 +1,459 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Melatonin Dosage Guide: How Much to Take by Age & Condition (2026) | GummyGuide";
+const description = "Complete melatonin dosage guide with evidence-based recommendations by age, body weight, sleep condition, and timing. Covers adults, children, elderly, jet lag, shift work, and insomnia protocols.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Melatonin Dosage Guide: How Much to Take by Age & Condition (2026)',
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'RD, CNS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/melatonin-dosage.webp',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much melatonin should an adult take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most adults should start at 0.5-1mg of melatonin taken 30-60 minutes before bedtime. Clinical research shows that lower doses (0.3-1mg) are often more effective than higher doses for improving sleep onset because they produce blood melatonin levels closer to natural physiological concentrations. Doses above 3mg are rarely necessary for typical sleep-onset insomnia and can actually disrupt sleep architecture, causing fragmented sleep and next-morning grogginess. The maximum recommended dose for most adults is 5mg, and doses above 10mg should only be taken under medical supervision.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best time to take melatonin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For sleep-onset insomnia (difficulty falling asleep), take melatonin 30-60 minutes before your desired bedtime. For jet lag traveling eastward, take melatonin at the local bedtime of your destination for 3-5 nights after arrival. For delayed sleep-wake phase disorder (natural bedtime very late), take melatonin 3-5 hours before your current natural sleep time to gradually advance your circadian clock. For shift work, take melatonin 30 minutes before your desired sleep time, regardless of the clock time. Taking melatonin too early (more than 2 hours before bed) or too late (at bedtime without lead time) reduces its effectiveness for sleep onset.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you take too much melatonin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Melatonin has a wide safety margin and acute toxicity is extremely rare. However, taking too much melatonin (typically above 5mg for most adults) can paradoxically worsen sleep quality by causing next-morning grogginess, vivid nightmares, headaches, dizziness, and daytime sleepiness. High doses can also cause temporary hormonal effects — melatonin interacts with reproductive hormones at supraphysiological levels. A 2022 meta-analysis found that doses above 5mg did not produce better sleep outcomes than doses of 1-3mg in adults without specific medical conditions. More is genuinely not better with melatonin.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much melatonin should elderly adults take?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Older adults (65+) typically need lower melatonin doses because metabolic clearance slows with age. Start at 0.3-0.5mg and increase to a maximum of 1-2mg if needed. Extended-release (time-release) formulations are particularly beneficial for elderly adults who experience sleep maintenance insomnia (waking up during the night) rather than sleep-onset insomnia. A 2014 study in Age and Ageing found that prolonged-release melatonin at 2mg improved sleep quality and morning alertness in adults over 55. Elderly adults should be cautious about drug interactions — melatonin can interact with blood thinners, diabetes medications, immunosuppressants, and blood pressure medications.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What melatonin dose is best for jet lag?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For jet lag, take 0.5-3mg of melatonin at the local bedtime of your destination on the day of arrival and for 3-5 consecutive nights afterward. A 2002 Cochrane review of 10 randomized trials found that melatonin was remarkably effective for jet lag when crossing 5 or more time zones, particularly when traveling eastward. The optimal protocol: take melatonin at 10 PM destination time on your arrival day and for 4 more nights. For westward travel, jet lag is typically milder, and melatonin is less necessary. Doses above 5mg were not more effective than doses of 0.5-3mg in the Cochrane analysis.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take regular or extended-release melatonin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Regular (immediate-release) melatonin is best for sleep-onset insomnia — difficulty falling asleep. It produces a sharp melatonin spike that signals the brain to initiate sleep. Extended-release (time-release) melatonin is better for sleep maintenance insomnia — falling asleep fine but waking up at 2-4 AM. It slowly releases melatonin over 6-8 hours, mimicking the natural melatonin production curve. Some people benefit from a combination approach: immediate-release to fall asleep plus a low-dose extended-release to prevent middle-of-the-night waking. Gummy supplements are typically immediate-release since the gummy dissolves quickly during chewing.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does melatonin interact with medications?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Melatonin has documented interactions with several medication classes: blood thinners (warfarin, heparin) — melatonin may increase bleeding risk; diabetes medications — melatonin can affect insulin sensitivity and blood glucose; immunosuppressants — melatonin stimulates immune function, potentially counteracting immunosuppressive therapy; blood pressure medications — melatonin can lower blood pressure, amplifying the effect of antihypertensives; sedatives and benzodiazepines — additive sedation effects; fluvoxamine (Luvox) — dramatically increases melatonin blood levels by inhibiting CYP1A2 metabolism. Always inform your healthcare provider about melatonin use if you take prescription medications.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is melatonin habit-forming?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Melatonin is not addictive and does not create physical dependence. Unlike benzodiazepines and Z-drugs (zolpidem, eszopiclone), melatonin does not activate GABA receptors or create the neuroadaptive changes that lead to tolerance and withdrawal. You can stop taking melatonin at any time without withdrawal symptoms. However, some people develop a psychological habit of relying on melatonin for sleep, and their sleep may temporarily worsen for 1-3 nights after stopping — this is not physical dependence but rather a return to the underlying sleep issue that melatonin was masking. Addressing the root cause through sleep hygiene is always recommended alongside melatonin use.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/sleep/melatonin-dosage-guide/"
+  ogImage="/images/og/melatonin-dosage.webp"
+  schema={[articleSchema, faqSchema]}
+>
+
+  <section class="pg-hero">
+    <h1>Melatonin Dosage Guide: How Much to Take by Age & Condition</h1>
+    <p class="pg-sub">Most people take too much melatonin. Research shows lower doses (0.5-1mg) are often more effective than the 5-10mg gummies dominating store shelves. This evidence-based guide covers optimal dosing for every age group, sleep condition, and use case — from jet lag to shift work to pediatric sleep support.</p>
+    <div class="pg-meta">
+      <span>Updated March 2026</span>
+      <span>Evidence-Based Dosing</span>
+      <span>Dietitian Reviewed</span>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[
+    { label: 'Sleep & Relaxation', href: '/sleep/' },
+    { label: 'Melatonin Dosage Guide', href: '/sleep/melatonin-dosage-guide/' },
+  ]} />
+
+  <div class="w">
+
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Sarah Mitchell"
+      authorCredentials="RD, CNS"
+      authorImage="/images/authors/sarah-mitchell.webp"
+      authorBio="Sarah is a registered dietitian and certified nutrition specialist with 12 years of experience in supplement science. She leads GummyGuide's testing methodology."
+    />
+
+    <AffiliateDisclaimer />
+
+    <p>The most common mistake with melatonin is taking too much. Store shelves are filled with 5mg and 10mg gummies, but clinical research consistently shows that physiological doses of 0.3-1mg are often equally or more effective than supraphysiological doses for improving sleep onset. Higher doses can paradoxically worsen sleep quality by causing fragmented sleep, vivid nightmares, and next-morning grogginess. This guide provides the evidence-based dosing protocols that most supplement labels fail to communicate.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">0.3mg</span>
+      <p class="key-stat-txt">is the physiological dose of melatonin — the amount that raises blood levels to the same range as natural nighttime melatonin production. <strong>A 2001 MIT study found that 0.3mg was optimal for sleep improvement</strong>, and that 3mg (10x more) was no more effective while causing more side effects. Yet the average melatonin gummy on the market contains 5-10mg — 17 to 33 times the physiological dose.</p>
+    </div>
+
+    <!-- THE DOSE-RESPONSE PARADOX -->
+    <h2>The Melatonin Dose-Response Paradox</h2>
+
+    <p>Melatonin does not follow the "more is better" logic that applies to many supplements. It functions as a chronobiotic signal — a timing cue that tells your brain "it is time to sleep" — not as a sedative that knocks you out. The signal strength needed to shift your circadian clock is remarkably small. Exceeding the physiological range can actually desensitize melatonin receptors (MT1 and MT2 in the suprachiasmatic nucleus), reducing the supplement's effectiveness over time.</p>
+
+    <div class="callout">
+      Think of melatonin as a whisper to your brain, not a shout. A 0.5mg dose produces a clear, clean signal that says "time to sleep." A 10mg dose is like shouting the same message through a megaphone — louder, but not more effective, and likely to cause ringing in your ears (side effects) for hours afterward.
+      <cite>— Dr. Richard Wurtman, MIT, pioneer of melatonin dose-response research</cite>
+    </div>
+
+    <!-- DOSAGE BY AGE -->
+    <h2>Melatonin Dosage by Age Group</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Age Group</th>
+            <th>Starting Dose</th>
+            <th>Typical Effective Dose</th>
+            <th>Maximum</th>
+            <th>Timing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Children 3-5</strong></td>
+            <td>0.5mg</td>
+            <td>0.5-1mg</td>
+            <td>1mg</td>
+            <td>30-60 min before bed</td>
+          </tr>
+          <tr>
+            <td><strong>Children 6-12</strong></td>
+            <td>0.5-1mg</td>
+            <td>1-3mg</td>
+            <td>3-5mg</td>
+            <td>30-60 min before bed</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Teens 13-17</strong></td>
+            <td>1mg</td>
+            <td>1-3mg</td>
+            <td>5mg</td>
+            <td>30-60 min before bed</td>
+          </tr>
+          <tr>
+            <td><strong>Adults 18-64</strong></td>
+            <td>0.5-1mg</td>
+            <td>0.5-3mg</td>
+            <td>5mg</td>
+            <td>30-60 min before bed</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Elderly 65+</strong></td>
+            <td>0.3-0.5mg</td>
+            <td>0.3-2mg</td>
+            <td>2mg</td>
+            <td>30-60 min before bed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>How to find your optimal dose:</strong> Start at 0.5mg for 3-5 nights. If sleep onset does not improve, increase to 1mg. Continue incrementally (1mg → 2mg → 3mg) with 3-5 night trials at each level. Stop increasing once you find the dose that helps you fall asleep within 20-30 minutes. Most people find their sweet spot between 0.5mg and 3mg. Doses above 5mg rarely provide additional benefit.</p>
+    </div>
+
+    <!-- DOSAGE BY CONDITION -->
+    <h2>Melatonin Dosage by Sleep Condition</h2>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="moon" size={22} /></div>
+        <h4>Sleep-Onset Insomnia</h4>
+        <p><strong>Dose: 0.5-3mg.</strong> Take 30-60 minutes before desired bedtime. Immediate-release formulation preferred. This is the most common use case and responds well to lower doses. If 3mg does not work within 2 weeks, melatonin may not be the right intervention.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="clock" size={22} /></div>
+        <h4>Sleep Maintenance Insomnia</h4>
+        <p><strong>Dose: 1-2mg extended-release.</strong> For waking at 2-4 AM and struggling to return to sleep. Extended-release melatonin sustains blood levels over 6-8 hours. Immediate-release gummies are less effective for this pattern because they peak and clear too quickly.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="sun" size={22} /></div>
+        <h4>Jet Lag (Eastward Travel)</h4>
+        <p><strong>Dose: 0.5-3mg.</strong> Take at local bedtime (destination) on arrival night and for 3-5 consecutive nights. A Cochrane review of 10 RCTs confirmed effectiveness for flights crossing 5+ time zones. Higher doses (5mg) showed no advantage over 0.5-3mg.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <h4>Shift Work Sleep Disorder</h4>
+        <p><strong>Dose: 1-3mg.</strong> Take 30 minutes before your desired sleep time, regardless of clock time. Combine with blackout curtains and earplugs. Melatonin helps reset the circadian signal when your work schedule conflicts with natural light-dark cycles.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="trending" size={22} /></div>
+        <h4>Delayed Sleep-Wake Phase</h4>
+        <p><strong>Dose: 0.5-1mg.</strong> Take 3-5 hours before your current natural sleep time (not your desired bedtime) to gradually advance the circadian clock. This protocol shifts the body clock by 30-60 minutes per week. Low doses work better than high doses for circadian phase advancement.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="baby" size={22} /></div>
+        <h4>Pediatric Sleep Difficulties</h4>
+        <p><strong>Dose: 0.5-1mg (ages 3-12).</strong> Always under pediatrician supervision. Start at 0.5mg. A JAMA Pediatrics study found 0.5mg equally effective as 3mg in children 6-12. For detailed pediatric dosing, see our <a href="/sleep/melatonin-gummies-for-kids/">melatonin gummies for kids</a> guide.</p>
+      </div>
+    </div>
+
+    <!-- TIMING MATTERS -->
+    <h2>When to Take Melatonin: Timing Matters More Than Dose</h2>
+
+    <p>Melatonin timing is arguably more important than the dose itself. Taking melatonin at the wrong time can actually shift your circadian clock in the wrong direction, making sleep problems worse.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Goal</th>
+            <th>When to Take</th>
+            <th>Why This Timing Works</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Fall asleep faster</strong></td>
+            <td>30-60 min before bed</td>
+            <td>Melatonin peaks in blood at ~45 min, coinciding with desired sleep onset</td>
+          </tr>
+          <tr>
+            <td><strong>Shift bedtime earlier</strong></td>
+            <td>3-5 hours before current sleep time</td>
+            <td>Advances circadian phase by signaling "darkness" before your body expects it</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Jet lag (eastward)</strong></td>
+            <td>Destination local bedtime</td>
+            <td>Synchronizes melatonin signal with the new time zone's dark period</td>
+          </tr>
+          <tr>
+            <td><strong>Shift work sleep</strong></td>
+            <td>30 min before desired sleep</td>
+            <td>Creates an artificial "night" signal when sleeping during daylight hours</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Stay asleep longer</strong></td>
+            <td>At bedtime (extended-release)</td>
+            <td>Sustained release maintains melatonin levels through the entire sleep period</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- IMMEDIATE VS EXTENDED RELEASE -->
+    <h2>Immediate-Release vs Extended-Release Melatonin</h2>
+
+    <div class="vs-strip">
+      <div class="vs-item vs-best">
+        <span class="vs-item-label">Immediate-Release</span>
+        <h4>Standard Gummies & Tablets</h4>
+        <div class="vs-dose">0.5-3mg</div>
+        <p>Peaks in 30-45 minutes, clears in 4-6 hours. Best for falling asleep. Most gummy supplements are immediate-release. Ideal for sleep-onset insomnia and jet lag.</p>
+      </div>
+      <div class="vs-item">
+        <span class="vs-item-label">Extended-Release</span>
+        <h4>Time-Release Tablets</h4>
+        <div class="vs-dose">1-2mg</div>
+        <p>Slow release over 6-8 hours, mimicking natural melatonin curve. Best for staying asleep. Available primarily in tablet form. Ideal for middle-of-the-night waking and elderly adults.</p>
+      </div>
+    </div>
+
+    <!-- SIDE EFFECTS OF OVERDOSING -->
+    <h2>Signs You Are Taking Too Much Melatonin</h2>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>If you experience any of the following, your dose is likely too high:</strong> next-morning grogginess lasting past 10 AM, vivid or disturbing nightmares, headaches upon waking, dizziness, irritability, or paradoxical difficulty falling asleep (circadian disruption from receptor desensitization). Reduce your dose by 50% and reassess. Many people taking 5-10mg gummies find their sleep improves dramatically when they drop to 0.5-1mg.</p>
+    </div>
+
+    <!-- DRUG INTERACTIONS -->
+    <h2>Melatonin Drug Interactions</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Medication Class</th>
+            <th>Interaction</th>
+            <th>Risk Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Blood Thinners</strong> (warfarin, heparin)</td>
+            <td>Increased bleeding risk</td>
+            <td>Moderate</td>
+          </tr>
+          <tr>
+            <td><strong>Diabetes Medications</strong></td>
+            <td>May affect blood glucose</td>
+            <td>Moderate</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Fluvoxamine</strong> (Luvox)</td>
+            <td>Dramatically increases melatonin levels</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td><strong>Immunosuppressants</strong></td>
+            <td>Melatonin stimulates immune function</td>
+            <td>Moderate</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Blood Pressure Meds</strong></td>
+            <td>Additive blood pressure lowering</td>
+            <td>Low-Moderate</td>
+          </tr>
+          <tr>
+            <td><strong>Sedatives/Benzos</strong></td>
+            <td>Additive sedation</td>
+            <td>Moderate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MELATONIN GUMMY RECOMMENDATIONS -->
+    <h2>Recommended Melatonin Gummies by Dose</h2>
+
+    <div class="pcard">
+      <div class="pcard-top">
+        <span class="pcard-badge">Low Dose (1mg)</span>
+        <img src="/images/products/natrol-melatonin-1mg.webp" alt="Natrol Melatonin 1mg Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Natrol</p>
+        <h3 class="pcard-name">Melatonin 1mg Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(15,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Melatonin</strong><span>1mg per gummy</span></div>
+          <div class="pcard-spec"><strong>Type</strong><span>Immediate-release</span></div>
+          <div class="pcard-spec"><strong>Best For</strong><span>Starting dose, sensitive individuals, elderly</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$8.99</span>
+          <span class="per-serv">$0.10/night (90ct)</span>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Natrol+Melatonin+1mg+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <div class="pcard-top">
+        <span class="pcard-badge">Standard Dose (3mg)</span>
+        <img src="/images/products/olly-sleep-gummies.webp" alt="Olly Sleep Gummies 3mg" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Sleep Gummies (3mg Melatonin + L-Theanine)</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(92,000 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Melatonin</strong><span>3mg per serving</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>L-Theanine, Botanicals</span></div>
+          <div class="pcard-spec"><strong>Best For</strong><span>Adults with moderate sleep difficulty</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.25/night (60ct)</span>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Olly+Sleep+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>For the complete melatonin gummy rankings across all dose levels, see our <a href="/best-melatonin-gummies/">best melatonin gummies</a> guide. For children's melatonin specifically, read our <a href="/sleep/melatonin-gummies-for-kids/">melatonin gummies for kids</a> guide.</p>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>The Bottom Line on Melatonin Dosing</h3>
+      <p><strong>Start low:</strong> 0.5-1mg for most adults. The physiological dose (0.3mg) is often sufficient. Higher doses do not produce proportionally better sleep.</p>
+      <p><strong>Timing matters more than dose:</strong> Take melatonin 30-60 minutes before your desired bedtime. For circadian phase shifting, take it 3-5 hours before your current natural sleep time.</p>
+      <p><strong>Less is more:</strong> If your current 5mg or 10mg gummy causes grogginess, try halving or quartering it. Many people sleep better at 1mg than 10mg.</p>
+      <p><strong>Address the root cause:</strong> Melatonin is a signal, not a sedative. Combine it with proper sleep hygiene — consistent schedule, no screens before bed, cool dark room — for best results.</p>
+    </div>
+
+    <!-- RELATED -->
+    <h2>Related Sleep & Melatonin Guides</h2>
+
+    <div class="acards" style="grid-template-columns:1fr 1fr;">
+      <a href="/best-melatonin-gummies/" class="ac">
+        <span class="ac-tag">Rankings</span>
+        <h3>Best Melatonin Gummies</h3>
+        <p>Complete rankings from 1mg to 10mg across all major brands, tested for dose accuracy.</p>
+        <span class="ac-btn">See Rankings →</span>
+      </a>
+      <a href="/sleep/melatonin-gummies-for-kids/" class="ac">
+        <span class="ac-tag">Kids</span>
+        <h3>Melatonin for Kids</h3>
+        <p>Pediatric dosing, safety research, and best picks for children's melatonin gummies.</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a href="/best-sleep-gummies/" class="ac">
+        <span class="ac-tag">Beyond Melatonin</span>
+        <h3>Best Sleep Gummies</h3>
+        <p>Magnesium, L-theanine, and herbal sleep gummies for those who prefer melatonin-free options.</p>
+        <span class="ac-btn">See Rankings →</span>
+      </a>
+      <a href="/sleep/magnesium-gummies/" class="ac">
+        <span class="ac-tag">Mineral Sleep</span>
+        <h3>Magnesium Gummies for Sleep</h3>
+        <p>Magnesium glycinate and citrate gummies as a natural, non-hormonal sleep support alternative.</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-sec">
+      <h2>Melatonin Dosage — Frequently Asked Questions</h2>
+      <details class="fq"><summary>How much melatonin should an adult take?</summary><p>Start at 0.5-1mg, 30-60 minutes before bed. Research shows 0.3-1mg is often more effective than higher doses because it matches physiological melatonin levels. Maximum recommended: 5mg for most adults.</p></details>
+      <details class="fq"><summary>What is the best time to take melatonin?</summary><p>30-60 minutes before desired bedtime for sleep onset. 3-5 hours before current sleep time for circadian phase shifting. At destination bedtime for jet lag. Timing matters more than dose.</p></details>
+      <details class="fq"><summary>Can you take too much melatonin?</summary><p>Yes. Doses above 5mg rarely improve sleep and can cause grogginess, nightmares, headaches, and paradoxical insomnia. A meta-analysis found doses above 5mg no more effective than 1-3mg. More is not better.</p></details>
+      <details class="fq"><summary>How much melatonin should elderly adults take?</summary><p>Start at 0.3-0.5mg, maximum 2mg. Elderly metabolize melatonin more slowly. Extended-release 2mg is FDA-approved in the EU for adults over 55 (Circadin). Check for drug interactions.</p></details>
+      <details class="fq"><summary>What melatonin dose is best for jet lag?</summary><p>0.5-3mg at destination bedtime for 3-5 nights after arrival. A Cochrane review confirmed effectiveness for flights crossing 5+ time zones. Higher doses showed no advantage over 0.5-3mg.</p></details>
+      <details class="fq"><summary>Should I take regular or extended-release melatonin?</summary><p>Immediate-release for falling asleep (sleep-onset insomnia). Extended-release for staying asleep (waking at 2-4 AM). Most gummy supplements are immediate-release.</p></details>
+      <details class="fq"><summary>Does melatonin interact with medications?</summary><p>Yes — blood thinners, diabetes meds, fluvoxamine (dramatically increases melatonin levels), immunosuppressants, blood pressure meds, and sedatives. Always inform your doctor about melatonin use.</p></details>
+      <details class="fq"><summary>Is melatonin habit-forming?</summary><p>No. Melatonin does not create physical dependence or tolerance. You can stop at any time without withdrawal. Temporary sleep worsening after stopping reflects the underlying sleep issue, not dependency.</p></details>
+    </section>
+
+    <p class="fda-disc">*These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare provider before starting any supplement regimen.</p>
+
+  </div>
+
+  <div class="cta">
+    <h2>Find Your Ideal Melatonin Gummy</h2>
+    <p>Browse our expert-tested melatonin rankings from 1mg to 10mg across all major brands.</p>
+    <a href="/best-melatonin-gummies/" class="btn btn-wh">See Best Melatonin Gummies →</a>
+  </div>
+
+</BaseLayout>

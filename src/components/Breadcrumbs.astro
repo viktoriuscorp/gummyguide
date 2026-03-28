@@ -1,0 +1,46 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://gummyguide.com/' },
+    ...items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 2,
+      name: item.label,
+      ...(i < items.length - 1 ? { item: `https://gummyguide.com${item.href}` } : {}),
+    })),
+  ],
+};
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+    {items.map((item, i) => (
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        {i < items.length - 1 ? (
+          <a href={item.href} itemprop="item"><span itemprop="name">{item.label}</span></a>
+        ) : (
+          <span itemprop="name" aria-current="page">{item.label}</span>
+        )}
+        <meta itemprop="position" content={String(i + 2)} />
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

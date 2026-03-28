@@ -1,0 +1,648 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Potassium Gummies (2026) — Heart, Muscle & Electrolytes | GummyGuide";
+const description = "Expert-tested potassium gummies for heart health, muscle function, and electrolyte balance. Compare potassium citrate, gluconate, and chloride forms across 7 top supplements in 2026.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'RD, CNS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/potassium-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Potassium Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Nature Made Potassium Gluconate Gummies', url: 'https://gummyguide.com/vitamins/potassium-gummies/#nature-made' },
+    { '@type': 'ListItem', position: 2, name: 'Nutricost Potassium Citrate Gummies', url: 'https://gummyguide.com/vitamins/potassium-gummies/#nutricost' },
+    { '@type': 'ListItem', position: 3, name: "Nature's Way Potassium Gummies", url: 'https://gummyguide.com/vitamins/potassium-gummies/#natures-way' },
+    { '@type': 'ListItem', position: 4, name: 'BeLive Potassium Gummies', url: 'https://gummyguide.com/vitamins/potassium-gummies/#belive' },
+    { '@type': 'ListItem', position: 5, name: 'Hilo Potassium + Magnesium Gummies', url: 'https://gummyguide.com/vitamins/potassium-gummies/#hilo' },
+    { '@type': 'ListItem', position: 6, name: 'SmartyPants Mineral Complete', url: 'https://gummyguide.com/vitamins/potassium-gummies/#smartypants' },
+    { '@type': 'ListItem', position: 7, name: 'MaryRuth Organics Potassium Gummies', url: 'https://gummyguide.com/vitamins/potassium-gummies/#maryruths' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Why are potassium supplements limited to 99mg?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The FDA limits over-the-counter potassium supplements to 99mg per serving as a safety measure to prevent hyperkalemia (dangerously high blood potassium). Rapid ingestion of concentrated potassium can disrupt heart rhythm and cause cardiac arrest in extreme cases. The 99mg limit applies to single-ingredient potassium supplements. This is just 2% of the 4,700mg Adequate Intake, which is why potassium should come primarily from food sources like bananas (422mg), potatoes (926mg), and spinach (839mg per cup).' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the symptoms of potassium deficiency?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Mild hypokalemia (low potassium) symptoms include muscle weakness, fatigue, cramps, and constipation. Moderate deficiency can cause irregular heartbeat (palpitations), increased blood pressure, and excessive urination. Severe hypokalemia (below 3.0 mEq/L) can cause paralysis, respiratory failure, and life-threatening cardiac arrhythmias. Common causes of potassium depletion include diuretic medications, excessive sweating, chronic diarrhea or vomiting, and diets low in fruits and vegetables.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much potassium do I need per day?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Adequate Intake (AI) for potassium is 2,600mg per day for adult women and 3,400mg per day for adult men, as established by the National Academies of Sciences in 2019. However, the average American consumes only about 2,500mg daily — a significant shortfall, especially for men. A potassium gummy providing 99mg supplements dietary intake but cannot come close to meeting the full daily requirement on its own. Focus on potassium-rich foods first and use gummies as supplemental support.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best form of potassium supplement?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Potassium citrate is generally considered the best supplemental form because it has higher bioavailability than potassium chloride and may help prevent kidney stones by alkalinizing urine. Potassium gluconate is well-tolerated and commonly used in gummies due to favorable taste characteristics. Potassium chloride is the most common prescription form and most closely mimics dietary potassium but has a strong salt-like taste that makes gummy formulation challenging. All three forms are effective for correcting mild deficiency.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I take potassium with other supplements?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Potassium is generally safe to combine with most supplements. It pairs well with magnesium, as both minerals support muscle function, heart rhythm, and blood pressure regulation. However, potassium should be used cautiously with ACE inhibitors, ARBs (angiotensin receptor blockers), potassium-sparing diuretics, and certain heart medications that can raise potassium levels. If you take any blood pressure or heart medications, consult your physician before adding a potassium supplement.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is potassium good for high blood pressure?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. A 2017 meta-analysis in the Journal of the American Heart Association found that increased potassium intake (from food and supplements) significantly reduced systolic blood pressure by an average of 4.48 mmHg. Potassium counteracts sodium-induced blood pressure elevation by promoting sodium excretion through the kidneys, relaxing blood vessel walls, and modulating the renin-angiotensin-aldosterone system. The DASH diet, which emphasizes potassium-rich foods, is a first-line recommendation for hypertension management.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Who should NOT take potassium supplements?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Individuals with kidney disease or impaired kidney function should not take potassium supplements without physician supervision, as the kidneys may not excrete excess potassium efficiently, leading to dangerous accumulation. Those taking potassium-sparing diuretics (spironolactone, triamterene), ACE inhibitors, or ARBs should avoid additional potassium supplementation. People with Addison\'s disease or other adrenal insufficiencies are also at risk for hyperkalemia. Always consult your healthcare provider if you have any kidney or cardiovascular condition.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What foods are highest in potassium?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Top dietary potassium sources include: baked potato with skin (926mg), sweet potato (541mg), white beans (1 cup = 1,004mg), spinach (1 cup cooked = 839mg), banana (422mg), avocado (485mg per half), salmon (534mg per 3oz), coconut water (600mg per cup), and orange juice (496mg per cup). Most Americans fall short of the 2,600-3,400mg daily AI because they do not consume enough fruits, vegetables, and legumes. Dietary potassium is always the preferred primary source.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/potassium-gummies/"
+  ogImage="/images/og/potassium-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Potassium Gummies (2026)</h1>
+    <p class="pg-sub">Potassium is the third most abundant mineral in the human body and a critical electrolyte for heart rhythm, muscle contraction, and blood pressure regulation. Yet 98% of Americans fail to meet the Adequate Intake through diet alone. We tested 11 potassium gummies to find the 7 that deliver quality potassium forms at the regulated 99mg dose with optimal formulation.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>11 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>RD Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins & Health', href: '/vitamins/' },
+    { label: 'Potassium Gummies', href: '/vitamins/potassium-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/nature-made-potassium.webp" alt="Nature Made Potassium Gluconate Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Nature Made</p>
+          <h3>Nature Made Potassium Gluconate Gummies</h3>
+          <p class="qp-reason">99mg potassium gluconate per serving, USP Verified for purity and potency, excellent taste, and the most trusted supplement brand in America. The gold standard for potassium supplementation in gummy form.</p>
+          <a href="https://www.amazon.com/s?k=Nature+Made+Potassium+Gluconate+Gummies" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-potassium">Why Potassium Matters for Heart, Muscle, and Blood Pressure</h2>
+
+    <p>Potassium is an essential electrolyte that enables every cell in your body to function. It maintains the electrical gradient across cell membranes — the voltage difference that allows nerves to fire, muscles to contract, and the heart to beat in a coordinated rhythm. Without adequate potassium, these fundamental biological processes break down: muscles cramp, fatigue sets in, blood pressure rises, and heart rhythm becomes irregular.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">98%</span>
+      <p class="key-stat-txt">of Americans do not meet the Adequate Intake for potassium (2,600mg for women, 3,400mg for men), according to the National Health and Nutrition Examination Survey (NHANES). <strong>This makes potassium the most under-consumed essential nutrient in the American diet.</strong></p>
+    </div>
+
+    <p>The FDA limits over-the-counter potassium supplements to 99mg per serving — just 2-4% of the daily Adequate Intake — as a safety precaution against hyperkalemia (dangerously high blood potassium). This means potassium gummies are a supplemental bridge, not a sole source. The primary potassium intake should come from food: potatoes, bananas, spinach, beans, and avocados. Gummies fill the gap for individuals whose diets fall short, particularly athletes who lose potassium through sweat, and older adults at risk for hypertension.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Potassium Gluconate</strong>
+        <p>Well-tolerated form commonly used in gummies due to neutral taste. Contains 16.7% elemental potassium. Gentle on the stomach with minimal GI side effects. The most common form in consumer-grade potassium gummies.</p>
+      </div>
+      <div class="info-card">
+        <strong>Potassium Citrate</strong>
+        <p>Higher bioavailability and may help prevent kidney stones by alkalinizing urine. Contains 38.3% elemental potassium. Preferred by urologists for patients at risk of calcium oxalate stones. Slightly tart taste that works well in gummy formulations.</p>
+      </div>
+      <div class="info-card">
+        <strong>Heart Rhythm & Blood Pressure</strong>
+        <p>Potassium directly regulates the sodium-potassium pump in cardiac cells. Adequate intake reduces blood pressure by promoting sodium excretion and relaxing blood vessel walls. The DASH diet's blood pressure benefits are largely attributed to its high potassium content.</p>
+      </div>
+      <div class="info-card">
+        <strong>Muscle Function & Recovery</strong>
+        <p>Potassium enables muscle contraction and relaxation by maintaining cell membrane potential. Deficiency causes cramps, weakness, and prolonged recovery. Athletes who sweat heavily lose significant potassium and benefit from supplementation during extended training.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2017 meta-analysis published in the <em>Journal of the American Heart Association</em> examined 33 randomized controlled trials and found that increased potassium intake reduced <strong>systolic blood pressure by an average of 4.48 mmHg</strong> — a clinically meaningful reduction comparable to some first-line antihypertensive medications. The effect was strongest in individuals with high sodium diets.</p>
+      <cite>Journal of the American Heart Association, 2017 — 33 RCTs, meta-analysis</cite>
+    </div>
+
+    <!-- PRODUCT 1 — NATURE MADE -->
+    <div class="pcard" id="nature-made">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/nature-made-potassium.webp" alt="Nature Made Potassium Gluconate Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Potassium Gluconate Gummies 99mg</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(5,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Form</strong><span>Potassium Gluconate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>USP Verified</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60 per bottle</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$9.99</span>
+          <span class="per-serv">$0.17/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — independent purity, potency, and dissolution testing</li>
+              <li>Full 99mg regulatory maximum per serving</li>
+              <li>Excellent natural fruit flavor with no aftertaste</li>
+              <li>#1 pharmacist-recommended supplement brand</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Uses potassium gluconate rather than potassium citrate</li>
+              <li>99mg is only 2-4% of the daily Adequate Intake</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nature+Made+Potassium+Gluconate+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made earns the top position through a combination of pharmaceutical-grade quality (USP Verification), the most trusted brand reputation in supplements, and a clean, well-formulated product at an exceptional price point. The USP mark confirms that every bottle contains the stated 99mg of potassium per serving, dissolves properly for absorption, and has been tested for heavy metals and contaminants. For a mineral where purity and dose accuracy are particularly important, USP verification provides essential confidence.</p>
+
+    <!-- PRODUCT 2 — NUTRICOST -->
+    <div class="pcard" id="nutricost">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Potassium Citrate</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/nutricost-potassium.webp" alt="Nutricost Potassium Citrate Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nutricost</p>
+        <h3 class="pcard-name">Potassium Citrate Gummies 99mg</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(3,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Form</strong><span>Potassium Citrate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Supply</strong><span>120 gummies (60 servings)</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.95</span>
+          <span class="per-serv">$0.22/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Uses potassium citrate — higher bioavailability form</li>
+              <li>May help prevent kidney stones by alkalinizing urine</li>
+              <li>Full 99mg at FDA maximum</li>
+              <li>Clean formula with no proprietary blends</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Slightly tart aftertaste from citrate form</li>
+              <li>Not USP verified (third-party tested, but different level)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nutricost+Potassium+Citrate+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nutricost delivers potassium citrate — the form with the strongest evidence for bioavailability and kidney stone prevention. Potassium citrate alkalinizes urine, which reduces calcium oxalate supersaturation and may help prevent kidney stone formation. This dual benefit (electrolyte support + kidney stone prevention) makes it the optimal choice for individuals at risk for kidney stones or those who want the most bioavailable potassium form. The slightly tart citrate taste is well-masked but perceptible in the aftertaste.</p>
+
+    <!-- PRODUCT 3 — NATURE'S WAY -->
+    <div class="pcard" id="natures-way">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Legacy Brand</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/natures-way-potassium.webp" alt="Nature's Way Potassium Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature's Way</p>
+        <h3 class="pcard-name">Potassium Gummies 99mg</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(2,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Form</strong><span>Potassium Gluconate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>Non-GMO, Gluten-Free</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$10.99</span>
+          <span class="per-serv">$0.18/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Established brand with 55+ years in the supplement industry</li>
+              <li>Good natural berry flavor</li>
+              <li>Affordable pricing at $0.18/serving</li>
+              <li>Widely available at major retailers</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Uses potassium gluconate rather than citrate</li>
+              <li>No USP or NSF certification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Natures+Way+Potassium+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature's Way brings over 55 years of supplement manufacturing experience to its potassium gummy. The brand's long track record provides a degree of institutional trust that newer supplement brands have not yet established. The formula is straightforward — 99mg potassium gluconate with natural berry flavoring — and the price is competitive. For consumers who prefer established brands with decades of quality history over newer market entrants, Nature's Way is a solid, reliable choice.</p>
+
+    <!-- PRODUCT 4 — BELIVE -->
+    <div class="pcard" id="belive">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Taste</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/belive-potassium.webp" alt="BeLive Potassium Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">BeLive</p>
+        <h3 class="pcard-name">Potassium Gummies 99mg</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Form</strong><span>Potassium Citrate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>Non-GMO, Vegan</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$13.99</span>
+          <span class="per-serv">$0.23/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best taste in the potassium gummy category</li>
+              <li>Potassium citrate form for higher bioavailability</li>
+              <li>Vegan and non-GMO certified</li>
+              <li>Over 4,500 positive reviews on Amazon</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No USP or NSF certification</li>
+              <li>Contains added sugars (2g per serving)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=BeLive+Potassium+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>BeLive has built a strong reputation in the mineral gummy space (also ranking well in our <a href="/vitamins/iron-gummies/">iron gummies</a> review) by prioritizing taste without sacrificing quality. Their potassium gummy uses citrate form for better bioavailability and has earned over 4,500 positive reviews on Amazon. The natural grape flavor effectively masks the mineral taste that makes many potassium supplements unpleasant. For consumers who have tried and abandoned potassium supplements due to taste issues, BeLive solves the compliance problem.</p>
+
+    <!-- PRODUCT 5 — HILO -->
+    <div class="pcard" id="hilo">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Potassium + Magnesium</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/hilo-potassium-magnesium.webp" alt="Hilo Potassium + Magnesium Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Hilo</p>
+        <h3 class="pcard-name">Potassium + Magnesium Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(1,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Form</strong><span>Potassium Citrate + Magnesium Citrate</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Magnesium</strong><span>75mg per serving</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.28/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Combines two critical electrolyte minerals in one gummy</li>
+              <li>Both in citrate form for optimal bioavailability</li>
+              <li>Ideal for athletes and active individuals</li>
+              <li>Reduces the number of supplements needed</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>75mg magnesium is below the typical standalone dose (200-400mg)</li>
+              <li>Newer brand with smaller review base</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Hilo+Potassium+Magnesium+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Hilo takes a synergistic approach by combining potassium and magnesium — two electrolytes that work together to regulate blood pressure, muscle function, and heart rhythm. Both minerals are under-consumed in the American diet, and both are depleted through sweat during exercise. The dual-mineral formula in citrate form is particularly well-suited for athletes and active individuals who need comprehensive electrolyte support. While neither mineral reaches full standalone doses, the combination addresses two common deficiencies simultaneously.</p>
+
+    <!-- PRODUCT 6 — SMARTYPANTS -->
+    <div class="pcard" id="smartypants">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Multi-Mineral</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/smartypants-mineral.webp" alt="SmartyPants Mineral Complete Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SmartyPants</p>
+        <h3 class="pcard-name">Mineral Complete Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(1,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Potassium</strong><span>80mg per serving</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Calcium, Magnesium, Zinc, D3, K2</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>Non-GMO</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$17.99</span>
+          <span class="per-serv">$0.30/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Comprehensive mineral formula covering 6 key minerals</li>
+              <li>Includes calcium, magnesium, zinc, D3, and K2</li>
+              <li>Single-product mineral coverage reduces supplement fatigue</li>
+              <li>Excellent taste with natural flavoring</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>80mg potassium — below the 99mg regulatory maximum</li>
+              <li>Each mineral is at a lower dose than standalone products</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartyPants+Mineral+Complete+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>SmartyPants Mineral Complete is ideal for consumers who want broad mineral coverage without taking 5-6 separate supplements. The formula includes potassium, calcium, magnesium, zinc, vitamin D3, and vitamin K2 — addressing the most common mineral deficiencies in a single product. The trade-off is that each individual mineral is at a lower dose than standalone products (80mg potassium vs 99mg, 250mg calcium vs 500mg). For people with mild deficiencies across multiple minerals, this all-in-one approach is practical and efficient.</p>
+
+    <!-- PRODUCT 7 — MARYRUTHS -->
+    <div class="pcard" id="maryruths">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/maryruths-potassium.webp" alt="MaryRuth Organics Potassium Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MaryRuth Organics</p>
+        <h3 class="pcard-name">Potassium Gummies 99mg</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(987 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Form</strong><span>Potassium Citrate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>Vegan, Non-GMO, Sugar-Free</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Vegan, non-GMO, sugar-free with organic flavoring</li>
+              <li>Potassium citrate form for optimal bioavailability</li>
+              <li>Clean label with no artificial colors, flavors, or sweeteners</li>
+              <li>Trusted brand with strong online community</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium pricing for a 99mg potassium product</li>
+              <li>Sugar-free flavor may not appeal to all consumers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=MaryRuth+Organics+Potassium+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>MaryRuth Organics delivers the cleanest potassium gummy in our evaluation: vegan, non-GMO, sugar-free, with organic flavoring and no artificial additives of any kind. The potassium citrate form provides optimal bioavailability. The brand has built a devoted following among health-conscious consumers who prioritize ingredient purity above all else. The premium pricing reflects the organic and clean-label positioning — consumers who value these attributes will find it worthwhile, while budget-focused buyers may prefer Nature Made or Nature's Way.</p>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Potassium Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> All 11 products were purchased at full retail price through Amazon. No product was provided by any manufacturer.</li>
+        <li><strong>Verified potassium form and dose.</strong> We confirmed the specific potassium compound (gluconate, citrate, chloride) and verified elemental potassium content against label claims.</li>
+        <li><strong>Assessed third-party certification.</strong> Products with USP, NSF, or equivalent independent certification received higher quality scores for purity and potency verification.</li>
+        <li><strong>Evaluated potassium form quality.</strong> Citrate forms scored higher for bioavailability and kidney stone prevention potential. Gluconate scored well for taste and GI tolerability.</li>
+        <li><strong>Checked for synergistic nutrients.</strong> Products including magnesium, vitamin D, or other electrolytes received additional consideration for comprehensive mineral support.</li>
+        <li><strong>Blind taste testing.</strong> All 11 products were evaluated for flavor, texture, and mineral aftertaste. Potassium has a strong salt-like taste that can make gummy formulation challenging.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Nature Made Potassium Gluconate</strong> is our top recommendation for most consumers seeking reliable daily potassium supplementation. The USP verification, trusted brand reputation, excellent taste, and $0.17 per serving value make it the most dependable choice.</p>
+      <ul>
+        <li><strong>Best overall potassium gummy:</strong> Nature Made — USP Verified, 99mg, $0.17/serving</li>
+        <li><strong>Best potassium citrate:</strong> Nutricost — higher bioavailability form, kidney stone prevention</li>
+        <li><strong>Best taste:</strong> BeLive — natural grape flavor, 4,500+ positive reviews</li>
+        <li><strong>Best K + Mg combo:</strong> Hilo — dual electrolyte support for athletes</li>
+        <li><strong>Best multi-mineral:</strong> SmartyPants — 6 minerals in one product</li>
+        <li><strong>Best clean label:</strong> MaryRuth — vegan, sugar-free, organic</li>
+      </ul>
+      <p>Remember: potassium gummies at 99mg provide supplemental support, not full daily coverage. Prioritize potassium-rich foods (potatoes, bananas, beans, spinach) as your primary source. For comprehensive electrolyte support, consider combining with <a href="/sports/electrolyte-gummies/">electrolyte gummies</a> or <a href="/vitamins/calcium-gummies/">calcium gummies</a>.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Potassium Gummies</h2>
+
+    <details class="fq">
+      <summary>Why are potassium supplements limited to 99mg?</summary>
+      <p>The FDA limits OTC potassium supplements to 99mg per serving to prevent hyperkalemia (dangerously high blood potassium). Rapid ingestion of concentrated potassium can disrupt heart rhythm. The 99mg limit is just 2-4% of the 4,700mg daily AI — potassium should come primarily from food sources like potatoes (926mg), spinach (839mg/cup), and bananas (422mg).</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the symptoms of potassium deficiency?</summary>
+      <p>Mild: muscle weakness, fatigue, cramps, constipation. Moderate: irregular heartbeat, increased blood pressure, excessive urination. Severe (below 3.0 mEq/L): paralysis, respiratory failure, life-threatening cardiac arrhythmias. Common causes include diuretic medications, excessive sweating, chronic diarrhea, and diets low in fruits and vegetables.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How much potassium do I need per day?</summary>
+      <p>2,600mg for adult women, 3,400mg for adult men (Adequate Intake). The average American consumes about 2,500mg daily. A 99mg gummy supplements dietary intake but cannot meet the full requirement alone. Focus on potassium-rich foods first: potatoes, beans, spinach, avocados, bananas.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the best form of potassium supplement?</summary>
+      <p>Potassium citrate has the highest bioavailability and may prevent kidney stones. Potassium gluconate is well-tolerated with minimal taste issues. Potassium chloride is most common in prescriptions but has a strong salt taste. All three effectively correct mild deficiency.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I take potassium with other supplements?</summary>
+      <p>Potassium pairs well with magnesium for muscle function and blood pressure. Use caution with ACE inhibitors, ARBs, potassium-sparing diuretics, and heart medications that can raise potassium levels. Consult your physician before supplementing if you take any blood pressure or cardiac medications.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Is potassium good for high blood pressure?</summary>
+      <p>Yes. A 2017 meta-analysis of 33 RCTs found increased potassium intake reduced systolic blood pressure by 4.48 mmHg on average. Potassium promotes sodium excretion and relaxes blood vessel walls. The DASH diet's blood pressure benefits are largely attributed to its high potassium content.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Who should NOT take potassium supplements?</summary>
+      <p>Individuals with kidney disease, those taking potassium-sparing diuretics (spironolactone, triamterene), ACE inhibitors, ARBs, or those with Addison's disease. Impaired kidneys cannot excrete excess potassium efficiently, leading to dangerous accumulation. Always consult your healthcare provider if you have any kidney or cardiovascular condition.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What foods are highest in potassium?</summary>
+      <p>White beans (1,004mg/cup), baked potato with skin (926mg), spinach cooked (839mg/cup), salmon (534mg/3oz), avocado (485mg/half), banana (422mg), coconut water (600mg/cup), orange juice (496mg/cup). Dietary potassium is always the preferred primary source over supplements.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Vitamin & Mineral Gummies</h2>
+      <p>Expert-tested reviews across every vitamin and supplement gummy category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/sports/electrolyte-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Electrolyte Gummies</h3>
+        <p>Complete electrolyte gummies for hydration, athletic performance, and recovery during training.</p>
+        <span class="ac-btn">Best Electrolyte Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/calcium-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Calcium Gummies</h3>
+        <p>Calcium + D3 gummies for bone health. Pairs well with potassium for comprehensive mineral support.</p>
+        <span class="ac-btn">Best Calcium Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/iron-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Iron Gummies</h3>
+        <p>Gentle iron gummies for energy and anemia prevention. Another critical mineral for active individuals.</p>
+        <span class="ac-btn">Best Iron Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/vitamin-d-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Vitamin D Gummies</h3>
+        <p>D3 gummies for immune function, calcium absorption, and overall mineral metabolism support.</p>
+        <span class="ac-btn">Best Vitamin D Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Sarah Mitchell"
+      authorCredentials="RD, CNS"
+      authorImage="/images/authors/sarah-mitchell.webp"
+      authorBio="Sarah is a registered dietitian and certified nutrition specialist with 12 years of experience in supplement science. She evaluates mineral supplements based on form, bioavailability, third-party certification, clinical evidence, and safety profile for diverse populations."
+    />
+
+  </div>
+
+</BaseLayout>

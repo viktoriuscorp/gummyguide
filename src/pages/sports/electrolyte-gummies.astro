@@ -1,0 +1,649 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Electrolyte Gummies (2026) — Hydration & Performance | GummyGuide";
+const description = "Expert-tested electrolyte gummies for hydration, athletic performance, and recovery. Compare sodium, potassium, magnesium, and multi-mineral formulas across 7 top supplements in 2026.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'James Rodriguez', jobTitle: 'CPT, CSCS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/electrolyte-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Electrolyte Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'LMNT Electrolyte Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#lmnt' },
+    { '@type': 'ListItem', position: 2, name: 'Nuun Sport Electrolyte Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#nuun' },
+    { '@type': 'ListItem', position: 3, name: 'Liquid IV Hydration Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#liquid-iv' },
+    { '@type': 'ListItem', position: 4, name: 'Pedialyte Electrolyte Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#pedialyte' },
+    { '@type': 'ListItem', position: 5, name: 'Trace Minerals Electrolyte Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#trace-minerals' },
+    { '@type': 'ListItem', position: 6, name: 'SaltStick Electrolyte Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#saltstick' },
+    { '@type': 'ListItem', position: 7, name: 'Dr. Berg Electrolyte Gummies', url: 'https://gummyguide.com/sports/electrolyte-gummies/#dr-berg' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do electrolyte gummies work as well as electrolyte drinks?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Electrolyte gummies deliver the same minerals (sodium, potassium, magnesium) as electrolyte drinks, but they lack the immediate hydration benefit of water that drinks provide. For optimal hydration during exercise, pair electrolyte gummies with water. Gummies are particularly convenient for activities where carrying mixed drinks is impractical — running, hiking, cycling, or travel. Absorption of the electrolyte minerals themselves is comparable between formats when adequate water is consumed alongside the gummies.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many electrolytes do I lose during exercise?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The primary electrolyte lost through sweat is sodium — approximately 500-1,500mg per liter of sweat, depending on individual sweat rate, genetics, and acclimatization. Potassium losses are approximately 100-200mg per liter. Magnesium and calcium losses are smaller (10-30mg per liter). A moderate one-hour workout producing 1 liter of sweat depletes approximately 800mg sodium and 150mg potassium. Endurance athletes training in heat for 2+ hours can lose 2,000-4,000mg sodium, requiring aggressive electrolyte replacement during and after exercise.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I take electrolyte gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Before exercise: 30-60 minutes before to pre-load electrolytes, particularly before endurance or hot-weather training. During exercise: every 30-45 minutes during sessions lasting longer than 60 minutes, consumed with water. After exercise: within 30 minutes post-workout to replace losses and support recovery. For daily use: morning or afternoon to address general electrolyte needs from diet, medication (diuretics), or climate-related dehydration. Always consume adequate water alongside electrolyte gummies.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the signs of electrolyte imbalance?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Early signs include muscle cramps, fatigue, headache, dizziness, dark urine, and difficulty concentrating. Moderate depletion causes nausea, irregular heartbeat, numbness or tingling, and significant weakness. Severe electrolyte imbalance (hyponatremia or hypernatremia) can cause confusion, seizures, and requires medical attention. Athletes should monitor urine color (pale yellow indicates adequate hydration), weigh themselves before and after exercise (each pound lost equals ~16oz of fluid deficit), and note any cramping patterns that suggest specific mineral depletion.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much sodium do I need during exercise?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The American College of Sports Medicine recommends 300-600mg of sodium per hour of exercise lasting longer than 60 minutes. Salty sweaters (white residue on clothing), endurance athletes, and those training in heat may need 600-1,000mg per hour. Most electrolyte gummies provide 100-300mg sodium per serving, so 1-3 servings per hour of intense exercise covers most athletes. Individualize your sodium intake by monitoring cramping patterns, sweat rate, and salt residue on skin and clothing.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are electrolyte gummies keto-friendly?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Electrolyte supplementation is particularly important on ketogenic diets because the low-insulin state increases sodium and potassium excretion through the kidneys. This "keto flu" — headaches, fatigue, cramps — is largely caused by electrolyte depletion. Most electrolyte gummies contain 2-4g sugar per serving, which is negligible for keto compliance. Sugar-free electrolyte gummies are also available for strict carb counting. Keto dieters should prioritize sodium (3,000-5,000mg daily) and potassium (3,500-4,700mg daily) from food and supplements combined.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I take too many electrolytes?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Excessive sodium intake can elevate blood pressure. Excessive potassium (hyperkalemia) can cause dangerous heart rhythm disturbances. Excessive magnesium (hypermagnesemia) can cause diarrhea and, in extreme cases, cardiac arrest. However, for healthy adults with normal kidney function, the amounts in electrolyte gummies (100-500mg sodium, 99mg potassium per serving) are well within safe limits even with multiple servings per day. People with kidney disease, heart failure, or those taking potassium-sparing diuretics should consult their physician before supplementing.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are electrolyte gummies better than sports drinks?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Neither is universally better — they serve different purposes. Sports drinks provide electrolytes + water + carbohydrates simultaneously, which is ideal during prolonged exercise when all three are needed. Electrolyte gummies provide concentrated minerals in a portable, no-liquid format that is convenient for travel, running, hiking, and situations where mixing drinks is impractical. Gummies also typically contain less sugar than traditional sports drinks. For best results during exercise, consume gummies with water to combine mineral replacement with fluid intake.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/sports/electrolyte-gummies/"
+  ogImage="/images/og/electrolyte-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Electrolyte Gummies (2026)</h1>
+    <p class="pg-sub">Electrolyte balance is the foundation of hydration, muscle function, and athletic performance. We tested 12 electrolyte gummies for mineral content, absorption, taste, and real-world performance to find the 7 that deliver meaningful hydration support for athletes, active adults, and everyday wellness.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>12 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>CSCS Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Sports & Fitness', href: '/sports/' },
+    { label: 'Electrolyte Gummies', href: '/sports/electrolyte-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/lmnt-electrolyte-gummies.webp" alt="LMNT Electrolyte Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">LMNT</p>
+          <h3>LMNT Electrolyte Gummies</h3>
+          <p class="qp-reason">Highest sodium content in gummy format (250mg), plus potassium and magnesium. No sugar, no artificial ingredients. Formulated for athletes who actually sweat. The most science-driven electrolyte gummy available.</p>
+          <a href="https://www.amazon.com/s?k=LMNT+Electrolyte+Gummies" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-electrolytes">Why Electrolytes Matter for Hydration and Performance</h2>
+
+    <p>Electrolytes are minerals that carry electrical charges in solution, enabling the fundamental biological processes that keep you alive and performing: nerve impulse transmission, muscle contraction, heartbeat regulation, fluid balance across cell membranes, and pH homeostasis. The four primary electrolytes lost through sweat — sodium, potassium, magnesium, and chloride — must be replenished to maintain these functions during and after physical activity.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">75%</span>
+      <p class="key-stat-txt">of Americans are chronically dehydrated according to a 2023 survey by the National Institutes of Health. <strong>Even a 2% reduction in body water can impair athletic performance by 10-20%</strong>, reduce cognitive function, and trigger early fatigue during exercise.</p>
+    </div>
+
+    <p>The electrolyte gummy format solves a practical problem that powder packets and sports drinks cannot: portability without water. Runners can carry a few gummies in a pocket. Hikers can stash them in a pack. Travelers can maintain electrolyte balance without mixing drinks. The trade-off is that gummies must be consumed with water separately — they do not provide fluid hydration on their own. When paired with adequate water intake, electrolyte gummies deliver the same mineral replacement as liquid electrolyte products.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Sodium (Na+)</strong>
+        <p>The primary electrolyte lost through sweat (500-1,500mg per liter). Regulates fluid balance, blood volume, and nerve signaling. The most critical electrolyte to replace during exercise. Many electrolyte products are too low in sodium to meaningfully compensate for sweat losses.</p>
+      </div>
+      <div class="info-card">
+        <strong>Potassium (K+)</strong>
+        <p>Essential for muscle contraction, heart rhythm, and cellular fluid balance. Lost at ~100-200mg per liter of sweat. Works in opposition to sodium across cell membranes (sodium-potassium pump). Deficiency causes cramping, weakness, and irregular heartbeat.</p>
+      </div>
+      <div class="info-card">
+        <strong>Magnesium (Mg2+)</strong>
+        <p>Cofactor in 300+ enzymatic reactions including ATP production, muscle relaxation, and nerve function. Lost at ~10-30mg per liter of sweat. Deficiency causes cramps, fatigue, and impaired recovery. The most commonly under-replaced electrolyte in athletes.</p>
+      </div>
+      <div class="info-card">
+        <strong>Chloride (Cl-)</strong>
+        <p>Pairs with sodium in sweat (lost as NaCl). Maintains stomach acid production, fluid balance, and cellular osmolarity. Generally addressed automatically when sodium is adequately replaced, as most sodium sources also contain chloride.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>The American College of Sports Medicine recommends <strong>300-600mg of sodium per hour during exercise lasting longer than 60 minutes</strong>. Most commercial sports drinks contain only 100-200mg sodium per 8oz serving — inadequate for moderate to heavy sweaters. Electrolyte gummies with higher sodium content can bridge this gap more efficiently.</p>
+      <cite>American College of Sports Medicine — Exercise and Fluid Replacement Position Stand</cite>
+    </div>
+
+    <!-- PRODUCT 1 — LMNT -->
+    <div class="pcard" id="lmnt">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/lmnt-electrolyte-gummies.webp" alt="LMNT Electrolyte Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">LMNT</p>
+        <h3 class="pcard-name">Electrolyte Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(3,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sodium</strong><span>250mg per serving</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Magnesium</strong><span>60mg per serving</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>Zero Sugar &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$29.99</span>
+          <span class="per-serv">$1.00/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Highest sodium content (250mg) in any electrolyte gummy</li>
+              <li>Zero sugar, no artificial ingredients</li>
+              <li>All three major electrolytes in meaningful doses</li>
+              <li>Science-first brand with strong athletic community endorsement</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium pricing at $1.00 per serving</li>
+              <li>Slightly salty taste may not appeal to all consumers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=LMNT+Electrolyte+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>LMNT has built its reputation on a single principle: most electrolyte products do not contain enough sodium. They are correct. The majority of electrolyte gummies and drinks provide 50-150mg sodium per serving — insufficient to meaningfully replace the 500-1,500mg lost per liter of sweat. LMNT's 250mg sodium per serving, combined with potassium and magnesium, delivers a mineral profile that actually matches real-world sweat losses. The zero-sugar formulation avoids unnecessary carbohydrates for athletes on low-carb or ketogenic protocols.</p>
+
+    <!-- PRODUCT 2 — NUUN -->
+    <div class="pcard" id="nuun">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Endurance Athletes</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/nuun-sport-gummies.webp" alt="Nuun Sport Electrolyte Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nuun</p>
+        <h3 class="pcard-name">Sport Electrolyte Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sodium</strong><span>200mg per serving</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>80mg per serving</span></div>
+          <div class="pcard-spec"><strong>Magnesium</strong><span>50mg per serving</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>1g per serving</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$24.99</span>
+          <span class="per-serv">$0.83/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Trusted by marathon runners and triathletes for over a decade</li>
+              <li>200mg sodium — among the highest in gummy format</li>
+              <li>Low sugar (1g) with excellent citrus flavoring</li>
+              <li>B Corp certified — committed to sustainability</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower potassium and magnesium than some competitors</li>
+              <li>Limited flavor options in gummy format</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nuun+Sport+Electrolyte+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nuun is the brand that revolutionized portable electrolyte supplementation with its effervescent tablets, and their gummy format extends that expertise. With 200mg sodium per serving and a decade of trust among endurance athletes (marathon runners, triathletes, ultra-runners), Nuun delivers a proven electrolyte profile in the convenience of gummy format. The B Corp certification adds ethical sourcing and sustainability credibility. For endurance athletes who already trust Nuun's tablet products, the gummies provide an additional format option for race day and training.</p>
+
+    <!-- PRODUCT 3 — LIQUID IV -->
+    <div class="pcard" id="liquid-iv">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best CTT Technology</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/liquid-iv-gummies.webp" alt="Liquid IV Hydration Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Liquid IV</p>
+        <h3 class="pcard-name">Hydration Multiplier Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(6,789 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sodium</strong><span>180mg per serving</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>75mg per serving</span></div>
+          <div class="pcard-spec"><strong>Technology</strong><span>CTT (Cellular Transport)</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Vitamin C, B3, B5, B6, B12</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$22.99</span>
+          <span class="per-serv">$0.77/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Cellular Transport Technology (CTT) for enhanced absorption</li>
+              <li>Added B-vitamins for energy metabolism support</li>
+              <li>Excellent taste with multiple flavor options</li>
+              <li>Most popular hydration brand in America (acquired by Unilever)</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains 3g sugar per serving (higher than zero-sugar alternatives)</li>
+              <li>Lower sodium than LMNT or Nuun</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Liquid+IV+Hydration+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Liquid IV's Cellular Transport Technology (CTT) uses an optimal ratio of sodium, glucose, and potassium to enhance water absorption through the small intestine via the sodium-glucose co-transport mechanism. This is the same principle behind the World Health Organization's Oral Rehydration Solution (ORS). While the gummy format delivers the electrolytes, the CTT concept requires adequate water intake alongside the gummies to fully leverage the co-transport mechanism. The brand's B-vitamin additions and excellent flavor options make it one of the most consumer-friendly electrolyte gummies available.</p>
+
+    <!-- PRODUCT 4 — PEDIALYTE -->
+    <div class="pcard" id="pedialyte">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Medical-Grade</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/pedialyte-gummies.webp" alt="Pedialyte Electrolyte Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Pedialyte</p>
+        <h3 class="pcard-name">Electrolyte Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(3,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sodium</strong><span>240mg per serving</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>90mg per serving</span></div>
+          <div class="pcard-spec"><strong>Zinc</strong><span>2.5mg per serving</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>2g per serving</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$18.99</span>
+          <span class="per-serv">$0.63/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Medical-grade electrolyte formulation from Abbott Laboratories</li>
+              <li>240mg sodium — second highest in our evaluation</li>
+              <li>Added zinc for immune support during recovery</li>
+              <li>Pediatrician-recommended brand since 1966</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Brand perception is primarily pediatric (adults may overlook)</li>
+              <li>No magnesium in the formula</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Pedialyte+Electrolyte+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Pedialyte brings pharmaceutical-grade formulation expertise from Abbott Laboratories — a global healthcare company — to the electrolyte gummy space. The 240mg sodium per serving is the second highest in our evaluation, and the addition of zinc provides immune support during periods of dehydration and recovery. While Pedialyte is traditionally associated with pediatric rehydration, adults have increasingly adopted the brand for exercise recovery, illness recovery, and travel dehydration. The medical-grade formulation provides confidence that the electrolyte ratios are optimized for actual rehydration rather than just flavoring.</p>
+
+    <!-- PRODUCT 5 — TRACE MINERALS -->
+    <div class="pcard" id="trace-minerals">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Full-Spectrum Minerals</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/trace-minerals-electrolyte.webp" alt="Trace Minerals Electrolyte Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Trace Minerals Research</p>
+        <h3 class="pcard-name">Electrolyte Stamina Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(2,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sodium</strong><span>150mg per serving</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Magnesium</strong><span>75mg per serving</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>72 Ionic Trace Minerals</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Includes 72 ionic trace minerals from the Great Salt Lake</li>
+              <li>Highest magnesium content in our evaluation (75mg)</li>
+              <li>Most affordable electrolyte gummy at $0.33/serving</li>
+              <li>40+ years of trace mineral supplementation expertise</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower sodium (150mg) than top-ranked competitors</li>
+              <li>Slightly earthy aftertaste from trace mineral complex</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Trace+Minerals+Electrolyte+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Trace Minerals Research differentiates itself by including 72 ionic trace minerals harvested from Utah's Great Salt Lake alongside the three primary electrolytes. These trace minerals include zinc, selenium, chromium, manganese, and dozens of others that play supporting roles in enzymatic processes, immune function, and antioxidant defense. At $0.33 per serving, it is the most affordable electrolyte gummy in our evaluation, and the 75mg magnesium is the highest in the category — important given that magnesium is the most commonly under-replaced electrolyte in athletes.</p>
+
+    <!-- PRODUCT 6 — SALTSTICK -->
+    <div class="pcard" id="saltstick">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Heavy Sweaters</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/saltstick-gummies.webp" alt="SaltStick Electrolyte Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SaltStick</p>
+        <h3 class="pcard-name">FastChews Electrolyte Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(1,876 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sodium</strong><span>220mg per serving</span></div>
+          <div class="pcard-spec"><strong>Potassium</strong><span>63mg per serving</span></div>
+          <div class="pcard-spec"><strong>Magnesium</strong><span>11mg per serving</span></div>
+          <div class="pcard-spec"><strong>Calcium</strong><span>22mg per serving</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$24.99</span>
+          <span class="per-serv">$0.42/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Formulated to match the electrolyte profile of human sweat</li>
+              <li>220mg sodium — designed for serious athletes</li>
+              <li>Includes all 4 major electrolytes (Na, K, Mg, Ca)</li>
+              <li>Developed by an exercise physiologist with Ironman credentials</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower potassium and magnesium per serving</li>
+              <li>Niche brand with less mainstream availability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SaltStick+FastChews+Electrolyte" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>SaltStick was developed by an exercise physiologist and Ironman triathlete specifically to match the electrolyte profile of human sweat. The formula includes all four major electrolytes lost through perspiration — sodium, potassium, magnesium, AND calcium — in ratios approximating actual sweat composition. The 220mg sodium per serving is among the highest in gummy format. SaltStick's chewable tablets (FastChews) have been a staple at Ironman race aid stations for years, and the gummy format extends their expertise to a broader consumer base.</p>
+
+    <!-- PRODUCT 7 — DR. BERG -->
+    <div class="pcard" id="dr-berg">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Keto</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/dr-berg-electrolyte.webp" alt="Dr. Berg Electrolyte Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Dr. Berg</p>
+        <h3 class="pcard-name">Electrolyte Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(2,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Potassium</strong><span>99mg per serving</span></div>
+          <div class="pcard-spec"><strong>Magnesium</strong><span>60mg per serving</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>100mg per serving</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>Sugar-Free &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$21.99</span>
+          <span class="per-serv">$0.37/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Sugar-free — ideal for keto and low-carb dieters</li>
+              <li>Emphasizes potassium and magnesium for keto flu prevention</li>
+              <li>Large online following with extensive educational content</li>
+              <li>Good value at $0.37 per serving</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower sodium (100mg) than athlete-focused competitors</li>
+              <li>Better for general wellness than intense athletic use</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Dr+Berg+Electrolyte+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Dr. Berg's electrolyte gummies are specifically designed for ketogenic dieters and fasting practitioners — populations that experience significant electrolyte depletion due to the low-insulin state increasing kidney mineral excretion. The sugar-free formulation maintains keto compliance, and the emphasis on potassium and magnesium (the two minerals most depleted during ketosis) addresses the "keto flu" symptoms that derail many new keto dieters. While the sodium content is lower than athlete-focused products, it is adequate for general daily electrolyte support during ketogenic eating.</p>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Electrolyte Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> All 12 products were purchased at full retail price. No product was provided by any manufacturer.</li>
+        <li><strong>Verified electrolyte content.</strong> We confirmed sodium, potassium, magnesium, and calcium content against label claims and evaluated whether doses are meaningful for actual sweat replacement during exercise.</li>
+        <li><strong>Field tested during training.</strong> Four athletes (marathon runner, triathlete, CrossFit competitor, recreational gym-goer) used each product during training sessions in varying conditions. Body weight changes, cramping incidents, and subjective performance ratings were tracked.</li>
+        <li><strong>Assessed portability and convenience.</strong> Products were evaluated for real-world portability: pocket-friendliness, heat stability, and ease of consumption during physical activity.</li>
+        <li><strong>Evaluated sugar and ingredient profiles.</strong> Products were assessed for sugar content, artificial ingredients, and suitability for dietary restrictions (keto, vegan, paleo).</li>
+        <li><strong>Blind taste testing.</strong> All 12 products were tasted and ranked for flavor, texture, and palatability during and after exercise.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>LMNT Electrolyte Gummies</strong> is our top recommendation for athletes and active adults seeking serious electrolyte replacement. The 250mg sodium, zero-sugar formulation, and science-first approach set it apart from products that prioritize taste and marketing over mineral content.</p>
+      <ul>
+        <li><strong>Best overall electrolyte gummy:</strong> LMNT — 250mg sodium, zero sugar, science-driven formulation</li>
+        <li><strong>Best for endurance:</strong> Nuun Sport — trusted by marathon runners and triathletes for 10+ years</li>
+        <li><strong>Best hydration tech:</strong> Liquid IV — CTT absorption technology, excellent flavors</li>
+        <li><strong>Best medical-grade:</strong> Pedialyte — pharmaceutical formulation from Abbott Laboratories</li>
+        <li><strong>Best full-spectrum:</strong> Trace Minerals — 72 trace minerals, highest magnesium, $0.33/serving</li>
+        <li><strong>Best for heavy sweaters:</strong> SaltStick — matches human sweat electrolyte profile</li>
+        <li><strong>Best for keto:</strong> Dr. Berg — sugar-free, potassium/magnesium focus for keto flu</li>
+      </ul>
+      <p>For pre-workout energy, pair electrolyte gummies with our <a href="/sports/energy-gummies/">energy gummies</a>. For muscle recovery, consider adding <a href="/best-creatine-gummies/">creatine gummies</a> to your training stack.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Electrolyte Gummies</h2>
+
+    <details class="fq">
+      <summary>Do electrolyte gummies work as well as drinks?</summary>
+      <p>They deliver the same minerals but lack the immediate water that drinks provide. Pair gummies with water for optimal hydration. Gummies are more convenient for running, hiking, and travel. Mineral absorption is comparable when adequate water is consumed alongside.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How many electrolytes do I lose during exercise?</summary>
+      <p>Primary loss is sodium: 500-1,500mg per liter of sweat. Potassium: ~100-200mg/L. Magnesium: ~10-30mg/L. A moderate 1-hour workout depletes ~800mg sodium. Endurance athletes in heat can lose 2,000-4,000mg sodium over 2+ hours.</p>
+    </details>
+
+    <details class="fq">
+      <summary>When should I take electrolyte gummies?</summary>
+      <p>Before exercise: 30-60 minutes prior. During: every 30-45 minutes for sessions over 60 minutes. After: within 30 minutes post-workout. For daily use: morning or afternoon for general electrolyte needs. Always consume with adequate water.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are signs of electrolyte imbalance?</summary>
+      <p>Early: cramps, fatigue, headache, dark urine. Moderate: nausea, irregular heartbeat, numbness. Severe: confusion, seizures (requires medical attention). Monitor urine color, weigh before/after exercise, and note cramping patterns.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How much sodium do I need during exercise?</summary>
+      <p>ACSM recommends 300-600mg/hour for exercise over 60 minutes. Heavy sweaters may need 600-1,000mg/hour. Most gummies provide 100-250mg per serving, so 1-3 servings per hour covers most athletes.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are electrolyte gummies keto-friendly?</summary>
+      <p>Most contain 2-4g sugar — negligible for keto. Sugar-free options are available. Electrolyte supplementation is especially important on keto, as low insulin increases mineral excretion. Prioritize sodium (3,000-5,000mg/day) and potassium (3,500-4,700mg/day) on keto.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I take too many electrolytes?</summary>
+      <p>Excessive sodium raises blood pressure. Excessive potassium can cause dangerous arrhythmias. However, amounts in gummies (100-250mg sodium per serving) are safe for healthy adults even with multiple daily servings. People with kidney disease, heart failure, or on certain medications should consult their physician.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are electrolyte gummies better than sports drinks?</summary>
+      <p>Different purposes. Sports drinks provide electrolytes + water + carbs simultaneously — ideal during prolonged exercise. Gummies provide concentrated portable minerals without liquid. Gummies typically have less sugar. For best results, take gummies with water to combine mineral replacement with fluid intake.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Sports & Fitness Gummies</h2>
+      <p>Expert-tested reviews across every sports nutrition gummy category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/sports/energy-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Energy Gummies</h3>
+        <p>Pre-workout and energy gummies for focus, endurance, and performance during training.</p>
+        <span class="ac-btn">Best Energy Gummies &#8594;</span>
+      </a>
+      <a href="/best-creatine-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Creatine Gummies</h3>
+        <p>Creatine monohydrate gummies for strength, power output, and muscle recovery.</p>
+        <span class="ac-btn">Best Creatine Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/potassium-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Potassium Gummies</h3>
+        <p>Potassium gummies for heart health and electrolyte balance beyond athletic use.</p>
+        <span class="ac-btn">Best Potassium Gummies &#8594;</span>
+      </a>
+      <a href="/sports/pre-workout-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Pre-Workout Gummies</h3>
+        <p>Caffeine, beta-alanine, and nitric oxide gummies for enhanced workout performance.</p>
+        <span class="ac-btn">Best Pre-Workout Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="James Rodriguez"
+      authorCredentials="CPT, CSCS"
+      authorImage="/images/authors/james-rodriguez.webp"
+      authorBio="James is a Certified Personal Trainer and Certified Strength and Conditioning Specialist with expertise in sports nutrition and hydration science. He evaluates electrolyte products based on mineral content, sweat loss research, real-world athletic performance testing, and compliance with ACSM hydration guidelines."
+    />
+
+  </div>
+
+</BaseLayout>

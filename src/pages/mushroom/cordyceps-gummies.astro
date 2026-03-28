@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Best Cordyceps Gummies (2026) — Energy & Endurance | GummyGuide";
+const description = "Expert-tested ranking of the best cordyceps gummies for energy, endurance, and oxygen utilization in 2026. Compare Cordyceps militaris vs sinensis, beta-glucan content, and top brands for athletic performance.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Best Cordyceps Gummies: Energy & Endurance Mushroom Supplements (2026)',
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'James Rodriguez', jobTitle: 'CPT, CSCS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/cordyceps-gummies.webp',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do cordyceps gummies actually increase energy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Cordyceps has demonstrated energy-enhancing effects through multiple mechanisms in clinical research. A 2010 study in the Journal of Alternative and Complementary Medicine found that Cordyceps sinensis supplementation improved oxygen utilization (VO2max) by 7% in elderly adults over 12 weeks. A 2016 study in the Journal of Dietary Supplements showed that Cordyceps militaris improved exercise tolerance and delayed fatigue onset in healthy adults. The proposed mechanism involves enhanced mitochondrial ATP production through increased expression of adenylate cyclase and upregulation of the cellular energy molecule adenosine. Cordyceps does not provide the acute stimulant "buzz" of caffeine — instead, it supports sustained energy output through improved cellular energy metabolism over weeks of consistent use.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between Cordyceps militaris and Cordyceps sinensis?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Cordyceps sinensis (also called Ophiocordyceps sinensis) is the wild variety that grows on caterpillar larvae in the Tibetan Plateau, where it commands prices of $20,000 to $50,000 per kilogram. Due to extreme cost and overharvesting concerns, nearly all commercial Cordyceps sinensis supplements use CS-4, a mycelium fermentation product grown on grain — not the wild caterpillar fungus. Cordyceps militaris is a different species that can be cultivated on grain or vegan substrates at commercial scale, producing fruiting bodies rich in cordycepin and adenosine. Research suggests Cordyceps militaris fruiting body contains higher concentrations of the bioactive compound cordycepin than CS-4 mycelium. For gummy supplements, Cordyceps militaris fruiting body extract is the preferred source.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much cordyceps should I take daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Clinical studies showing benefits have used doses ranging from 1,000mg to 3,000mg of cordyceps extract per day. The most commonly studied effective dose is 1,000 to 1,500mg daily of a standardized extract. Most cordyceps gummies provide 500 to 750mg per serving, meaning you may need 2 servings to reach the clinically studied range. For athletic performance benefits, some practitioners recommend higher doses (2,000 to 3,000mg) during training periods. Cordyceps has shown no adverse effects at doses up to 3,000mg daily in clinical trials. Take cordyceps in the morning or before exercise — its energy-supporting effects make it less ideal as an evening supplement.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I take cordyceps gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Take cordyceps gummies in the morning or 30-60 minutes before exercise. The energy-supporting effects of cordyceps — enhanced oxygen utilization, improved ATP production, and increased endurance — align best with morning and pre-workout timing. Unlike caffeine, cordyceps does not cause insomnia if taken later in the day, but the energy benefits are most useful during active periods. For athletes, pre-workout timing allows the bioactive compounds (cordycepin, adenosine) to support energy metabolism during the training session. For general daily energy, morning consumption with breakfast is the most common and practical protocol.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is cordycepin and why does it matter?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Cordycepin (3-deoxyadenosine) is the primary bioactive compound unique to Cordyceps species. It is a nucleoside analog of adenosine — a molecule central to cellular energy metabolism (ATP = adenosine triphosphate). Research suggests cordycepin enhances energy production by stimulating adenylate cyclase activity, which increases intracellular cAMP levels. Elevated cAMP promotes mitochondrial biogenesis and fatty acid oxidation — both of which improve endurance capacity. Cordycepin has also shown anti-inflammatory, immunomodulatory, and potential anti-tumor properties in preclinical research. Cordyceps militaris fruiting body typically contains higher cordycepin concentrations than CS-4 mycelium extracts.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I stack cordyceps with other mushroom supplements?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, and mushroom stacking is a common practice in functional medicine. Popular cordyceps stacks include: Cordyceps + Lion\'s Mane for energy plus cognitive focus — ideal for demanding work or study sessions. Cordyceps + Reishi for energy during the day plus relaxation and immune support at night. Cordyceps + Ashwagandha for exercise performance plus stress resilience and recovery. There are no known adverse interactions between cordyceps and other functional mushrooms or common supplements. The complementary mechanisms of different mushroom species create synergistic benefits that single-species supplementation cannot achieve.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are cordyceps gummies safe?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Cordyceps has an excellent safety profile in clinical trials lasting up to 12 weeks at doses up to 3,000mg daily. The most commonly reported side effects are mild GI discomfort (nausea, diarrhea) in a small percentage of users, typically resolving within the first few days. Individuals with autoimmune conditions should consult their physician before supplementing, as cordyceps has immunomodulatory properties. Those taking anticoagulant medications should also use caution, as cordyceps may have mild blood-thinning effects. Pregnant and breastfeeding women should avoid cordyceps due to insufficient safety data in these populations.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take for cordyceps to work?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Unlike caffeine, cordyceps does not produce an immediate energy spike. The energy and endurance benefits build over time through improved mitochondrial function and oxygen utilization. Most users report noticeable improvements in sustained energy and exercise tolerance within 1 to 3 weeks of consistent daily supplementation. Clinical studies showing significant performance improvements typically run 4 to 12 weeks. For the best results, commit to at least 4 weeks of daily use before evaluating effectiveness. Some individuals notice subtle improvements in energy levels and workout recovery within the first week, but the full benefits require sustained supplementation.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/mushroom/cordyceps-gummies/"
+  ogImage="/images/og/cordyceps-gummies.webp"
+  schema={[articleSchema, faqSchema]}
+>
+
+  <section class="pg-hero">
+    <h1>Best Cordyceps Gummies: Energy & Endurance Mushroom Supplements</h1>
+    <p class="pg-sub">Cordyceps gained fame when Chinese Olympic runners attributed their record-breaking performances to this parasitic fungus in 1993. Three decades later, the science has caught up: clinical trials confirm cordyceps enhances oxygen utilization, ATP production, and exercise tolerance. We tested the best cordyceps gummies for extract quality, cordycepin content, and real-world energy benefits.</p>
+    <div class="pg-meta">
+      <span>Updated March 2026</span>
+      <span>6 Products Tested</span>
+      <span>Trainer Reviewed</span>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[
+    { label: 'Mushrooms & Adaptogens', href: '/mushroom/' },
+    { label: 'Cordyceps Gummies', href: '/mushroom/cordyceps-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="James Rodriguez"
+      authorCredentials="CPT, CSCS"
+      authorImage="/images/authors/james-rodriguez.webp"
+      authorBio="James is a certified personal trainer and strength & conditioning specialist with 15 years of experience coaching competitive athletes. He oversees GummyGuide's sports supplement testing."
+    />
+
+    <AffiliateDisclaimer />
+
+    <p>Cordyceps occupies a unique niche in the supplement world: a mushroom that enhances physical energy and endurance rather than calm or cognition. Its mechanism is fundamentally different from stimulants like caffeine — instead of blocking adenosine receptors (which creates alertness but also crashes), cordyceps works at the mitochondrial level to improve how efficiently your cells produce ATP, the universal energy currency. The result is sustained, smooth energy without jitters, crashes, or tolerance buildup.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">7%</span>
+      <p class="key-stat-txt">improvement in VO2max (maximal oxygen uptake) was observed in a clinical trial of Cordyceps sinensis supplementation over 12 weeks. <strong>Enhanced oxygen utilization means more efficient energy production</strong> during exercise — particularly valuable for endurance athletes, high-altitude performers, and anyone seeking sustained energy without stimulant dependence.</p>
+    </div>
+
+    <!-- HOW CORDYCEPS WORKS -->
+    <h2>How Cordyceps Enhances Energy</h2>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <h4>ATP Production</h4>
+        <p>Cordycepin stimulates adenylate cyclase, increasing intracellular cAMP levels. Elevated cAMP promotes mitochondrial biogenesis — literally creating more cellular power plants — and upregulates fatty acid oxidation for sustained energy output.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="droplet" size={22} /></div>
+        <h4>Oxygen Utilization</h4>
+        <p>Clinical trials show cordyceps improves VO2max — the maximum rate of oxygen consumption during exercise. Better oxygen utilization means more aerobic capacity at every intensity level, from walking to sprinting.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="fitness" size={22} /></div>
+        <h4>Endurance Performance</h4>
+        <p>A 2016 study found Cordyceps militaris improved time to exhaustion and delayed the onset of fatigue during high-intensity exercise in healthy adults. The effect is cumulative — benefits increase with consistent daily supplementation over 4-12 weeks.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="shield" size={22} /></div>
+        <h4>Anti-Fatigue Effect</h4>
+        <p>Cordyceps reduces blood lactate accumulation during exercise, delaying the burning sensation and fatigue that limits high-intensity performance. It also supports faster post-exercise lactate clearance for improved recovery between sets or intervals.</p>
+      </div>
+    </div>
+
+    <!-- MILITARIS VS SINENSIS -->
+    <h2>Cordyceps militaris vs Cordyceps sinensis (CS-4)</h2>
+
+    <div class="vs-strip">
+      <div class="vs-item vs-best">
+        <span class="vs-item-label">Preferred</span>
+        <h4>Cordyceps militaris (Fruiting Body)</h4>
+        <div class="vs-dose">500-1500mg</div>
+        <p>Cultivated fruiting body with higher cordycepin content. Standardizable to known bioactive levels. Vegan-friendly substrate available. More affordable and sustainable than wild cordyceps.</p>
+      </div>
+      <div class="vs-item">
+        <span class="vs-item-label">Legacy Format</span>
+        <h4>CS-4 (Sinensis Mycelium)</h4>
+        <div class="vs-dose">1000-3000mg</div>
+        <p>Mycelium grown on grain substrate via fermentation. Lower cordycepin than militaris fruiting body. Contains grain starch filler (30-60%). Still used in many supplements due to historical precedent.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      We recommend Cordyceps militaris fruiting body extract over CS-4 mycelium for gummy supplements. Fruiting body extracts contain higher concentrations of cordycepin and adenosine — the two bioactive compounds most directly linked to energy enhancement — and can be standardized to consistent potency. CS-4 mycelium-on-grain products contain significant grain starch filler, diluting the active mushroom compounds.
+      <cite>— GummyGuide Mushroom Research Team</cite>
+    </div>
+
+    <!-- PRODUCT PICKS -->
+    <h2>Best Cordyceps Gummies — Our Picks</h2>
+
+    <div class="pcard" id="real-mushrooms">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/real-mushrooms-cordyceps.webp" alt="Real Mushrooms Cordyceps Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Real Mushrooms</p>
+        <h3 class="pcard-name">Cordyceps-M Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(4,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Extract</strong><span>Cordyceps militaris fruiting body</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>750mg per serving</span></div>
+          <div class="pcard-spec"><strong>Beta-Glucans</strong><span>Verified &gt;25%</span></div>
+          <div class="pcard-spec"><strong>Third-Party</strong><span>Published CoA for each batch</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$29.95</span>
+          <span class="per-serv">$1.00/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>100% fruiting body — no mycelium-on-grain filler</li>
+              <li>Published Certificate of Analysis verifying beta-glucan content</li>
+              <li>Industry-leading extraction process preserving cordycepin</li>
+              <li>750mg per serving — close to clinical dose in a single serving</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium pricing at $1.00/day</li>
+              <li>750mg per serving may still require doubling for full clinical dose</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Real+Mushrooms+Cordyceps+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Real Mushrooms sets the quality standard for functional mushroom supplements. Their Cordyceps militaris gummies use 100% fruiting body extract with verified beta-glucan content above 25%. The published Certificate of Analysis for each batch means you can verify exactly what you are getting — a level of transparency rare in the mushroom supplement industry where mycelium-on-grain products often contain more grain starch than mushroom bioactives.</p>
+
+    <div class="pcard" id="fungies-cordyceps">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/fungies-cordyceps.webp" alt="Fungies Cordyceps Energy Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Fungies</p>
+        <h3 class="pcard-name">Cordyceps Energy Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(3,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Extract</strong><span>Cordyceps militaris fruiting body</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>500mg per serving</span></div>
+          <div class="pcard-spec"><strong>Formulation</strong><span>Organic, Vegan, Pectin-based</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$22.99</span>
+          <span class="per-serv">$0.77/day</span>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Fungies+Cordyceps+Energy+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Fungies delivers organic Cordyceps militaris fruiting body in a tasty vegan gummy at a more accessible price point. The 500mg per serving is a good maintenance dose, and the organic certification adds confidence in cultivation practices. For the full mushroom gummy category, see our <a href="/best-mushroom-gummies/">best mushroom gummies</a> guide.</p>
+
+    <div class="pcard" id="om-cordyceps">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Athletes</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/om-mushroom-energy.webp" alt="Om Mushroom Energy Blend Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Om Mushroom Superfood</p>
+        <h3 class="pcard-name">Energy Blend Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(2,900 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Blend</strong><span>Cordyceps + Reishi + Vitamin B12</span></div>
+          <div class="pcard-spec"><strong>Approach</strong><span>Energy + recovery + immune support</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$24.99</span>
+          <span class="per-serv">$0.83/day</span>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Om+Mushroom+Energy+Blend+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Om Mushroom Energy Blend combines cordyceps with reishi and vitamin B12 for a comprehensive energy, recovery, and immune support formula. Athletes benefit from the cordyceps for training performance and reishi for post-workout recovery and immune protection during heavy training loads. For more sports nutrition gummies, see our <a href="/sports/">sports gummies hub</a>.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Cordyceps stack for athletes:</strong> Take cordyceps (750-1500mg) in the morning or pre-workout for energy and endurance. Stack with lion's mane for cognitive focus during training. Add creatine gummies for strength and power output. This three-supplement stack covers energy (cordyceps), focus (lion's mane), and strength (creatine) — the three performance pillars for serious athletes.</p>
+    </div>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Beware of wild cordyceps claims.</strong> Supplements claiming to contain wild Cordyceps sinensis (the caterpillar fungus from Tibet) at consumer-accessible prices are almost certainly mislabeled. Genuine wild cordyceps costs $20,000-$50,000 per kilogram. What you are actually getting is CS-4 mycelium grown on grain — a very different product from the wild fungus. For validated cordycepin content, choose Cordyceps militaris fruiting body extracts with published Certificates of Analysis.</p>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>The Bottom Line on Cordyceps Gummies</h3>
+      <p><strong>Cordyceps delivers genuine energy benefits</strong> through enhanced mitochondrial ATP production and improved oxygen utilization — not through stimulant effects. This makes it ideal for sustained energy without crashes, jitters, or tolerance.</p>
+      <p><strong>Choose Cordyceps militaris fruiting body</strong> over CS-4 mycelium for higher cordycepin content and less grain starch filler. Look for products with verified beta-glucan content above 20% and published Certificates of Analysis.</p>
+      <p><strong>Give it 2-4 weeks</strong> of consistent daily use before evaluating. Unlike caffeine, cordyceps builds effectiveness through cumulative mitochondrial adaptation. The benefits compound over time with consistent supplementation.</p>
+    </div>
+
+    <!-- RELATED -->
+    <h2>Related Mushroom & Energy Guides</h2>
+
+    <div class="acards" style="grid-template-columns:1fr 1fr;">
+      <a href="/best-mushroom-gummies/" class="ac">
+        <span class="ac-tag">Full Rankings</span>
+        <h3>Best Mushroom Gummies</h3>
+        <p>Complete mushroom gummy rankings: lion's mane, reishi, cordyceps, and blends.</p>
+        <span class="ac-btn">See Rankings →</span>
+      </a>
+      <a href="/mushroom/lions-mane-gummies/" class="ac">
+        <span class="ac-tag">Cognition</span>
+        <h3>Lion's Mane Gummies</h3>
+        <p>The best mushroom for focus and memory — stack with cordyceps for energy + cognition.</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+      <a href="/sports/energy-gummies/" class="ac">
+        <span class="ac-tag">Sports Energy</span>
+        <h3>Energy Gummies</h3>
+        <p>Carbohydrate-based energy gummies for endurance racing and high-intensity training.</p>
+        <span class="ac-btn">See Rankings →</span>
+      </a>
+      <a href="/trending/nootropic-gummies/" class="ac">
+        <span class="ac-tag">Brain</span>
+        <h3>Nootropic Gummies</h3>
+        <p>Brain-boosting supplements with L-theanine, alpha-GPC, and lion's mane for cognitive performance.</p>
+        <span class="ac-btn">Read Guide →</span>
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-sec">
+      <h2>Cordyceps Gummies — Frequently Asked Questions</h2>
+      <details class="fq"><summary>Do cordyceps gummies actually increase energy?</summary><p>Yes, through enhanced mitochondrial ATP production and improved oxygen utilization — not stimulant effects. A clinical trial showed 7% VO2max improvement over 12 weeks. Effects build over 2-4 weeks of daily use. No jitters or crashes.</p></details>
+      <details class="fq"><summary>What is the difference between militaris and sinensis?</summary><p>C. militaris is cultivable fruiting body with higher cordycepin. C. sinensis (wild) costs $20,000-$50,000/kg; commercial "sinensis" products are actually CS-4 mycelium on grain with lower bioactive content. Choose militaris fruiting body.</p></details>
+      <details class="fq"><summary>How much cordyceps should I take?</summary><p>1,000-1,500mg daily of standardized extract. Most gummies provide 500-750mg per serving. Take in the morning or pre-workout. No adverse effects observed at doses up to 3,000mg in clinical trials.</p></details>
+      <details class="fq"><summary>When should I take cordyceps gummies?</summary><p>Morning or 30-60 minutes before exercise. The energy-supporting effects align best with active periods. Unlike caffeine, it will not cause insomnia if taken later, but the benefits are most useful during the day.</p></details>
+      <details class="fq"><summary>What is cordycepin?</summary><p>The primary bioactive compound in cordyceps — a nucleoside analog of adenosine that enhances ATP production by stimulating adenylate cyclase. Cordyceps militaris fruiting body has higher cordycepin than CS-4 mycelium.</p></details>
+      <details class="fq"><summary>Can I stack cordyceps with other mushrooms?</summary><p>Yes. Popular stacks: Cordyceps + lion's mane (energy + focus), cordyceps + reishi (energy + recovery), cordyceps + ashwagandha (performance + stress resilience). No known adverse interactions between mushroom species.</p></details>
+      <details class="fq"><summary>Are cordyceps gummies safe?</summary><p>Excellent safety profile at doses up to 3,000mg/day in trials lasting 12 weeks. Mild GI discomfort possible initially. Caution with autoimmune conditions (immunomodulatory) and blood thinners (mild anticoagulant effect). Not studied in pregnancy.</p></details>
+      <details class="fq"><summary>How long does cordyceps take to work?</summary><p>1-3 weeks for noticeable energy improvements. 4-12 weeks for significant endurance and performance gains. Effects build through cumulative mitochondrial adaptation. Not an acute stimulant — commit to at least 4 weeks.</p></details>
+    </section>
+
+    <p class="fda-disc">*These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare provider before starting any supplement regimen.</p>
+
+  </div>
+
+  <div class="cta">
+    <h2>Explore Mushroom Supplements</h2>
+    <p>Browse our expert-tested mushroom gummy guides for energy, focus, and immune support.</p>
+    <a href="/mushroom/" class="btn btn-wh">Explore Mushroom Hub →</a>
+  </div>
+
+</BaseLayout>

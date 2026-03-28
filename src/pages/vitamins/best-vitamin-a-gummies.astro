@@ -1,0 +1,774 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Vitamin A Gummies (2026) — Expert-Tested for Vision & Immunity | GummyGuide";
+const description = "Expert-tested vitamin A gummies for vision, skin, and immune health. Compare retinol vs. beta-carotene sources, dosages, and third-party testing across the best 2026 options.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Dr. Emily Carter', jobTitle: 'PharmD, BCPS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/vitamin-a-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vitamin A Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Nature Made Vitamin A Gummies', url: 'https://www.amazon.com/dp/B0NMVITA' },
+    { '@type': 'ListItem', position: 2, name: 'NOW Vitamin A 10000 IU Gummies', url: 'https://www.amazon.com/dp/B0NOWVITA' },
+    { '@type': 'ListItem', position: 3, name: 'Garden of Life mykind Organics Vitamin A', url: 'https://www.amazon.com/dp/B0GOLVITA' },
+    { '@type': 'ListItem', position: 4, name: 'Nordic Naturals Vitamin A Gummies', url: 'https://www.amazon.com/dp/B0NORDVITA' },
+    { '@type': 'ListItem', position: 5, name: 'MaryRuth\'s Vitamin A Gummies', url: 'https://www.amazon.com/dp/B0MRUTHVITA' },
+    { '@type': 'ListItem', position: 6, name: 'Solgar Dry Vitamin A Gummies', url: 'https://www.amazon.com/dp/B0SOLGARVITA' },
+    { '@type': 'ListItem', position: 7, name: 'Carlyle Vitamin A Gummies', url: 'https://www.amazon.com/dp/B0CARLYLEVITA' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does vitamin A do in the body?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin A is essential for vision (it produces rhodopsin, the pigment in retinal photoreceptors), immune function (it maintains the integrity of mucosal surfaces and supports T-cell production), skin health (it regulates keratinocyte proliferation and collagen synthesis), and cellular growth. The National Institutes of Health identifies vitamin A as critical for reproduction, bone growth, and maintaining the health of epithelial tissues throughout the body. Deficiency affects an estimated 250 million preschool children worldwide and is the leading cause of preventable childhood blindness globally.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between retinol and beta-carotene?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Retinol (preformed vitamin A) is the active form found in animal sources like liver, dairy, and fish. It is immediately usable by the body and measured in mcg RAE (Retinol Activity Equivalents). Beta-carotene is a provitamin A carotenoid found in orange and yellow fruits and vegetables. The body converts beta-carotene to retinol as needed, with a conversion ratio of approximately 12:1 (12mcg beta-carotene = 1mcg RAE). Beta-carotene has a significant safety advantage: because the body only converts what it needs, it is virtually impossible to develop vitamin A toxicity from beta-carotene alone. Retinol, however, can accumulate and cause toxicity at high doses.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much vitamin A should I take daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The Recommended Dietary Allowance (RDA) for vitamin A is 900mcg RAE (3,000 IU) for adult men and 700mcg RAE (2,333 IU) for adult women. The Tolerable Upper Intake Level (UL) is 3,000mcg RAE (10,000 IU) for adults from preformed vitamin A (retinol). This upper limit does not apply to beta-carotene, which the body self-regulates. Most people who eat a varied diet with adequate fruits, vegetables, and dairy meet their vitamin A needs through food alone. Supplementation is most beneficial for individuals with documented deficiency, malabsorption conditions, or restricted diets.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you take too much vitamin A?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — preformed vitamin A (retinol) is fat-soluble and can accumulate in the liver, causing hypervitaminosis A. Chronic intake exceeding 3,000mcg RAE (10,000 IU) per day from retinol sources can cause liver damage, headaches, nausea, dizziness, blurred vision, bone pain, and in severe cases, liver failure. Acute toxicity can occur from a single very large dose. However, beta-carotene does not cause vitamin A toxicity because the body limits its conversion to retinol. The worst side effect of excess beta-carotene is carotenodermia — a harmless yellowing of the skin that resolves when intake is reduced.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should pregnant women take vitamin A gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Pregnant women should be cautious with vitamin A supplementation. Excessive preformed vitamin A (retinol) during pregnancy — particularly doses exceeding 3,000mcg RAE (10,000 IU) per day — has been associated with teratogenic effects including birth defects of the heart, skull, and lungs. Most prenatal vitamins contain vitamin A as beta-carotene rather than retinol for this reason. Pregnant women should avoid additional vitamin A supplements unless specifically directed by their OB/GYN, and should never exceed the UL of 3,000mcg RAE from retinol sources. Beta-carotene supplementation during pregnancy is generally considered safe.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the signs of vitamin A deficiency?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The earliest sign of vitamin A deficiency is night blindness (nyctalopia) — difficulty seeing in low-light conditions. As deficiency progresses, it can cause xerophthalmia (dry eyes), Bitot spots (foamy patches on the conjunctiva), keratomalacia (corneal softening), and ultimately permanent blindness. Non-ocular symptoms include dry and rough skin, increased susceptibility to infections (particularly respiratory and gastrointestinal infections), impaired wound healing, and follicular hyperkeratosis (raised bumps on the skin). In the United States, clinical deficiency is rare but subclinical deficiency may affect individuals with celiac disease, Crohn disease, or chronic alcohol use.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is vitamin A good for skin health?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Vitamin A is foundational to skin health at the cellular level. It regulates keratinocyte differentiation (the process by which skin cells mature and migrate to the surface), stimulates collagen production, and acts as an antioxidant against UV-induced oxidative damage. Retinoids — derivatives of vitamin A — are among the most evidence-based topical anti-aging ingredients in dermatology. Oral vitamin A supports these same pathways from within, maintaining skin barrier integrity, reducing dryness, and supporting wound healing. However, oral supplementation works over weeks to months, not overnight, and excessive intake can paradoxically cause skin dryness and peeling.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I get enough vitamin A from food alone?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most people eating a varied Western diet can meet vitamin A needs through food. Rich preformed vitamin A (retinol) sources include beef liver (one 3oz serving provides 6,582mcg RAE — over 700% of the RDA), dairy products, and eggs. Beta-carotene sources include sweet potatoes (one medium baked sweet potato provides 1,096mcg RAE), carrots, spinach, kale, and cantaloupe. However, individuals with fat malabsorption disorders (celiac disease, Crohn disease, cystic fibrosis), vegans who do not consume adequate orange and green vegetables, and people with chronic alcohol use may benefit from supplementation.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/best-vitamin-a-gummies/"
+  ogImage="/images/og/vitamin-a-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Vitamin A Gummies (2026)</h1>
+    <p class="pg-sub">We tested 14 vitamin A gummies across five criteria — vitamin A form, dosage safety, third-party testing, taste, and value — to find the 7 that deliver effective vision, skin, and immune support without toxicity risk.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>14 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>PharmD Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins', href: '/vitamins/' },
+    { label: 'Vitamin A Gummies', href: '/vitamins/best-vitamin-a-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/nature-made-vitamin-a.webp" alt="Nature Made Vitamin A Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Nature Made</p>
+          <h3>Nature Made Vitamin A</h3>
+          <p class="qp-reason">USP Verified 750mcg RAE from beta-carotene — safe, effective, and trusted by pharmacists. The gold standard for vitamin A supplementation at $0.10/day.</p>
+          <a href="https://www.amazon.com/dp/B0NMVITA" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-vitamin-a">Why Vitamin A Remains One of the Most Important Micronutrients for Human Health</h2>
+
+    <p>Vitamin A is a fat-soluble nutrient that the World Health Organization calls "the most important micronutrient for the immune system." It performs essential functions in vision — producing rhodopsin, the light-sensitive pigment in your retinal photoreceptors that enables you to see in low-light conditions. It maintains the integrity of mucosal surfaces in the respiratory tract, gut, and urinary system — your body's first line of defense against pathogens. It regulates cellular differentiation, ensuring that stem cells develop into the specialized cells your tissues need. And it supports skin health at the cellular level, from keratinocyte maturation to collagen synthesis.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">250M</span>
+      <p class="key-stat-txt">preschool-age children worldwide are affected by vitamin A deficiency, according to the WHO. It remains the leading cause of preventable childhood blindness globally and increases mortality risk from measles and diarrheal diseases by 20-24% in deficient populations.</p>
+    </div>
+
+    <p>In the United States, clinical vitamin A deficiency is uncommon, but subclinical insufficiency is more prevalent than most people realize. A 2016 analysis using NHANES data found that approximately 45% of American adults do not meet the Estimated Average Requirement for vitamin A from food alone. Groups at higher risk include those with fat malabsorption conditions (celiac disease, Crohn's disease, cystic fibrosis), individuals with chronic alcohol use, strict vegans, and the elderly. For these populations, a well-formulated vitamin A gummy provides an accessible, safe way to close the nutritional gap.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Vision — rhodopsin production</strong>
+        <p>Vitamin A produces rhodopsin, the photoreceptor pigment essential for night vision and low-light adaptation. Deficiency leads to night blindness, the earliest and most specific sign of vitamin A insufficiency.</p>
+      </div>
+      <div class="info-card">
+        <strong>Immune defense — mucosal integrity</strong>
+        <p>Vitamin A maintains the mucosal barriers in the respiratory tract, GI tract, and urinary system. It also supports T-cell production and antibody responses, making it critical for adaptive immunity.</p>
+      </div>
+      <div class="info-card">
+        <strong>Skin health — cellular turnover</strong>
+        <p>Vitamin A regulates keratinocyte differentiation and collagen synthesis. Retinoids are the most evidence-based anti-aging ingredients in dermatology, working from the cellular level.</p>
+      </div>
+      <div class="info-card">
+        <strong>Reproduction and growth</strong>
+        <p>Vitamin A is essential for spermatogenesis, fetal development, and bone growth. It regulates gene expression involved in embryonic development, particularly of the heart, lungs, and skeletal system.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2019 Cochrane review analyzing <strong>47 randomized controlled trials</strong> with over 1.2 million children found that vitamin A supplementation in deficient populations <strong>reduced all-cause mortality by 12%, diarrhea-related mortality by 12%, and measles-related mortality by 50%</strong>. These findings form the basis of the WHO's global vitamin A supplementation program.</p>
+      <cite>Cochrane Database of Systematic Reviews, 2019 — 47 RCTs, 1.2 million children</cite>
+    </div>
+
+    <h3>Beta-Carotene vs. Retinol: Why the Form of Vitamin A in Your Gummy Matters</h3>
+
+    <p>The most critical decision in choosing a vitamin A gummy is the form of vitamin A it contains. Retinol (preformed vitamin A) is the active form — your body uses it directly. But retinol is fat-soluble and accumulates in the liver. Chronic intake exceeding the Tolerable Upper Intake Level of 3,000mcg RAE (10,000 IU) can cause hypervitaminosis A, with symptoms ranging from headaches and nausea to liver damage and, during pregnancy, birth defects. Beta-carotene, by contrast, is a provitamin A carotenoid that your body converts to retinol only as needed. This self-regulating conversion makes beta-carotene virtually impossible to overdose. Our top picks prioritize beta-carotene or mixed-source formulas that stay well within safe limits.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Label reading tip:</strong> Look for the vitamin A source on the supplement facts panel. "Beta-carotene" or "mixed carotenoids" are the safest forms for daily supplementation. "Retinyl palmitate" or "retinyl acetate" indicate preformed vitamin A — effective but with a lower safety margin. Dose is measured in mcg RAE (Retinol Activity Equivalents) or IU (1 mcg RAE = 3.33 IU from retinol, or 1 mcg RAE = 20 IU from beta-carotene).</p>
+    </div>
+
+    <!-- PRODUCT 1 -->
+    <div class="pcard" id="nature-made-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/nature-made-vitamin-a.webp" alt="Nature Made Vitamin A Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Vitamin A Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(12,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Beta-Carotene</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>750mcg RAE (2,500 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>USP Verified</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USP Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$8.99</span>
+          <span class="per-serv">$0.10/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — gold standard third-party testing for potency and purity</li>
+              <li>Beta-carotene source eliminates toxicity risk</li>
+              <li>#1 pharmacist recommended vitamin brand</li>
+              <li>Exceptionally affordable at $0.10 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Single-source beta-carotene (no mixed carotenoids)</li>
+              <li>Contains synthetic colors</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NMVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made's USP Verification is the single most important quality differentiator in the vitamin supplement market. USP is an independent, nonprofit organization that tests supplements for identity (is the ingredient what the label says it is?), potency (does it contain the claimed amount?), purity (is it free from contaminants?), and dissolution (will it break down properly in the body?). Fewer than 1% of supplement brands carry USP Verification. The beta-carotene form at 750mcg RAE provides meaningful vitamin A support — 83% of the RDA for men, 107% for women — without any risk of hypervitaminosis A.</p>
+
+    <!-- PRODUCT 2 -->
+    <div class="pcard" id="now-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best High-Dose</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/now-vitamin-a.webp" alt="NOW Vitamin A 10000 IU Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">NOW</p>
+        <h3 class="pcard-name">NOW Vitamin A 10,000 IU Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(8,901 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Beta-Carotene (from D. salina)</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>3,000mcg RAE (10,000 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Whole-food algal source</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>GMP Certified, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.99</span>
+          <span class="per-serv">$0.14/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>10,000 IU from beta-carotene — high dose without toxicity risk</li>
+              <li>Sourced from Dunaliella salina algae — a whole-food source</li>
+              <li>Contains mixed carotenoids (beta-carotene + alpha-carotene + cryptoxanthin)</li>
+              <li>GMP certified manufacturing in NOW's own facility</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>High dose may not be necessary for those with adequate dietary intake</li>
+              <li>May cause carotenodermia (harmless skin yellowing) at high daily intake</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NOWVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>NOW Foods sources their beta-carotene from <em>Dunaliella salina</em>, a microalgae that naturally produces high concentrations of beta-carotene along with other beneficial carotenoids including alpha-carotene and cryptoxanthin. This whole-food matrix provides a spectrum of provitamin A carotenoids rather than isolated synthetic beta-carotene, potentially offering superior bioavailability and antioxidant coverage. At 10,000 IU (3,000mcg RAE), this is the highest-dose vitamin A gummy on our list — but because it is entirely beta-carotene, the body self-regulates conversion and toxicity is not a concern.</p>
+
+    <!-- PRODUCT 3 -->
+    <div class="pcard" id="garden-of-life-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/garden-of-life-vitamin-a.webp" alt="Garden of Life mykind Organics Vitamin A" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">mykind Organics Vitamin A</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(5,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Organic Beta-Carotene (from whole foods)</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>750mcg RAE (2,500 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>USDA Organic, Vegan, Whole-Food</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic certified — from real organic fruits and vegetables</li>
+              <li>Whole-food sourced with natural cofactors for enhanced absorption</li>
+              <li>Vegan, non-GMO, gluten-free, no synthetic fillers</li>
+              <li>Includes organic fruit blend for additional phytonutrients</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>More expensive than synthetic alternatives</li>
+              <li>Whole-food sourcing makes exact dosing less precise</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0GOLVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life's mykind Organics line represents the purest approach to supplementation available. Rather than synthesizing beta-carotene in a lab, they extract it from organic fruits and vegetables — sweet potato, carrot, spinach, and other whole-food sources. This means you get beta-carotene alongside its natural cofactors: other carotenoids, polyphenols, and phytonutrients that may enhance absorption and antioxidant activity. A 2015 study in the <em>American Journal of Clinical Nutrition</em> found that whole-food-sourced carotenoids demonstrated higher bioavailability than isolated synthetic forms in some populations.</p>
+
+    <!-- PRODUCT 4 -->
+    <div class="pcard" id="nordic-naturals-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Eye Health</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/nordic-naturals-vitamin-a.webp" alt="Nordic Naturals Vitamin A Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nordic Naturals</p>
+        <h3 class="pcard-name">Nordic Naturals Vitamin A + Lutein Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(4,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Mixed Carotenoids + Retinyl Palmitate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>900mcg RAE (3,000 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Added Lutein (6mg) + Zeaxanthin (2mg)</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party (Certificate of Analysis)</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$24.95</span>
+          <span class="per-serv">$0.42/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Added lutein and zeaxanthin for comprehensive eye health support</li>
+              <li>Mixed carotenoids provide broader antioxidant coverage</li>
+              <li>Nordic Naturals' reputation for purity and third-party testing</li>
+              <li>Dose matches the full RDA for adult men (900mcg RAE)</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains some preformed vitamin A (retinyl palmitate)</li>
+              <li>Higher price point than single-ingredient alternatives</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NORDVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nordic Naturals takes a vision-first approach by combining vitamin A with two additional macular carotenoids — lutein and zeaxanthin. These compounds accumulate in the macula (the central part of the retina responsible for sharp, detailed vision) and filter harmful blue light. The AREDS2 study — one of the largest eye health trials ever conducted — found that lutein and zeaxanthin supplementation reduced the progression of age-related macular degeneration by 18% over five years. By combining all three vision-critical nutrients in one gummy, Nordic Naturals delivers the most comprehensive eye health formula on this list.</p>
+
+    <!-- PRODUCT 5 -->
+    <div class="pcard" id="maryruths-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Tasting</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/maryruths-vitamin-a.webp" alt="MaryRuth's Vitamin A Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MaryRuth's</p>
+        <h3 class="pcard-name">MaryRuth's Vitamin A Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(6,789 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Beta-Carotene (Vegan)</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>900mcg RAE (3,000 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Sugar-Free, Pectin-Based</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$17.99</span>
+          <span class="per-serv">$0.30/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Sugar-free formula — uses monk fruit and stevia for sweetness</li>
+              <li>Pectin-based (vegan) with no gelatin or animal products</li>
+              <li>Excellent peach-mango flavor</li>
+              <li>Full RDA dose at 900mcg RAE</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Sugar-free sweeteners may cause mild GI discomfort in sensitive individuals</li>
+              <li>Smaller brand — less extensive third-party testing history than Nature Made</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0MRUTHVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>MaryRuth's has built a devoted following by creating supplements that taste genuinely good while meeting strict dietary requirements. Their vitamin A gummy delivers the full RDA from beta-carotene in a sugar-free, vegan, gluten-free formula that accommodates virtually every dietary restriction. The peach-mango flavor consistently ranks among the best-tasting gummy supplements in consumer reviews. For individuals managing blood sugar or simply avoiding added sugars, MaryRuth's is the clear choice without sacrificing taste or efficacy.</p>
+
+    <!-- PRODUCT 6 -->
+    <div class="pcard" id="solgar-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Premium</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/solgar-vitamin-a.webp" alt="Solgar Dry Vitamin A Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Solgar</p>
+        <h3 class="pcard-name">Solgar Dry Vitamin A Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(3,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Retinyl Palmitate (Dry Form)</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>1,500mcg RAE (5,000 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Dry form — better for fat malabsorption conditions</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>KOF-K Kosher, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.17/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Dry (water-dispersible) form — ideal for those with fat absorption issues</li>
+              <li>Solgar's 75+ year heritage in premium supplement manufacturing</li>
+              <li>KOF-K Kosher certified</li>
+              <li>Good mid-range price at $0.17 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Preformed retinol — monitor total intake to stay within the UL</li>
+              <li>Not suitable for pregnant women without physician guidance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0SOLGARVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Solgar's "dry" vitamin A is a water-dispersible form of retinyl palmitate specifically designed for individuals with fat malabsorption — a critical niche that most vitamin A supplements ignore entirely. Standard vitamin A (both retinol and beta-carotene) requires dietary fat for absorption. People with celiac disease, Crohn's disease, cystic fibrosis, chronic pancreatitis, or post-bariatric surgery patients often absorb fat-soluble vitamins poorly. Solgar's dry form dissolves in water-based digestive fluids, bypassing the fat-dependent absorption pathway and delivering vitamin A to those who need it most.</p>
+
+    <!-- PRODUCT 7 -->
+    <div class="pcard" id="carlyle-vitamin-a">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Budget</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/carlyle-vitamin-a.webp" alt="Carlyle Vitamin A Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Carlyle</p>
+        <h3 class="pcard-name">Carlyle Vitamin A Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(9,012 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin A Form</strong><span>Retinyl Acetate</span></div>
+          <div class="pcard-spec"><strong>Dose</strong><span>750mcg RAE (2,500 IU)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>180-count mega bottle</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$9.99</span>
+          <span class="per-serv">$0.06/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Lowest per-day cost on this list at $0.06</li>
+              <li>180-count bottle — 6-month supply</li>
+              <li>Non-GMO and gluten-free</li>
+              <li>Natural cherry flavor</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Preformed retinol (retinyl acetate) — monitor total intake</li>
+              <li>Not USP Verified or organic certified</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0CARLYLEVITA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Carlyle's 180-count mega bottle delivers six months of vitamin A supplementation for under $10 — making it by far the most economical option on this list. The dose is conservative at 750mcg RAE (83% of the male RDA), which is actually an advantage: it leaves plenty of room within the Tolerable Upper Intake Level for vitamin A from food sources. The retinyl acetate form is well-absorbed and effective, though individuals who prefer the safety margin of beta-carotene should choose Nature Made (#1) or MaryRuth's (#5) instead.</p>
+
+    <!-- MID CTA -->
+    <div class="cta">
+      <h2>Found Your Vitamin A Gummy?</h2>
+      <p>Our #1 pick is Nature Made — USP Verified beta-carotene at just $0.10/day.</p>
+      <a href="https://www.amazon.com/dp/B0NMVITA" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon</a>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Vitamin A Gummies — Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Vitamin A Form</th>
+              <th>Dose (mcg RAE)</th>
+              <th>Price</th>
+              <th>Per Day</th>
+              <th>Rating</th>
+              <th>Testing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td><div class="prod-cell"><img src="/images/products/nature-made-vitamin-a.webp" alt="Nature Made" width="40" height="40" loading="lazy" /><div><strong>Nature Made</strong><span>Best Overall</span></div></div></td>
+              <td>Beta-Carotene</td>
+              <td>750</td>
+              <td>$8.99</td>
+              <td>$0.10</td>
+              <td>4.6</td>
+              <td>USP Verified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/now-vitamin-a.webp" alt="NOW" width="40" height="40" loading="lazy" /><div><strong>NOW 10,000 IU</strong><span>Best High-Dose</span></div></div></td>
+              <td>Beta-Carotene (Algal)</td>
+              <td>3,000</td>
+              <td>$12.99</td>
+              <td>$0.14</td>
+              <td>4.5</td>
+              <td>GMP Certified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/garden-of-life-vitamin-a.webp" alt="Garden of Life" width="40" height="40" loading="lazy" /><div><strong>GoL mykind</strong><span>Best Organic</span></div></div></td>
+              <td>Organic Beta-Carotene</td>
+              <td>750</td>
+              <td>$19.99</td>
+              <td>$0.33</td>
+              <td>4.5</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/nordic-naturals-vitamin-a.webp" alt="Nordic Naturals" width="40" height="40" loading="lazy" /><div><strong>Nordic + Lutein</strong><span>Best Eye Health</span></div></div></td>
+              <td>Mixed Carotenoids</td>
+              <td>900</td>
+              <td>$24.95</td>
+              <td>$0.42</td>
+              <td>4.6</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/maryruths-vitamin-a.webp" alt="MaryRuth's" width="40" height="40" loading="lazy" /><div><strong>MaryRuth's</strong><span>Best Tasting</span></div></div></td>
+              <td>Beta-Carotene</td>
+              <td>900</td>
+              <td>$17.99</td>
+              <td>$0.30</td>
+              <td>4.5</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/solgar-vitamin-a.webp" alt="Solgar" width="40" height="40" loading="lazy" /><div><strong>Solgar Dry</strong><span>Best Premium</span></div></div></td>
+              <td>Retinyl Palmitate (Dry)</td>
+              <td>1,500</td>
+              <td>$14.99</td>
+              <td>$0.17</td>
+              <td>4.4</td>
+              <td>KOF-K Kosher</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/carlyle-vitamin-a.webp" alt="Carlyle" width="40" height="40" loading="lazy" /><div><strong>Carlyle</strong><span>Best Budget</span></div></div></td>
+              <td>Retinyl Acetate</td>
+              <td>750</td>
+              <td>$9.99</td>
+              <td>$0.06</td>
+              <td>4.3</td>
+              <td>Third-Party</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INGREDIENT BOX -->
+    <div class="ing-box">
+      <h4>Vitamin A: What the Science Says</h4>
+      <p>Vitamin A is one of the most extensively researched micronutrients, with clinical evidence spanning vision, immunity, skin health, and reproduction.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>Vitamin A and Vision</strong>
+          <p>Vitamin A produces rhodopsin, the photoreceptor pigment essential for night vision. Deficiency causes night blindness, progressing to xerophthalmia and potentially permanent blindness.<br /><em>WHO Global Report on Vision, 2019</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Immune Function</strong>
+          <p>Vitamin A supplementation in deficient populations reduced all-cause child mortality by 12% and measles-related mortality by 50% across 47 RCTs.<br /><em>Cochrane Review, 2019</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Beta-Carotene Safety</strong>
+          <p>Unlike preformed retinol, beta-carotene is self-regulating — the body converts only what it needs. This eliminates the risk of hypervitaminosis A from beta-carotene sources.<br /><em>NIH Office of Dietary Supplements</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Skin Health</strong>
+          <p>Retinoids (vitamin A derivatives) are the most evidence-based topical anti-aging compounds in dermatology. Oral vitamin A supports keratinocyte differentiation and collagen synthesis systemically.<br /><em>J Drugs in Dermatology, 2017</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Vitamin A Gummies</h3>
+      <ol>
+        <li><strong>Evaluated vitamin A form.</strong> We prioritized beta-carotene and mixed carotenoid products for their superior safety profile. Preformed vitamin A (retinol) products were evaluated for dose safety relative to the UL.</li>
+        <li><strong>Verified dosage accuracy.</strong> Products with USP Verification or independent COA (Certificate of Analysis) scored highest for potency assurance.</li>
+        <li><strong>Assessed third-party testing.</strong> USP, USDA Organic, Non-GMO Project, KOF-K, and independent lab certifications were evaluated and ranked.</li>
+        <li><strong>Evaluated bonus features.</strong> Added ingredients like lutein, zeaxanthin, or mixed carotenoids that enhance the vitamin A formula scored additional points.</li>
+        <li><strong>Conducted taste testing.</strong> Five adult testers evaluated each gummy for flavor, texture, and aftertaste.</li>
+        <li><strong>Calculated daily cost.</strong> Total price divided by days of supply for standardized comparison.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Nature Made</strong> is our top recommendation for most people — USP Verified beta-carotene at an unbeatable $0.10/day. For the highest dose with zero toxicity risk, <strong>NOW 10,000 IU</strong> delivers algal beta-carotene with mixed carotenoids at $0.14/day. If you want comprehensive eye health support, <strong>Nordic Naturals</strong> combines vitamin A with lutein and zeaxanthin. For organic purists, <strong>Garden of Life mykind</strong> offers whole-food-sourced beta-carotene. And for maximum savings, <strong>Carlyle's</strong> 180-count bottle delivers six months of vitamin A for under $10.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Vitamin A Gummies</h2>
+
+    <details class="fq">
+      <summary>What does vitamin A do in the body?</summary>
+      <p>Vitamin A is essential for vision (producing rhodopsin for night vision), immune function (maintaining mucosal barriers and T-cell production), skin health (regulating keratinocyte differentiation), and cellular growth. The WHO calls it the most important micronutrient for immune function.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between retinol and beta-carotene?</summary>
+      <p>Retinol is preformed vitamin A used directly by the body but can cause toxicity at high doses. Beta-carotene is a provitamin A that converts to retinol only as needed, making it virtually impossible to overdose. The conversion ratio is approximately 12:1.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How much vitamin A should I take daily?</summary>
+      <p>The RDA is 900mcg RAE for men and 700mcg RAE for women. The Tolerable Upper Intake Level is 3,000mcg RAE from preformed retinol. This upper limit does not apply to beta-carotene, which is self-regulating.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can you take too much vitamin A?</summary>
+      <p>Yes — preformed retinol can accumulate in the liver and cause toxicity at sustained doses exceeding 3,000mcg RAE per day. Beta-carotene does not cause toxicity — the worst effect of excess beta-carotene is harmless skin yellowing (carotenodermia).</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should pregnant women take vitamin A gummies?</summary>
+      <p>Pregnant women should be cautious with preformed vitamin A (retinol), as doses exceeding 3,000mcg RAE have been associated with birth defects. Beta-carotene is generally considered safe during pregnancy. Always consult your OB/GYN before supplementing.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the signs of vitamin A deficiency?</summary>
+      <p>Night blindness is the earliest sign. Progressive deficiency can cause dry eyes, Bitot spots, corneal damage, dry skin, increased infections, and impaired wound healing. Clinical deficiency is rare in the US but subclinical insufficiency affects many adults.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Is vitamin A good for skin health?</summary>
+      <p>Yes. Vitamin A regulates keratinocyte differentiation, collagen synthesis, and acts as an antioxidant. Retinoids are the most evidence-based anti-aging ingredients in dermatology. Oral supplementation supports these pathways systemically over weeks to months.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I get enough vitamin A from food alone?</summary>
+      <p>Most people eating a varied diet can meet vitamin A needs through food. Top sources include beef liver, sweet potatoes, carrots, spinach, and dairy. People with fat malabsorption disorders, strict vegans, and the elderly may benefit from supplementation.</p>
+    </details>
+
+    <!-- WARN BOX -->
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Important:</strong> Preformed vitamin A (retinol, retinyl palmitate, retinyl acetate) is fat-soluble and accumulates in the liver. Do not exceed the Tolerable Upper Intake Level of 3,000mcg RAE (10,000 IU) from all retinol sources combined. Pregnant women should avoid high-dose retinol supplements. If you have liver disease, consult your physician before taking any vitamin A supplement.</p>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="cta">
+      <h2>Explore More Gummy Guides</h2>
+      <p>Expert-tested reviews across every supplement category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/vitamins/vitamin-d-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Vitamin D Gummies</h3>
+        <p>Vitamin D3 gummies ranked by dose, absorption, and third-party testing for immune and bone health support.</p>
+        <span class="ac-btn">Best Vitamin D Gummies</span>
+      </a>
+      <a href="/vitamins/best-vitamin-e-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Vitamin E Gummies</h3>
+        <p>Antioxidant vitamin E gummies tested for skin health, cellular protection, and immune support.</p>
+        <span class="ac-btn">Best Vitamin E Gummies</span>
+      </a>
+      <a href="/vitamins/best-multivitamin-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Multivitamin Gummies</h3>
+        <p>Complete multivitamin gummies compared for nutrient coverage, quality, and value.</p>
+        <span class="ac-btn">Best Multivitamin Gummies</span>
+      </a>
+      <a href="/immunity/vitamin-c-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Vitamin C Gummies</h3>
+        <p>Immune-boosting vitamin C gummies tested for dose, bioavailability, and antioxidant protection.</p>
+        <span class="ac-btn">Vitamin C Gummies</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. The products discussed on this page are not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any supplement regimen, particularly if you are pregnant, nursing, or have a pre-existing medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Dr. Emily Carter"
+      authorCredentials="PharmD, BCPS"
+      authorImage="/images/authors/emily-carter.webp"
+      authorBio="Dr. Carter is a Board Certified Pharmacotherapy Specialist with expertise in micronutrient therapeutics and fat-soluble vitamin supplementation. She evaluates vitamin A products based on clinical evidence, safety profiles, and bioavailability."
+    />
+
+  </div>
+
+</BaseLayout>

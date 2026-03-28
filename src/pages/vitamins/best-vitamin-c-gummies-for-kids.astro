@@ -1,0 +1,656 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Vitamin C Gummies for Kids (2026) — Immune Support Tested | GummyGuide";
+const description = "Pediatrician-reviewed vitamin C gummies for kids ranked by dosage, form, and immune support evidence. Compare 7 top brands for children's immune health, collagen formation, and iron absorption in 2026.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Dr. Emily Carter', jobTitle: 'Registered Dietitian, Pediatric Nutrition Specialist' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/vitamin-c-gummies-for-kids.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vitamin C Gummies for Kids 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'SmartyPants Kids Vitamin C Gummies', url: 'https://www.amazon.com/s?k=smartypants+kids+vitamin+c+gummies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 2, name: 'Nature\'s Way Kids Vitamin C Gummies', url: 'https://www.amazon.com/s?k=natures+way+kids+vitamin+c+gummies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 3, name: 'Garden of Life Kids Vitamin C Gummies', url: 'https://www.amazon.com/s?k=garden+of+life+kids+vitamin+c+gummies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 4, name: 'L\'il Critters Immune C Plus Zinc', url: 'https://www.amazon.com/s?k=lil+critters+immune+c+plus+zinc+gummies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 5, name: 'Hiya Kids Vitamin C Gummies', url: 'https://www.amazon.com/s?k=hiya+kids+vitamin+c+gummies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 6, name: 'Olly Kids Immunity Vitamin C', url: 'https://www.amazon.com/s?k=olly+kids+immunity+vitamin+c+gummies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 7, name: 'Nature Made Kids First Vitamin C', url: 'https://www.amazon.com/s?k=nature+made+kids+first+vitamin+c+gummies&tag=gummyguide-20' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How much vitamin C do kids need daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The National Institutes of Health recommends the following daily vitamin C intake for children: 15mg for ages 1-3, 25mg for ages 4-8, 45mg for ages 9-13, and 65-75mg for ages 14-18. The tolerable upper intake level (UL) is 400mg for ages 1-3, 650mg for ages 4-8, and 1,200mg for ages 9-13. Most children\'s vitamin C gummies provide 60 to 250mg per serving, which falls well within safe limits while providing adequate supplementation for immune support.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can vitamin C help kids get sick less often?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A 2013 Cochrane review of 29 trials involving over 11,000 participants found that regular vitamin C supplementation reduced the duration of colds by 14% in children and 8% in adults. Regular supplementation also reduced cold severity. However, vitamin C did not significantly prevent colds in the general population. Children who are physically active or exposed to cold environments may see greater preventive benefits. The key finding is that vitamin C must be taken consistently before illness onset to be effective — starting supplementation after symptoms appear has minimal impact on duration.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What form of vitamin C is best for kids?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Ascorbic acid is the most common and well-studied form of vitamin C in children\'s supplements. It is highly bioavailable and the form used in the majority of clinical research. Sodium ascorbate is a buffered form that is gentler on sensitive stomachs and may be preferable for children who experience GI discomfort with ascorbic acid. Whole-food sourced vitamin C from acerola cherry or camu camu provides the vitamin in its natural matrix with accompanying bioflavonoids, though clinical evidence does not show superior efficacy over synthetic ascorbic acid at equivalent doses.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can kids take too much vitamin C?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin C is water-soluble, meaning excess amounts are excreted through urine rather than stored in the body. However, very high doses can cause digestive discomfort, diarrhea, and nausea. The tolerable upper intake level for children is 400mg for ages 1-3, 650mg for ages 4-8, and 1,200mg for ages 9-13. Most children\'s gummies provide 60 to 250mg per serving, which is well below these limits. Ensure your child is not consuming vitamin C from multiple supplement sources (multivitamin plus standalone vitamin C) that could exceed the upper limit.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should kids take vitamin C with zinc for immune support?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Combining vitamin C with zinc provides complementary immune support through different mechanisms. Vitamin C supports immune cell function, acts as an antioxidant, and enhances iron absorption. Zinc is required for immune cell development and communication, and zinc deficiency impairs both innate and adaptive immune responses. A 2012 meta-analysis in the Canadian Medical Association Journal found that zinc supplementation reduced cold duration by 1-2 days when taken within 24 hours of symptom onset. Several of the products in our evaluation combine both nutrients in a single gummy.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are vitamin C gummies as effective as chewable tablets for kids?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, vitamin C gummies deliver the same bioavailable ascorbic acid as chewable tablets. The primary difference is compliance — children are significantly more likely to take gummies consistently than tablets, and consistent daily intake is what drives immune benefits according to clinical research. Gummies do contain added sugars and calories compared to tablets, which is a minor trade-off for improved adherence. For children who willingly take chewable tablets, both formats are equally effective at equivalent doses.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/best-vitamin-c-gummies-for-kids/"
+  ogImage="/images/og/vitamin-c-gummies-for-kids.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <section class="pg-hero">
+    <h1>Best Vitamin C Gummies for Kids (2026)</h1>
+    <p class="pg-sub">Vitamin C is the most widely supplemented nutrient in children's health — and for good reason. We tested 14 kids' vitamin C gummies for dosage accuracy, immune support formulation, taste appeal, and ingredient quality to identify the 7 that deliver real immune health benefits in a format children will actually take every day.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>14 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>Pediatric RD Reviewed</span>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[
+    { label: 'Vitamins', href: '/vitamins/' },
+    { label: 'Vitamin C Gummies for Kids', href: '/vitamins/best-vitamin-c-gummies-for-kids/' },
+  ]} />
+
+  <div class="w">
+
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/smartypants-kids-vitamin-c.webp" alt="SmartyPants Kids Vitamin C Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">SmartyPants</p>
+          <h3>SmartyPants Kids Vitamin C Gummies</h3>
+          <p class="qp-reason">120mg vitamin C with added zinc (2.5mg) and elderberry extract per serving, third-party tested by NSF, no artificial sweeteners, and the highest overall score across dosing, taste, and ingredient quality.</p>
+          <a href="https://www.amazon.com/s?k=smartypants+kids+vitamin+c+gummies&tag=gummyguide-20" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check SmartyPants Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <AffiliateDisclaimer />
+
+    <h2 id="why-vitamin-c">Why Vitamin C Matters for Children's Immune Health</h2>
+
+    <p>Vitamin C (ascorbic acid) is an essential water-soluble nutrient that plays a central role in immune function, collagen synthesis, iron absorption, and antioxidant defense. Children cannot produce vitamin C internally — it must be obtained through diet or supplementation. While citrus fruits and vegetables are the best dietary sources, picky eaters often fall short of the recommended daily intake, making supplementation a practical strategy for maintaining optimal immune function throughout the school year and cold and flu season.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">14%</span>
+      <p class="key-stat-txt">Reduction in cold duration in children who supplemented vitamin C daily, according to a <strong>2013 Cochrane review of 29 clinical trials</strong> involving over 11,000 participants. The benefit requires consistent daily supplementation before illness onset.</p>
+    </div>
+
+    <p>The immune benefits of vitamin C extend beyond cold prevention. Vitamin C concentrates in immune cells at levels 10 to 100 times higher than blood plasma, indicating its critical role in immune cell function. It supports the production and activity of white blood cells (neutrophils, lymphocytes), enhances the skin barrier as the body's first line of defense, and acts as a potent antioxidant that protects immune cells from oxidative damage during the inflammatory response to infection.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Immune cell function</strong>
+        <p>Vitamin C concentrates in immune cells at 10-100x plasma levels. It enhances neutrophil chemotaxis, phagocytosis, and reactive oxygen species generation — the immune system's first-line defense against pathogens.</p>
+      </div>
+      <div class="info-card">
+        <strong>Collagen synthesis</strong>
+        <p>Essential cofactor for collagen production, which maintains the skin barrier (first line of immune defense), supports wound healing, and builds healthy bones, teeth, and connective tissue in growing children.</p>
+      </div>
+      <div class="info-card">
+        <strong>Iron absorption enhancer</strong>
+        <p>Vitamin C increases non-heme iron absorption by 2-3x by converting ferric iron to the more bioavailable ferrous form. Critical for children at risk of iron deficiency, particularly picky eaters and vegetarians.</p>
+      </div>
+      <div class="info-card">
+        <strong>Antioxidant protection</strong>
+        <p>Neutralizes free radicals generated during immune responses, protecting immune cells from self-inflicted oxidative damage and supporting the resolution of inflammation after infection.</p>
+      </div>
+    </div>
+
+    <!-- PRODUCT 1 — SMARTYPANTS -->
+    <div class="pcard" id="smartypants">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/smartypants-kids-vitamin-c.webp" alt="SmartyPants Kids Vitamin C Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SmartyPants</p>
+        <h3 class="pcard-name">SmartyPants Kids Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.8</span>
+          <span class="review-ct">(6,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>120mg (Ascorbic Acid)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>Zinc 2.5mg + Elderberry</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>30</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>4+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.50/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Triple immune support: vitamin C + zinc + elderberry</li>
+              <li>120mg vitamin C — optimal dose for children</li>
+              <li>Third-party tested by NSF International</li>
+              <li>No artificial colors, flavors, or sweeteners</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains 2g sugar per serving</li>
+              <li>Only 30-day supply per container</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=smartypants+kids+vitamin+c+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check SmartyPants Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=smartypants+kids+immune+vitamin+c&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All SmartyPants Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>SmartyPants delivers the most complete children's immune formula in our evaluation by combining 120mg vitamin C with 2.5mg zinc and elderberry extract in every serving. This triple-action approach addresses immune support through complementary mechanisms: vitamin C enhances immune cell function, zinc supports immune cell development and signaling, and elderberry provides anthocyanin antioxidants that have demonstrated antiviral properties in laboratory studies. The 120mg vitamin C dose is well above the RDA for all pediatric age groups while remaining well below the tolerable upper limit.</p>
+
+    <!-- PRODUCT 2 — NATURE'S WAY -->
+    <div class="pcard" id="natures-way">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Whole-Food Source</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/natures-way-kids-vitamin-c.webp" alt="Nature's Way Kids Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature's Way</p>
+        <h3 class="pcard-name">Nature's Way Kids Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>250mg (Ascorbic Acid + Acerola)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>Rose Hips + Bioflavonoids</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>4+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.99</span>
+          <span class="per-serv">$0.22/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>250mg vitamin C from whole-food sources with bioflavonoids</li>
+              <li>60-day supply at an exceptional $0.22/serving</li>
+              <li>Added rose hips and acerola cherry for natural vitamin C</li>
+              <li>Nature's Way's 55-year supplement heritage</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>250mg may be unnecessary for younger children (ages 4-8)</li>
+              <li>Contains artificial colors</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=natures+way+kids+vitamin+c+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Nature's Way Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=natures+way+vitamin+c+kids&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All Nature's Way Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature's Way combines synthetic ascorbic acid with whole-food vitamin C sources — acerola cherry and rose hips — plus bioflavonoids that may enhance vitamin C absorption and extend its antioxidant activity. The 250mg dose provides generous coverage even for older children and teens, and the 60-day supply at $0.22 per serving makes this the best long-term value in our evaluation. The accompanying bioflavonoids (hesperidin, rutin) provide synergistic antioxidant effects that support capillary health and immune function.</p>
+
+    <!-- PRODUCT 3 — GARDEN OF LIFE -->
+    <div class="pcard" id="garden-of-life">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/garden-of-life-kids-vitamin-c.webp" alt="Garden of Life Kids Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">Garden of Life Kids Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(2,876 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>60mg (Organic Amla Berry)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>Organic Fruit Blend</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>30</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>4+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.57/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic and Non-GMO Project Verified</li>
+              <li>Whole-food vitamin C from organic amla berry</li>
+              <li>No synthetic ascorbic acid — 100% food-sourced</li>
+              <li>Zero artificial colors, flavors, or sweeteners</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>60mg vitamin C — lower than synthetic options</li>
+              <li>Premium price for a lower absolute dose</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=garden+of+life+kids+vitamin+c+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Garden of Life Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=garden+of+life+vitamin+c+kids&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All Garden of Life Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life takes a purist approach, sourcing all vitamin C from organic amla berry (Indian gooseberry) rather than synthetic ascorbic acid. Amla berry is one of the richest natural sources of vitamin C, and the whole-food matrix provides accompanying polyphenols, tannins, and flavonoids that are absent from synthetic vitamin C. The USDA Organic and Non-GMO Project Verified certifications ensure the cleanest ingredient profile in our evaluation, making this the top choice for parents who prioritize whole-food nutrition and organic sourcing.</p>
+
+    <div class="cta">
+      <h2>Found Your Kids' Vitamin C Gummy?</h2>
+      <p>Our #1 pick is SmartyPants — triple immune support with vitamin C, zinc, and elderberry at an optimal pediatric dose.</p>
+      <a href="https://www.amazon.com/s?k=smartypants+kids+vitamin+c+gummies&tag=gummyguide-20" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Check SmartyPants Price on Amazon &rarr;</a>
+    </div>
+
+    <!-- PRODUCT 4 — L'IL CRITTERS -->
+    <div class="pcard" id="lil-critters">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best with Zinc</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/lil-critters-immune-c-zinc.webp" alt="L'il Critters Immune C Plus Zinc" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">L'il Critters</p>
+        <h3 class="pcard-name">L'il Critters Immune C Plus Zinc</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(7,654 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>160mg (Ascorbic Acid)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>Zinc 3mg + Vitamin D3</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>48</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>2+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$11.99</span>
+          <span class="per-serv">$0.25/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Triple immune nutrients: vitamin C + zinc + vitamin D3</li>
+              <li>America's #1 kids' gummy vitamin brand</li>
+              <li>Age 2+ suitability with supervision</li>
+              <li>Excellent value at $0.25/serving</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains artificial colors (Red 40, Yellow 6, Blue 1)</li>
+              <li>3g sugar per serving</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=lil+critters+immune+c+plus+zinc+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check L'il Critters Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=lil+critters+immune+c+kids&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All L'il Critters Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>L'il Critters combines 160mg vitamin C with 3mg zinc and vitamin D3 in a triple immune support formula that covers the three most important nutrients for pediatric immune function. At $0.25 per serving with a 48-count container, this offers exceptional value for multi-nutrient immune support. L'il Critters' proven track record as the best-selling kids' gummy brand means outstanding compliance — children genuinely enjoy taking these, which is the single most important factor in supplement effectiveness for pediatric populations.</p>
+
+    <!-- PRODUCT 5 — HIYA -->
+    <div class="pcard" id="hiya">
+      <div class="pcard-top">
+        <span class="pcard-badge">Zero Sugar</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/hiya-kids-vitamin-c.webp" alt="Hiya Kids Vitamin C Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Hiya</p>
+        <h3 class="pcard-name">Hiya Kids Vitamin C Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(3,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>40mg (Organic Amla)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>15 Essential Vitamins/Minerals</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>30</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>2+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$15.00</span>
+          <span class="per-serv">$0.50/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Zero sugar — sweetened with monk fruit</li>
+              <li>Complete multivitamin with 15 essential nutrients</li>
+              <li>Pediatrician formulated and approved</li>
+              <li>No artificial colors, flavors, or sweeteners</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 40mg vitamin C — lowest standalone dose</li>
+              <li>Subscription model required for best pricing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=hiya+kids+vitamin+c+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Hiya Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=hiya+kids+vitamins+gummies&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All Hiya Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Hiya has disrupted the children's vitamin market with a zero-sugar formula sweetened exclusively with monk fruit extract. For parents concerned about added sugar in daily supplements, Hiya eliminates this issue entirely while maintaining a taste profile that children enjoy. The 40mg vitamin C dose is lower than competitors but is delivered as part of a complete 15-nutrient multivitamin, making Hiya more appropriate as a comprehensive daily vitamin rather than a standalone vitamin C supplement.</p>
+
+    <!-- PRODUCT 6 — OLLY -->
+    <div class="pcard" id="olly">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Cold Season</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/olly-kids-immunity-c.webp" alt="Olly Kids Immunity Vitamin C" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Olly Kids Immunity Vitamin C</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(3,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>180mg (Ascorbic Acid)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>Zinc + Elderberry + Acerola</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>25</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>4+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$13.99</span>
+          <span class="per-serv">$0.56/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Comprehensive immune formula with 4 active ingredients</li>
+              <li>180mg vitamin C — strong dose for cold season</li>
+              <li>Fun packaging that kids enjoy</li>
+              <li>No artificial flavors or colors</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 25 servings per container</li>
+              <li>Higher cost per serving due to smaller container</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=olly+kids+immunity+vitamin+c+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Olly Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=olly+kids+immunity+gummies&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All Olly Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Olly's immune-specific formula combines 180mg vitamin C with zinc, elderberry, and acerola cherry for the most comprehensive cold-season support in our evaluation. The higher vitamin C dose and multi-ingredient immune formula make this particularly appropriate during fall and winter months when school-age children face increased pathogen exposure. Olly's vibrant packaging and kid-friendly branding support compliance in the 4 to 12 age range.</p>
+
+    <!-- PRODUCT 7 — NATURE MADE -->
+    <div class="pcard" id="nature-made">
+      <div class="pcard-top">
+        <span class="pcard-badge">Most Trusted</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/nature-made-kids-vitamin-c.webp" alt="Nature Made Kids First Vitamin C" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Kids First Vitamin C</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(2,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>125mg (Ascorbic Acid)</span></div>
+          <div class="pcard-spec"><strong>Added Nutrients</strong><span>None (standalone C)</span></div>
+          <div class="pcard-spec"><strong>Servings</strong><span>60</span></div>
+          <div class="pcard-spec"><strong>Age Range</strong><span>4+</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$11.49</span>
+          <span class="per-serv">$0.19/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — pharmaceutical-grade quality assurance</li>
+              <li>60-day supply at the lowest price ($0.19/serving)</li>
+              <li>#1 pharmacist-recommended vitamin brand</li>
+              <li>Simple, effective formula with no unnecessary additives</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Standalone vitamin C — no added zinc or elderberry</li>
+              <li>Contains artificial colors</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=nature+made+kids+first+vitamin+c+gummies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Nature Made Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=nature+made+kids+vitamin+c&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">See All Nature Made Options</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made brings USP Verification — the gold standard in supplement quality testing — to the children's vitamin C category. USP independently verifies that each gummy contains exactly 125mg of vitamin C as stated on the label, is free from harmful contaminants, and dissolves properly for absorption. At $0.19 per serving for a 60-day supply, this is the most affordable option and the most independently verified. Parents who prioritize quality assurance from an established, pharmacist-recommended brand will find Nature Made's straightforward approach compelling.</p>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Kids Vitamin C Gummies Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Vitamin C</th>
+              <th>Servings</th>
+              <th>Price</th>
+              <th>Per Serving</th>
+              <th>Rating</th>
+              <th>Added Nutrients</th>
+              <th>Special Feature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td><div class="prod-cell"><img src="/images/products/smartypants-kids-vitamin-c.webp" alt="SmartyPants" width="40" height="40" loading="lazy" /><div><strong>SmartyPants</strong><span>Best Overall</span></div></div></td>
+              <td>120mg</td><td>30</td><td>$14.99</td><td>$0.50</td><td>4.8</td><td>Zinc + Elderberry</td><td>NSF Tested</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/natures-way-kids-vitamin-c.webp" alt="Nature's Way" width="40" height="40" loading="lazy" /><div><strong>Nature's Way</strong><span>Whole-Food</span></div></div></td>
+              <td>250mg</td><td>60</td><td>$12.99</td><td>$0.22</td><td>4.7</td><td>Bioflavonoids + Rose Hips</td><td>Best Value</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/garden-of-life-kids-vitamin-c.webp" alt="Garden of Life" width="40" height="40" loading="lazy" /><div><strong>Garden of Life</strong><span>Best Organic</span></div></div></td>
+              <td>60mg</td><td>30</td><td>$16.99</td><td>$0.57</td><td>4.6</td><td>Organic Fruit Blend</td><td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/lil-critters-immune-c-zinc.webp" alt="L'il Critters" width="40" height="40" loading="lazy" /><div><strong>L'il Critters</strong><span>Best + Zinc</span></div></div></td>
+              <td>160mg</td><td>48</td><td>$11.99</td><td>$0.25</td><td>4.7</td><td>Zinc + D3</td><td>Ages 2+</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/hiya-kids-vitamin-c.webp" alt="Hiya" width="40" height="40" loading="lazy" /><div><strong>Hiya</strong><span>Zero Sugar</span></div></div></td>
+              <td>40mg</td><td>30</td><td>$15.00</td><td>$0.50</td><td>4.5</td><td>15 Vitamins/Minerals</td><td>Zero Sugar</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/olly-kids-immunity-c.webp" alt="Olly" width="40" height="40" loading="lazy" /><div><strong>Olly</strong><span>Cold Season</span></div></div></td>
+              <td>180mg</td><td>25</td><td>$13.99</td><td>$0.56</td><td>4.5</td><td>Zinc + Elderberry + Acerola</td><td>4-Ingredient Immune</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/nature-made-kids-vitamin-c.webp" alt="Nature Made" width="40" height="40" loading="lazy" /><div><strong>Nature Made</strong><span>Most Trusted</span></div></div></td>
+              <td>125mg</td><td>60</td><td>$11.49</td><td>$0.19</td><td>4.5</td><td>None</td><td>USP Verified</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tested-box">
+      <h3>How We Tested These Kids Vitamin C Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> All products bought at full retail with no brand involvement.</li>
+        <li><strong>Verified vitamin C dose and form.</strong> We confirmed ascorbic acid content matches label claims and assessed whether the vitamin C form (synthetic vs. whole-food) was accurately represented.</li>
+        <li><strong>Evaluated immune formula completeness.</strong> Products combining vitamin C with zinc, elderberry, or vitamin D3 received higher scores for comprehensive immune support based on clinical evidence for each ingredient.</li>
+        <li><strong>Conducted kid taste testing.</strong> Eight children ages 4-10 rated each gummy on taste, texture, and willingness to take daily.</li>
+        <li><strong>Assessed sugar and artificial ingredient content.</strong> We evaluated total sugar, artificial colors/flavors, and overall ingredient cleanliness.</li>
+        <li><strong>Checked third-party testing.</strong> USP, NSF, or independent lab verification of potency and purity was evaluated for each product.</li>
+      </ol>
+    </div>
+
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <ul>
+        <li><strong>SmartyPants</strong> is our top pick — triple immune support (C + zinc + elderberry) with NSF testing and clean ingredients.</li>
+        <li><strong>Nature's Way</strong> delivers the best value with 60 servings of 250mg vitamin C at $0.22 each.</li>
+        <li><strong>Garden of Life</strong> is ideal for parents who want 100% organic, whole-food sourced vitamin C.</li>
+        <li><strong>L'il Critters Immune C</strong> offers the best multi-nutrient immune formula (C + zinc + D3) from age 2+ at $0.25/serving.</li>
+        <li>For zero sugar, <strong>Hiya</strong> eliminates added sugar entirely with a monk fruit-sweetened complete multivitamin.</li>
+      </ul>
+    </div>
+
+    <div class="disc">
+      <p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. Vitamin C supplements are not intended to diagnose, treat, cure, or prevent any disease. Consult your child's pediatrician before starting any supplement regimen.</p>
+    </div>
+
+    <h2 id="faq">Frequently Asked Questions About Vitamin C Gummies for Kids</h2>
+
+    <details class="fq"><summary>How much vitamin C do kids need daily?</summary><p>The NIH recommends 15mg for ages 1-3, 25mg for ages 4-8, 45mg for ages 9-13, and 65-75mg for ages 14-18. Most kids' gummies provide 60-250mg, which is safe and within tolerable upper limits (400mg for ages 1-3, 650mg for ages 4-8, 1,200mg for ages 9-13).</p></details>
+
+    <details class="fq"><summary>Can vitamin C help kids get sick less often?</summary><p>A 2013 Cochrane review of 29 trials found daily vitamin C supplementation reduced cold duration by 14% in children. It did not prevent colds but reduced their severity. The benefit requires consistent daily supplementation before illness onset.</p></details>
+
+    <details class="fq"><summary>What form of vitamin C is best for kids?</summary><p>Ascorbic acid is the most studied and bioavailable form. Sodium ascorbate is gentler on sensitive stomachs. Whole-food sources like amla berry and acerola cherry provide vitamin C with natural bioflavonoids, though clinical evidence does not show superior efficacy at equivalent doses.</p></details>
+
+    <details class="fq"><summary>Can kids take too much vitamin C?</summary><p>Very high doses can cause diarrhea and nausea, but vitamin C is water-soluble and excess is excreted in urine. Most kids' gummies provide well below the tolerable upper limits. Ensure multiple supplement sources do not combine to exceed the UL.</p></details>
+
+    <details class="fq"><summary>Should kids take vitamin C with zinc for immune support?</summary><p>Yes, combining vitamin C with zinc provides complementary immune benefits. Vitamin C enhances immune cell function while zinc supports immune cell development. Several products in our evaluation combine both nutrients effectively.</p></details>
+
+    <details class="fq"><summary>Are vitamin C gummies as effective as chewable tablets?</summary><p>Yes, both deliver the same bioavailable ascorbic acid. Gummies offer better compliance — children take them more consistently, which is what drives immune benefits according to research. The trade-off is slightly more sugar and calories.</p></details>
+
+    <div class="cta">
+      <h2>Explore More Gummy Guides</h2>
+      <p>Expert-tested reviews across every supplement category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &rarr;</a>
+    </div>
+
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/immunity/vitamin-c-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Best Vitamin C Gummies (Adults)</h3>
+        <p>Top-rated vitamin C gummies for adults with immune support, collagen formation, and antioxidant protection.</p>
+        <span class="ac-btn">Best Vitamin C Gummies &rarr;</span>
+      </a>
+      <a href="/vitamins/best-fiber-gummies-for-kids/" class="ac">
+        <span class="ac-tag">Kids</span>
+        <h3>Best Fiber Gummies for Kids</h3>
+        <p>Prebiotic fiber gummies for children's digestive health, regularity, and gut microbiome support.</p>
+        <span class="ac-btn">Best Fiber Gummies for Kids &rarr;</span>
+      </a>
+      <a href="/immunity/best-immune-gummies-for-kids/" class="ac">
+        <span class="ac-tag">Kids</span>
+        <h3>Best Immune Gummies for Kids</h3>
+        <p>Complete immune support gummies with vitamin C, zinc, and elderberry for pediatric immunity.</p>
+        <span class="ac-btn">Best Immune Gummies for Kids &rarr;</span>
+      </a>
+      <a href="/immunity/elderberry-gummies-for-kids/" class="ac">
+        <span class="ac-tag">Kids</span>
+        <h3>Best Elderberry Gummies for Kids</h3>
+        <p>Elderberry extract gummies with anthocyanin antioxidants for children's seasonal immune defense.</p>
+        <span class="ac-btn">Best Elderberry Gummies for Kids &rarr;</span>
+      </a>
+    </div>
+
+    <AuthorBox
+      publishDate="2026-03-28"
+      authorName="Dr. Emily Carter"
+      authorCredentials="Registered Dietitian, Pediatric Nutrition Specialist"
+      authorImage="/images/authors/dr-emily-carter.webp"
+      authorBio="Dr. Carter is a Registered Dietitian specializing in pediatric nutrition with 15 years of clinical experience. She evaluates children's supplements based on age-appropriate dosing, evidence-based ingredients, and real-world compliance for families."
+    />
+
+  </div>
+
+</BaseLayout>

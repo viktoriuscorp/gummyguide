@@ -1,0 +1,71 @@
+---
+interface ProductRow {
+  name: string;
+  brand: string;
+  price: string;
+  pricePerServing?: string;
+  dosage: string;
+  keyIngredient: string;
+  thirdPartyTested: boolean;
+  rating: number;
+  affiliateUrl: string;
+  affiliateProgram?: string;
+  highlight?: boolean;
+}
+
+interface Props {
+  products: ProductRow[];
+  title?: string;
+}
+
+const { products, title = 'Quick Comparison' } = Astro.props;
+---
+
+<div class="comparison-wrapper">
+  <h3 class="comparison-title">{title}</h3>
+  <div class="comparison-scroll-hint">← Scroll to see all columns →</div>
+  <div class="comparison-table-container">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Per Serving</th>
+          <th>Dosage</th>
+          <th>Key Ingredient</th>
+          <th>Tested</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {products.map((p) => (
+          <tr class={p.highlight ? 'row-highlight' : ''}>
+            <td class="product-name-cell">
+              <strong>{p.name}</strong>
+              <span class="brand-label">{p.brand}</span>
+            </td>
+            <td>{p.price}</td>
+            <td>{p.pricePerServing || '—'}</td>
+            <td>{p.dosage}</td>
+            <td>{p.keyIngredient}</td>
+            <td>{p.thirdPartyTested ? '✓ Yes' : '✗ No'}</td>
+            <td><strong>{p.rating.toFixed(1)}</strong>/5</td>
+            <td>
+              <a
+                href={p.affiliateUrl}
+                class="btn btn-sm btn-cta"
+                rel="nofollow sponsored noopener"
+                target="_blank"
+                data-affiliate={p.affiliateProgram || 'direct'}
+                data-product={p.name}
+              >
+                Buy
+              </a>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

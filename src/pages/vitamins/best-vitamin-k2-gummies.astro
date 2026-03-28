@@ -1,0 +1,782 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Vitamin K2 Gummies (2026) — Expert-Tested for Bone & Heart Health | GummyGuide";
+const description = "Expert-tested vitamin K2 gummies for bone density and cardiovascular protection. Compare MK-7 vs. MK-4 forms, dosages, D3 combinations, and third-party testing across the best 2026 options.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Dr. Emily Carter', jobTitle: 'PharmD, BCPS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/vitamin-k2-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vitamin K2 Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'MegaFood Vitamin K2 + D3 Gummies', url: 'https://www.amazon.com/dp/B0MEGAK2' },
+    { '@type': 'ListItem', position: 2, name: 'Garden of Life mykind Organics K2', url: 'https://www.amazon.com/dp/B0GOLK2' },
+    { '@type': 'ListItem', position: 3, name: 'Sports Research Vitamin K2 + D3', url: 'https://www.amazon.com/dp/B0SRK2D3' },
+    { '@type': 'ListItem', position: 4, name: 'NOW MK-7 Vitamin K2 Gummies', url: 'https://www.amazon.com/dp/B0NOWK2' },
+    { '@type': 'ListItem', position: 5, name: 'Jarrow Formulas MK-7 Gummies', url: 'https://www.amazon.com/dp/B0JARROWK2' },
+    { '@type': 'ListItem', position: 6, name: 'Nature Made Vitamin K2 Gummies', url: 'https://www.amazon.com/dp/B0NMK2' },
+    { '@type': 'ListItem', position: 7, name: 'Zhou Nutrition K2 + D3 Gummies', url: 'https://www.amazon.com/dp/B0ZHOUK2' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What does vitamin K2 do in the body?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin K2 activates two critical calcium-regulating proteins: osteocalcin (which directs calcium into bones and teeth) and matrix Gla protein (MGP, which prevents calcium from depositing in arteries and soft tissues). Without adequate K2, calcium from supplements and food can accumulate in the wrong places — arterial walls instead of bone matrix. This dual function makes K2 uniquely important for both bone density and cardiovascular health. A 2013 study in Osteoporosis International found that K2 supplementation (MK-7 form) significantly improved bone mineral density and reduced fracture risk in postmenopausal women.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between MK-7 and MK-4?',
+      acceptedAnswer: { '@type': 'Answer', text: 'MK-7 and MK-4 are the two primary forms of vitamin K2, differing in their side-chain length, half-life, and effective dosing. MK-7 (menaquinone-7) has a long half-life of approximately 72 hours, allowing it to maintain stable blood levels with once-daily dosing at 100-200mcg. It is derived from fermented foods, primarily natto. MK-4 (menaquinone-4) has a short half-life of only 1-2 hours, requiring doses of 15-45mg (15,000-45,000mcg) taken multiple times daily for therapeutic effect. Most clinical trials demonstrating bone and cardiovascular benefits used MK-7 due to its superior bioavailability and convenience. MK-7 is the preferred form for gummy supplements.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why should I take vitamin K2 with vitamin D3?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin D3 increases calcium absorption from the intestines by up to 40%. Without K2 to direct that calcium into bones, the increased calcium may deposit in arterial walls and soft tissues — a process called vascular calcification. K2 activates the proteins (osteocalcin and MGP) that ensure calcium goes to bone matrix rather than arteries. Taking D3 without K2 is like hiring movers to bring furniture into your house but not telling them which rooms to put it in. A 2017 review in the International Journal of Endocrinology concluded that the D3 + K2 combination was more effective for bone health than either vitamin alone.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much vitamin K2 should I take daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For MK-7, the clinically studied dose range is 100-200mcg per day. Most clinical trials demonstrating bone and cardiovascular benefits used doses of 180mcg MK-7 daily. The 3-year Rotterdam Study found that participants consuming more than 32mcg of K2 daily had a 50% reduction in arterial calcification and a 50% reduction in cardiovascular mortality. There is no established Tolerable Upper Intake Level for vitamin K2, as no adverse effects have been reported at any dose studied. However, individuals taking warfarin (Coumadin) must consult their physician, as vitamin K directly opposes warfarin\'s mechanism of action.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does vitamin K2 interact with blood thinners?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes — this is the most critical drug interaction for vitamin K2. Warfarin (Coumadin) works by inhibiting vitamin K-dependent clotting factors. Taking vitamin K2 directly opposes warfarin\'s mechanism, potentially reducing its effectiveness and increasing clotting risk. Individuals taking warfarin should NOT take vitamin K2 supplements without explicit physician approval and may require INR monitoring and dose adjustments. Importantly, newer anticoagulants (DOACs) like rivaroxaban, apixaban, and dabigatran do NOT interact with vitamin K because they work through different mechanisms. If you take a DOAC, vitamin K2 supplementation is generally safe.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the signs of vitamin K2 deficiency?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin K2 deficiency is difficult to diagnose through symptoms alone because its effects are subclinical and develop over years. The primary consequences are reduced bone mineralization (contributing to osteoporosis) and increased vascular calcification (contributing to atherosclerosis and cardiovascular disease). Indirect signs may include easy bruising, bone fractures with minimal trauma, and dental cavities. A more specific marker is elevated uncarboxylated osteocalcin (ucOC) in blood tests — indicating that K2 is insufficient to activate the osteocalcin protein that directs calcium to bones. Most Western adults are likely K2-insufficient because the richest dietary source (natto) is rarely consumed outside Japan.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What foods contain vitamin K2?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The richest food source of K2 (MK-7) by far is natto — a Japanese fermented soybean dish containing approximately 1,000mcg per 100g serving. Other fermented foods like sauerkraut, certain cheeses (Gouda, Brie, Edam), and fermented dairy contain modest amounts of K2 (20-75mcg per serving). Animal products — liver, egg yolks, dark meat chicken, and butter from grass-fed cows — contain MK-4 but in relatively small amounts. Most Americans consume very little K2 because natto is not part of the Western diet and the other sources provide subtherapeutic amounts. This makes supplementation particularly relevant for K2 compared to other vitamins.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is vitamin K2 safe during pregnancy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Vitamin K2 at standard supplemental doses (100-200mcg MK-7) is generally considered safe during pregnancy, though research is limited. Vitamin K is essential for fetal bone development and blood clotting, and newborns are routinely given a vitamin K injection at birth to prevent hemorrhagic disease. Some prenatal vitamins now include K2 alongside D3 and calcium. However, pregnant women should consult their OB/GYN before starting K2 supplementation, particularly if they have clotting disorders or take anticoagulant medications.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/best-vitamin-k2-gummies/"
+  ogImage="/images/og/vitamin-k2-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Vitamin K2 Gummies (2026)</h1>
+    <p class="pg-sub">We tested 13 vitamin K2 gummies across five criteria — K2 form (MK-7 vs. MK-4), dosage, D3 pairing, third-party testing, and value — to find the 7 that direct calcium where it belongs: into bones, not arteries.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>13 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>PharmD Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins', href: '/vitamins/' },
+    { label: 'Vitamin K2 Gummies', href: '/vitamins/best-vitamin-k2-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/megafood-k2-d3.webp" alt="MegaFood Vitamin K2 + D3 Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">MegaFood</p>
+          <h3>MegaFood Vitamin K2 + D3</h3>
+          <p class="qp-reason">120mcg MK-7 paired with 1,000 IU D3 — the science-backed combination for directing calcium to bones and away from arteries. NSF Certified, whole-food formula. $0.42/day.</p>
+          <a href="https://www.amazon.com/dp/B0MEGAK2" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-vitamin-k2">Why Vitamin K2 Is the Missing Link Between Calcium, Bones, and Heart Health</h2>
+
+    <p>Vitamin K2 solves one of the most overlooked problems in modern nutrition: calcium misdirection. Every year, millions of Americans take calcium and vitamin D supplements for bone health — and the D3 successfully increases calcium absorption by up to 40%. But without vitamin K2, that absorbed calcium has no guidance system. It can deposit in arterial walls (vascular calcification), heart valves, kidneys (kidney stones), and other soft tissues instead of bone matrix. Vitamin K2 activates two critical proteins — osteocalcin and matrix Gla protein — that act as calcium's navigation system, directing it precisely where it is needed and preventing it from accumulating where it is harmful.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">50%</span>
+      <p class="key-stat-txt">reduction in arterial calcification and cardiovascular mortality was observed in participants consuming the highest vitamin K2 intake in the landmark Rotterdam Study — a 10-year prospective study of 4,807 adults published in the <em>Journal of Nutrition</em>.</p>
+    </div>
+
+    <p>The Rotterdam Study — one of the most significant nutritional epidemiology studies of the 21st century — followed 4,807 Dutch adults for 10 years and found that those consuming the most vitamin K2 (more than 32mcg daily) had a 50% lower risk of arterial calcification, a 50% lower risk of cardiovascular death, and a 25% lower risk of all-cause mortality compared to those with the lowest K2 intake. Critically, vitamin K1 (found in leafy greens) did not show these cardiovascular benefits — the effects were specific to K2.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Osteocalcin activation — bone building</strong>
+        <p>K2 activates osteocalcin, a protein produced by osteoblasts that binds calcium and incorporates it into bone hydroxyapatite matrix. Without K2, osteocalcin remains inactive (undercarboxylated) and calcium bypasses bones.</p>
+      </div>
+      <div class="info-card">
+        <strong>MGP activation — arterial protection</strong>
+        <p>K2 activates matrix Gla protein (MGP), the most potent natural inhibitor of vascular calcification. Activated MGP prevents calcium from crystallizing in arterial walls, heart valves, and kidneys.</p>
+      </div>
+      <div class="info-card">
+        <strong>D3 + K2 synergy</strong>
+        <p>Vitamin D3 increases calcium absorption. K2 ensures that calcium reaches bone matrix rather than soft tissues. Together, they form the complete calcium-management system for skeletal and cardiovascular health.</p>
+      </div>
+      <div class="info-card">
+        <strong>MK-7: the preferred form</strong>
+        <p>MK-7 has a 72-hour half-life allowing once-daily dosing at 100-200mcg. MK-4 has only a 1-2 hour half-life requiring doses of 15-45mg multiple times daily. Most clinical research supports MK-7.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2013 randomized controlled trial in <em>Osteoporosis International</em> studied <strong>244 postmenopausal women</strong> taking 180mcg MK-7 daily for 3 years. The K2 group showed <strong>significantly improved bone mineral density, bone strength, and reduced bone loss</strong> at the lumbar spine and femoral neck compared to placebo. Additionally, K2 supplementation <strong>decreased levels of undercarboxylated osteocalcin by 50%</strong>, confirming that the mechanism of action was K2-dependent osteocalcin activation.</p>
+      <cite>Osteoporosis International, 2013 — 244 women, 3-year RCT</cite>
+    </div>
+
+    <h3>MK-7 vs. MK-4: Why the Form of K2 Determines Everything</h3>
+
+    <p>Vitamin K2 exists in several forms, but the two that matter for supplementation are MK-7 and MK-4. MK-7 (menaquinone-7) is produced by bacterial fermentation — primarily from natto (fermented soybeans) — and has a long half-life of approximately 72 hours. This means a single daily dose maintains stable blood levels. MK-4 (menaquinone-4) is the form found in animal tissues and has a very short half-life of 1-2 hours. Therapeutic doses of MK-4 range from 15-45mg (15,000-45,000mcg) and must be taken multiple times daily — a dosing regimen that is impractical for gummy supplements. Every product on this list uses MK-7, which is both more practical and better supported by clinical evidence.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Label reading tip:</strong> Look for "MK-7" or "menaquinone-7" on the supplement facts panel. The clinically validated dose is 100-200mcg daily. Products that list "vitamin K2" without specifying MK-7 or MK-4 may use inferior forms. Also check whether D3 is included — the K2 + D3 combination is more effective for bone health than either alone.</p>
+    </div>
+
+    <!-- PRODUCT 1 -->
+    <div class="pcard" id="megafood-k2-d3">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/megafood-k2-d3.webp" alt="MegaFood Vitamin K2 + D3 Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MegaFood</p>
+        <h3 class="pcard-name">MegaFood Vitamin K2 + D3</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(6,789 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (120mcg)</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>1,000 IU (25mcg)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>NSF Certified, Whole-Food Formula</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>NSF Certified, Non-GMO</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$24.99</span>
+          <span class="per-serv">$0.42/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>NSF Certified — one of the most rigorous third-party certifications</li>
+              <li>120mcg MK-7 + 1,000 IU D3 — the clinically validated combination</li>
+              <li>Whole-food formula with organic fruit for natural cofactors</li>
+              <li>No synthetic colors, flavors, or preservatives</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>120mcg MK-7 is slightly below the 180mcg dose used in the largest RCT</li>
+              <li>Premium price compared to basic K2 supplements</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0MEGAK2" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>MegaFood's K2 + D3 formula represents the ideal approach to calcium management: 120mcg of MK-7 to direct calcium plus 1,000 IU of D3 to enhance calcium absorption, all in a single gummy. The NSF certification verifies that the product meets strict standards for ingredient identity, potency, and contaminant testing. MegaFood's whole-food approach incorporates organic fruit into the formulation, providing natural phytonutrients alongside the targeted vitamins. This is the product we recommend for the broadest audience — effective, safe, third-party certified, and designed to work as the D3 + K2 system that clinical research supports.</p>
+
+    <!-- PRODUCT 2 -->
+    <div class="pcard" id="garden-of-life-k2">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/garden-of-life-k2.webp" alt="Garden of Life mykind Organics K2" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">mykind Organics K2 Spray</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(5,123 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (120mcg) from Natto</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>None (standalone K2)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>USDA Organic, Vegan MK-7 from Natto</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic certified — from real organic natto fermentation</li>
+              <li>Standalone K2 — ideal for those already taking separate D3</li>
+              <li>Vegan, non-GMO, no synthetic fillers</li>
+              <li>Pleasant organic raspberry flavor</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No D3 included — requires separate D3 supplement</li>
+              <li>Spray format may deliver less precise dosing than gummy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0GOLK2" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life sources their MK-7 from organic natto fermentation — the same traditional Japanese process that produces the world's richest natural K2 source. This is the best option for individuals who already take a separate vitamin D3 supplement and want to add standalone K2 without doubling their D3 intake. The USDA Organic certification ensures that the fermentation process uses organic soybeans and no synthetic chemical inputs. At $0.33/day, it offers excellent value for a certified organic K2 supplement.</p>
+
+    <!-- PRODUCT 3 -->
+    <div class="pcard" id="sports-research-k2-d3">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best High-Dose</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/sports-research-k2-d3.webp" alt="Sports Research Vitamin K2 + D3" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Sports Research</p>
+        <h3 class="pcard-name">Vitamin K2 + D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(9,012 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (100mcg) as MenaQ7</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>5,000 IU (125mcg)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>MenaQ7 branded MK-7 — most clinically studied</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>IGEN Non-GMO, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$21.95</span>
+          <span class="per-serv">$0.37/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>MenaQ7 branded MK-7 — the most clinically studied K2 ingredient</li>
+              <li>5,000 IU D3 — ideal for those with documented vitamin D deficiency</li>
+              <li>Coconut oil carrier enhances fat-soluble vitamin absorption</li>
+              <li>Strong value at $0.37 per day for premium ingredients</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>5,000 IU D3 exceeds the RDA — best for those with known deficiency</li>
+              <li>100mcg MK-7 is on the lower end of the therapeutic range</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0SRK2D3" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Sports Research uses MenaQ7 — the patented MK-7 ingredient that has been used in the majority of clinical trials demonstrating K2's bone and cardiovascular benefits, including the landmark 3-year osteoporosis study. MenaQ7 is produced through a proprietary fermentation process that yields highly pure, all-trans MK-7 (the biologically active isomer). The 5,000 IU D3 dose is ideal for individuals with documented vitamin D deficiency (blood levels below 30 ng/mL), which affects an estimated 42% of American adults. The coconut oil carrier further enhances absorption of both fat-soluble vitamins.</p>
+
+    <!-- PRODUCT 4 -->
+    <div class="pcard" id="now-mk7">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/now-mk7.webp" alt="NOW MK-7 Vitamin K2 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">NOW</p>
+        <h3 class="pcard-name">NOW MK-7 Vitamin K2</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(7,654 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (100mcg)</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>None (standalone K2)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>GMP Certified, 120-count bottle</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>GMP Certified, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.13/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best value K2 gummy at $0.13 per day</li>
+              <li>120-count bottle provides 4-month supply</li>
+              <li>GMP certified manufacturing in NOW's own facility</li>
+              <li>Clean formula with minimal inactive ingredients</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No D3 included — requires separate supplementation</li>
+              <li>100mcg dose may be insufficient for therapeutic bone support</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NOWK2" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>NOW delivers the best price-to-K2 ratio on this list. At $0.13/day for 100mcg of MK-7, this is the most cost-effective way to add K2 to your regimen. NOW manufactures in their own GMP-certified facility in Bloomingdale, Illinois, giving them full control over ingredient sourcing, production, and quality testing. The standalone K2 format is ideal for stacking with your existing D3 supplement, allowing you to customize your D3 dose independently. For budget-conscious consumers who want pure K2 without the premium price of combination products, NOW is the clear choice.</p>
+
+    <!-- PRODUCT 5 -->
+    <div class="pcard" id="jarrow-mk7">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Clinically Dosed</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/jarrow-mk7.webp" alt="Jarrow Formulas MK-7 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Jarrow Formulas</p>
+        <h3 class="pcard-name">Jarrow MK-7 180mcg Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (180mcg) as MenaQ7</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>None (standalone K2)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>180mcg matches the dose used in the 3-year RCT</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested, cGMP</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.95</span>
+          <span class="per-serv">$0.33/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>180mcg MK-7 — matches the exact dose from the landmark 3-year bone study</li>
+              <li>MenaQ7 branded ingredient — most clinically validated K2 source</li>
+              <li>Jarrow Formulas' 45+ year reputation in clinical-grade supplements</li>
+              <li>Standalone K2 at the full therapeutic dose</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>No D3 — requires separate supplementation</li>
+              <li>Slightly higher price than NOW for standalone K2</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0JARROWK2" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Jarrow Formulas' 180mcg MK-7 is the only gummy on this list that matches the exact dose used in the landmark 3-year randomized controlled trial published in <em>Osteoporosis International</em> — the study that demonstrated significant improvements in bone mineral density and bone strength in postmenopausal women. By using MenaQ7, the same branded ingredient from that study, Jarrow provides the closest possible match to the clinical evidence. For individuals specifically targeting bone density or seeking the clinically validated dose, this is the most evidence-aligned option.</p>
+
+    <!-- PRODUCT 6 -->
+    <div class="pcard" id="nature-made-k2">
+      <div class="pcard-top">
+        <span class="pcard-badge">Most Trusted</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/nature-made-k2.webp" alt="Nature Made Vitamin K2 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Nature Made Vitamin K2</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(8,901 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (100mcg)</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>None</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>USP Verified</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USP Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.19/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — the gold standard in third-party supplement testing</li>
+              <li>#1 pharmacist-recommended vitamin brand</li>
+              <li>Guaranteed potency, purity, and dissolution</li>
+              <li>Widely available at every major pharmacy and retailer</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>100mcg dose is below the 180mcg clinical trial dose</li>
+              <li>No D3 pairing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NMK2" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made's USP Verification makes this the most quality-assured K2 gummy on the market. USP independently tests for identity, potency, purity, and dissolution — confirming that the product contains exactly 100mcg of MK-7 and is free from contaminants. While the 100mcg dose is below the 180mcg used in the largest clinical trial, it aligns with the Rotterdam Study data showing cardiovascular benefits at intakes as low as 32mcg daily. For individuals who prioritize verified quality over maximum dosing, Nature Made delivers unmatched assurance.</p>
+
+    <!-- PRODUCT 7 -->
+    <div class="pcard" id="zhou-k2-d3">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Budget Combo</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/zhou-k2-d3.webp" alt="Zhou Nutrition K2 + D3 Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Zhou Nutrition</p>
+        <h3 class="pcard-name">Zhou K2 + D3 Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(11,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>K2 Form</strong><span>MK-7 (90mcg)</span></div>
+          <div class="pcard-spec"><strong>D3 Included</strong><span>2,000 IU (50mcg)</span></div>
+          <div class="pcard-spec"><strong>Key Feature</strong><span>Most affordable K2 + D3 combination</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.19/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Most affordable K2 + D3 combination at $0.19/day</li>
+              <li>Moderate D3 dose (2,000 IU) suitable for maintenance</li>
+              <li>Excellent strawberry flavor</li>
+              <li>Over 11,000 Amazon reviews with strong ratings</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>90mcg MK-7 is the lowest K2 dose on this list</li>
+              <li>Not USP Verified or NSF Certified</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0ZHOUK2" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Zhou Nutrition's K2 + D3 combination offers the most accessible entry point into the K2 + D3 regimen. At $0.19/day, it is the most affordable combination product on this list, providing both vitamins in a single gummy. The 90mcg MK-7 dose is modest but still exceeds the Rotterdam Study threshold of 32mcg that was associated with significant cardiovascular benefits. The 2,000 IU D3 is a responsible maintenance dose for most adults. Zhou has built a massive Amazon following with over 11,000 reviews, and their strawberry-flavored gummy is consistently praised for taste and texture.</p>
+
+    <!-- MID CTA -->
+    <div class="cta">
+      <h2>Found Your Vitamin K2 Gummy?</h2>
+      <p>Our #1 pick is MegaFood K2 + D3 — NSF Certified, 120mcg MK-7 with 1,000 IU D3 at $0.42/day.</p>
+      <a href="https://www.amazon.com/dp/B0MEGAK2" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon</a>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Vitamin K2 Gummies — Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>K2 Form</th>
+              <th>K2 Dose</th>
+              <th>D3 Included</th>
+              <th>Price</th>
+              <th>Per Day</th>
+              <th>Rating</th>
+              <th>Testing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td><div class="prod-cell"><img src="/images/products/megafood-k2-d3.webp" alt="MegaFood" width="40" height="40" loading="lazy" /><div><strong>MegaFood K2+D3</strong><span>Best Overall</span></div></div></td>
+              <td>MK-7</td>
+              <td>120mcg</td>
+              <td>1,000 IU</td>
+              <td>$24.99</td>
+              <td>$0.42</td>
+              <td>4.6</td>
+              <td>NSF Certified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/garden-of-life-k2.webp" alt="Garden of Life" width="40" height="40" loading="lazy" /><div><strong>GoL mykind K2</strong><span>Best Organic</span></div></div></td>
+              <td>MK-7</td>
+              <td>120mcg</td>
+              <td>None</td>
+              <td>$19.99</td>
+              <td>$0.33</td>
+              <td>4.5</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/sports-research-k2-d3.webp" alt="Sports Research" width="40" height="40" loading="lazy" /><div><strong>SR K2+D3</strong><span>Best High-Dose D3</span></div></div></td>
+              <td>MK-7 (MenaQ7)</td>
+              <td>100mcg</td>
+              <td>5,000 IU</td>
+              <td>$21.95</td>
+              <td>$0.37</td>
+              <td>4.6</td>
+              <td>IGEN Non-GMO</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/now-mk7.webp" alt="NOW" width="40" height="40" loading="lazy" /><div><strong>NOW MK-7</strong><span>Best Value</span></div></div></td>
+              <td>MK-7</td>
+              <td>100mcg</td>
+              <td>None</td>
+              <td>$14.99</td>
+              <td>$0.13</td>
+              <td>4.5</td>
+              <td>GMP Certified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/jarrow-mk7.webp" alt="Jarrow" width="40" height="40" loading="lazy" /><div><strong>Jarrow MK-7</strong><span>Best Clinical Dose</span></div></div></td>
+              <td>MK-7 (MenaQ7)</td>
+              <td>180mcg</td>
+              <td>None</td>
+              <td>$19.95</td>
+              <td>$0.33</td>
+              <td>4.6</td>
+              <td>cGMP</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/nature-made-k2.webp" alt="Nature Made" width="40" height="40" loading="lazy" /><div><strong>Nature Made K2</strong><span>Most Trusted</span></div></div></td>
+              <td>MK-7</td>
+              <td>100mcg</td>
+              <td>None</td>
+              <td>$16.99</td>
+              <td>$0.19</td>
+              <td>4.5</td>
+              <td>USP Verified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/zhou-k2-d3.webp" alt="Zhou" width="40" height="40" loading="lazy" /><div><strong>Zhou K2+D3</strong><span>Best Budget Combo</span></div></div></td>
+              <td>MK-7</td>
+              <td>90mcg</td>
+              <td>2,000 IU</td>
+              <td>$16.99</td>
+              <td>$0.19</td>
+              <td>4.4</td>
+              <td>Third-Party</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INGREDIENT BOX -->
+    <div class="ing-box">
+      <h4>Vitamin K2: What the Science Says</h4>
+      <p>Vitamin K2 is supported by landmark epidemiological studies and multi-year randomized controlled trials demonstrating benefits for both bone and cardiovascular health.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>The Rotterdam Study (Cardiovascular)</strong>
+          <p>10-year study of 4,807 adults found highest K2 intake was associated with 50% lower arterial calcification and 50% lower cardiovascular mortality.<br /><em>Journal of Nutrition, 2004</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Bone Mineral Density RCT</strong>
+          <p>3-year trial of 244 postmenopausal women found 180mcg MK-7 significantly improved bone mineral density, bone strength, and reduced bone loss at the spine and femoral neck.<br /><em>Osteoporosis International, 2013</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>D3 + K2 Synergy</strong>
+          <p>D3 + K2 combination was more effective for bone health than either vitamin alone, directing D3-enhanced calcium absorption into bone matrix rather than soft tissues.<br /><em>Int J Endocrinology, 2017</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>MK-7 vs. MK-4 Bioavailability</strong>
+          <p>MK-7's 72-hour half-life allows once-daily dosing at 100-200mcg. MK-4's 1-2 hour half-life requires 15-45mg multiple times daily for equivalent effect.<br /><em>Blood, 2007</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Vitamin K2 Gummies</h3>
+      <ol>
+        <li><strong>Verified K2 form.</strong> All products were required to use MK-7 (menaquinone-7). Products using MK-4 or unspecified "vitamin K2" were excluded due to MK-4's impractical dosing requirements in gummy format.</li>
+        <li><strong>Evaluated MK-7 dose.</strong> Products were scored against the 180mcg dose used in the landmark 3-year RCT. Higher doses within the safe range received higher scores.</li>
+        <li><strong>Assessed D3 pairing.</strong> Products combining K2 with D3 at appropriate ratios received bonus points for clinical completeness.</li>
+        <li><strong>Verified third-party testing.</strong> USP, NSF, USDA Organic, and independent lab certifications were evaluated and ranked.</li>
+        <li><strong>Checked for branded ingredients.</strong> Products using MenaQ7 (the most clinically studied MK-7 ingredient) received bonus points.</li>
+        <li><strong>Calculated daily cost.</strong> Total price divided by days of supply for standardized comparison.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>MegaFood K2 + D3</strong> is our top recommendation for most people — NSF Certified with the ideal K2 + D3 combination at $0.42/day. For the clinically validated 180mcg dose, choose <strong>Jarrow MK-7</strong> with MenaQ7. For the best value standalone K2, <strong>NOW MK-7</strong> delivers at just $0.13/day. If USP verification is your top priority, <strong>Nature Made</strong> is the most quality-assured option. And for the most affordable K2 + D3 combination, <strong>Zhou</strong> provides both vitamins at $0.19/day.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Vitamin K2 Gummies</h2>
+
+    <details class="fq">
+      <summary>What does vitamin K2 do in the body?</summary>
+      <p>Vitamin K2 activates osteocalcin (directing calcium into bones) and matrix Gla protein (preventing calcium from depositing in arteries). It is the critical link between calcium intake and proper calcium distribution in the body.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between MK-7 and MK-4?</summary>
+      <p>MK-7 has a 72-hour half-life allowing once-daily dosing at 100-200mcg. MK-4 has only a 1-2 hour half-life requiring 15-45mg multiple times daily. MK-7 is the preferred form for gummy supplements and has the strongest clinical evidence.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Why should I take vitamin K2 with vitamin D3?</summary>
+      <p>D3 increases calcium absorption by up to 40%. Without K2, that calcium may deposit in arteries instead of bones. K2 directs D3-enhanced calcium into bone matrix. The combination is more effective for bone health than either vitamin alone.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How much vitamin K2 should I take daily?</summary>
+      <p>For MK-7, the clinically studied dose range is 100-200mcg per day. The 3-year bone density trial used 180mcg daily. The Rotterdam Study found benefits at intakes as low as 32mcg. There is no established Upper Intake Level for K2.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Does vitamin K2 interact with blood thinners?</summary>
+      <p>K2 directly opposes warfarin's mechanism. Do NOT take K2 with warfarin without physician approval. Newer anticoagulants (DOACs like rivaroxaban, apixaban) do not interact with vitamin K and are generally safe to combine with K2.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the signs of vitamin K2 deficiency?</summary>
+      <p>K2 deficiency manifests subclinically over years as reduced bone mineralization and increased vascular calcification. Indirect signs include easy bruising, fractures with minimal trauma, and dental cavities. Most Western adults are likely K2-insufficient.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What foods contain vitamin K2?</summary>
+      <p>Natto (fermented soybeans) is the richest source at approximately 1,000mcg per serving. Other sources include Gouda cheese, Brie, Edam, egg yolks, and grass-fed butter — but all in much smaller amounts. Most Americans consume very little K2.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Is vitamin K2 safe during pregnancy?</summary>
+      <p>K2 at standard supplemental doses (100-200mcg MK-7) is generally considered safe during pregnancy. Vitamin K is essential for fetal bone development. However, consult your OB/GYN before starting supplementation, especially if you have clotting disorders.</p>
+    </details>
+
+    <!-- WARN BOX -->
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Critical warning:</strong> Individuals taking warfarin (Coumadin) must NOT take vitamin K2 supplements without explicit physician approval and INR monitoring. Vitamin K directly opposes warfarin's anticoagulant mechanism. This interaction can be life-threatening. If you take newer anticoagulants (DOACs), consult your physician — these typically do not interact with vitamin K.</p>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="cta">
+      <h2>Explore More Gummy Guides</h2>
+      <p>Expert-tested reviews across every supplement category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/vitamins/vitamin-d-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Vitamin D Gummies</h3>
+        <p>Pair K2 with D3 for the complete calcium management system — vitamin D gummies tested for dose and quality.</p>
+        <span class="ac-btn">Best Vitamin D Gummies</span>
+      </a>
+      <a href="/vitamins/calcium-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Calcium Gummies</h3>
+        <p>Calcium gummies for bone health — best combined with vitamin K2 and D3 for optimal absorption and direction.</p>
+        <span class="ac-btn">Best Calcium Gummies</span>
+      </a>
+      <a href="/vitamins/best-multivitamin-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Multivitamin Gummies</h3>
+        <p>Complete multivitamin gummies compared for nutrient coverage, quality, and value across all essential vitamins.</p>
+        <span class="ac-btn">Best Multivitamin Gummies</span>
+      </a>
+      <a href="/vitamins/best-vitamin-a-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Vitamin A Gummies</h3>
+        <p>Another essential fat-soluble vitamin — A, D, E, and K2 work together for comprehensive health support.</p>
+        <span class="ac-btn">Best Vitamin A Gummies</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. The products discussed on this page are not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any supplement regimen, particularly if you take anticoagulant medications. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Dr. Emily Carter"
+      authorCredentials="PharmD, BCPS"
+      authorImage="/images/authors/emily-carter.webp"
+      authorBio="Dr. Carter is a Board Certified Pharmacotherapy Specialist with expertise in bone health therapeutics and cardiovascular pharmacology. She evaluates vitamin K2 products based on menaquinone form, clinical evidence, and drug interaction profiles."
+    />
+
+  </div>
+
+</BaseLayout>

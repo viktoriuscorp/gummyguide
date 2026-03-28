@@ -1,0 +1,28 @@
+---
+interface Article {
+  href: string;
+  title: string;
+  tag?: string;
+}
+
+interface Props {
+  items: Article[];
+  title?: string;
+}
+
+const { items, title = 'Related Articles' } = Astro.props;
+---
+
+{items.length > 0 && (
+  <section class="related-articles">
+    <h2>{title}</h2>
+    <div class="related-grid">
+      {items.map((item) => (
+        <a href={item.href} class="related-card">
+          {item.tag && <span class="related-tag">{item.tag}</span>}
+          <h3>{item.title}</h3>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

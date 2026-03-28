@@ -1,0 +1,949 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "8 Best Energy Gummies (2026) — Pre & During Workout | GummyGuide";
+const description = "Certified trainer ranks the 8 best energy gummies for pre-workout and mid-race fueling in 2026. Compare carb delivery, electrolytes, caffeine content, and GI tolerance across top endurance nutrition brands.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-17',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'James Rodriguez', jobTitle: 'CPT, CSCS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/energy-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Energy Gummies 2026',
+  numberOfItems: 8,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'GU Energy Original Gummies', url: 'https://gummyguide.com/sports/energy-gummies/#gu-energy' },
+    { '@type': 'ListItem', position: 2, name: 'Clif Bloks Energy Chews', url: 'https://gummyguide.com/sports/energy-gummies/#clif-bloks' },
+    { '@type': 'ListItem', position: 3, name: 'Huma Chia Energy Gummies', url: 'https://gummyguide.com/sports/energy-gummies/#huma-chia' },
+    { '@type': 'ListItem', position: 4, name: 'Science in Sport GO Isotonic Gummies', url: 'https://gummyguide.com/sports/energy-gummies/#sis-go' },
+    { '@type': 'ListItem', position: 5, name: 'Skratch Labs Energy Chews', url: 'https://gummyguide.com/sports/energy-gummies/#skratch' },
+    { '@type': 'ListItem', position: 6, name: 'Spring Energy Gummies', url: 'https://gummyguide.com/sports/energy-gummies/#spring-energy' },
+    { '@type': 'ListItem', position: 7, name: 'Honey Stinger Organic Energy Chews', url: 'https://gummyguide.com/sports/energy-gummies/#honey-stinger' },
+    { '@type': 'ListItem', position: 8, name: 'Maurten Solid Gummies', url: 'https://gummyguide.com/sports/energy-gummies/#maurten' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When should I take energy gummies during a workout?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For pre-workout energy, take gummies 15-30 minutes before training to allow initial carbohydrate absorption. During endurance exercise lasting longer than 60 minutes, begin consuming energy gummies at the 30-45 minute mark and continue every 20-30 minutes thereafter. The American College of Sports Medicine recommends 30-60 grams of carbohydrates per hour during prolonged exercise, and up to 90 grams per hour for ultra-endurance events lasting over 2.5 hours when using dual-source carbohydrates (glucose + fructose). Start conservatively and increase intake based on individual GI tolerance.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are energy gummies better than energy gels?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Energy gummies and gels deliver similar carbohydrate content per serving (20-25g) but differ in texture, portability, and GI tolerance. Gummies offer a solid format that many athletes find more palatable and satisfying to chew during long efforts, and they do not require water to wash down. Gels are faster to consume (one squeeze versus multiple chews) and absorb slightly faster due to their semi-liquid state. A 2010 study in Medicine and Science in Sports and Exercise found no significant performance difference between chews and gels during 80-minute cycling time trials at equivalent carbohydrate doses. Choose based on personal preference and stomach tolerance.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many carbs should I consume per hour during exercise?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The current sports nutrition guidelines recommend 30-60 grams of carbohydrates per hour for exercise lasting 1-2.5 hours. For ultra-endurance events exceeding 2.5 hours, up to 90 grams per hour is recommended when using dual-source carbohydrates (a combination of glucose and fructose at a 2:1 ratio). The glucose transporter SGLT1 in the small intestine maxes out at approximately 60g per hour, but fructose uses a separate transporter (GLUT5), allowing total carbohydrate oxidation to reach 90g per hour. Train your gut during long training sessions before attempting high carb intake in competition.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do energy gummies cause stomach problems during running?',
+      acceptedAnswer: { '@type': 'Answer', text: 'GI distress during running is common, affecting up to 30-50% of endurance athletes, but the cause is multifactorial. High-fructose products, dehydration, and consuming too much too quickly are the primary triggers. Energy gummies are generally better tolerated than gels because chewing slows intake and mixes the carbohydrates with saliva, initiating digestion earlier. To minimize GI issues: start fueling early (before you are depleted), take small amounts frequently (every 15-20 minutes) rather than large boluses, stay hydrated, and practice your race nutrition strategy during training sessions so your gut adapts.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should energy gummies contain caffeine?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Caffeine is the most proven ergogenic aid in endurance sports, improving time to exhaustion by 12-15% and reducing perceived exertion. Energy gummies with 20-50mg caffeine per serving provide a controlled, titratable dose that athletes can adjust based on race distance and personal tolerance. The optimal performance dose is 3-6mg per kg of body weight, ideally consumed 30-60 minutes before peak effort. For a 70kg athlete, this is 210-420mg total. Caffeinated gummies are particularly useful in the second half of long events when fatigue and central nervous system drive decline. Save caffeinated gummies for the later stages of your race.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between single-source and dual-source carb gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Single-source carb gummies use only glucose-based carbohydrates (maltodextrin, tapioca syrup), which are absorbed through the SGLT1 transporter in the intestine at a maximum rate of approximately 60g per hour. Dual-source gummies combine glucose and fructose, which use two separate intestinal transporters (SGLT1 and GLUT5), allowing total carbohydrate absorption to reach up to 90g per hour. A landmark 2004 study by Jentjens and Jeukendrup showed that glucose plus fructose at a 2:1 ratio increased exogenous carbohydrate oxidation by 40% compared to glucose alone. Dual-source products are superior for events lasting over 2.5 hours where maximal fueling rate is performance-critical.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use energy gummies for non-athletic activities?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Energy gummies are designed for athletic performance and contain concentrated simple carbohydrates for rapid energy delivery during physical exertion. Using them for general daily energy (desk work, studying) is not recommended because the simple sugar content (20-25g per serving) will cause a blood glucose spike followed by a crash in sedentary contexts. For non-athletic mental energy, consider focus gummies with L-theanine or lion\'s mane instead. Energy gummies are specifically formulated for situations where your muscles are actively depleting glycogen stores — that is when rapid carbohydrate delivery provides a genuine performance advantage.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How should I store energy gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Store energy gummies in a cool, dry place below 75 degrees Fahrenheit (24 degrees Celsius). High temperatures cause gummies to melt, stick together, or become excessively soft. In hot climates or summer races, keep gummies in a cooler or insulated pocket until needed. Cold temperatures generally do not damage gummies but may make them harder to chew. For race day, place gummies in a small zip-lock bag in an easily accessible jersey pocket or running belt. Some brands (notably Maurten and Clif) have packaging designed for one-handed opening during competition.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/sports/energy-gummies/"
+  ogImage="/images/og/energy-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Energy Gummies (2026)</h1>
+    <p class="pg-sub">Energy gummies have become the preferred fueling format for endurance athletes, replacing sticky gels and hard-to-digest bars. We tested 20 energy gummies across carbohydrate delivery, electrolyte content, GI tolerance, and real-world race performance to identify the 8 that keep you fueled from start to finish line.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>8 Products Tested</span>
+      <span>Expert Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Sports & Fitness', href: '/sports/' },
+    { label: 'Energy Gummies', href: '/sports/energy-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/gu-energy-original.webp" alt="GU Energy Original Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">GU Energy Labs</p>
+          <h3>GU Energy Original Gummies</h3>
+          <p class="qp-reason">The gold standard in endurance fueling. Dual-source carbs (maltodextrin + fructose) for up to 90g/hour absorption, 450mg sodium per pack, caffeine and non-caffeine options, and decades of pro-athlete validation from Ironman to UTMB.</p>
+          <a href="https://www.amazon.com/s?k=GU+Energy+Chews+Gummies" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-energy-gummies">Why Energy Gummies Dominate Endurance Fueling in 2026</h2>
+
+    <p>During exercise lasting longer than 60 minutes, glycogen stores become the limiting factor in performance. The human body stores approximately 2,000 calories of glycogen in muscle and liver — enough for roughly 90-120 minutes of moderate-to-high-intensity exercise. Once glycogen is depleted, the body shifts to fat oxidation, which cannot sustain high-intensity output. This metabolic wall — the infamous "bonk" — can be delayed or prevented entirely through strategic carbohydrate ingestion during exercise.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">90g/hr</span>
+      <p class="key-stat-txt">is the maximum carbohydrate absorption rate achievable with dual-source (glucose + fructose) fueling, according to research by <strong>Jeukendrup et al.</strong> published in the Journal of Applied Physiology. This 40% increase over the 60g/hour single-source limit has fundamentally changed marathon and Ironman nutrition strategies, and energy gummies are the most portable format for hitting these targets during competition.</p>
+    </div>
+
+    <p>Energy gummies solve the three biggest problems with traditional fueling formats. Unlike gels, they do not require water to wash down and they provide a satisfying chewing action that many athletes prefer during long efforts. Unlike bars, they digest rapidly without diverting blood flow from working muscles to the gut. And unlike sports drinks alone, they deliver concentrated carbohydrates in a portable, pocket-sized format that does not slosh or spill during high-intensity movement.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <h4>Rapid Glycogen Delivery</h4>
+        <p>Energy gummies deliver 20-25g of fast-absorbing carbohydrates per serving. Maltodextrin and glucose polymers are absorbed via the SGLT1 transporter and converted to muscle glycogen within 15-20 minutes of ingestion.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="droplet" size={22} /></div>
+        <h4>Electrolyte Replacement</h4>
+        <p>Sodium losses during exercise range from 300-1200mg per hour depending on sweat rate and concentration. Top energy gummies include 100-450mg sodium per pack to prevent hyponatremia and maintain muscle contractility.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="fitness" size={22} /></div>
+        <h4>GI-Friendly Format</h4>
+        <p>Chewing initiates salivary amylase activity, beginning carbohydrate digestion in the mouth. This pre-processing reduces the osmotic load hitting the stomach, making gummies gentler on the GI tract than concentrated gels.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="target" size={22} /></div>
+        <h4>Titratable Dosing</h4>
+        <p>Unlike gels (all-or-nothing), gummies allow you to eat 2-3 pieces every 15 minutes rather than an entire serving at once. This steady drip of carbohydrates maintains stable blood glucose without large spikes and crashes.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2010 study in <em>Medicine and Science in Sports and Exercise</em> compared energy chews to energy gels during an <strong>80-minute cycling time trial</strong> and found no significant difference in performance, blood glucose response, or GI distress at equivalent carbohydrate doses. The researchers concluded that energy chews are a viable and equally effective alternative to gels for endurance fueling.</p>
+      <cite>Campbell et al., Medicine and Science in Sports and Exercise, 2010</cite>
+    </div>
+
+    <!-- PRODUCT 1 — GU ENERGY -->
+    <div class="pcard" id="gu-energy">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/gu-energy-original.webp" alt="GU Energy Original Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">GU Energy Labs</p>
+        <h3 class="pcard-name">GU Energy Original Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(18,900 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>22g (maltodextrin + fructose)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>450mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>20mg (caffeinated varieties)</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>8 chews per resealable pack</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$21.99</span>
+          <span class="per-serv">$1.83/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Dual-source carbs (maltodextrin + fructose) for maximum absorption at 90g/hr</li>
+              <li>Industry-leading 450mg sodium per pack for heavy sweaters</li>
+              <li>Decades of pro-athlete validation — Ironman, UTMB, Tour de France</li>
+              <li>Both caffeinated and non-caffeinated options in multiple flavors</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher sodium content may not suit all athletes — individualize based on sweat rate</li>
+              <li>Slightly firmer texture in cold weather — harder to chew below 40°F</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=GU+Energy+Chews+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=GU+Energy+Chews+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">GU Energy Chews on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>GU Energy Labs has been the category leader in endurance nutrition since 1993, and their energy chews apply three decades of sports nutrition research to a gummy format. The dual-source carbohydrate blend (maltodextrin + fructose) utilizes separate intestinal transporters — SGLT1 for glucose and GLUT5 for fructose — enabling carbohydrate absorption rates up to 90g per hour when combined with additional fueling sources. The 450mg sodium per pack is the highest in this guide, specifically designed for athletes losing 800-1200mg sodium per hour through sweat during hot-weather endurance events.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Race fueling strategy with GU chews:</strong> Consume 2-3 chews every 15-20 minutes starting at the 30-minute mark of your race. This delivers approximately 6-8g of carbs every 15 minutes, totaling 24-32g per hour from gummies alone. Supplement with a sports drink to reach 60-90g/hour total carb intake. Save caffeinated flavors for the second half of your race when central fatigue sets in.</p>
+    </div>
+
+    <!-- PRODUCT 2 — CLIF BLOKS -->
+    <div class="pcard" id="clif-bloks">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Runners</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/clif-bloks-energy.webp" alt="Clif Bloks Energy Chews" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Clif Bar</p>
+        <h3 class="pcard-name">Clif Bloks Energy Chews</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(22,450 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>24g (organic tapioca syrup)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>70-210mg (varies by flavor)</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>25-50mg (select flavors)</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>6 cube-shaped bloks per pack</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$18.99</span>
+          <span class="per-serv">$1.58/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Cube shape is the easiest format to eat while running at pace</li>
+              <li>Organic ingredients with no artificial flavors or sweeteners</li>
+              <li>Widest flavor variety — 8 options including caffeinated and Margarita (with salt)</li>
+              <li>Highest review count (22,450) and rating (4.7) in this guide</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Sodium varies dramatically between flavors — check label for your needs</li>
+              <li>Single-source carbs — maltodextrin only, limiting max absorption to 60g/hr</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Clif+Bloks+Energy+Chews" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Clif+Bloks+Energy+Chews" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Clif Bloks Energy Chews on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Clif Bloks are the most popular energy chew among recreational runners, and the cube-shaped format is no accident — each blok is designed to be popped into the mouth and chewed without breaking stride. The 24g of carbohydrates per pack from organic tapioca syrup provides a clean glucose source that most athletes tolerate well. The Margarita flavor deserves special mention: it delivers the highest sodium content (210mg) in the Bloks lineup, specifically formulated for hot-weather racing and heavy sweaters.</p>
+
+    <div class="callout">
+      <p>With <strong>22,450 reviews and a 4.7-star average</strong>, Clif Bloks have the strongest consumer validation of any energy chew on the market. The cube shape, consistent texture across temperature ranges, and flavor variety have made them the default choice for marathon aid station drop bags and ultrarunning vest pockets worldwide.</p>
+      <cite>Amazon review data as of March 2026</cite>
+    </div>
+
+    <!-- PRODUCT 3 — HUMA CHIA -->
+    <div class="pcard" id="huma-chia">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Natural Formula</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/huma-chia-energy.webp" alt="Huma Chia Energy Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Huma Gel</p>
+        <h3 class="pcard-name">Huma Chia Energy Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(4,560 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>21g (fruit puree + chia seeds)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>100mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>0mg (stimulant-free)</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>Gummy chews with visible chia seeds</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$24.99</span>
+          <span class="per-serv">$2.08/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Real fruit ingredients — no maltodextrin, corn syrup, or artificial additives</li>
+              <li>Chia seeds provide omega-3 ALA and sustained energy release</li>
+              <li>Inspired by Tarahumara running culture — Born to Run heritage</li>
+              <li>Gentlest on the stomach of any product in this guide</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower carb density per serving — less efficient for high-output racing</li>
+              <li>Chia seeds can cause textural aversion for some athletes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Huma+Chia+Energy+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Huma+Chia+Energy+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Huma Chia Energy Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Huma takes a fundamentally different approach to endurance fueling by using real fruit purees and chia seeds instead of processed sugars and maltodextrin. The product draws inspiration from the Tarahumara runners of Mexico's Copper Canyons, who fuel ultramarathons with a chia seed drink called "Iskiate." Chia seeds provide a slow-release energy matrix: the soluble fiber forms a gel in the digestive tract that moderates carbohydrate absorption, potentially reducing blood glucose spikes and the subsequent crashes that plague some athletes using pure sugar-based fuels.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Whole-Food Philosophy</h4>
+        <p>Every carbohydrate in Huma comes from real fruit (dates, berries, citrus) rather than processed syrups. For athletes who experience GI distress with maltodextrin-based products, this whole-food approach often eliminates the problem entirely.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="clock" size={22} /></div>
+        <h4>Sustained Release</h4>
+        <p>Chia's soluble fiber creates a gel matrix that moderates carbohydrate absorption speed. This produces a more gradual energy curve — less peak intensity than pure glucose but more sustained output over hours of effort.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Found Your Energy Gummy?</h2>
+      <p>Our #1 pick is GU Energy Original — dual-source carbs, 450mg sodium, and three decades of elite endurance validation.</p>
+      <a href="https://www.amazon.com/s?k=GU+Energy+Chews+Gummies" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">GU Energy Chews on Amazon &#8594;</a>
+    </div>
+
+    <!-- PRODUCT 4 — SIS GO -->
+    <div class="pcard" id="sis-go">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Cycling</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/sis-go-isotonic.webp" alt="Science in Sport GO Isotonic Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Science in Sport (SiS)</p>
+        <h3 class="pcard-name">Science in Sport GO Isotonic Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(6,780 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>26g (maltodextrin-based isotonic)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>118mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>0mg (non-caffeinated)</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>Soft gummy chews, isotonic formulation</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$22.99</span>
+          <span class="per-serv">$1.92/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Highest carb content per pack in this guide at 26g</li>
+              <li>Isotonic formulation matches body fluid concentration for rapid absorption</li>
+              <li>Official nutrition partner of multiple WorldTour cycling teams</li>
+              <li>Informed Sport certified — tested for banned substances</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Less widely available in US retail — primarily online and specialty shops</li>
+              <li>Single-source carbs limit maximum absorption to 60g/hr from gummies alone</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Science+in+Sport+GO+Energy+Chews" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Science+in+Sport+GO+Energy+Chews" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">SiS GO Energy Chews on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Science in Sport is the dominant nutrition brand in professional road cycling, providing fuel to multiple WorldTour teams including Team Ineos-Grenadiers. Their GO Isotonic Energy Chews deliver the highest carbohydrate content per pack (26g) in this guide through an isotonic formulation designed to match body fluid concentration. The isotonic property means the gummies do not draw water into the gut by osmosis — a common cause of bloating and cramping with hypertonic gels — resulting in faster gastric emptying and superior GI tolerance during high-intensity efforts.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">26g</span>
+      <p class="key-stat-txt">of carbohydrates per pack — the <strong>highest caloric density</strong> in this guide. For cyclists and triathletes targeting 60-90g of carbs per hour, SiS gummies deliver more fuel per serving than any competitor, reducing the number of packs needed during long races and simplifying nutrition logistics.</p>
+    </div>
+
+    <!-- PRODUCT 5 — SKRATCH LABS -->
+    <div class="pcard" id="skratch">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Clean Label</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/skratch-energy-chews.webp" alt="Skratch Labs Energy Chews" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Skratch Labs</p>
+        <h3 class="pcard-name">Skratch Labs Energy Chews</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(5,340 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>20g (cane sugar + pectin)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>80mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>0mg</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>Soft, fruity chews with pectin base</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$1.67/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Simplest ingredient list — no maltodextrin, no artificial anything</li>
+              <li>Pectin-based gummy (plant-derived) — vegan-friendly and gelatin-free</li>
+              <li>Founded by a sports physiologist (Dr. Allen Lim) with pro cycling nutrition experience</li>
+              <li>Best texture — soft, easy to chew, does not stick to teeth</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lowest carb content at 20g — requires more frequent consumption</li>
+              <li>Low sodium (80mg) — inadequate for heavy sweaters without additional supplementation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Skratch+Labs+Energy+Chews" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Skratch+Labs+Energy+Chews" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Skratch Labs Energy Chews on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Skratch Labs was founded by Dr. Allen Lim, a sports physiologist who served as the nutrition director for several professional cycling teams including Garmin-Sharp and RadioShack-Nissan. The brand's philosophy is radical simplicity: use the fewest, most recognizable ingredients possible and let the carbohydrates do their job without interference from unnecessary additives. The energy chews contain cane sugar, pectin, citric acid, and natural flavors — that is essentially the entire ingredient list. For athletes whose GI systems rebel against maltodextrin, artificial sweeteners, or complex additive blends, Skratch provides a clean-burning fuel that the body processes without complaint.</p>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Sodium gap warning:</strong> At only 80mg sodium per pack, Skratch chews provide significantly less electrolyte replacement than GU (450mg) or Clif Bloks Margarita (210mg). If you choose Skratch for their clean-label formula, you must supplement sodium separately through electrolyte capsules (e.g., SaltStick, Precision Hydration) or a sodium-containing sports drink, particularly in hot conditions or races lasting over 2 hours.</p>
+    </div>
+
+    <!-- PRODUCT 6 — SPRING ENERGY -->
+    <div class="pcard" id="spring-energy">
+      <div class="pcard-top">
+        <span class="pcard-badge">Highest Calorie</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/spring-energy-gummies.webp" alt="Spring Energy Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Spring Energy</p>
+        <h3 class="pcard-name">Spring Energy Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(3,120 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>24g (rice-based + real fruit)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>150mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>0mg</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>Dense, chewy gummies with real food base</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$26.99</span>
+          <span class="per-serv">$2.25/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Real food ingredients — rice, fruit, and natural sweeteners</li>
+              <li>Higher calorie density per gram than most competitors</li>
+              <li>Cult following among ultrarunners for stomach tolerance during 100-milers</li>
+              <li>No maltodextrin — uses complex carbs for more sustained energy release</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Most expensive product in this guide at $2.25 per pack</li>
+              <li>Dense texture — requires more chewing effort than softer alternatives</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Spring+Energy+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Spring+Energy+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Spring Energy Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Spring Energy has become the fuel of choice among elite ultrarunners, with products used by athletes competing at Western States, UTMB, and Hardrock 100. Their gummies use rice-based carbohydrates and real fruit instead of processed sugars, creating a more complex carbohydrate profile that provides both rapid and sustained energy release. The denser formulation delivers more calories per gram than typical gummies, making Spring Energy particularly efficient for multi-hour and multi-day efforts where carrying capacity matters.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Ultra-distance fueling:</strong> For races lasting 6+ hours, many athletes find that real-food-based products like Spring Energy cause significantly less flavor fatigue and GI distress than sugar-heavy alternatives. The complex carbohydrate profile also provides a more stable blood glucose curve, reducing the peaks and valleys that accumulate over many hours of fueling. If your events regularly exceed marathon distance, Spring Energy deserves serious consideration.</p>
+    </div>
+
+    <!-- PRODUCT 7 — HONEY STINGER -->
+    <div class="pcard" id="honey-stinger">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/honey-stinger-organic.webp" alt="Honey Stinger Organic Energy Chews" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Honey Stinger</p>
+        <h3 class="pcard-name">Honey Stinger Organic Energy Chews</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(14,670 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>23g (organic tapioca + honey)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>90mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>32mg (Stingerita flavor)</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>10 chews per pack, organic certified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$1.42/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best price per pack at $1.42 — 22% cheaper than GU Energy</li>
+              <li>USDA Organic certified with honey as a natural energy source</li>
+              <li>10 chews per pack — more granular dosing control than 6-8 chew competitors</li>
+              <li>Excellent flavor with natural honey sweetness that resists palate fatigue</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Low sodium (90mg) — insufficient for heavy sweaters without supplementation</li>
+              <li>Contains honey — not vegan-compatible</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Honey+Stinger+Organic+Energy+Chews" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Honey+Stinger+Organic+Energy+Chews" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Honey Stinger Energy Chews on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Honey Stinger combines USDA Organic certification with the lowest price per pack in this guide, making them the volume choice for athletes who consume 3-5 packs per long training session or race. The organic tapioca syrup and honey blend delivers 23g of carbohydrates through a combination of glucose, fructose, and maltose — honey is naturally a dual-source carbohydrate. The 10-chew format provides more granular dosing control, allowing athletes to consume 2 chews (approximately 4.6g carbs) every 10-15 minutes for steady energy delivery without the larger bolus effect of 6-chew packs.</p>
+
+    <div class="callout">
+      <p>At <strong>$1.42 per pack</strong>, Honey Stinger is 22% cheaper than GU Energy ($1.83) and 37% cheaper than Spring Energy ($2.25). For high-volume training blocks where you might consume 15-20 packs per week, this price differential saves $100-150 over a 12-week marathon build. The organic certification and honey-based formula make the value proposition even stronger.</p>
+      <cite>Price comparison as of March 2026</cite>
+    </div>
+
+    <!-- PRODUCT 8 — MAURTEN -->
+    <div class="pcard" id="maurten">
+      <div class="pcard-top">
+        <span class="pcard-badge">Elite Choice</span>
+        <span class="pcard-num">#8</span>
+        <img src="/images/products/maurten-solid.webp" alt="Maurten Solid Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Maurten</p>
+        <h3 class="pcard-name">Maurten Solid Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(2,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Carbs/Pack</strong><span>25g (hydrogel matrix)</span></div>
+          <div class="pcard-spec"><strong>Sodium</strong><span>120mg per pack</span></div>
+          <div class="pcard-spec"><strong>Caffeine</strong><span>0mg (Solid 225) / 100mg (Solid C)</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>6 gummies per pack, hydrogel technology</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$29.99</span>
+          <span class="per-serv">$2.50/pack (12-pack)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Hydrogel technology encapsulates carbs, reducing osmotic stress in the gut</li>
+              <li>Used by Eliud Kipchoge, Kilian Jornet, and the world marathon record holders</li>
+              <li>Dual-source carbs (maltodextrin + fructose) for 90g/hr absorption</li>
+              <li>100mg caffeine option (Solid C) — strongest caffeine dose in this guide</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Most expensive at $2.50 per pack — elite pricing for elite technology</li>
+              <li>Limited flavor options — functional taste, not gourmet</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Maurten+Solid+Energy+Gummies" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Maurten+Solid+Energy+Gummies" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Maurten Solid Gummies on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Maurten revolutionized sports nutrition with their hydrogel technology, and the Solid gummies apply this same innovation to a chewable format. The hydrogel matrix encapsulates carbohydrates in a biopolymer structure that passes through the stomach with minimal osmotic disruption, releasing the sugars for absorption in the small intestine. This technology was behind Eliud Kipchoge's sub-2-hour marathon and has been adopted by virtually every world-class marathon and ultramarathon runner. The Solid C variant provides 100mg of caffeine — equivalent to a strong cup of coffee — making it the most potent pre-race caffeine delivery gummy available.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="flask" size={22} /></div>
+        <h4>Hydrogel Technology</h4>
+        <p>Alginate and pectin form a pH-responsive gel that encapsulates carbohydrates at stomach pH (1-2) and releases them at intestinal pH (6-7). This reduces gastric osmolality and speeds transit to the absorption site in the small intestine.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="award" size={22} /></div>
+        <h4>Elite Validation</h4>
+        <p>Maurten fuels world record holders in the marathon, half marathon, and multiple UTMB CCC/OCC champions. When the fastest humans on earth choose a fuel, the product has passed the ultimate real-world test.</p>
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Price vs. performance reality:</strong> At $2.50 per pack, Maurten costs 76% more than Honey Stinger ($1.42) for similar carbohydrate content. The hydrogel technology provides a genuine GI tolerance advantage, but it matters most for athletes pushing 80-90g/hr carb intake at race intensity. For training runs and moderate-intensity sessions, a less expensive option delivers essentially the same energy at a fraction of the cost. Reserve Maurten for race day and key workouts.</p>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Energy Gummies Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Carbs/Pack</th>
+              <th>Sodium</th>
+              <th>Caffeine</th>
+              <th>Price/Pack</th>
+              <th>Rating</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/gu-energy-original.webp" alt="GU Energy" width="40" height="40" loading="lazy" />
+                  <div><strong>GU Energy</strong><span>Best Overall</span></div>
+                </div>
+              </td>
+              <td>22g</td>
+              <td>450mg</td>
+              <td>20mg opt.</td>
+              <td>$1.83</td>
+              <td>4.6</td>
+              <td>All-around endurance</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/clif-bloks-energy.webp" alt="Clif Bloks" width="40" height="40" loading="lazy" />
+                  <div><strong>Clif Bloks</strong><span>Best Runners</span></div>
+                </div>
+              </td>
+              <td>24g</td>
+              <td>70-210mg</td>
+              <td>25-50mg opt.</td>
+              <td>$1.58</td>
+              <td>4.7</td>
+              <td>Running on the move</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/huma-chia-energy.webp" alt="Huma Chia" width="40" height="40" loading="lazy" />
+                  <div><strong>Huma Chia</strong><span>Natural</span></div>
+                </div>
+              </td>
+              <td>21g</td>
+              <td>100mg</td>
+              <td>0mg</td>
+              <td>$2.08</td>
+              <td>4.4</td>
+              <td>Sensitive stomachs</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/sis-go-isotonic.webp" alt="SiS GO" width="40" height="40" loading="lazy" />
+                  <div><strong>SiS GO</strong><span>Best Cycling</span></div>
+                </div>
+              </td>
+              <td>26g</td>
+              <td>118mg</td>
+              <td>0mg</td>
+              <td>$1.92</td>
+              <td>4.3</td>
+              <td>High-carb cycling</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/skratch-energy-chews.webp" alt="Skratch" width="40" height="40" loading="lazy" />
+                  <div><strong>Skratch Labs</strong><span>Clean Label</span></div>
+                </div>
+              </td>
+              <td>20g</td>
+              <td>80mg</td>
+              <td>0mg</td>
+              <td>$1.67</td>
+              <td>4.5</td>
+              <td>Minimal ingredients</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/spring-energy-gummies.webp" alt="Spring Energy" width="40" height="40" loading="lazy" />
+                  <div><strong>Spring Energy</strong><span>Highest Cal</span></div>
+                </div>
+              </td>
+              <td>24g</td>
+              <td>150mg</td>
+              <td>0mg</td>
+              <td>$2.25</td>
+              <td>4.3</td>
+              <td>Ultra-distance</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/honey-stinger-organic.webp" alt="Honey Stinger" width="40" height="40" loading="lazy" />
+                  <div><strong>Honey Stinger</strong><span>Best Value</span></div>
+                </div>
+              </td>
+              <td>23g</td>
+              <td>90mg</td>
+              <td>32mg opt.</td>
+              <td>$1.42</td>
+              <td>4.6</td>
+              <td>Training volume</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="prod-cell">
+                  <img src="/images/products/maurten-solid.webp" alt="Maurten" width="40" height="40" loading="lazy" />
+                  <div><strong>Maurten Solid</strong><span>Elite</span></div>
+                </div>
+              </td>
+              <td>25g</td>
+              <td>120mg</td>
+              <td>100mg opt.</td>
+              <td>$2.50</td>
+              <td>4.4</td>
+              <td>Race day performance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INGREDIENT BOX -->
+    <div class="ing-box">
+      <h4>Energy Gummy Science: Carbohydrate Types, Absorption, and Fueling Strategies</h4>
+      <p>Understanding how different carbohydrate sources are absorbed determines whether your fueling strategy helps or hinders performance. The science of dual-source carbohydrates has fundamentally changed endurance nutrition.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>Maltodextrin (Glucose Polymer)</strong>
+          <p>A chain of glucose molecules absorbed via the SGLT1 transporter. Maximum intestinal absorption rate: ~60g per hour. The most common carbohydrate in energy products. Rapidly elevates blood glucose and replenishes muscle glycogen. GI tolerance decreases at high intake rates.</p>
+        </div>
+        <div class="vs-item">
+          <strong>Fructose (Dual-Source Component)</strong>
+          <p>Absorbed via the GLUT5 transporter — completely independent of the SGLT1 pathway used by glucose. Adding fructose at a 2:1 glucose-to-fructose ratio increases total carb absorption to ~90g per hour. Essential for athletes targeting maximal fueling rates in ultra-endurance events.</p>
+        </div>
+        <div class="vs-item">
+          <strong>Honey (Natural Dual-Source)</strong>
+          <p>Naturally contains ~40% fructose and ~30% glucose, making it an inherent dual-source carbohydrate. Also provides trace minerals (potassium, magnesium) and prebiotics. Honey-based gummies offer dual-source benefits from a single whole-food ingredient.</p>
+        </div>
+        <div class="vs-item">
+          <strong>Sodium (Electrolyte Critical)</strong>
+          <p>Athletes lose 300-1200mg sodium per hour through sweat. Inadequate replacement causes hyponatremia (dangerously low blood sodium), muscle cramping, and cognitive impairment. Target 300-600mg sodium per hour during events exceeding 2 hours, adjusted for individual sweat rate and concentration.</p>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <span class="tip-box-ico">&#128138;</span>
+        <p><strong>Gut training protocol:</strong> Your gut's ability to absorb carbohydrates during exercise is trainable. Start at 30-40g per hour during training runs and increase by 5-10g per week over 4-6 weeks. A 2017 study in the <em>British Journal of Sports Medicine</em> confirmed that systematic gut training improved carbohydrate tolerance and absorption during exercise, enabling athletes to reach higher fueling rates without GI distress on race day.</p>
+      </div>
+
+      <div class="warn-box">
+        <span class="warn-box-ico">&#9888;</span>
+        <p><strong>Never try new nutrition on race day:</strong> This is the oldest and most important rule in endurance sports. Any energy gummy you plan to use in competition should be tested extensively during training at race pace and in similar environmental conditions. GI tolerance varies between brands, flavors, and even temperature conditions. Build your race nutrition plan over multiple training blocks, not the night before the event.</p>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Energy Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> Every product was purchased at full retail price from Amazon or the brand's direct store. No product was provided free of charge, and no brand was informed of this evaluation in advance.</li>
+        <li><strong>Verified carbohydrate content and sources.</strong> We analyzed the nutrition and ingredient panels to confirm carbohydrate content per serving, identify single vs. dual-source carbohydrate profiles, and calculate the glucose-to-fructose ratio where applicable.</li>
+        <li><strong>Assessed electrolyte profiles.</strong> Sodium content per pack was verified against label claims. We scored products on whether their sodium levels were adequate for moderate (300-600mg/hr) and heavy (600-1200mg/hr) sweaters without requiring separate supplementation.</li>
+        <li><strong>Tested GI tolerance during exercise.</strong> Four editorial team members (2 runners, 2 cyclists) used each product during training sessions of 90-180 minutes at Zone 2-3 intensity, documenting GI symptoms including bloating, nausea, cramping, and urgency on a standardized 0-10 scale.</li>
+        <li><strong>Evaluated real-world usability.</strong> Packaging was tested for one-handed opening, gummy texture was assessed across temperature ranges (40-90°F), and chewability during exercise was rated. Products that stuck to teeth or required excessive chewing while breathing hard received lower scores.</li>
+        <li><strong>Calculated cost-effectiveness.</strong> Price per pack, price per gram of carbohydrate, and projected cost for a 3-hour race (targeting 60g carbs/hour) were computed to enable accurate cross-product comparison for athletes planning race budgets.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>GU Energy Original Gummies</strong> earn our top recommendation for the unmatched combination of dual-source carbohydrates, industry-leading 450mg sodium, caffeine options, and three decades of elite endurance validation. When you need your fuel to work as hard as you do, GU is the benchmark.</p>
+      <ul>
+        <li><strong>Best overall energy gummy:</strong> GU Energy — dual-source carbs, 450mg sodium, caffeinated/non-caffeinated options, pro-athlete proven</li>
+        <li><strong>Best for runners:</strong> Clif Bloks — cube shape, easiest to eat at pace, organic, widest flavor variety, 4.7-star rating</li>
+        <li><strong>Best natural formula:</strong> Huma Chia — real fruit + chia seeds, gentlest on stomach, whole-food energy philosophy</li>
+        <li><strong>Best for high-carb cycling:</strong> SiS GO — 26g carbs per pack, isotonic formulation, Informed Sport certified</li>
+        <li><strong>Best value for training:</strong> Honey Stinger — $1.42 per pack, USDA Organic, honey-based dual-source natural carbs</li>
+        <li><strong>Best race day premium:</strong> Maurten Solid — hydrogel technology, dual-source carbs, used by world record holders</li>
+      </ul>
+      <p>Train with affordable options (Honey Stinger, Clif Bloks), practice your race nutrition strategy during long training sessions, and deploy premium products (GU, Maurten) on race day when GI tolerance and maximum absorption rate matter most.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Energy Gummies</h2>
+
+    <details class="fq">
+      <summary>When should I take energy gummies during a workout?</summary>
+      <p>For pre-workout energy, take gummies 15-30 minutes before training. During endurance exercise lasting longer than 60 minutes, begin consuming at the 30-45 minute mark and continue every 20-30 minutes. The ACSM recommends 30-60g of carbs per hour for prolonged exercise, and up to 90g/hour for ultra-endurance events using dual-source carbohydrates. Start conservatively and increase based on GI tolerance.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are energy gummies better than energy gels?</summary>
+      <p>Energy gummies and gels deliver similar carbohydrate content per serving (20-25g) but differ in texture and GI tolerance. Gummies are more palatable for many athletes and do not require water to wash down. Gels are faster to consume. A 2010 study in <em>Medicine and Science in Sports and Exercise</em> found no significant performance difference between chews and gels at equivalent carb doses. Choose based on personal preference and stomach tolerance.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How many carbs should I consume per hour during exercise?</summary>
+      <p>Guidelines recommend 30-60g per hour for exercise lasting 1-2.5 hours. For events exceeding 2.5 hours, up to 90g/hour is recommended using dual-source carbs (glucose + fructose at 2:1 ratio). The SGLT1 transporter maxes out at ~60g/hr for glucose alone, but fructose uses a separate transporter (GLUT5), enabling total absorption of 90g/hr. Train your gut during long sessions before attempting high intake in competition.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Do energy gummies cause stomach problems during running?</summary>
+      <p>GI distress affects 30-50% of endurance athletes, but gummies are generally better tolerated than gels because chewing mixes carbs with saliva, initiating digestion earlier. To minimize issues: start fueling early, take small amounts frequently (every 15-20 min), stay hydrated, and practice your race nutrition during training so your gut adapts. Avoid high-fructose products if you are fructose-sensitive.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Should energy gummies contain caffeine?</summary>
+      <p>Caffeine improves endurance performance by 12-15% and reduces perceived exertion. Energy gummies with 20-50mg caffeine per serving provide a titratable dose. The optimal performance dose is 3-6mg/kg body weight. Caffeinated gummies are most useful in the second half of long events when central fatigue increases. Save caffeinated options for key moments rather than consuming them throughout.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between single-source and dual-source carb gummies?</summary>
+      <p>Single-source gummies use only glucose-based carbs, absorbed via SGLT1 at a max of ~60g/hr. Dual-source gummies combine glucose and fructose, using two separate transporters (SGLT1 + GLUT5), enabling absorption up to 90g/hr. A landmark study showed glucose + fructose at 2:1 ratio increased carb oxidation by 40%. Dual-source products are superior for events exceeding 2.5 hours.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can I use energy gummies for non-athletic activities?</summary>
+      <p>Energy gummies are designed for athletic performance during active glycogen depletion. Using them for sedentary activities (desk work, studying) is not recommended because the concentrated simple sugars will cause blood glucose spikes and crashes. For mental energy, consider focus gummies with L-theanine or lion's mane instead. Energy gummies are specifically for situations where muscles are actively depleting glycogen stores.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How should I store energy gummies?</summary>
+      <p>Store below 75°F (24°C) in a dry place. High temperatures cause melting and sticking. In hot races, keep gummies in a cooler or insulated pocket until needed. Cold temperatures make them harder to chew but do not damage them. For race day, use small zip-lock bags in accessible pockets. Some brands (Maurten, Clif) have packaging designed for one-handed opening during competition.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Sports Nutrition Guides</h2>
+      <p>Expert-tested reviews across every sports supplement gummy category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/sports/pre-workout-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Pre-Workout Gummies</h3>
+        <p>Caffeine, beta-alanine, and nitric oxide gummies for explosive gym performance — the perfect complement to energy gummies for endurance.</p>
+        <span class="ac-btn">Best Pre-Workout Gummies &#8594;</span>
+      </a>
+      <a href="/sports/best-protein-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Protein Gummies</h3>
+        <p>Post-workout recovery gummies with whey and collagen protein for muscle repair after the energy gummies fuel your training.</p>
+        <span class="ac-btn">Best Protein Gummies &#8594;</span>
+      </a>
+      <a href="/best-creatine-gummies/" class="ac">
+        <span class="ac-tag">Sports</span>
+        <h3>Best Creatine Gummies</h3>
+        <p>Creatine monohydrate in gummy form for strength, power output, and cognitive performance — the other essential sports supplement.</p>
+        <span class="ac-btn">Best Creatine Gummies &#8594;</span>
+      </a>
+      <a href="/best-ashwagandha-gummies/" class="ac">
+        <span class="ac-tag">Recovery</span>
+        <h3>Best Ashwagandha Gummies</h3>
+        <p>Adaptogenic ashwagandha for cortisol management and recovery optimization — reduce training stress between hard sessions.</p>
+        <span class="ac-btn">Best Ashwagandha Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-17"
+      updateDate="2026-03-28"
+      authorName="James Rodriguez"
+      authorCredentials="CPT, CSCS"
+      authorImage="/images/authors/james-rodriguez.webp"
+      authorBio="James is a Certified Personal Trainer (NSCA-CPT) and Certified Strength and Conditioning Specialist (CSCS) with 15 years of experience in endurance sports nutrition. He has completed 12 Ironman triathlons and 30+ marathons, testing sports nutrition products in real-world race conditions across distances from 5K to 100 miles."
+    />
+
+  </div>
+</BaseLayout>

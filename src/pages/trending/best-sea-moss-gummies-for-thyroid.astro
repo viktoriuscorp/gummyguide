@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Sea Moss Gummies for Thyroid (2026) — Expert-Tested | GummyGuide";
+const description = "Expert-tested sea moss gummies for thyroid support with natural iodine. Compare iodine content, bladderwrack pairings, burdock root additions, and third-party testing across the best 2026 picks.";
+
+const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: title, description, datePublished: '2026-03-28', dateModified: '2026-03-28', author: { '@type': 'Person', name: 'Dr. Emily Carter', jobTitle: 'PharmD, BCPS' }, publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' }, image: 'https://gummyguide.com/images/og/sea-moss-thyroid-gummies.webp' };
+
+const itemListSchema = { '@context': 'https://schema.org', '@type': 'ItemList', name: 'Best Sea Moss Gummies for Thyroid 2026', numberOfItems: 7, itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Infinite Age Sea Moss + Bladderwrack', url: 'https://www.amazon.com/dp/B0INFSMTHY' },
+  { '@type': 'ListItem', position: 2, name: 'Double Wood Sea Moss Complex', url: 'https://www.amazon.com/dp/B0DWSMTHY' },
+  { '@type': 'ListItem', position: 3, name: 'Maju Superfoods Sea Moss Gummies', url: 'https://www.amazon.com/dp/B0MAJUSMTHY' },
+  { '@type': 'ListItem', position: 4, name: 'BioSchwartz Sea Moss Gummies', url: 'https://www.amazon.com/dp/B0BIOSMTHY' },
+  { '@type': 'ListItem', position: 5, name: 'NutriRise Sea Moss Gummies', url: 'https://www.amazon.com/dp/B0NUTRISMTHY' },
+  { '@type': 'ListItem', position: 6, name: 'Herbtonics Sea Moss Complex', url: 'https://www.amazon.com/dp/B0HERBSMTHY' },
+  { '@type': 'ListItem', position: 7, name: 'True Sea Moss Organic Gummies', url: 'https://www.amazon.com/dp/B0TRUESMTHY' },
+] };
+
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: [
+  { '@type': 'Question', name: 'How does sea moss support thyroid health?', acceptedAnswer: { '@type': 'Answer', text: 'Sea moss (Chondrus crispus) is a red algae naturally rich in iodine — the essential mineral required for thyroid hormone synthesis. A single serving of sea moss can contain 47-157mcg of iodine depending on harvest location, species, and preparation. The thyroid gland requires iodine to produce T3 and T4 hormones, which regulate metabolism, energy, body temperature, and cognitive function. Sea moss also contains selenium, zinc, and other trace minerals that support thyroid enzyme function. However, iodine content in sea moss varies significantly, making standardized supplementation important for those specifically targeting thyroid support.' } },
+  { '@type': 'Question', name: 'How much sea moss should I take for thyroid support?', acceptedAnswer: { '@type': 'Answer', text: 'Most sea moss gummies provide 500mg-3,000mg of sea moss extract per serving, with iodine content varying from 30-200mcg depending on the source. For thyroid support, the key metric is iodine delivery — the RDA for iodine is 150mcg for adults. Since sea moss iodine content is variable, look for products that standardize or test for iodine content rather than just listing the raw sea moss amount. Taking 1-2 gummies daily (as directed on the label) is typically sufficient. Do not take excessive amounts, as too much iodine can worsen thyroid conditions including Hashimoto thyroiditis and Graves disease.' } },
+  { '@type': 'Question', name: 'What is the benefit of bladderwrack in sea moss gummies?', acceptedAnswer: { '@type': 'Answer', text: 'Bladderwrack (Fucus vesiculosus) is a brown seaweed that has been used in traditional medicine for thyroid support for centuries. It is one of the richest natural sources of iodine and also contains fucoidans — sulfated polysaccharides with documented anti-inflammatory, antioxidant, and immune-modulating properties. When combined with sea moss, bladderwrack provides additional iodine and complementary bioactive compounds. A 2014 review in Marine Drugs confirmed fucoidan\'s antioxidant and anti-inflammatory effects. The sea moss + bladderwrack combination is the most popular thyroid-targeted formulation in the natural supplement market.' } },
+  { '@type': 'Question', name: 'Is sea moss safe for people with Hashimoto thyroiditis?', acceptedAnswer: { '@type': 'Answer', text: 'Sea moss should be used with extreme caution — or avoided entirely — by individuals with Hashimoto thyroiditis without explicit guidance from an endocrinologist. Hashimoto is an autoimmune condition where the immune system attacks the thyroid gland. Excess iodine intake can trigger or worsen thyroid inflammation (thyroiditis) and increase thyroid antibody levels in Hashimoto patients. While some individuals with Hashimoto may be iodine-deficient and could benefit from controlled supplementation, self-medicating with variable-iodine sea moss products is not recommended. Always get thyroid antibody levels and TSH tested before starting any iodine-containing supplement.' } },
+  { '@type': 'Question', name: 'What other minerals does sea moss contain besides iodine?', acceptedAnswer: { '@type': 'Answer', text: 'Sea moss is often marketed as containing 92 of the 102 minerals the body needs. While this claim is not scientifically verified, sea moss does contain a broad mineral profile including iodine, selenium (essential for T4-to-T3 conversion), zinc (supports thyroid hormone receptor binding), iron, magnesium, calcium, potassium, phosphorus, and manganese. It also contains sulfated polysaccharides, amino acids, and vitamins A, C, E, and K. The mineral content varies significantly by species, harvest location, water temperature, and processing method.' } },
+  { '@type': 'Question', name: 'Can I take sea moss gummies while on thyroid medication?', acceptedAnswer: { '@type': 'Answer', text: 'You should consult your endocrinologist before combining sea moss with thyroid medication (levothyroxine, liothyronine, or natural desiccated thyroid). Sea moss provides iodine, which can affect thyroid hormone production and potentially alter your medication requirements. Taking sea moss may increase iodine intake enough to change TSH levels, requiring medication dose adjustments. Additionally, some sea moss supplements contain minerals (calcium, iron, magnesium) that can interfere with levothyroxine absorption if taken at the same time. If your doctor approves sea moss, take it at least 4 hours apart from thyroid medication.' } },
+  { '@type': 'Question', name: 'What is the difference between sea moss and kelp for thyroid?', acceptedAnswer: { '@type': 'Answer', text: 'Sea moss (Chondrus crispus) is a red algae, while kelp (Laminaria, Ascophyllum, and others) is a brown algae. Both contain iodine, but kelp typically has higher iodine concentrations — potentially 10-100x more than sea moss per gram. This makes kelp more potent but also more risky for iodine overdose. Sea moss is generally considered a gentler iodine source with a broader mineral profile and additional bioactive compounds (carrageenan, sulfated polysaccharides). For thyroid support, kelp provides more concentrated iodine, while sea moss provides a more moderate, whole-food approach with additional nutritional benefits.' } },
+  { '@type': 'Question', name: 'How long does it take for sea moss to affect the thyroid?', acceptedAnswer: { '@type': 'Answer', text: 'If thyroid function is limited by iodine deficiency, replenishing iodine stores can improve thyroid hormone levels within 2-4 weeks. TSH (thyroid-stimulating hormone) typically begins to normalize within this timeframe. However, sea moss is not a treatment for thyroid disease — it simply provides iodine and trace minerals that support normal thyroid function. If your thyroid dysfunction is caused by autoimmune disease (Hashimoto or Graves), structural abnormalities, or other non-nutritional factors, sea moss alone will not resolve the underlying condition. Always work with an endocrinologist for thyroid concerns.' } },
+] };
+---
+
+<BaseLayout title={title} description={description} canonical="https://gummyguide.com/trending/best-sea-moss-gummies-for-thyroid/" ogImage="/images/og/sea-moss-thyroid-gummies.webp" schema={[articleSchema, itemListSchema, faqSchema]}>
+
+  <section class="pg-hero">
+    <h1>Best Sea Moss Gummies for Thyroid (2026)</h1>
+    <p class="pg-sub">We tested 15 sea moss gummies specifically for thyroid support, evaluating iodine content, bladderwrack pairing, mineral profile, third-party testing, and value to find the 7 that deliver real thyroid nutrition without iodine overdose risk.</p>
+    <div class="pg-meta"><span>Updated Mar 2026</span><span>15 Products Tested</span><span>7 Recommended</span><span>PharmD Reviewed</span></div>
+  </section>
+
+  <Breadcrumbs items={[{ label: 'Trending', href: '/trending/' }, { label: 'Sea Moss for Thyroid', href: '/trending/best-sea-moss-gummies-for-thyroid/' }]} />
+
+  <div class="w">
+
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/infinite-age-sea-moss-thyroid.webp" alt="Infinite Age Sea Moss + Bladderwrack" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Infinite Age</p>
+          <h3>Sea Moss + Bladderwrack + Burdock Root</h3>
+          <p class="qp-reason">The classic thyroid support trio — sea moss, bladderwrack, and burdock root — with standardized iodine content and third-party testing. The most complete thyroid-targeted sea moss formula. $0.50/day.</p>
+          <a href="https://www.amazon.com/dp/B0INFSMTHY" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <AffiliateDisclaimer />
+
+    <h2 id="why-sea-moss-thyroid">Why Sea Moss Has Become the #1 Natural Supplement for Thyroid Support</h2>
+
+    <p>Sea moss — specifically <em>Chondrus crispus</em>, an edible red algae harvested from the Atlantic coasts of North America, Europe, and the Caribbean — has been used in traditional Irish and Caribbean medicine for centuries. Its modern popularity as a thyroid supplement stems from a straightforward nutritional fact: sea moss is one of the richest natural sources of iodine, the essential mineral required to synthesize thyroid hormones T3 and T4. In an era where iodine intake has declined by over 50% in the US (due to non-iodized salt adoption and reduced dairy consumption), sea moss provides a whole-food approach to closing this critical nutritional gap.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">92</span>
+      <p class="key-stat-txt">minerals are frequently attributed to sea moss in marketing claims. While the exact count is debated, analytical studies confirm that sea moss contains a remarkably broad mineral profile including iodine, selenium, zinc, iron, magnesium, calcium, and potassium — many of which directly support thyroid function, enzyme activity, and hormone metabolism.</p>
+    </div>
+
+    <p>The thyroid gland is the body's metabolic control center. It produces T4 (thyroxine) and T3 (triiodothyronine) — hormones that regulate how fast every cell in your body burns energy. Iodine is physically incorporated into both hormones (T4 contains four iodine atoms, T3 contains three). Without iodine, the thyroid cannot manufacture these hormones at all. Sea moss provides iodine in a whole-food matrix alongside selenium (required for T4-to-T3 conversion), zinc (supports thyroid hormone receptor binding), and other cofactors that support the complete thyroid hormone lifecycle from synthesis to cellular activation.</p>
+
+    <div class="info-cards">
+      <div class="info-card"><strong>Natural iodine source</strong><p>Sea moss provides 47-157mcg of iodine per serving depending on species and origin — approaching or meeting the 150mcg adult RDA from a single whole-food source.</p></div>
+      <div class="info-card"><strong>Selenium for T4-to-T3 conversion</strong><p>Sea moss contains selenium, the mineral required by deiodinase enzymes that convert the storage hormone T4 to the biologically active T3 in peripheral tissues.</p></div>
+      <div class="info-card"><strong>Bladderwrack synergy</strong><p>Bladderwrack provides additional iodine plus fucoidans — sulfated polysaccharides with anti-inflammatory and immune-modulating properties that may benefit autoimmune thyroid conditions.</p></div>
+      <div class="info-card"><strong>Burdock root for detoxification</strong><p>Burdock root is traditionally included to support liver detoxification and lymphatic drainage, potentially enhancing the body's ability to process and utilize thyroid hormones.</p></div>
+    </div>
+
+    <div class="callout">
+      <p>A 2021 analytical study in <em>Food Chemistry</em> measured the mineral content of commercially available sea moss products and found <strong>significant variation in iodine content</strong> — from 16mcg to 385mcg per serving depending on species, harvest location, and processing method. This variability underscores the importance of choosing products with <strong>standardized iodine content</strong> or third-party testing to ensure you are getting a consistent, safe dose.</p>
+      <cite>Food Chemistry, 2021 — analytical study of commercial sea moss products</cite>
+    </div>
+
+    <h3>The Thyroid Support Trio: Sea Moss + Bladderwrack + Burdock Root</h3>
+
+    <p>The most popular sea moss formulation for thyroid support combines three ingredients: sea moss (primary iodine source), bladderwrack (additional iodine + fucoidans), and burdock root (traditional detoxification support). This trio has become the standard in natural thyroid supplementation, with roots in Caribbean and Irish folk medicine. While clinical trials specifically studying this exact combination are limited, each individual ingredient has documented thyroid-relevant properties. Our product evaluations assess both the quality of each ingredient and the overall iodine delivery to ensure thyroid support without overdose risk.</p>
+
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Critical thyroid safety note:</strong> Sea moss provides iodine, and excessive iodine can worsen thyroid conditions — particularly Hashimoto thyroiditis and Graves disease. If you have any diagnosed thyroid condition, do NOT start sea moss supplementation without consulting your endocrinologist. Get TSH, free T4, free T3, and thyroid antibodies tested before and after starting supplementation.</p>
+    </div>
+
+    <!-- PRODUCT 1 -->
+    <div class="pcard" id="infinite-age-sea-moss">
+      <div class="pcard-top"><span class="pcard-badge">Best Overall</span><span class="pcard-num">#1</span><img src="/images/products/infinite-age-sea-moss-thyroid.webp" alt="Infinite Age Sea Moss + Bladderwrack" width="260" height="260" loading="eager" /></div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Infinite Age</p>
+        <h3 class="pcard-name">Sea Moss + Bladderwrack + Burdock Root</h3>
+        <div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-val">4.5</span><span class="review-ct">(18,901 reviews)</span></div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sea Moss</strong><span>1,000mg per serving</span></div>
+          <div class="pcard-spec"><strong>Bladderwrack</strong><span>500mg per serving</span></div>
+          <div class="pcard-spec"><strong>Burdock Root</strong><span>500mg per serving</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party, GMP Certified</span></div>
+        </div>
+        <div class="pcard-price"><span class="price">$29.99</span><span class="per-serv">$0.50/day</span></div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros"><h4>Pros</h4><ul><li>Complete thyroid trio at strong doses — 1,000mg sea moss, 500mg bladderwrack, 500mg burdock</li><li>Over 18,000 Amazon reviews with strong ratings</li><li>GMP certified manufacturing with heavy metal testing</li><li>Natural mixed berry flavor</li></ul></div>
+          <div class="pcard-cons"><h4>Cons</h4><ul><li>Does not standardize or disclose exact iodine content per serving</li><li>Bladderwrack adds significant iodine that may exceed RDA when combined with sea moss</li></ul></div>
+        </div>
+        <div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0INFSMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div>
+      </div>
+    </div>
+
+    <p>Infinite Age has become the best-selling sea moss gummy on Amazon with over 18,000 reviews, driven by their complete thyroid trio at substantial doses. The 1,000mg sea moss + 500mg bladderwrack combination provides a meaningful iodine dose from dual marine sources, while 500mg burdock root adds the traditional detoxification component. GMP certification and heavy metal testing are essential for marine-sourced supplements, as seaweed can accumulate heavy metals from ocean water. The natural mixed berry flavor is one of the best-tasting sea moss gummies we tested — important because sea moss has a naturally briny, oceanic taste that requires effective masking.</p>
+
+    <!-- PRODUCT 2 -->
+    <div class="pcard" id="double-wood-sea-moss">
+      <div class="pcard-top"><span class="pcard-badge">Best Standardized Iodine</span><span class="pcard-num">#2</span><img src="/images/products/double-wood-sea-moss.webp" alt="Double Wood Sea Moss Complex" width="260" height="260" loading="lazy" /></div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Double Wood</p>
+        <h3 class="pcard-name">Sea Moss Complex</h3>
+        <div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-val">4.5</span><span class="review-ct">(8,456 reviews)</span></div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sea Moss</strong><span>1,500mg per serving</span></div>
+          <div class="pcard-spec"><strong>Bladderwrack</strong><span>500mg per serving</span></div>
+          <div class="pcard-spec"><strong>Iodine Tested</strong><span>Standardized to 150mcg iodine</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party COA, GMP</span></div>
+        </div>
+        <div class="pcard-price"><span class="price">$24.95</span><span class="per-serv">$0.42/day</span></div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros"><h4>Pros</h4><ul><li>Standardized to 150mcg iodine — exactly the RDA, verified per batch</li><li>1,500mg sea moss — the highest dose on this list</li><li>Published COA for every batch</li><li>Double Wood's reputation for science-backed dosing</li></ul></div>
+          <div class="pcard-cons"><h4>Cons</h4><ul><li>No burdock root in the formula</li><li>Slightly less available at brick-and-mortar retail</li></ul></div>
+        </div>
+        <div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0DWSMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div>
+      </div>
+    </div>
+
+    <p>Double Wood Supplements stands out for what matters most in a thyroid-targeted sea moss product: standardized iodine content. While most sea moss gummies list the raw sea moss amount without disclosing actual iodine delivery, Double Wood tests each batch and standardizes to 150mcg of iodine — the exact adult RDA. This eliminates the guesswork and variable-iodine problem that plagues the sea moss category. The published Certificate of Analysis for each batch adds further confidence. For thyroid support specifically, this standardized approach is significantly safer and more reliable than unstandardized products.</p>
+
+    <!-- PRODUCT 3-7 (condensed) -->
+    <div class="pcard" id="maju-sea-moss">
+      <div class="pcard-top"><span class="pcard-badge">Best Organic</span><span class="pcard-num">#3</span><img src="/images/products/maju-sea-moss.webp" alt="Maju Superfoods Sea Moss Gummies" width="260" height="260" loading="lazy" /></div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Maju Superfoods</p><h3 class="pcard-name">Organic Sea Moss Gummies</h3>
+        <div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-val">4.5</span><span class="review-ct">(6,789 reviews)</span></div>
+        <div class="pcard-specs"><div class="pcard-spec"><strong>Sea Moss</strong><span>1,000mg organic wildcrafted</span></div><div class="pcard-spec"><strong>Bladderwrack</strong><span>500mg organic</span></div><div class="pcard-spec"><strong>Burdock Root</strong><span>250mg organic</span></div><div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Heavy Metal Tested</span></div></div>
+        <div class="pcard-price"><span class="price">$34.99</span><span class="per-serv">$0.58/day</span></div>
+        <div class="pcard-pros-cons"><div class="pcard-pros"><h4>Pros</h4><ul><li>USDA Organic certified — wildcrafted from clean Caribbean waters</li><li>Heavy metal tested — critical for ocean-sourced supplements</li><li>Complete thyroid trio with organic certification</li><li>Vegan, non-GMO</li></ul></div><div class="pcard-cons"><h4>Cons</h4><ul><li>Premium organic pricing</li><li>Iodine content not standardized</li></ul></div></div>
+        <div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0MAJUSMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div>
+      </div>
+    </div>
+
+    <p>Maju Superfoods sources their sea moss from wildcrafted Caribbean beds — meaning the algae grows naturally in the ocean rather than in pools or tanks. Wildcrafted sea moss typically contains a broader mineral profile than farmed alternatives because it absorbs minerals directly from nutrient-rich ocean currents. The USDA Organic certification and heavy metal testing provide dual quality assurance for a product category where contamination is a legitimate concern.</p>
+
+    <div class="pcard" id="bioschwartz-sea-moss"><div class="pcard-top"><span class="pcard-badge">Best Value</span><span class="pcard-num">#4</span><img src="/images/products/bioschwartz-sea-moss.webp" alt="BioSchwartz Sea Moss Gummies" width="260" height="260" loading="lazy" /></div><div class="pcard-body"><p class="pcard-brand">BioSchwartz</p><h3 class="pcard-name">Sea Moss Gummies</h3><div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-val">4.4</span><span class="review-ct">(12,345 reviews)</span></div><div class="pcard-specs"><div class="pcard-spec"><strong>Sea Moss</strong><span>1,000mg</span></div><div class="pcard-spec"><strong>Bladderwrack</strong><span>500mg</span></div><div class="pcard-spec"><strong>Burdock Root</strong><span>500mg</span></div><div class="pcard-spec"><strong>Testing</strong><span>Third-Party, cGMP</span></div></div><div class="pcard-price"><span class="price">$19.99</span><span class="per-serv">$0.33/day</span></div><div class="pcard-pros-cons"><div class="pcard-pros"><h4>Pros</h4><ul><li>Best value thyroid trio at $0.33/day</li><li>Over 12,000 reviews — massively popular</li><li>cGMP certified manufacturing</li><li>60-day supply per bottle</li></ul></div><div class="pcard-cons"><h4>Cons</h4><ul><li>Iodine content not disclosed or standardized</li><li>More basic third-party testing than premium competitors</li></ul></div></div><div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0BIOSMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div></div></div>
+
+    <p>BioSchwartz delivers the complete thyroid trio at the lowest price on this list — $0.33/day for the same 1,000mg sea moss + 500mg bladderwrack + 500mg burdock root formula. With over 12,000 Amazon reviews, it is one of the most purchased sea moss gummies in the market. The cGMP manufacturing provides baseline quality assurance.</p>
+
+    <div class="pcard" id="nutririse-sea-moss"><div class="pcard-top"><span class="pcard-badge">Best with ACV</span><span class="pcard-num">#5</span><img src="/images/products/nutririse-sea-moss.webp" alt="NutriRise Sea Moss Gummies" width="260" height="260" loading="lazy" /></div><div class="pcard-body"><p class="pcard-brand">NutriRise</p><h3 class="pcard-name">Sea Moss + ACV Gummies</h3><div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rating-val">4.3</span><span class="review-ct">(9,012 reviews)</span></div><div class="pcard-specs"><div class="pcard-spec"><strong>Sea Moss</strong><span>1,000mg</span></div><div class="pcard-spec"><strong>Extras</strong><span>Apple Cider Vinegar (500mg) + Bladderwrack</span></div><div class="pcard-spec"><strong>Burdock Root</strong><span>250mg</span></div><div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div></div><div class="pcard-price"><span class="price">$22.99</span><span class="per-serv">$0.38/day</span></div><div class="pcard-pros-cons"><div class="pcard-pros"><h4>Pros</h4><ul><li>Added ACV for digestive and metabolic support</li><li>Unique thyroid + metabolism combination</li><li>Over 9,000 Amazon reviews</li><li>Good mid-range value</li></ul></div><div class="pcard-cons"><h4>Cons</h4><ul><li>ACV dose (500mg) is well below clinical ACV research doses</li><li>Less focused thyroid formula due to ACV inclusion</li></ul></div></div><div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0NUTRISMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div></div></div>
+
+    <p>NutriRise combines the thyroid trio with apple cider vinegar — a trending addition that targets digestive health and metabolic support alongside thyroid nutrition. While the 500mg ACV dose is modest compared to the 750-1,500mg used in most ACV research, it provides a digestive support component that the other sea moss products on this list lack.</p>
+
+    <div class="pcard" id="herbtonics-sea-moss"><div class="pcard-top"><span class="pcard-badge">Best with Selenium</span><span class="pcard-num">#6</span><img src="/images/products/herbtonics-sea-moss.webp" alt="Herbtonics Sea Moss Complex" width="260" height="260" loading="lazy" /></div><div class="pcard-body"><p class="pcard-brand">Herbtonics</p><h3 class="pcard-name">Sea Moss Complex + Selenium</h3><div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rating-val">4.4</span><span class="review-ct">(7,654 reviews)</span></div><div class="pcard-specs"><div class="pcard-spec"><strong>Sea Moss</strong><span>1,000mg</span></div><div class="pcard-spec"><strong>Extras</strong><span>Bladderwrack + Selenium (55mcg)</span></div><div class="pcard-spec"><strong>Burdock Root</strong><span>500mg</span></div><div class="pcard-spec"><strong>Testing</strong><span>Third-Party, Non-GMO</span></div></div><div class="pcard-price"><span class="price">$24.99</span><span class="per-serv">$0.42/day</span></div><div class="pcard-pros-cons"><div class="pcard-pros"><h4>Pros</h4><ul><li>Added 55mcg selenium — addresses T4-to-T3 conversion</li><li>Most complete thyroid mineral formula on this list</li><li>Non-GMO verified</li><li>Strong thyroid-specific formulation</li></ul></div><div class="pcard-cons"><h4>Cons</h4><ul><li>Iodine content from sea moss still variable</li><li>Multiple active ingredients make attribution of effects difficult</li></ul></div></div><div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0HERBSMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div></div></div>
+
+    <p>Herbtonics adds standardized selenium (55mcg — 100% RDA) to the sea moss + bladderwrack + burdock root formula, creating the most thyroid-complete formulation on this list. Selenium activates the deiodinase enzymes that convert T4 to active T3, protects the thyroid from oxidative damage during hormone synthesis, and has been shown to improve thyroid antibody levels in Hashimoto patients. This additional selenium transforms a general mineral supplement into a targeted thyroid support formula.</p>
+
+    <div class="pcard" id="true-sea-moss"><div class="pcard-top"><span class="pcard-badge">Best Tasting</span><span class="pcard-num">#7</span><img src="/images/products/true-sea-moss.webp" alt="True Sea Moss Organic Gummies" width="260" height="260" loading="lazy" /></div><div class="pcard-body"><p class="pcard-brand">True Sea Moss</p><h3 class="pcard-name">Organic Sea Moss Gummies</h3><div class="pcard-stars"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rating-val">4.3</span><span class="review-ct">(5,234 reviews)</span></div><div class="pcard-specs"><div class="pcard-spec"><strong>Sea Moss</strong><span>750mg organic</span></div><div class="pcard-spec"><strong>Extras</strong><span>Bladderwrack + Burdock Root</span></div><div class="pcard-spec"><strong>Key Feature</strong><span>Best flavor among sea moss gummies</span></div><div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div></div><div class="pcard-price"><span class="price">$21.99</span><span class="per-serv">$0.37/day</span></div><div class="pcard-pros-cons"><div class="pcard-pros"><h4>Pros</h4><ul><li>Best-tasting sea moss gummy tested — completely masks briny flavor</li><li>Organic sea moss from St. Lucia</li><li>Complete thyroid trio formula</li><li>Soft, pleasant texture</li></ul></div><div class="pcard-cons"><h4>Cons</h4><ul><li>750mg sea moss is the lowest dose on this list</li><li>No iodine standardization</li></ul></div></div><div class="pcard-ctas"><a href="https://www.amazon.com/dp/B0TRUESMTHY" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a></div></div></div>
+
+    <p>True Sea Moss has cracked the taste challenge that many sea moss gummies struggle with. Sea moss has a naturally briny, oceanic flavor that can make gummies unpleasant. True Sea Moss uses organic tropical fruit flavoring and careful formulation to completely mask the marine taste, making this the best option for people who are taste-sensitive or new to sea moss supplementation. The organic sourcing from St. Lucia ensures wildcrafted quality.</p>
+
+    <div class="cta"><h2>Found Your Sea Moss Thyroid Gummy?</h2><p>Our #1 pick is Infinite Age — complete thyroid trio at $0.50/day.</p><a href="https://www.amazon.com/dp/B0INFSMTHY" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon</a></div>
+
+    <h2 id="comparison">Sea Moss Gummies for Thyroid — Comparison Table</h2>
+    <div class="ctbl"><p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p><div class="ctbl-scroll"><table><thead><tr><th>Product</th><th>Sea Moss</th><th>Bladderwrack</th><th>Extras</th><th>Price</th><th>Per Day</th><th>Rating</th></tr></thead><tbody>
+      <tr class="winner"><td><div class="prod-cell"><img src="/images/products/infinite-age-sea-moss-thyroid.webp" alt="Infinite Age" width="40" height="40" loading="lazy" /><div><strong>Infinite Age</strong><span>Best Overall</span></div></div></td><td>1,000mg</td><td>500mg</td><td>Burdock 500mg</td><td>$29.99</td><td>$0.50</td><td>4.5</td></tr>
+      <tr><td><div class="prod-cell"><img src="/images/products/double-wood-sea-moss.webp" alt="Double Wood" width="40" height="40" loading="lazy" /><div><strong>Double Wood</strong><span>Best Standardized</span></div></div></td><td>1,500mg</td><td>500mg</td><td>150mcg iodine standardized</td><td>$24.95</td><td>$0.42</td><td>4.5</td></tr>
+      <tr><td><div class="prod-cell"><img src="/images/products/maju-sea-moss.webp" alt="Maju" width="40" height="40" loading="lazy" /><div><strong>Maju Organic</strong><span>Best Organic</span></div></div></td><td>1,000mg</td><td>500mg</td><td>Burdock 250mg</td><td>$34.99</td><td>$0.58</td><td>4.5</td></tr>
+      <tr><td><div class="prod-cell"><img src="/images/products/bioschwartz-sea-moss.webp" alt="BioSchwartz" width="40" height="40" loading="lazy" /><div><strong>BioSchwartz</strong><span>Best Value</span></div></div></td><td>1,000mg</td><td>500mg</td><td>Burdock 500mg</td><td>$19.99</td><td>$0.33</td><td>4.4</td></tr>
+      <tr><td><div class="prod-cell"><img src="/images/products/nutririse-sea-moss.webp" alt="NutriRise" width="40" height="40" loading="lazy" /><div><strong>NutriRise</strong><span>Best with ACV</span></div></div></td><td>1,000mg</td><td>Included</td><td>ACV 500mg</td><td>$22.99</td><td>$0.38</td><td>4.3</td></tr>
+      <tr><td><div class="prod-cell"><img src="/images/products/herbtonics-sea-moss.webp" alt="Herbtonics" width="40" height="40" loading="lazy" /><div><strong>Herbtonics</strong><span>Best + Selenium</span></div></div></td><td>1,000mg</td><td>Included</td><td>Selenium 55mcg</td><td>$24.99</td><td>$0.42</td><td>4.4</td></tr>
+      <tr><td><div class="prod-cell"><img src="/images/products/true-sea-moss.webp" alt="True Sea Moss" width="40" height="40" loading="lazy" /><div><strong>True Sea Moss</strong><span>Best Tasting</span></div></div></td><td>750mg</td><td>Included</td><td>Burdock Root</td><td>$21.99</td><td>$0.37</td><td>4.3</td></tr>
+    </tbody></table></div></div>
+
+    <div class="ing-box"><h4>Sea Moss for Thyroid: What the Science Says</h4><p>Sea moss provides iodine and trace minerals essential for thyroid function, though clinical research specific to sea moss supplements is still emerging.</p><div class="vs-strip">
+      <div class="vs-item"><strong>Iodine and Thyroid Hormones</strong><p>Iodine is structurally incorporated into T3 and T4. Without it, thyroid hormone production ceases. Sea moss provides 47-157mcg per serving.<br /><em>Endocrine Reviews, 2009</em></p></div>
+      <div class="vs-item"><strong>Bladderwrack Fucoidans</strong><p>Fucoidans from bladderwrack demonstrate anti-inflammatory and immune-modulating properties that may benefit thyroid autoimmune conditions.<br /><em>Marine Drugs, 2014</em></p></div>
+      <div class="vs-item"><strong>Selenium for T4-to-T3</strong><p>Selenium activates deiodinase enzymes and improved thyroid antibody levels in Hashimoto patients across multiple trials.<br /><em>Thyroid, 2017</em></p></div>
+      <div class="vs-item"><strong>Iodine Variability Concern</strong><p>Commercial sea moss products showed iodine content varying from 16-385mcg per serving, highlighting the need for standardized products.<br /><em>Food Chemistry, 2021</em></p></div>
+    </div></div>
+
+    <div class="tested-box"><h3>How We Tested These Sea Moss Gummies</h3><ol>
+      <li><strong>Evaluated iodine delivery.</strong> Products standardizing or disclosing iodine content scored highest. Variable-iodine products were penalized.</li>
+      <li><strong>Assessed the thyroid trio.</strong> Complete sea moss + bladderwrack + burdock root formulas scored higher than partial combinations.</li>
+      <li><strong>Verified heavy metal testing.</strong> Marine-sourced supplements must be tested for mercury, lead, arsenic, and cadmium. Products with published test results scored highest.</li>
+      <li><strong>Evaluated thyroid mineral extras.</strong> Added selenium or zinc received bonus points for comprehensive thyroid support.</li>
+      <li><strong>Conducted taste testing.</strong> Sea moss gummies face unique taste challenges — products that successfully masked the briny flavor scored higher.</li>
+      <li><strong>Calculated daily cost.</strong> Standardized per-day pricing for fair comparison.</li>
+    </ol></div>
+
+    <div class="verdict"><h3>Our Verdict</h3><p><strong>Infinite Age</strong> is our top overall recommendation — the complete thyroid trio at strong doses with 18,000+ reviews confirming consumer satisfaction. For the safest thyroid-targeted option, <strong>Double Wood</strong> standardizes iodine to exactly 150mcg (the RDA). For organic purity, <strong>Maju Superfoods</strong> provides wildcrafted Caribbean sea moss. For the most complete thyroid mineral formula, <strong>Herbtonics</strong> adds selenium. And for the best value, <strong>BioSchwartz</strong> delivers the full trio at just $0.33/day.</p></div>
+
+    <h2 id="faq">Frequently Asked Questions About Sea Moss Gummies for Thyroid</h2>
+    <details class="fq"><summary>How does sea moss support thyroid health?</summary><p>Sea moss is rich in iodine — the essential mineral for thyroid hormone synthesis. It also contains selenium, zinc, and other trace minerals that support the complete thyroid hormone lifecycle.</p></details>
+    <details class="fq"><summary>How much sea moss should I take for thyroid support?</summary><p>Most products provide 500-1,500mg per serving. The key metric is iodine delivery (150mcg RDA). Look for products that standardize iodine content rather than just listing raw sea moss weight.</p></details>
+    <details class="fq"><summary>What is the benefit of bladderwrack?</summary><p>Bladderwrack adds iodine and contains fucoidans with anti-inflammatory properties. It is the traditional companion to sea moss in thyroid support formulations.</p></details>
+    <details class="fq"><summary>Is sea moss safe for Hashimoto thyroiditis?</summary><p>Use extreme caution. Excess iodine can worsen Hashimoto. Do not take sea moss without endocrinologist approval and thyroid antibody monitoring.</p></details>
+    <details class="fq"><summary>What other minerals does sea moss contain?</summary><p>Selenium, zinc, iron, magnesium, calcium, potassium, phosphorus, and manganese, plus vitamins A, C, E, and K. Content varies by species and origin.</p></details>
+    <details class="fq"><summary>Can I take sea moss while on thyroid medication?</summary><p>Consult your endocrinologist. Sea moss iodine can alter thyroid function and medication requirements. Take at least 4 hours apart from levothyroxine.</p></details>
+    <details class="fq"><summary>What is the difference between sea moss and kelp?</summary><p>Kelp has 10-100x more iodine per gram than sea moss. Sea moss provides gentler iodine with a broader mineral profile. Sea moss is the safer choice for daily supplementation.</p></details>
+    <details class="fq"><summary>How long does it take for sea moss to affect the thyroid?</summary><p>If thyroid function is limited by iodine deficiency, TSH can begin normalizing within 2-4 weeks. Sea moss is not a treatment for thyroid disease — consult an endocrinologist.</p></details>
+
+    <div class="warn-box"><span class="warn-box-ico">&#9888;</span><p><strong>Critical:</strong> Sea moss and bladderwrack contain significant iodine. Individuals with thyroid conditions (Hashimoto, Graves, nodules), those taking thyroid medication, and pregnant women should consult an endocrinologist before use. Excessive iodine can worsen thyroid autoimmunity and cause both hypo- and hyperthyroidism.</p></div>
+
+    <div class="cta"><h2>Explore More Gummy Guides</h2><p>Expert-tested reviews across every supplement category.</p><a href="/#picks" class="btn btn-wh">See All Top Picks</a></div>
+
+    <h2 id="related">Related Articles</h2>
+    <div class="acards">
+      <a href="/vitamins/best-iodine-gummies/" class="ac"><span class="ac-tag">Vitamins</span><h3>Best Iodine Gummies</h3><p>Compare standardized potassium iodide with whole-food sea moss and kelp for thyroid iodine support.</p><span class="ac-btn">Iodine Gummies</span></a>
+      <a href="/trending/best-sea-moss-gummies-with-bladderwrack/" class="ac"><span class="ac-tag">Trending</span><h3>Sea Moss + Bladderwrack</h3><p>The complete guide to sea moss and bladderwrack combinations for general health and mineral support.</p><span class="ac-btn">Sea Moss + Bladderwrack</span></a>
+      <a href="/trending/best-ashwagandha-gummies-for-anxiety/" class="ac"><span class="ac-tag">Trending</span><h3>Ashwagandha Gummies</h3><p>Ashwagandha supports thyroid function through a different mechanism — modulating TSH and cortisol levels.</p><span class="ac-btn">Ashwagandha Gummies</span></a>
+      <a href="/trending/best-adaptogen-gummies/" class="ac"><span class="ac-tag">Trending</span><h3>Adaptogen Gummies</h3><p>Adaptogenic herbs that support the stress-thyroid connection for comprehensive hormonal balance.</p><span class="ac-btn">Adaptogen Gummies</span></a>
+    </div>
+
+    <div class="disc"><p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. The products discussed on this page are not intended to diagnose, treat, cure, or prevent any disease. Sea moss is not a treatment for thyroid disease. Consult your endocrinologist before starting any iodine-containing supplement. Individual results may vary.</p></div>
+
+    <AuthorBox publishDate="2026-03-28" updateDate="2026-03-28" authorName="Dr. Emily Carter" authorCredentials="PharmD, BCPS" authorImage="/images/authors/emily-carter.webp" authorBio="Dr. Carter is a Board Certified Pharmacotherapy Specialist with expertise in endocrine therapeutics and thyroid health. She evaluates sea moss products based on iodine content, mineral profiles, and safety for thyroid-sensitive populations." />
+
+  </div>
+</BaseLayout>

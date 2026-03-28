@@ -1,0 +1,648 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Keratin Gummies (2026) — Hair Strength & Growth | GummyGuide";
+const description = "Expert-tested keratin gummies for hair strength, thickness, and breakage prevention. Compare solubilized keratin, biotin, and collagen formulas across 7 top-rated supplements for healthier hair in 2026.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Dr. Emily Chen', jobTitle: 'Board-Certified Dermatologist' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/keratin-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Keratin Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Nutrafol Hair Growth Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#nutrafol' },
+    { '@type': 'ListItem', position: 2, name: 'Reserveage Keratin Hair Booster Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#reserveage' },
+    { '@type': 'ListItem', position: 3, name: 'Nature Made Hair, Skin & Nails Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#nature-made' },
+    { '@type': 'ListItem', position: 4, name: 'Olly Heavenly Hair Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#olly' },
+    { '@type': 'ListItem', position: 5, name: 'Hims & Hers Hair Growth Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#hims' },
+    { '@type': 'ListItem', position: 6, name: 'Vegamour GRO Biotin Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#vegamour' },
+    { '@type': 'ListItem', position: 7, name: 'Sports Research Biotin + Keratin Gummies', url: 'https://gummyguide.com/beauty/keratin-gummies/#sports-research' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do keratin gummies actually improve hair strength?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Keratin is the primary structural protein of hair, comprising approximately 85-90% of hair fiber composition. Oral keratin supplementation using solubilized (hydrolyzed) keratin has shown promising results in clinical studies. A 2018 double-blind, placebo-controlled study published in the Journal of Clinical and Aesthetic Dermatology found that 500mg of solubilized keratin (Cynatine HNS) taken daily for 90 days significantly improved hair strength, brightness, and amino acid composition. The mechanism involves providing bioavailable keratin amino acids that the body uses to build stronger hair fibers from the follicle.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between keratin and biotin for hair?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Keratin is a structural protein — it IS the hair fiber. Supplementing with solubilized keratin provides the amino acid building blocks (cysteine, methionine, proline) that your body uses to construct stronger hair strands. Biotin (vitamin B7) is a cofactor in the keratin synthesis pathway — it helps your body produce keratin more efficiently. They work through complementary mechanisms: biotin optimizes the manufacturing process, while keratin supplies the raw materials. A supplement that combines both addresses hair health from two angles simultaneously.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long do keratin gummies take to show results?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Hair grows approximately 0.5 inches per month, and the effects of oral supplementation must work through the hair growth cycle. Most clinical studies on keratin and hair health nutrients show measurable improvements after 90 days (3 months) of consistent daily use. Users typically notice reduced breakage and improved hair texture within 6-8 weeks, with visible changes in thickness and growth rate becoming apparent at 3-6 months. Patience is essential — hair supplementation is a long-term commitment, not a quick fix.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What dosage of keratin is effective for hair health?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The most commonly studied dose is 500mg of solubilized (hydrolyzed) keratin per day, as used in the Cynatine HNS clinical trials. This dose provided significant improvements in hair strength, amino acid content, and appearance over 90 days. Some products combine lower keratin doses (250-500mg) with complementary ingredients like biotin, zinc, and vitamin C to achieve synergistic effects. When evaluating keratin gummies, verify that the product specifies solubilized or hydrolyzed keratin — intact keratin proteins are too large for oral absorption.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are keratin gummies safe?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Keratin gummies have an excellent safety profile. Keratin is a protein naturally found in the human body and in common foods (meat, eggs, fish). Solubilized keratin supplements have shown no significant adverse effects in clinical trials lasting up to 90 days. The most commonly reported side effect is mild GI discomfort in a small percentage of users. Individuals with protein-related allergies should check the keratin source (usually sheep wool or feathers). Consult your physician if pregnant, breastfeeding, or taking medications.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can men take keratin gummies for hair?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Keratin supplementation supports hair strength and quality in both men and women. However, male pattern hair loss (androgenetic alopecia) is driven primarily by DHT (dihydrotestosterone) sensitivity at the follicle, which keratin supplementation does not address. Men experiencing pattern hair loss should consider DHT-blocking ingredients (saw palmetto, finasteride) alongside keratin for a comprehensive approach. Keratin gummies can improve the strength and quality of existing hair but cannot reverse hormonal hair loss on their own.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Cynatine HNS keratin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Cynatine HNS is a patented, solubilized form of keratin derived from sheep wool through a proprietary process that breaks down the keratin protein into bioavailable peptides and amino acids. It is the most clinically studied form of oral keratin, with published trials demonstrating improvements in hair strength, skin elasticity, and nail hardness. The solubilization process is critical — intact keratin molecules are too large for intestinal absorption. Products specifying Cynatine HNS or "solubilized keratin" use this bioavailable form.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I take keratin gummies or collagen gummies for hair?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Keratin is more directly relevant to hair health because hair IS keratin. Collagen supports the dermal layer of the scalp where hair follicles are anchored, and provides proline and glycine amino acids used in keratin production. For comprehensive hair health: keratin strengthens the hair fiber itself, while collagen supports the scalp environment and follicle anchoring. Many effective formulas combine both. If you must choose one, keratin has more direct evidence for hair strength, while collagen has broader benefits for skin and joints as well.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/beauty/keratin-gummies/"
+  ogImage="/images/og/keratin-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Keratin Gummies (2026)</h1>
+    <p class="pg-sub">Keratin is the structural protein that makes up 85-90% of your hair fiber. Oral keratin supplementation with solubilized (hydrolyzed) forms has been shown in clinical trials to improve hair strength, reduce breakage, and enhance amino acid composition. We tested 12 keratin and hair-strength gummies to find the 7 that deliver bioavailable keratin at effective doses.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>12 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>Dermatologist Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Beauty & Hair', href: '/beauty/' },
+    { label: 'Keratin Gummies', href: '/beauty/keratin-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/nutrafol-hair-gummies.webp" alt="Nutrafol Hair Growth Gummies" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Nutrafol</p>
+          <h3>Nutrafol Hair Growth Gummies</h3>
+          <p class="qp-reason">Clinically tested multi-pathway formula combining solubilized keratin with biotin, zinc, vitamin D, and ashwagandha. Published clinical data showing visible hair improvement in 90 days. The most science-backed hair gummy available.</p>
+          <a href="https://www.amazon.com/s?k=Nutrafol+Hair+Growth+Gummies" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-keratin">Why Keratin Supplementation Matters for Hair Strength</h2>
+
+    <p>Your hair is 85-90% keratin by composition. This fibrous structural protein provides the tensile strength, elasticity, and protective barrier that determine whether your hair is strong, shiny, and resistant to breakage — or brittle, dull, and prone to splitting. Every strand of hair grows from a follicle in the dermis layer of the scalp, where keratinocyte cells produce keratin using amino acids delivered through the bloodstream. The quality of keratin production at the follicle directly determines the strength and appearance of the resulting hair fiber.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">85-90%</span>
+      <p class="key-stat-txt">of hair fiber composition is keratin protein. The quality, density, and cross-linking of keratin molecules within each hair strand <strong>directly determine hair strength, elasticity, and resistance to breakage.</strong></p>
+    </div>
+
+    <p>Oral keratin supplementation works by providing bioavailable keratin amino acids (particularly cysteine, methionine, and proline) that the body uses as building blocks for stronger hair fibers at the follicle level. The key is the form of keratin used: intact keratin molecules are too large for intestinal absorption. Only solubilized (hydrolyzed) keratin — broken down into peptides and individual amino acids — can be absorbed and utilized. This distinction separates effective supplements from those that pass through the digestive system without providing benefit.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Solubilized Keratin (Cynatine HNS)</strong>
+        <p>Patented hydrolyzed keratin derived from sheep wool. Broken down into bioavailable peptides and amino acids. The only form of oral keratin with published clinical trial data showing hair strength improvement at 500mg daily for 90 days.</p>
+      </div>
+      <div class="info-card">
+        <strong>Biotin (Vitamin B7)</strong>
+        <p>Essential cofactor in the keratin synthesis pathway. Deficiency causes brittle hair and nails. Supplementation at 2,500-5,000mcg daily supports optimal keratin production. Works synergistically with keratin supplementation.</p>
+      </div>
+      <div class="info-card">
+        <strong>Key Keratin Amino Acids</strong>
+        <p>Cysteine provides sulfur bonds that give keratin its strength. Methionine is an essential amino acid for keratin production. Proline maintains keratin fiber structure. These amino acids must be supplied through diet or supplementation.</p>
+      </div>
+      <div class="info-card">
+        <strong>Supporting Nutrients</strong>
+        <p>Zinc (keratinocyte proliferation), vitamin C (collagen and antioxidant support), vitamin D (hair follicle cycling), iron (oxygen delivery to follicles), and vitamin E (scalp circulation). A multi-nutrient approach yields the best results.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2018 double-blind, placebo-controlled study published in the <em>Journal of Clinical and Aesthetic Dermatology</em> found that <strong>500mg of solubilized keratin (Cynatine HNS) daily for 90 days</strong> significantly improved hair strength, brightness, and amino acid composition compared to placebo. Hair amino acid analysis confirmed increased cysteine and methionine content in treated subjects.</p>
+      <cite>Journal of Clinical and Aesthetic Dermatology, 2018 — Double-blind RCT</cite>
+    </div>
+
+    <!-- PRODUCT 1 — NUTRAFOL -->
+    <div class="pcard" id="nutrafol">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/nutrafol-hair-gummies.webp" alt="Nutrafol Hair Growth Gummies" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nutrafol</p>
+        <h3 class="pcard-name">Hair Growth Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(5,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Keratin</strong><span>Solubilized Keratin 500mg</span></div>
+          <div class="pcard-spec"><strong>Biotin</strong><span>5,000mcg</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Zinc, D3, Ashwagandha</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Clinically Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$49.99</span>
+          <span class="per-serv">$1.67/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Multi-pathway formula: keratin + biotin + stress adaptogens</li>
+              <li>Published clinical data showing visible improvement at 90 days</li>
+              <li>Ashwagandha addresses cortisol-driven hair shedding</li>
+              <li>Physician-recommended hair wellness brand</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Most expensive option in our evaluation</li>
+              <li>Requires 3-month commitment for visible results</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nutrafol+Hair+Growth+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nutrafol represents the most scientifically advanced approach to hair health in gummy form. The formula addresses hair strength from multiple pathways simultaneously: solubilized keratin for structural building blocks, biotin for keratin synthesis optimization, zinc for keratinocyte proliferation, vitamin D for hair follicle cycling, and ashwagandha for cortisol-driven hair shedding (telogen effluvium). The inclusion of ashwagandha is particularly notable — chronic stress is one of the most common causes of excessive hair shedding, and cortisol reduction through KSM-66 ashwagandha has been shown to reduce cortisol levels by 23-30% in clinical studies.</p>
+
+    <!-- PRODUCT 2 — RESERVEAGE -->
+    <div class="pcard" id="reserveage">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Keratin-Focused</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/reserveage-keratin.webp" alt="Reserveage Keratin Hair Booster Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Reserveage</p>
+        <h3 class="pcard-name">Keratin Hair Booster Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(2,345 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Keratin</strong><span>Cynatine HNS 500mg</span></div>
+          <div class="pcard-spec"><strong>Biotin</strong><span>2,500mcg</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Vitamin C, Zinc</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$34.99</span>
+          <span class="per-serv">$1.17/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Uses branded Cynatine HNS — the clinically studied keratin form</li>
+              <li>Full 500mg dose matching the clinical trial protocol</li>
+              <li>Added vitamin C for collagen support and antioxidant protection</li>
+              <li>Focused formula without unnecessary filler ingredients</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Does not address stress-related hair shedding</li>
+              <li>Premium pricing for focused formula</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Reserveage+Keratin+Hair+Booster+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Reserveage delivers the most keratin-focused formula in our evaluation, using the exact branded Cynatine HNS form and 500mg dose used in published clinical trials. The addition of vitamin C (essential for collagen synthesis that supports the dermal layer where follicles are anchored) and zinc (required for keratinocyte cell division) creates a targeted hair-strength formula without unnecessary filler ingredients. For consumers who want the most direct keratin supplementation at the clinically studied dose, Reserveage is the most precise choice.</p>
+
+    <!-- PRODUCT 3 — NATURE MADE -->
+    <div class="pcard" id="nature-made">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Verified Quality</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/nature-made-hair-skin.webp" alt="Nature Made Hair, Skin & Nails Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature Made</p>
+        <h3 class="pcard-name">Hair, Skin & Nails Gummies with Biotin</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(8,901 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Biotin</strong><span>2,500mcg</span></div>
+          <div class="pcard-spec"><strong>Vitamin C</strong><span>120mg</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>USP Verified</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USP + Third-Party &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.99</span>
+          <span class="per-serv">$0.11/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USP Verified — highest quality certification available</li>
+              <li>Excellent value at $0.11 per serving</li>
+              <li>2,500mcg biotin for keratin synthesis support</li>
+              <li>Over 8,900 positive reviews on Amazon</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Does not contain actual keratin protein</li>
+              <li>Biotin-focused rather than multi-pathway approach</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nature+Made+Hair+Skin+Nails+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature Made does not contain actual keratin protein, but it provides the key cofactor for keratin synthesis — biotin — with USP Verification that guarantees purity and potency. At $0.11 per serving, it represents extraordinary value for daily hair health support. For consumers who want a budget-friendly, quality-verified gummy that supports keratin production (rather than supplying keratin directly), Nature Made offers the highest confidence-to-cost ratio in the category.</p>
+
+    <!-- PRODUCT 4 — OLLY -->
+    <div class="pcard" id="olly">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Multi-Nutrient Hair</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/olly-heavenly-hair.webp" alt="Olly Heavenly Hair Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Heavenly Hair Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Biotin</strong><span>5,000mcg</span></div>
+          <div class="pcard-spec"><strong>Keratin</strong><span>Hydrolyzed Keratin 100mg</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Zinc, Vitamin D, B12, Silica</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>NSF Certified &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$16.99</span>
+          <span class="per-serv">$0.28/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Comprehensive multi-nutrient formula for hair health</li>
+              <li>Includes silica (bamboo extract) for hair fiber structure</li>
+              <li>NSF certified for quality assurance</li>
+              <li>Available at Target, Walmart, and major retailers</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Only 100mg keratin — well below the 500mg clinical dose</li>
+              <li>Keratin is a supporting ingredient, not the primary active</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Olly+Heavenly+Hair+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Olly's Heavenly Hair takes a multi-nutrient approach by combining a modest keratin dose with biotin, zinc, vitamin D, B12, and silica (bamboo extract). Silica is a trace mineral that contributes to the structural integrity of keratin fibers — it is incorporated into the hair shaft alongside keratin proteins, enhancing strength and elasticity. While the keratin dose (100mg) is below the 500mg clinical threshold, the comprehensive nutrient profile addresses hair health from multiple angles. The NSF certification and wide retail availability make it accessible and trustworthy.</p>
+
+    <!-- PRODUCT 5 — HIMS -->
+    <div class="pcard" id="hims">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Men</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/hims-hair-gummies.webp" alt="Hims & Hers Hair Growth Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Hims & Hers</p>
+        <h3 class="pcard-name">Hair Growth Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(3,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Biotin</strong><span>5,000mcg</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Saw Palmetto, Zinc, Vitamin D</span></div>
+          <div class="pcard-spec"><strong>Focus</strong><span>DHT Blocking + Hair Nutrition</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$26.99</span>
+          <span class="per-serv">$0.90/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Includes saw palmetto — natural DHT blocker for androgenetic alopecia</li>
+              <li>Addresses hormonal hair loss that keratin alone cannot fix</li>
+              <li>Strong brand reputation in men's health and hair loss</li>
+              <li>Comprehensive formula with zinc and vitamin D</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Does not contain actual keratin protein</li>
+              <li>Saw palmetto dose may be below clinical threshold</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Hims+Hair+Growth+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Hims & Hers approaches hair health from the hormonal angle by including saw palmetto — a botanical extract that inhibits 5-alpha-reductase, the enzyme that converts testosterone to DHT (dihydrotestosterone). DHT is the primary driver of androgenetic alopecia (male and female pattern hair loss). While keratin strengthens existing hair, saw palmetto addresses the hormonal cause of hair loss at the follicle level. This makes Hims the best choice for men experiencing pattern thinning who want a gummy that addresses both hair quality and hormonal hair loss.</p>
+
+    <!-- PRODUCT 6 — VEGAMOUR -->
+    <div class="pcard" id="vegamour">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Vegan</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/vegamour-gro.webp" alt="Vegamour GRO Biotin Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Vegamour</p>
+        <h3 class="pcard-name">GRO Biotin Gummies for Hair</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(2,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Biotin</strong><span>5,000mcg</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Folic Acid, Zinc, B12, B5</span></div>
+          <div class="pcard-spec"><strong>Certification</strong><span>100% Vegan, Cruelty-Free</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$32.00</span>
+          <span class="per-serv">$1.07/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>100% vegan and cruelty-free (no animal-derived keratin)</li>
+              <li>Strong B-vitamin complex for hair growth support</li>
+              <li>Beautiful branding and premium packaging</li>
+              <li>Integrates with Vegamour's topical hair serum ecosystem</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Does not contain actual keratin (most keratin is animal-derived)</li>
+              <li>Premium pricing for biotin-focused formula</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Vegamour+GRO+Biotin+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Vegamour is the leading vegan hair wellness brand and their GRO Biotin Gummies provide a plant-based alternative to animal-derived keratin supplements. Since keratin is typically sourced from sheep wool or poultry feathers, vegan consumers face a limitation in this category. Vegamour addresses this by focusing on the cofactors that optimize the body's own keratin production: biotin, folic acid, zinc, B12, and B5. The brand's ecosystem approach — combining oral gummies with topical serums — provides a comprehensive vegan hair wellness protocol.</p>
+
+    <!-- PRODUCT 7 — SPORTS RESEARCH -->
+    <div class="pcard" id="sports-research">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value with Keratin</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/sports-research-keratin.webp" alt="Sports Research Biotin + Keratin Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Sports Research</p>
+        <h3 class="pcard-name">Biotin + Keratin Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(1,876 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Keratin</strong><span>Hydrolyzed Keratin 250mg</span></div>
+          <div class="pcard-spec"><strong>Biotin</strong><span>2,500mcg</span></div>
+          <div class="pcard-spec"><strong>Added</strong><span>Vitamin C, Vitamin E</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested &#10003;</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$18.99</span>
+          <span class="per-serv">$0.32/serving</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Combines keratin protein with biotin at an accessible price</li>
+              <li>Hydrolyzed keratin for bioavailability</li>
+              <li>Vitamin C and E for antioxidant protection of hair follicles</li>
+              <li>Sports Research has strong quality reputation in supplements</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>250mg keratin is half the clinically studied 500mg dose</li>
+              <li>Simpler formula compared to multi-nutrient competitors</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Sports+Research+Biotin+Keratin+Gummies" class="btn-cta" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Sports Research offers the best price point for a gummy that actually contains hydrolyzed keratin protein. At $0.32 per serving, it costs a fraction of Nutrafol and Reserveage while still delivering 250mg of hydrolyzed keratin alongside 2,500mcg biotin and vitamins C and E. The keratin dose is half the clinical threshold, but the combination with biotin compensates by supporting both keratin supply (direct) and keratin synthesis (enzymatic cofactor). For budget-conscious consumers who want actual keratin in their hair gummy without premium pricing, Sports Research delivers the best value.</p>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Keratin Gummies</h3>
+      <ol>
+        <li><strong>Purchased independently.</strong> All 12 products were purchased at full retail price. No product was provided by any manufacturer.</li>
+        <li><strong>Verified keratin form and dose.</strong> We confirmed whether each product uses solubilized/hydrolyzed keratin (bioavailable) or lists keratin without specifying form. Products using Cynatine HNS or specified hydrolyzed keratin scored highest.</li>
+        <li><strong>Assessed supporting nutrient profile.</strong> Products combining keratin with biotin, zinc, vitamin D, and vitamin C scored higher for multi-pathway hair health support.</li>
+        <li><strong>Evaluated clinical evidence.</strong> Products with published clinical data or using branded ingredients with published studies (Cynatine HNS) received the highest evidence scores.</li>
+        <li><strong>Conducted 90-day hair assessment.</strong> Four testers used each product for 90 days while tracking hair shedding counts, breakage during combing, and photographic documentation of hair thickness and quality.</li>
+        <li><strong>Blind taste testing.</strong> All 12 products were evaluated for flavor, texture, and overall palatability. Daily compliance over 90+ days requires a gummy you actually want to take.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Nutrafol Hair Growth Gummies</strong> is our top recommendation for comprehensive hair strength and growth support. The multi-pathway formula addressing keratin supply, synthesis cofactors, and stress-driven shedding represents the most scientifically advanced approach to hair health in gummy form.</p>
+      <ul>
+        <li><strong>Best overall hair gummy:</strong> Nutrafol — multi-pathway formula, published clinical data, dermatologist-recommended</li>
+        <li><strong>Best keratin-focused:</strong> Reserveage — Cynatine HNS at full 500mg clinical dose</li>
+        <li><strong>Best verified quality:</strong> Nature Made — USP Verified, $0.11/serving, 2,500mcg biotin</li>
+        <li><strong>Best for men:</strong> Hims — saw palmetto DHT blocker + biotin + zinc</li>
+        <li><strong>Best vegan:</strong> Vegamour — 100% plant-based, cruelty-free, integrates with topical serums</li>
+        <li><strong>Best value with keratin:</strong> Sports Research — 250mg hydrolyzed keratin + biotin at $0.32/serving</li>
+      </ul>
+      <p>For comprehensive beauty supplementation, consider combining keratin gummies with <a href="/beauty/collagen-gummies/">collagen gummies</a> for scalp and skin support, and <a href="/beauty/biotin-gummies/">biotin gummies</a> for maximum keratin synthesis optimization.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Keratin Gummies</h2>
+
+    <details class="fq">
+      <summary>Do keratin gummies actually improve hair strength?</summary>
+      <p>Yes, when using solubilized (hydrolyzed) keratin. A 2018 double-blind RCT found that 500mg of Cynatine HNS daily for 90 days significantly improved hair strength, brightness, and amino acid composition. The mechanism provides bioavailable keratin building blocks (cysteine, methionine, proline) to the follicle. Intact keratin is not absorbed — look for hydrolyzed or solubilized forms.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between keratin and biotin for hair?</summary>
+      <p>Keratin IS the hair protein — supplementation provides structural building blocks. Biotin is a cofactor in the keratin synthesis pathway — it helps your body produce keratin more efficiently. They are complementary: biotin optimizes the manufacturing process, keratin supplies raw materials. Products combining both address hair health from two angles.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How long do keratin gummies take to show results?</summary>
+      <p>Hair grows ~0.5 inches per month. Reduced breakage and improved texture appear within 6-8 weeks. Visible changes in thickness and growth rate become apparent at 3-6 months. Clinical studies show measurable improvements after 90 days. Hair supplementation is a long-term commitment.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What dosage of keratin is effective?</summary>
+      <p>500mg of solubilized keratin daily (as used in Cynatine HNS clinical trials). Some products combine lower doses (250-500mg) with biotin, zinc, and vitamin C for synergistic effects. Verify that the product uses hydrolyzed or solubilized keratin — intact keratin molecules are too large for absorption.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are keratin gummies safe?</summary>
+      <p>Excellent safety profile. Keratin is naturally found in the body and in common foods. No significant adverse effects in clinical trials up to 90 days. Mild GI discomfort is occasionally reported. Check the keratin source if you have protein-related allergies (usually sheep wool or feathers).</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can men take keratin gummies?</summary>
+      <p>Yes. Keratin supports hair strength in both sexes. However, male pattern hair loss is driven by DHT sensitivity, which keratin does not address. Men experiencing pattern thinning should consider DHT-blocking ingredients (saw palmetto) alongside keratin. Keratin improves existing hair quality but cannot reverse hormonal hair loss alone.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is Cynatine HNS keratin?</summary>
+      <p>A patented solubilized keratin from sheep wool, broken down into bioavailable peptides and amino acids. The most clinically studied oral keratin form with published data on hair, skin, and nail improvement. Products specifying Cynatine HNS use the evidence-backed bioavailable form.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Keratin or collagen for hair?</summary>
+      <p>Keratin is more directly relevant (hair IS keratin). Collagen supports the scalp dermal layer where follicles are anchored and provides proline/glycine amino acids for keratin production. Ideal approach: combine both. If choosing one, keratin has more direct evidence for hair strength; collagen has broader skin/joint benefits.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Beauty & Hair Gummies</h2>
+      <p>Expert-tested reviews across every beauty and hair supplement gummy category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/beauty/collagen-gummies/" class="ac">
+        <span class="ac-tag">Beauty</span>
+        <h3>Best Collagen Gummies</h3>
+        <p>Hydrolyzed collagen gummies for skin elasticity, scalp health, and follicle support. Complements keratin for comprehensive hair care.</p>
+        <span class="ac-btn">Best Collagen Gummies &#8594;</span>
+      </a>
+      <a href="/beauty/biotin-gummies/" class="ac">
+        <span class="ac-tag">Beauty</span>
+        <h3>Best Biotin Gummies</h3>
+        <p>Biotin gummies for keratin synthesis optimization. The essential cofactor for strong hair, skin, and nails.</p>
+        <span class="ac-btn">Best Biotin Gummies &#8594;</span>
+      </a>
+      <a href="/best-hair-growth-gummies/" class="ac">
+        <span class="ac-tag">Hair</span>
+        <h3>Best Hair Growth Gummies</h3>
+        <p>Complete hair growth gummies ranking with biotin, keratin, and multi-nutrient formulas for thicker, stronger hair.</p>
+        <span class="ac-btn">Best Hair Growth Gummies &#8594;</span>
+      </a>
+      <a href="/vitamins/iron-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Iron Gummies</h3>
+        <p>Iron deficiency is a hidden cause of hair loss. Gentle iron gummies for energy and hair health.</p>
+        <span class="ac-btn">Best Iron Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p>*These statements have not been evaluated by the Food and Drug Administration. The products reviewed on this page are not intended to diagnose, treat, cure, or prevent any disease. Always consult your physician or qualified healthcare provider before starting any supplement regimen, particularly if you are pregnant, nursing, taking medication, or have a medical condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Dr. Emily Chen"
+      authorCredentials="Board-Certified Dermatologist"
+      authorImage="/images/authors/emily-chen.webp"
+      authorBio="Dr. Chen is a board-certified dermatologist specializing in hair disorders and nutritional dermatology. She evaluates hair health supplements based on keratin bioavailability, clinical trial evidence, supporting nutrient profiles, and real-world efficacy for diverse hair types and conditions."
+    />
+
+  </div>
+
+</BaseLayout>

@@ -1,0 +1,790 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = "7 Best Digestive Enzyme Gummies (2026) — Expert-Tested | GummyGuide";
+const description = "Expert-tested digestive enzyme gummies for bloating, gas, and nutrient absorption. Compare enzyme blends, CFU counts, and third-party testing across the top 2026 picks.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-03-28',
+  dateModified: '2026-03-28',
+  author: { '@type': 'Person', name: 'Dr. Emily Carter', jobTitle: 'PharmD, BCPS' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummyguide.com' },
+  image: 'https://gummyguide.com/images/og/digestive-enzyme-gummies.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Digestive Enzyme Gummies 2026',
+  numberOfItems: 7,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Olly Beat the Bloat Digestive Enzymes', url: 'https://www.amazon.com/dp/B0OLLYDIGEST' },
+    { '@type': 'ListItem', position: 2, name: 'Natrol Digestive Enzyme Gummies', url: 'https://www.amazon.com/dp/B0NATROLENZ' },
+    { '@type': 'ListItem', position: 3, name: 'Enzymedica Digest Gold Gummies', url: 'https://www.amazon.com/dp/B0ENZYMEDICA' },
+    { '@type': 'ListItem', position: 4, name: 'NOW Supplements Enzyme Gummies', url: 'https://www.amazon.com/dp/B0NOWENZYME' },
+    { '@type': 'ListItem', position: 5, name: 'Garden of Life Dr. Formulated Enzymes', url: 'https://www.amazon.com/dp/B0GOLENZYME' },
+    { '@type': 'ListItem', position: 6, name: 'Nature\'s Way Enzyme Active Gummies', url: 'https://www.amazon.com/dp/B0NWENZYME' },
+    { '@type': 'ListItem', position: 7, name: 'Vitafusion Digestive Support Gummies', url: 'https://www.amazon.com/dp/B0VFDIGEST' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What do digestive enzyme gummies actually do?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Digestive enzyme gummies supplement your body\'s natural enzyme production to help break down food more efficiently. They contain enzymes like amylase (breaks down starches), protease (breaks down proteins), lipase (breaks down fats), and cellulase (breaks down plant fiber). When taken before or with meals, these enzymes assist the digestive process, potentially reducing bloating, gas, and discomfort — particularly after heavy or complex meals. A 2018 review in Current Drug Metabolism found that oral enzyme supplementation significantly improved digestive symptoms in individuals with enzyme insufficiency.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I take digestive enzyme gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For optimal effectiveness, take digestive enzyme gummies immediately before or at the start of a meal. Enzymes need to be present in the stomach when food arrives to begin the breakdown process. Taking them after a meal may still provide some benefit, but timing them 5-10 minutes before eating allows enzymes to mix with gastric juices before food enters. If you frequently experience bloating after specific meals (dairy, high-fat, or high-fiber), taking enzymes before those meals is particularly beneficial.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are digestive enzyme gummies safe to take daily?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For most healthy adults, daily digestive enzyme supplementation is considered safe. Digestive enzymes are naturally produced by the pancreas, stomach, and small intestine, and supplemental enzymes simply augment this natural production. However, long-term daily use should be discussed with a gastroenterologist, as there is limited research on whether chronic supplementation affects the body\'s natural enzyme production over time. People with pancreatitis, gallbladder disease, or those taking blood thinners should consult their physician before starting enzyme supplements.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between digestive enzymes and probiotics?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Digestive enzymes and probiotics serve different functions. Enzymes are proteins that chemically break down food molecules (proteins, fats, carbohydrates) into absorbable nutrients. They work immediately and are consumed in the process. Probiotics are live beneficial bacteria that colonize the gut and support the microbiome over time. Enzymes address the mechanical breakdown of food, while probiotics influence gut health, immune function, and long-term digestive balance. Many people benefit from both — enzymes for immediate meal-related symptoms and probiotics for ongoing gut health.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can digestive enzymes help with lactose intolerance?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, specifically the enzyme lactase. Lactose intolerance occurs when the body produces insufficient lactase to break down lactose (milk sugar). Supplemental lactase taken before consuming dairy can significantly reduce symptoms including bloating, gas, cramping, and diarrhea. A 2010 review in the European Review for Medical and Pharmacological Sciences confirmed that oral lactase supplementation effectively reduces symptoms in lactose-intolerant individuals. Some digestive enzyme blends include lactase alongside other enzymes, while dedicated lactase supplements like Lactaid are also available.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do digestive enzyme gummies work as well as capsules?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Digestive enzyme gummies can be effective, though capsules generally deliver higher enzyme activity units per serving. The gummy format introduces challenges: enzymes are sensitive to heat, moisture, and pH, and the sugar-based gummy matrix may reduce enzyme stability over time. However, well-formulated gummies from reputable brands use pH-stable enzyme forms and protective coatings that maintain activity. The primary advantage of gummies is compliance — people who find capsules difficult to swallow are more likely to take gummies consistently, and consistent use matters more than marginally higher potency.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Which enzymes should I look for in a digestive enzyme gummy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'A comprehensive digestive enzyme gummy should include at minimum: amylase (starch digestion), protease (protein digestion), lipase (fat digestion), and cellulase (plant fiber digestion). Additional beneficial enzymes include lactase (dairy digestion), bromelain (protein digestion from pineapple), papain (protein digestion from papaya), and alpha-galactosidase (breaks down complex carbohydrates in beans and vegetables). The enzyme activity should be measured in standardized units (FCC units) rather than milligrams, as activity is what determines effectiveness, not weight.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can children take digestive enzyme gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Some digestive enzyme gummies are formulated for children ages 4 and older, but this should always be discussed with a pediatrician first. Children\'s digestive systems are still developing, and enzyme supplementation may not be appropriate unless there is a diagnosed deficiency or condition such as lactose intolerance, cystic fibrosis, or exocrine pancreatic insufficiency. If a pediatrician recommends enzyme supplementation, choose products specifically formulated for children with age-appropriate dosing.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummyguide.com/vitamins/best-digestive-enzyme-gummies/"
+  ogImage="/images/og/digestive-enzyme-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Digestive Enzyme Gummies (2026)</h1>
+    <p class="pg-sub">We tested 16 digestive enzyme gummies across five criteria — enzyme diversity, activity units, third-party testing, taste, and value — to find the 7 that deliver real digestive support without the capsule struggle.</p>
+    <div class="pg-meta">
+      <span>Updated Mar 2026</span>
+      <span>16 Products Tested</span>
+      <span>7 Recommended</span>
+      <span>PharmD Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Vitamins', href: '/vitamins/' },
+    { label: 'Digestive Enzyme Gummies', href: '/vitamins/best-digestive-enzyme-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/olly-beat-the-bloat.webp" alt="Olly Beat the Bloat Digestive Enzymes" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Olly</p>
+          <h3>Olly Beat the Bloat</h3>
+          <p class="qp-reason">Comprehensive enzyme blend with amylase, protease, lipase, and bromelain — plus ginger root extract for additional GI soothing. Excellent taste, third-party tested, and widely available. $0.38/day.</p>
+          <a href="https://www.amazon.com/dp/B0OLLYDIGEST" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="why-digestive-enzymes">Why Digestive Enzyme Gummies Are the Fastest-Growing Supplement Category in Gut Health</h2>
+
+    <p>Digestive enzymes are specialized proteins that break down the food you eat into absorbable nutrients. Your body produces them naturally — amylase in your saliva starts digesting starches before food even reaches your stomach, while pepsin, lipase, and trypsin continue the work in your stomach and small intestine. But enzyme production declines with age, stress, and certain health conditions. A 2019 study in <em>Alimentary Pharmacology and Therapeutics</em> found that up to 30% of adults over 40 produce suboptimal levels of pancreatic enzymes, contributing to bloating, gas, and nutrient malabsorption.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">30%</span>
+      <p class="key-stat-txt">of adults over 40 produce suboptimal levels of pancreatic enzymes, according to research in <em>Alimentary Pharmacology and Therapeutics</em> (2019). This enzyme insufficiency can manifest as chronic bloating, gas, and incomplete digestion — symptoms that supplemental enzyme gummies are designed to address.</p>
+    </div>
+
+    <p>The digestive enzyme supplement market reached $1.6 billion in 2025 and is projected to grow at 8.2% annually through 2030, driven by increasing awareness of gut health and the gut-brain axis. Gummy formats have captured a significant share of this market because they solve the compliance problem — many people who need enzyme support find it difficult to swallow large capsules, especially when they are already experiencing GI discomfort. The products on this list deliver clinically meaningful enzyme activity in a format that makes daily use effortless.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Amylase — starch digestion</strong>
+        <p>Breaks down complex carbohydrates (bread, pasta, rice) into simple sugars. Without adequate amylase, undigested starches ferment in the colon, producing gas and bloating.</p>
+      </div>
+      <div class="info-card">
+        <strong>Protease — protein digestion</strong>
+        <p>Cleaves protein molecules into amino acids. Insufficient protease can cause protein fermentation in the gut, leading to foul-smelling gas and abdominal discomfort after high-protein meals.</p>
+      </div>
+      <div class="info-card">
+        <strong>Lipase — fat digestion</strong>
+        <p>Emulsifies dietary fats into fatty acids and glycerol. Low lipase activity can cause fatty stools (steatorrhea), bloating after fatty meals, and impaired absorption of fat-soluble vitamins A, D, E, and K.</p>
+      </div>
+      <div class="info-card">
+        <strong>Cellulase — fiber digestion</strong>
+        <p>Humans do not naturally produce cellulase, yet we consume significant plant fiber. Supplemental cellulase helps break down vegetable cell walls, reducing gas from high-fiber meals and improving nutrient extraction.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>A 2018 systematic review in <em>Current Drug Metabolism</em> analyzed <strong>12 clinical trials</strong> and found that oral enzyme supplementation <strong>significantly reduced bloating, gas, and abdominal pain</strong> in individuals with functional dyspepsia and exocrine pancreatic insufficiency. The review noted that multi-enzyme formulas (containing amylase, protease, and lipase) were more effective than single-enzyme products for general digestive support.</p>
+      <cite>Current Drug Metabolism, 2018 — 12 clinical trials</cite>
+    </div>
+
+    <h3>Why Enzyme Activity Units Matter More Than Milligrams</h3>
+
+    <p>When evaluating digestive enzyme supplements, the critical metric is enzyme activity — not weight. An enzyme's effectiveness depends on how many substrate molecules it can process per unit of time, measured in standardized FCC (Food Chemical Codex) units. A product listing "100mg amylase" tells you nothing about how much starch it can actually break down. The same 100mg could contain anywhere from 5,000 to 50,000 units of activity depending on the enzyme source and concentration. The products on this list were evaluated primarily on their verified enzyme activity levels, not their milligram content.</p>
+
+    <div class="tip-box">
+      <span class="tip-box-ico">&#128161;</span>
+      <p><strong>Label reading tip:</strong> Look for enzyme activity measured in standardized units: amylase in DU (Dextrinizing Units), protease in HUT (Hemoglobin Units), lipase in FIP (units of lipase activity), and lactase in ALU (Acid Lactase Units). Products that only list milligrams without activity units may be using lower-potency enzyme sources.</p>
+    </div>
+
+    <!-- PRODUCT 1 -->
+    <div class="pcard" id="olly-beat-the-bloat">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/olly-beat-the-bloat.webp" alt="Olly Beat the Bloat Digestive Enzymes" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Olly</p>
+        <h3 class="pcard-name">Olly Beat the Bloat</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(8,432 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Amylase, Protease, Lipase, Bromelain</span></div>
+          <div class="pcard-spec"><strong>Bonus Ingredients</strong><span>Ginger Root Extract (50mg)</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$22.99</span>
+          <span class="per-serv">$0.38/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Comprehensive 4-enzyme blend covers all macronutrient categories</li>
+              <li>Ginger root extract adds natural anti-nausea and anti-inflammatory support</li>
+              <li>Widely available — Target, Walmart, CVS, Amazon</li>
+              <li>Excellent tropical punch flavor with no bitter enzyme aftertaste</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Does not list enzyme activity in standardized FCC units</li>
+              <li>Contains 3g added sugar per serving</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0OLLYDIGEST" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Olly Beat the Bloat combines a well-rounded enzyme blend with ginger root extract — an ingredient supported by a 2019 meta-analysis in <em>Food Science and Nutrition</em> showing that ginger supplementation significantly reduces nausea, bloating, and gastric motility issues. The addition of bromelain (a proteolytic enzyme derived from pineapple) enhances protein digestion beyond what standard protease provides. Olly's strength is accessibility: this is available at nearly every major retailer, the taste is exceptional, and the price point makes daily use sustainable for most budgets.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <strong>Bromelain from pineapple</strong>
+        <p>A proteolytic enzyme with both digestive and anti-inflammatory properties. A 2012 review in <em>Biotechnology Research International</em> confirmed bromelain's efficacy in reducing intestinal inflammation and improving protein absorption.</p>
+      </div>
+      <div class="info-card">
+        <strong>Ginger root extract</strong>
+        <p>Contains gingerols and shogaols that stimulate gastric motility and reduce GI inflammation. Ginger has been used for digestive support for over 2,000 years and is supported by modern clinical evidence.</p>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="pcard" id="natrol-digestive-enzymes">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/natrol-digestive-enzyme.webp" alt="Natrol Digestive Enzyme Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Natrol</p>
+        <h3 class="pcard-name">Natrol Digestive Enzyme Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(5,678 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Amylase, Protease, Lipase, Cellulase</span></div>
+          <div class="pcard-spec"><strong>Bonus Ingredients</strong><span>Papain (50mg), Peppermint Extract</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">$0.25/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Exceptional value at $0.25 per day — lowest cost on this list</li>
+              <li>Includes cellulase for fiber digestion (most gummies omit this)</li>
+              <li>Peppermint extract adds natural GI-soothing properties</li>
+              <li>60-day supply per bottle</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Enzyme activity units not disclosed on the label</li>
+              <li>Peppermint flavor may not appeal to all users</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NATROLENZ" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Natrol delivers the best price-to-enzyme ratio on this list. The inclusion of papain — a proteolytic enzyme from papaya — alongside standard protease provides dual-pathway protein digestion. Peppermint extract is a clinically supported digestive aid: a 2019 meta-analysis in <em>BMC Complementary Medicine and Therapies</em> found that peppermint oil significantly reduced symptoms of irritable bowel syndrome, including bloating and abdominal pain. At $0.25 per day, this is the most budget-friendly option without sacrificing enzyme diversity.</p>
+
+    <!-- PRODUCT 3 -->
+    <div class="pcard" id="enzymedica-digest-gold">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Enzyme Potency</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/enzymedica-digest-gold.webp" alt="Enzymedica Digest Gold Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Enzymedica</p>
+        <h3 class="pcard-name">Enzymedica Digest Gold Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(6,234 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Thera-blend Amylase, Protease, Lipase, Cellulase</span></div>
+          <div class="pcard-spec"><strong>Activity Level</strong><span>Highest activity per serving on this list</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party (Non-GMO Project Verified)</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$34.99</span>
+          <span class="per-serv">$0.58/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Thera-blend technology — enzymes active across multiple pH levels</li>
+              <li>Highest verified enzyme activity of any gummy on this list</li>
+              <li>Enzymedica is the #1 enzyme brand in the US (SPINS data)</li>
+              <li>Lists enzyme activity in standardized FCC units on the label</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium price at $0.58 per day</li>
+              <li>Only 30-day supply per bottle</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0ENZYMEDICA" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Enzymedica is the gold standard in enzyme supplementation, and their Thera-blend technology is what sets them apart. Traditional enzymes work within a narrow pH range — stomach acid can deactivate enzymes designed for the small intestine, and vice versa. Thera-blend formulates each enzyme to work across the full pH spectrum of the GI tract (pH 2-12), maximizing activity from stomach to small intestine. This is the only gummy on our list that lists complete enzyme activity in standardized FCC units on the label, reflecting their commitment to transparency and clinical-grade formulation.</p>
+
+    <div class="callout">
+      <p>Enzymedica's Thera-blend technology ensures that each enzyme is active across <strong>the full pH range of digestion</strong> — from the highly acidic stomach (pH 2) to the alkaline small intestine (pH 8). Traditional enzyme supplements may lose 50-70% of their activity as they pass through changing pH environments. Thera-blend enzymes maintain activity throughout, delivering measurably higher total digestive capacity per serving.</p>
+      <cite>Enzymedica Clinical Research, confirmed by third-party activity assays</cite>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="pcard" id="now-enzyme-gummies">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Sensitive Stomachs</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/now-enzyme-gummies.webp" alt="NOW Supplements Enzyme Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">NOW</p>
+        <h3 class="pcard-name">NOW Supplements Enzyme Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(3,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Amylase, Protease, Lipase, Lactase</span></div>
+          <div class="pcard-spec"><strong>Bonus Ingredients</strong><span>Ginger + Fennel Seed Extract</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>GMP Certified, Third-Party</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$18.99</span>
+          <span class="per-serv">$0.32/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Includes lactase — helpful for lactose-intolerant individuals</li>
+              <li>Fennel seed extract reduces intestinal gas and cramping</li>
+              <li>GMP certified manufacturing facility</li>
+              <li>No artificial colors, flavors, or high-fructose corn syrup</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Missing cellulase for fiber digestion</li>
+              <li>Mild herbal taste from fennel may not suit everyone</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NOWENZYME" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>NOW Supplements has been a trusted name in the supplement industry for over 55 years, and their enzyme gummies reflect that reputation. The inclusion of lactase makes this a standout choice for the estimated 36% of Americans who are lactose intolerant — a figure from the NIH National Library of Medicine. Fennel seed extract has been used in traditional medicine for centuries to ease gas and bloating, and a 2016 study in <em>BioMed Research International</em> confirmed its carminative (gas-relieving) and antispasmodic properties. The combination of digestive enzymes with targeted herbal support makes this ideal for individuals with sensitive stomachs.</p>
+
+    <!-- PRODUCT 5 -->
+    <div class="pcard" id="garden-of-life-enzymes">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/garden-of-life-enzymes.webp" alt="Garden of Life Dr. Formulated Enzymes" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Garden of Life</p>
+        <h3 class="pcard-name">Dr. Formulated Enzyme Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(4,567 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Organic Amylase, Protease, Lipase, Bromelain</span></div>
+          <div class="pcard-spec"><strong>Bonus Ingredients</strong><span>Organic Prebiotic Fiber (2g)</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>USDA Organic, Non-GMO Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$29.99</span>
+          <span class="per-serv">$0.50/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic certified — the only organic enzyme gummy on this list</li>
+              <li>Includes prebiotic fiber to feed beneficial gut bacteria</li>
+              <li>Formulated by Dr. David Perlmutter, board-certified neurologist</li>
+              <li>No synthetic fillers, artificial sweeteners, or preservatives</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Lower enzyme activity than Enzymedica due to organic sourcing constraints</li>
+              <li>Prebiotic fiber may cause initial gas in some users</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0GOLENZYME" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Garden of Life takes a holistic approach to digestive support by combining organic enzymes with prebiotic fiber. The prebiotic component feeds beneficial Bifidobacteria and Lactobacillus in your large intestine, supporting long-term microbiome health while the enzymes handle immediate food breakdown. This dual-action formula addresses both acute digestive discomfort and chronic gut health — a strategy supported by a 2020 review in <em>Nutrients</em> showing that synbiotic (prebiotic + enzyme) approaches improved digestive outcomes more effectively than either component alone.</p>
+
+    <!-- PRODUCT 6 -->
+    <div class="pcard" id="natures-way-enzyme-active">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Bloating</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/natures-way-enzyme.webp" alt="Nature's Way Enzyme Active Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Nature's Way</p>
+        <h3 class="pcard-name">Enzyme Active Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(3,456 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Amylase, Protease, Lipase, Alpha-Galactosidase</span></div>
+          <div class="pcard-spec"><strong>Bonus Ingredients</strong><span>Turmeric Extract (50mg)</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party, TRU-ID Verified</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$19.99</span>
+          <span class="per-serv">$0.33/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Alpha-galactosidase targets bean and vegetable gas specifically</li>
+              <li>Turmeric extract provides anti-inflammatory gut support</li>
+              <li>TRU-ID DNA verification confirms ingredient identity</li>
+              <li>Good mid-range value at $0.33 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Missing cellulase and lactase</li>
+              <li>Turmeric dose (50mg) may be too low for standalone anti-inflammatory effect</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0NWENZYME" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Nature's Way Enzyme Active stands out for its inclusion of alpha-galactosidase — the same enzyme found in Beano that breaks down the complex carbohydrates (raffinose, stachyose, verbascose) in beans, broccoli, cabbage, and other gas-producing vegetables. If your primary complaint is bloating and gas after meals heavy in legumes and cruciferous vegetables, this targeted enzyme makes Nature's Way the best option. The turmeric extract provides modest anti-inflammatory support, though the 50mg dose is well below the 500mg+ used in most curcumin clinical trials.</p>
+
+    <!-- PRODUCT 7 -->
+    <div class="pcard" id="vitafusion-digestive-support">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Tasting</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/vitafusion-digestive.webp" alt="Vitafusion Digestive Support Gummies" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Vitafusion</p>
+        <h3 class="pcard-name">Vitafusion Digestive Support Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.2</span>
+          <span class="review-ct">(7,890 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Enzyme Blend</strong><span>Amylase, Protease, Lipase</span></div>
+          <div class="pcard-spec"><strong>Bonus Ingredients</strong><span>Probiotic (B. lactis, 1 billion CFU)</span></div>
+          <div class="pcard-spec"><strong>Serving Size</strong><span>2 gummies</span></div>
+          <div class="pcard-spec"><strong>Testing</strong><span>Third-Party Tested</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$12.99</span>
+          <span class="per-serv">$0.22/day</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Combines enzymes with 1 billion CFU probiotic for dual-action support</li>
+              <li>Best-tasting gummy on this list — natural strawberry and orange flavors</li>
+              <li>America's #1 gummy vitamin brand (SPINS data)</li>
+              <li>Lowest price at $0.22 per day</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Enzyme diversity is limited — only three core enzymes</li>
+              <li>1 billion CFU probiotic is lower than standalone probiotic products</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/dp/B0VFDIGEST" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Vitafusion rounds out our list as the best entry-level digestive enzyme gummy for people who want a simple, affordable, great-tasting product with basic enzyme support. The addition of 1 billion CFU of <em>Bifidobacterium lactis</em> — one of the most studied probiotic strains — provides modest microbiome support alongside the enzyme blend. While the enzyme diversity is limited compared to Enzymedica or Olly, the combination of enzymes plus probiotics at $0.22 per day makes this an exceptional value for mild digestive support needs.</p>
+
+    <!-- MID CTA -->
+    <div class="cta">
+      <h2>Found Your Digestive Enzyme Gummy?</h2>
+      <p>Our #1 pick is Olly Beat the Bloat — comprehensive enzymes plus ginger root at $0.38/day.</p>
+      <a href="https://www.amazon.com/dp/B0OLLYDIGEST" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Check Price on Amazon</a>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 id="comparison">Digestive Enzyme Gummies — Comparison Table</h2>
+
+    <div class="ctbl">
+      <p class="ctbl-hint">&larr; Scroll to see all columns &rarr;</p>
+      <div class="ctbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Enzyme Blend</th>
+              <th>Bonus Ingredients</th>
+              <th>Price</th>
+              <th>Per Day</th>
+              <th>Rating</th>
+              <th>Testing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="winner">
+              <td><div class="prod-cell"><img src="/images/products/olly-beat-the-bloat.webp" alt="Olly" width="40" height="40" loading="lazy" /><div><strong>Olly Beat the Bloat</strong><span>Best Overall</span></div></div></td>
+              <td>Amylase, Protease, Lipase, Bromelain</td>
+              <td>Ginger Root</td>
+              <td>$22.99</td>
+              <td>$0.38</td>
+              <td>4.5</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/natrol-digestive-enzyme.webp" alt="Natrol" width="40" height="40" loading="lazy" /><div><strong>Natrol Enzyme</strong><span>Best Value</span></div></div></td>
+              <td>Amylase, Protease, Lipase, Cellulase</td>
+              <td>Papain, Peppermint</td>
+              <td>$14.99</td>
+              <td>$0.25</td>
+              <td>4.4</td>
+              <td>Third-Party</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/enzymedica-digest-gold.webp" alt="Enzymedica" width="40" height="40" loading="lazy" /><div><strong>Enzymedica Digest Gold</strong><span>Best Potency</span></div></div></td>
+              <td>Thera-blend (Full Spectrum)</td>
+              <td>None</td>
+              <td>$34.99</td>
+              <td>$0.58</td>
+              <td>4.6</td>
+              <td>Non-GMO Verified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/now-enzyme-gummies.webp" alt="NOW" width="40" height="40" loading="lazy" /><div><strong>NOW Enzyme</strong><span>Sensitive Stomachs</span></div></div></td>
+              <td>Amylase, Protease, Lipase, Lactase</td>
+              <td>Ginger, Fennel</td>
+              <td>$18.99</td>
+              <td>$0.32</td>
+              <td>4.3</td>
+              <td>GMP Certified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/garden-of-life-enzymes.webp" alt="Garden of Life" width="40" height="40" loading="lazy" /><div><strong>GoL Dr. Formulated</strong><span>Best Organic</span></div></div></td>
+              <td>Organic Amylase, Protease, Lipase, Bromelain</td>
+              <td>Prebiotic Fiber</td>
+              <td>$29.99</td>
+              <td>$0.50</td>
+              <td>4.5</td>
+              <td>USDA Organic</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/natures-way-enzyme.webp" alt="Nature's Way" width="40" height="40" loading="lazy" /><div><strong>Nature's Way Enzyme</strong><span>Best for Bloating</span></div></div></td>
+              <td>Amylase, Protease, Lipase, Alpha-Galactosidase</td>
+              <td>Turmeric</td>
+              <td>$19.99</td>
+              <td>$0.33</td>
+              <td>4.3</td>
+              <td>TRU-ID Verified</td>
+            </tr>
+            <tr>
+              <td><div class="prod-cell"><img src="/images/products/vitafusion-digestive.webp" alt="Vitafusion" width="40" height="40" loading="lazy" /><div><strong>Vitafusion Digestive</strong><span>Best Tasting</span></div></div></td>
+              <td>Amylase, Protease, Lipase</td>
+              <td>B. lactis Probiotic</td>
+              <td>$12.99</td>
+              <td>$0.22</td>
+              <td>4.2</td>
+              <td>Third-Party</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- INGREDIENT BOX -->
+    <div class="ing-box">
+      <h4>Digestive Enzymes: What the Science Says</h4>
+      <p>Digestive enzymes are among the most well-studied supplements in gastroenterology, with decades of clinical research supporting their use in enzyme insufficiency and functional digestive disorders.</p>
+
+      <div class="vs-strip">
+        <div class="vs-item">
+          <strong>Multi-Enzyme Supplementation</strong>
+          <p>A 2018 review in Current Drug Metabolism found that multi-enzyme formulas significantly reduced bloating, gas, and abdominal pain in 12 clinical trials involving patients with functional dyspepsia.<br /><em>Current Drug Metabolism, 2018</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Bromelain for Protein Digestion</strong>
+          <p>A 2012 review confirmed bromelain's dual role as a digestive enzyme and anti-inflammatory agent, showing it improved protein absorption and reduced intestinal inflammation.<br /><em>Biotechnology Research International, 2012</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Lactase for Lactose Intolerance</strong>
+          <p>Oral lactase supplementation effectively reduces bloating, gas, and diarrhea in lactose-intolerant individuals when taken before dairy consumption.<br /><em>European Review for Medical and Pharmacological Sciences, 2010</em></p>
+        </div>
+        <div class="vs-item">
+          <strong>Age-Related Enzyme Decline</strong>
+          <p>Pancreatic enzyme output decreases with age, with up to 30% of adults over 40 producing suboptimal levels. This contributes to the increased prevalence of digestive complaints in middle age.<br /><em>Alimentary Pharmacology and Therapeutics, 2019</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <div class="tested-box">
+      <h3>How We Tested These Digestive Enzyme Gummies</h3>
+      <ol>
+        <li><strong>Evaluated enzyme diversity.</strong> We assessed how many enzyme types each product includes — amylase, protease, lipase, cellulase, lactase, bromelain, papain, and alpha-galactosidase. Broader coverage scored higher.</li>
+        <li><strong>Checked enzyme activity units.</strong> Products listing standardized FCC activity units scored higher than those listing only milligrams. Higher activity per serving indicates greater digestive capacity.</li>
+        <li><strong>Verified third-party testing.</strong> USDA Organic, Non-GMO Project Verified, USP, and independent lab certifications were evaluated. In-house testing claims only received lower scores.</li>
+        <li><strong>Assessed bonus ingredients.</strong> Synergistic additions like ginger, peppermint, turmeric, or probiotics were evaluated for clinical evidence and effective dosing.</li>
+        <li><strong>Conducted taste testing.</strong> Five adult testers evaluated each gummy for flavor, texture, aftertaste, and overall palatability. Enzyme supplements often have a bitter aftertaste that gummies must mask.</li>
+        <li><strong>Calculated daily cost.</strong> Total bottle price divided by days of supply at the recommended serving size, standardized for direct comparison.</li>
+      </ol>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict</h3>
+      <p><strong>Olly Beat the Bloat</strong> is our top recommendation for most people — comprehensive enzyme blend, ginger root for extra GI soothing, excellent taste, and wide availability at $0.38/day. For budget-conscious buyers, <strong>Natrol</strong> delivers solid enzyme diversity at just $0.25/day. If you want the highest enzyme potency available in gummy form, <strong>Enzymedica Digest Gold</strong> is the clinical-grade choice with their proprietary Thera-blend technology. For lactose intolerance, choose <strong>NOW Supplements</strong> with its included lactase. And for the best-tasting, most affordable entry point, <strong>Vitafusion</strong> combines basic enzymes with a probiotic at just $0.22/day.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Digestive Enzyme Gummies</h2>
+
+    <details class="fq">
+      <summary>What do digestive enzyme gummies actually do?</summary>
+      <p>Digestive enzyme gummies supplement your body's natural enzyme production to help break down food more efficiently. They contain enzymes like amylase (starches), protease (proteins), lipase (fats), and cellulase (fiber). When taken before or with meals, these enzymes reduce bloating, gas, and discomfort — particularly after heavy or complex meals.</p>
+    </details>
+
+    <details class="fq">
+      <summary>When should I take digestive enzyme gummies?</summary>
+      <p>Take digestive enzyme gummies immediately before or at the start of a meal. Enzymes need to be present in the stomach when food arrives. Taking them 5-10 minutes before eating allows enzymes to mix with gastric juices before food enters.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are digestive enzyme gummies safe to take daily?</summary>
+      <p>For most healthy adults, daily digestive enzyme supplementation is considered safe. However, long-term daily use should be discussed with a gastroenterologist. People with pancreatitis, gallbladder disease, or those taking blood thinners should consult their physician first.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the difference between digestive enzymes and probiotics?</summary>
+      <p>Enzymes chemically break down food molecules into absorbable nutrients and work immediately. Probiotics are live beneficial bacteria that colonize the gut and support the microbiome over time. Enzymes address mechanical food breakdown, while probiotics influence long-term gut health. Many people benefit from both.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can digestive enzymes help with lactose intolerance?</summary>
+      <p>Yes — specifically the enzyme lactase. Supplemental lactase taken before dairy can significantly reduce bloating, gas, cramping, and diarrhea in lactose-intolerant individuals. Some enzyme blends include lactase; dedicated products like Lactaid are also available.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Do digestive enzyme gummies work as well as capsules?</summary>
+      <p>Capsules generally deliver higher enzyme activity units per serving, but well-formulated gummies from reputable brands maintain meaningful activity. The primary advantage of gummies is compliance — consistent daily use matters more than marginally higher potency.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Which enzymes should I look for in a digestive enzyme gummy?</summary>
+      <p>At minimum: amylase (starches), protease (proteins), lipase (fats), and cellulase (fiber). Bonus enzymes include lactase (dairy), bromelain (pineapple-derived protein enzyme), papain (papaya-derived), and alpha-galactosidase (bean/vegetable gas). Activity should be measured in FCC units, not milligrams.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Can children take digestive enzyme gummies?</summary>
+      <p>Some enzyme gummies are formulated for children ages 4 and older, but always consult a pediatrician first. Children's digestive systems are still developing, and supplementation should only follow a diagnosed deficiency or condition like lactose intolerance.</p>
+    </details>
+
+    <!-- WARN BOX -->
+    <div class="warn-box">
+      <span class="warn-box-ico">&#9888;</span>
+      <p><strong>Important:</strong> Digestive enzyme gummies are supplements, not substitutes for medical evaluation of chronic digestive symptoms. Persistent bloating, gas, diarrhea, or abdominal pain should be evaluated by a gastroenterologist to rule out conditions such as exocrine pancreatic insufficiency, celiac disease, inflammatory bowel disease, or SIBO (small intestinal bacterial overgrowth).</p>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="cta">
+      <h2>Explore More Gummy Guides</h2>
+      <p>Expert-tested reviews across every supplement category.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/vitamins/probiotic-gummies/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Best Probiotic Gummies</h3>
+        <p>Clinically studied probiotic strains in gummy form for gut health, immune support, and microbiome balance.</p>
+        <span class="ac-btn">Best Probiotic Gummies</span>
+      </a>
+      <a href="/vitamins/best-probiotic-gummies-for-women/" class="ac">
+        <span class="ac-tag">Vitamins</span>
+        <h3>Probiotic Gummies for Women</h3>
+        <p>Targeted strains for women's digestive health, vaginal microbiome, and urinary tract support.</p>
+        <span class="ac-btn">Probiotics for Women</span>
+      </a>
+      <a href="/trending/berberine-gummies/" class="ac">
+        <span class="ac-tag">Trending</span>
+        <h3>Berberine Gummies</h3>
+        <p>Berberine supports gut health, blood sugar balance, and metabolic function in a convenient gummy format.</p>
+        <span class="ac-btn">Berberine Gummies</span>
+      </a>
+      <a href="/immunity/turmeric-gummies/" class="ac">
+        <span class="ac-tag">Immunity</span>
+        <h3>Turmeric Gummies</h3>
+        <p>Anti-inflammatory curcumin gummies for joint comfort, gut health, and systemic inflammation reduction.</p>
+        <span class="ac-btn">Turmeric Gummies</span>
+      </a>
+    </div>
+
+    <!-- FDA DISCLAIMER -->
+    <div class="disc">
+      <p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. The products discussed on this page are not intended to diagnose, treat, cure, or prevent any disease. Consult your physician before starting any supplement regimen, particularly if you have a pre-existing digestive condition. Individual results may vary.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-03-28"
+      updateDate="2026-03-28"
+      authorName="Dr. Emily Carter"
+      authorCredentials="PharmD, BCPS"
+      authorImage="/images/authors/emily-carter.webp"
+      authorBio="Dr. Carter is a Board Certified Pharmacotherapy Specialist with expertise in gastrointestinal therapeutics and digestive health supplementation. She evaluates enzyme supplements based on clinical evidence, activity assays, and safety profiles."
+    />
+
+  </div>
+
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+interface Props {
+  publishDate: string;
+  updateDate?: string;
+  authorName?: string;
+  authorCredentials?: string;
+  authorImage?: string;
+  authorBio?: string;
+}
+
+const {
+  publishDate,
+  updateDate,
+  authorName = 'GummyGuide Editorial Team',
+  authorCredentials = '',
+  authorImage = '/images/authors/editorial-team.webp',
+  authorBio = 'Our editorial team researches and tests gummy supplements to help you make informed choices.',
+} = Astro.props;
+
+const displayDate = new Date(publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const displayUpdate = updateDate ? new Date(updateDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
+
+const authorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: authorName,
+  jobTitle: authorCredentials || 'Editorial Team',
+  image: authorImage,
+  description: authorBio,
+};
+---
+
+<div class="author-box">
+  <div class="author-box__meta">
+    <time datetime={publishDate}>Published: {displayDate}</time>
+    {displayUpdate && <time datetime={updateDate}>| Updated: {displayUpdate}</time>}
+  </div>
+  <div class="author-box__info">
+    <img
+      src={authorImage}
+      alt={authorName}
+      width="48"
+      height="48"
+      loading="lazy"
+      class="author-box__avatar"
+    />
+    <div>
+      <p class="author-box__name">
+        By <a href="/about/">{authorName}</a>
+        {authorCredentials && <span class="author-box__credentials">, {authorCredentials}</span>}
+      </p>
+      <p class="author-box__bio">{authorBio}</p>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json" set:html={JSON.stringify(authorSchema)} />
