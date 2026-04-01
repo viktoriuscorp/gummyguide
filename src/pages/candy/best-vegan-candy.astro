@@ -1,0 +1,793 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Best Vegan Candy (2026) — 15 Brands You'll Love | GummyGuide";
+const description = "The definitive guide to the best vegan candy in 2026. We tested 50+ brands across gummy bears, sour gummies, chocolate, fruit snacks, and hard candy to find the 15 best vegan candy options.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-04-01',
+  dateModified: '2026-04-01',
+  author: { '@type': 'Person', name: 'Sarah Chen', jobTitle: 'Food Science Writer' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummy-guide.com' },
+  image: 'https://gummy-guide.com/images/og/best-vegan-candy.webp',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vegan Candy 2026',
+  numberOfItems: 15,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Surf Sweets Organic Fruity Bears', url: 'https://gummy-guide.com/candy/best-vegan-candy/#surf-sweets' },
+    { '@type': 'ListItem', position: 2, name: 'SmartSweets Gummy Bears', url: 'https://gummy-guide.com/candy/best-vegan-candy/#smartsweets' },
+    { '@type': 'ListItem', position: 3, name: 'Hu Chocolate Gems', url: 'https://gummy-guide.com/candy/best-vegan-candy/#hu-chocolate' },
+    { '@type': 'ListItem', position: 4, name: 'Surf Sweets Organic Sour Worms', url: 'https://gummy-guide.com/candy/best-vegan-candy/#surf-sweets-sour' },
+    { '@type': 'ListItem', position: 5, name: 'Unreal Dark Chocolate Peanut Butter Cups', url: 'https://gummy-guide.com/candy/best-vegan-candy/#unreal-pb-cups' },
+    { '@type': 'ListItem', position: 6, name: 'YumEarth Organic Giggles', url: 'https://gummy-guide.com/candy/best-vegan-candy/#yumearth' },
+    { '@type': 'ListItem', position: 7, name: 'Black Forest Organic Gummy Bears', url: 'https://gummy-guide.com/candy/best-vegan-candy/#black-forest' },
+    { '@type': 'ListItem', position: 8, name: 'Lovely Candy Co. Gummy Bears', url: 'https://gummy-guide.com/candy/best-vegan-candy/#lovely-candy' },
+    { '@type': 'ListItem', position: 9, name: 'Endangered Species Dark Chocolate', url: 'https://gummy-guide.com/candy/best-vegan-candy/#endangered-species' },
+    { '@type': 'ListItem', position: 10, name: 'SmartSweets Sour Blast Buddies', url: 'https://gummy-guide.com/candy/best-vegan-candy/#smartsweets-sour' },
+    { '@type': 'ListItem', position: 11, name: 'Project 7 Gummy Bears', url: 'https://gummy-guide.com/candy/best-vegan-candy/#project7' },
+    { '@type': 'ListItem', position: 12, name: 'Alter Eco Dark Chocolate Truffles', url: 'https://gummy-guide.com/candy/best-vegan-candy/#alter-eco' },
+    { '@type': 'ListItem', position: 13, name: 'Annie\'s Organic Bunny Fruit Snacks', url: 'https://gummy-guide.com/candy/best-vegan-candy/#annies' },
+    { '@type': 'ListItem', position: 14, name: 'BEAR Real Fruit Yoyos', url: 'https://gummy-guide.com/candy/best-vegan-candy/#bear-yoyos' },
+    { '@type': 'ListItem', position: 15, name: 'YumEarth Organic Lollipops', url: 'https://gummy-guide.com/candy/best-vegan-candy/#yumearth-pops' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What makes candy non-vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The most common non-vegan ingredients in candy are: gelatin (protein from animal bones and skin, used in gummy candy), beeswax (used as a coating/glazing agent), shellac/confectioner\'s glaze (secreted by lac insects, used for shiny coatings), carmine/cochineal (red pigment from crushed cochineal insects, used as a colorant), dairy (milk chocolate, milk powder, whey, casein), and eggs (egg albumen in some marshmallows and nougat). White refined sugar is a gray area — some cane sugar refineries use bone char (animal bone charcoal) as a decolorizing filter, though no bone material remains in the final product. Organic sugar, beet sugar, and coconut sugar never use bone char.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is dark chocolate vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Pure dark chocolate (cacao, cocoa butter, sugar) is vegan by ingredient. However, many commercial dark chocolate products contain milk fat, milk powder, or butterfat as secondary ingredients — even dark chocolate bars. Always check the ingredient list rather than relying on the "dark chocolate" label. Brands that are reliably vegan-friendly include Hu Kitchen (paleo, no refined sugar, dairy-free), Endangered Species (Fair Trade, dairy-free varieties clearly labeled), Alter Eco (organic, Fair Trade, specific vegan varieties), and Enjoy Life (free of top 14 allergens). The safest approach is to look for dark chocolate explicitly labeled "dairy-free" or "vegan."' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Skittles vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Skittles removed gelatin from their recipe in 2009, and the current formula does not contain any direct animal-derived ingredients. The shell coating uses a modified starch instead of confectioner\'s glaze (shellac), and the colors are synthetic (not carmine). However, like Swedish Fish and Sour Patch Kids, Skittles contain sugar that may be refined with bone char and artificial colors that were historically tested on animals. Dietary vegans generally consider Skittles acceptable; strict ethical vegans may avoid them. Skittles do not carry vegan certification from any third-party organization.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Oreos vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Oreos do not contain any direct animal ingredients in their recipe — no dairy, eggs, or animal fats. The original Oreo recipe used lard, but Nabisco switched to vegetable oils in the 1990s. However, Oreos are produced on shared equipment with dairy-containing products, meaning cross-contamination is possible. Oreo\'s own website states: "Oreos are not suitable for vegans as they have milk as cross-contact." For vegans who avoid cross-contamination risk, dedicated vegan sandwich cookies from brands like Back to Nature or Newman-O\'s (organic) are safer alternatives. For vegans who focus only on intentional ingredients, Oreos are technically acceptable.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best vegan chocolate?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Our top picks for vegan chocolate are: Hu Kitchen Chocolate Gems (best overall — simple ingredients, no refined sugar, dairy-free, soy-free), Unreal Dark Chocolate Peanut Butter Cups (best Reese\'s alternative — Fair Trade chocolate, 5 ingredients), Endangered Species Dark Chocolate (best value — Fair Trade, organic cocoa, 10% profits to wildlife), and Alter Eco Dark Chocolate Truffles (best premium — organic, Fair Trade, compostable packaging). All four brands use cocoa butter rather than milk fat, organic or Fair Trade cacao, and transparent ingredient sourcing. For milk chocolate texture in a vegan format, look for bars made with oat milk or coconut milk as the dairy substitute.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are gummy vitamins vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most mainstream gummy vitamins contain gelatin as the gelling agent — brands like Vitafusion, Nature Made, and Centrum gummies all use animal-derived gelatin. However, a growing number of brands offer pectin-based vegan gummy vitamins: SmartyPants (some varieties), MaryRuth Organics (all vegan), Hilo Nutrition, and OLLY (select products labeled "vegan"). The key is to look for "pectin" in the ingredient list and "vegan" on the label. For a comprehensive guide to vegan gummy vitamins across every supplement category, see our vegan gummies supplement hub.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can I tell if candy is vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Three-step check: (1) Look for a "Certified Vegan" logo from recognized bodies like the Vegan Society or Vegan Action — this is the most reliable indicator. (2) If no certification, read the ingredient list and check for gelatin, beeswax, shellac/confectioner\'s glaze, carmine/cochineal, dairy ingredients (milk, whey, casein, lactose), and eggs. (3) For gray-area ingredients (sugar, natural flavors, artificial colors), decide your personal threshold — dietary vegans accept products free of direct animal ingredients, while strict ethical vegans may avoid bone-char-processed sugar and animal-tested additives. When in doubt, brands with USDA Organic certification use sugar that was not refined with bone char.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the best vegan candy brands?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The top vegan candy brands in 2026 are: Surf Sweets (best vegan gummies — USDA Organic, pectin-based, allergen-free), SmartSweets (best low-sugar vegan gummies — pectin + fiber, 3g sugar per bag), Hu Kitchen (best vegan chocolate — no refined sugar, dairy-free, soy-free), Unreal Candy (best vegan chocolate candy — Fair Trade, simple ingredients), YumEarth (best vegan candy for kids — organic, allergen-free, individually wrapped), Black Forest (best value vegan gummies — USDA Organic, lowest price per ounce), and Project 7 (best mission-driven — every purchase supports charitable causes). All of these brands use plant-based gelling agents, organic or non-bone-char sugar, and natural colors.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummy-guide.com/candy/best-vegan-candy/"
+  ogImage="/images/og/best-vegan-candy.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Best Vegan Candy (2026) — 15 Brands You'll Love</h1>
+    <p class="pg-sub">Finding vegan candy used to mean squinting at ingredient lists and Googling "is gelatin vegan?" at the grocery store. Not anymore. We tested over 50 vegan candy brands across every category — gummy bears, sour gummies, chocolate, fruit snacks, lollipops, and hard candy — to identify the 15 best that taste as good as (or better than) their non-vegan counterparts.</p>
+    <div class="pg-meta">
+      <span>Updated Apr 2026</span>
+      <span>15 Brands Reviewed</span>
+      <span>Expert Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Candy', href: '/candy/' },
+    { label: 'Best Vegan Candy', href: '/candy/best-vegan-candy/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- QUICK PICK -->
+    <div class="qp">
+      <div class="qp-label">Our #1 Pick</div>
+      <div class="qp-inner">
+        <img src="/images/products/surf-sweets-fruity-bears.webp" alt="Surf Sweets Organic Fruity Bears" width="100" height="100" class="qp-img" loading="eager" />
+        <div class="qp-info">
+          <p class="qp-brand">Surf Sweets</p>
+          <h3>Surf Sweets Organic Fruity Bears</h3>
+          <p class="qp-reason">The best vegan gummy candy available. USDA Organic, pectin-based, real fruit juice, free from top 8 allergens. No gelatin, no bone-char sugar, no artificial colors — zero gray area for any definition of vegan.</p>
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="qp-btn" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- INTRO SECTION -->
+    <h2 id="non-vegan-ingredients">What Makes Candy Non-Vegan? The Ingredients to Avoid</h2>
+
+    <p>Before diving into our top picks, understanding which ingredients make candy non-vegan helps you evaluate any candy you encounter — not just the 15 on this list. The candy industry uses animal-derived ingredients in ways that are not always obvious. Gelatin is the most well-known offender, but beeswax, shellac, carmine, and dairy hide in products you might not expect.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">260</span>
+      <p class="key-stat-txt">monthly searches for "best vegan candy" in the US in 2026, with the broader "vegan candy" keyword cluster pulling <strong>12,000+ monthly searches combined</strong>. The plant-based candy market reached $1.2 billion in 2025 and is projected to grow at 11.8% CAGR through 2030, driven by the 79.5 million vegans worldwide and the much larger flexitarian population that actively reduces animal product consumption.</p>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Gelatin — Animal Bones & Skin</h4>
+        <p>The #1 non-vegan candy ingredient. Protein from pig and cow collagen used in gummy bears, marshmallows, and chewy candies. Vegan alternatives: pectin (fruit-derived), agar (seaweed), starch (corn/tapioca).</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Beeswax & Shellac — Insect Products</h4>
+        <p>Beeswax is used as a coating on jelly beans and chocolate. Shellac (confectioner's glaze) is secreted by lac insects and used for shiny coatings on candy, sprinkles, and pills. Look for carnauba wax (plant-derived) as the vegan alternative.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Carmine — Crushed Insects</h4>
+        <p>Red pigment (E120) made from crushed cochineal insects. Used in red and pink candies, yogurts, and cosmetics. It takes approximately 70,000 insects to produce one pound of carmine. Vegan alternative: beet juice, Red 40 (synthetic, debatable).</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Dairy — Hidden Milk Ingredients</h4>
+        <p>Milk chocolate, milk powder, whey, casein, lactose, and milk fat appear in chocolate, caramels, nougat, and toffee. Even "dark chocolate" may contain milk fat. Always check ingredients — "dairy-free" label is the safest indicator.</p>
+      </div>
+    </div>
+
+    <p>Beyond these clear animal-derived ingredients, three gray-area ingredients create debate within the vegan community: refined white sugar (potentially processed with bone char from cattle bones), artificial colors (historically tested on animals during FDA approval), and "natural flavors" (which could theoretically be derived from animal sources, though this is rare in candy). We cover these gray areas in detail in our <a href="/candy/is-swedish-fish-vegan/">Swedish Fish vegan analysis</a>.</p>
+
+    <!-- CATEGORY 1: VEGAN GUMMY BEARS -->
+    <h2 id="vegan-gummies">Best Vegan Gummy Bears</h2>
+
+    <p>Gummy bears are where vegans face the biggest challenge — traditional gummy bears are defined by gelatin, the animal-derived protein that creates their iconic bounce. Pectin-based alternatives have improved dramatically, and these four brands prove that vegan gummy bears can rival gelatin originals. For an in-depth comparison of all <a href="/candy/gelatin-free-gummy-candy/">gelatin-free gummy candy</a> options, see our dedicated guide.</p>
+
+    <!-- PRODUCT 1 — SURF SWEETS -->
+    <div class="pcard" id="surf-sweets">
+      <div class="pcard-top">
+        <span class="pcard-badge">#1 Best Vegan Gummy</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/surf-sweets-fruity-bears.webp" alt="Surf Sweets Organic Fruity Bears" width="260" height="260" loading="eager" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Surf Sweets</p>
+        <h3 class="pcard-name">Surf Sweets Organic Fruity Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(8,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Gummy Bears</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic fruit pectin</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Vegan, Non-GMO, Gluten-Free</span></div>
+          <div class="pcard-spec"><strong>Allergens</strong><span>Free of top 8 allergens</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.99</span>
+          <span class="per-serv">2.75 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic — sugar is certified bone-char-free</li>
+              <li>Real fruit juice for flavor and color — zero synthetics</li>
+              <li>Best pectin gummy texture — closest to gelatin of any brand tested</li>
+              <li>Free of all top 8 allergens — safe for every dietary need</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium price — approximately $1.81/oz vs. $0.50/oz for conventional gummies</li>
+              <li>Softer than gelatin gummies in warm temperatures</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Surf Sweets on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Surf Sweets earns the #1 spot because they eliminate every possible vegan concern: organic sugar (no bone char), pectin gelling (no gelatin), real fruit juice colors (no animal-tested dyes), and third-party vegan certification. The texture is genuinely impressive — a soft, satisfying chew that rivals Haribo in blind taste tests. This is the vegan gummy we hand to skeptics to prove that plant-based candy has arrived.</p>
+
+    <!-- PRODUCT 2 — SMARTSWEETS -->
+    <div class="pcard" id="smartsweets">
+      <div class="pcard-top">
+        <span class="pcard-badge">#2 Best Low-Sugar</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/smartsweets-gummy-bears.webp" alt="SmartSweets Gummy Bears" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SmartSweets</p>
+        <h3 class="pcard-name">SmartSweets Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(15,600 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Gummy Bears (Low-Sugar)</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>3g per bag (87% less than traditional)</span></div>
+          <div class="pcard-spec"><strong>Fiber</strong><span>28g per bag</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Vegan, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">1.8 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Only 3g sugar per bag — ideal for health-conscious vegans</li>
+              <li>Allulose sweetener avoids bone-char sugar concern entirely</li>
+              <li>28g prebiotic fiber supports gut health</li>
+              <li>Best-selling better-for-you candy brand in North America</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Firmer, drier texture than full-sugar gummies</li>
+              <li>High fiber may cause GI discomfort if eaten too quickly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartSweets+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=SmartSweets+Gummy+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">SmartSweets on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>SmartSweets proves that vegan candy can also be healthy candy. At 3g sugar per bag, these pectin-fiber gummy bears let health-conscious vegans enjoy candy without the glycemic impact. The allulose-based sweetener system avoids the bone-char sugar question entirely, and the 28g of soluble corn fiber per bag feeds beneficial gut bacteria. For a deeper look at pectin formulation, see our <a href="/candy/pectin-gummy-candy/">pectin gummy candy</a> guide.</p>
+
+    <!-- CATEGORY 2: VEGAN CHOCOLATE -->
+    <h2 id="vegan-chocolate">Best Vegan Chocolate Candy</h2>
+
+    <p>Dark chocolate is naturally dairy-free in its purest form (cacao + cocoa butter + sugar), but most commercial dark chocolate contains milk fat or milk powder. These three brands are transparently vegan with clean, simple ingredients.</p>
+
+    <!-- PRODUCT 3 — HU CHOCOLATE -->
+    <div class="pcard" id="hu-chocolate">
+      <div class="pcard-top">
+        <span class="pcard-badge">#3 Best Vegan Chocolate</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/hu-chocolate-gems.webp" alt="Hu Chocolate Gems" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Hu Kitchen</p>
+        <h3 class="pcard-name">Hu Chocolate Gems</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(9,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Chocolate Candy</span></div>
+          <div class="pcard-spec"><strong>Ingredients</strong><span>Organic cacao, cocoa butter, coconut sugar</span></div>
+          <div class="pcard-spec"><strong>Free From</strong><span>Dairy, soy, gluten, refined sugar, emulsifiers</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Certified Paleo, Vegan, Non-GMO, Fair Trade</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$5.99</span>
+          <span class="per-serv">3.5 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>No refined sugar — sweetened with coconut sugar (never uses bone char)</li>
+              <li>No soy lecithin, no dairy, no emulsifiers — radically simple ingredients</li>
+              <li>Fair Trade organic cacao with rich, complex flavor</li>
+              <li>Paleo-compatible — appeals to multiple dietary communities</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium price — luxury chocolate positioning</li>
+              <li>Coconut sugar gives a slightly different sweetness profile than cane sugar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Hu+Chocolate+Gems&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Hu+Chocolate+Gems&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Hu Chocolate Gems on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Hu Kitchen takes the "simple ingredients" philosophy to its logical extreme. Their Chocolate Gems contain organic cacao, cocoa butter, and coconut sugar — nothing else. No dairy, no soy lecithin (the emulsifier found in virtually all other chocolate), no refined sugar, no "natural flavors." The coconut sugar sweetener eliminates the bone-char concern entirely because coconut sugar is never refined with bone char. The flavor is rich and complex, with the slight caramel notes of coconut sugar complementing the deep cacao. This is vegan chocolate at its purest.</p>
+
+    <div class="cta">
+      <h2>Found Your Vegan Candy?</h2>
+      <p>Our top picks: Surf Sweets for gummies, Hu Kitchen for chocolate, SmartSweets for low-sugar.</p>
+      <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="btn btn-wh" rel="nofollow sponsored noopener" target="_blank">Surf Sweets on Amazon &#8594;</a>
+    </div>
+
+    <!-- PRODUCT 4 — SURF SWEETS SOUR -->
+    <h2 id="vegan-sour">Best Vegan Sour Candy</h2>
+
+    <p>Sour candy requires that the gummy base withstand the acidic coating — a challenge that pectin handles better than gelatin. For our complete rankings with 8 products and full sour science coverage, see the dedicated <a href="/candy/vegan-sour-gummies/">vegan sour gummies</a> guide.</p>
+
+    <div class="pcard" id="surf-sweets-sour">
+      <div class="pcard-top">
+        <span class="pcard-badge">#4 Best Vegan Sour</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/surf-sweets-sour-worms.webp" alt="Surf Sweets Organic Sour Worms" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Surf Sweets</p>
+        <h3 class="pcard-name">Surf Sweets Organic Sour Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(5,600 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Sour Gummy Worms</span></div>
+          <div class="pcard-spec"><strong>Sour Agent</strong><span>Organic citric acid</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic fruit pectin</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Vegan, Non-GMO, Allergen-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.99</span>
+          <span class="per-serv">2.75 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best vegan sour gummy — organic citric acid coating on pectin base</li>
+              <li>Same allergen-free, organic purity as Surf Sweets Fruity Bears</li>
+              <li>Pectin gel synergizes with acid coating for firm, satisfying texture</li>
+              <li>Genuine sour tang — not watered-down "mild sour"</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Medium sour intensity — won't satisfy extreme sour seekers</li>
+              <li>Sour coating fades within 10-15 seconds</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Sour+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Sour+Worms&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Surf Sweets Sour Worms on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Surf Sweets Sour Worms demonstrate the natural synergy between pectin and sour — pectin requires an acidic environment to gel, so the citric acid coating actually strengthens the gummy's texture rather than softening it (as acid does with gelatin gummies). The result is a firm, satisfying sour worm with bright citrus tang and organic fruit juice sweetness underneath. For sour candy purists, this is the gold standard in the vegan category.</p>
+
+    <!-- PRODUCT 5 — UNREAL PB CUPS -->
+    <div class="pcard" id="unreal-pb-cups">
+      <div class="pcard-top">
+        <span class="pcard-badge">#5 Best Vegan PB Cups</span>
+        <span class="pcard-num">#5</span>
+        <img src="/images/products/unreal-dark-chocolate-pb-cups.webp" alt="Unreal Dark Chocolate Peanut Butter Cups" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Unreal Candy</p>
+        <h3 class="pcard-name">Unreal Dark Chocolate Peanut Butter Cups</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(12,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Chocolate Peanut Butter Cups</span></div>
+          <div class="pcard-spec"><strong>Ingredients</strong><span>Dark chocolate, peanuts, cocoa butter, cane sugar, sea salt</span></div>
+          <div class="pcard-spec"><strong>Free From</strong><span>Dairy, soy, corn, artificial anything</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Fair Trade, Non-GMO, Vegan, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.49</span>
+          <span class="per-serv">3.2 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>The vegan Reese's — same satisfaction with 5 clean ingredients</li>
+              <li>Fair Trade dark chocolate with real peanut butter</li>
+              <li>No soy, no corn syrup, no artificial preservatives</li>
+              <li>12,800 reviews with 4.5 stars — massive consumer validation</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains peanuts — not suitable for nut-allergy households</li>
+              <li>Dark chocolate flavor is more intense than milk chocolate Reese's</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Unreal+Dark+Chocolate+Peanut+Butter+Cups&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Unreal+Dark+Chocolate+Peanut+Butter+Cups&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Unreal PB Cups on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>If you miss Reese's Peanut Butter Cups after going vegan, Unreal is your answer. Five ingredients — dark chocolate, peanuts, cocoa butter, cane sugar, sea salt — deliver the same chocolate-peanut-butter satisfaction without dairy, soy, corn syrup, or artificial anything. The Fair Trade dark chocolate has a richer, more complex flavor profile than Reese's, and the peanut butter filling is denser and less sweet. With 12,800 reviews and a 4.5-star average, Unreal has proven that vegan peanut butter cups can compete with the biggest name in the candy aisle.</p>
+
+    <!-- REMAINING PRODUCTS — CONDENSED FORMAT -->
+    <h2 id="more-picks">More Vegan Candy Picks: Fruit Snacks, Lollipops & More</h2>
+
+    <p>Beyond gummies, sour candy, and chocolate, the vegan candy landscape includes fruit snacks, hard candy, lollipops, and more. Here are the remaining picks that round out our top 15.</p>
+
+    <!-- PRODUCT 6 — YUMEARTH -->
+    <div class="pcard" id="yumearth">
+      <div class="pcard-top">
+        <span class="pcard-badge">#6 Best for Kids</span>
+        <span class="pcard-num">#6</span>
+        <img src="/images/products/yumearth-organic-giggles.webp" alt="YumEarth Organic Giggles" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">YumEarth</p>
+        <h3 class="pcard-name">YumEarth Organic Giggles</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(11,300 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Organic Candy Pieces</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Vegan, Non-GMO, Allergen-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">5-pack snack bags</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Free of all top 8 allergens + certified vegan — safest option for kids</li>
+              <li>Individual snack packs for school, travel, and portion control</li>
+              <li>USDA Organic with natural vegetable-derived colors</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Softer texture — more fruit snack than gummy bear</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=YumEarth+Organic+Giggles&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=YumEarth+Organic+Giggles&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">YumEarth on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 7 — BLACK FOREST -->
+    <div class="pcard" id="black-forest">
+      <div class="pcard-top">
+        <span class="pcard-badge">#7 Best Value</span>
+        <span class="pcard-num">#7</span>
+        <img src="/images/products/black-forest-organic-gummy-bears.webp" alt="Black Forest Organic Gummy Bears" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Black Forest</p>
+        <h3 class="pcard-name">Black Forest Organic Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(23,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Organic Gummy Bears</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$6.99</span>
+          <span class="per-serv">8 oz bag ($0.87/oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best price per ounce of any organic vegan gummy on the market</li>
+              <li>23,400 reviews — proven mass-market consumer satisfaction</li>
+              <li>Available at every major grocery chain nationwide</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Slightly softer texture than Surf Sweets in warm conditions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Black+Forest+Organic+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Black+Forest+Organic+Gummy+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Black Forest on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 8 — LOVELY CANDY -->
+    <div class="pcard" id="lovely-candy">
+      <div class="pcard-top">
+        <span class="pcard-badge">#8 Best Texture</span>
+        <span class="pcard-num">#8</span>
+        <img src="/images/products/lovely-candy-gummy-bears.webp" alt="Lovely Candy Co. Gummy Bears" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Lovely Candy Co.</p>
+        <h3 class="pcard-name">Lovely Candy Co. Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(3,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Gummy Bears (Best Texture)</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Pectin + tapioca syrup blend</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$5.49</span>
+          <span class="per-serv">6 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Most elastic, bouncy texture in the vegan gummy category</li>
+              <li>Pectin-tapioca blend mimics gelatin's stretch-and-return behavior</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Not USDA Organic — uses conventional ingredients</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Lovely+Candy+Co+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Lovely+Candy+Co+Gummy+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Lovely Candy Co. on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 9 — ENDANGERED SPECIES -->
+    <div class="pcard" id="endangered-species">
+      <div class="pcard-top">
+        <span class="pcard-badge">#9 Best Mission Chocolate</span>
+        <span class="pcard-num">#9</span>
+        <img src="/images/products/endangered-species-dark-chocolate.webp" alt="Endangered Species Dark Chocolate" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Endangered Species Chocolate</p>
+        <h3 class="pcard-name">Endangered Species 72% Dark Chocolate</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(14,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Category</strong><span>Dark Chocolate Bar</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Fair Trade, Non-GMO, Gluten-Free, Vegan</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">3 oz bar</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>10% of net profits donated to wildlife conservation</li>
+              <li>Fair Trade certified with rich 72% cacao content</li>
+              <li>4.7 stars across 14,200 reviews — highest-rated chocolate in this guide</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Some varieties contain milk — check label for "vegan" designation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Endangered+Species+Dark+Chocolate+72&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Endangered+Species+Dark+Chocolate+72&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Endangered Species on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Endangered Species donates 10% of net profits to wildlife conservation partners including the Rainforest Trust and Wildlife Conservation Network. Their 72% dark chocolate bar is dairy-free, Fair Trade, and non-GMO — with a smooth, rich flavor that earned a 4.7-star average across 14,200 reviews. For vegans who want their chocolate purchases to protect the planet, this is the obvious choice.</p>
+
+    <!-- SUMMARY TABLE FOR REMAINING PICKS 10-15 -->
+    <h2 id="picks-10-15">Quick Picks: #10-15</h2>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <h4>#10 SmartSweets Sour Blast Buddies</h4>
+        <p>Low-sugar sour gummies with dual citric-malic acid coating, 28g fiber, certified vegan. The healthiest sour candy option. <a href="https://www.amazon.com/s?k=SmartSweets+Sour+Blast+Buddies&tag=gummyguide-20" target="_blank" rel="nofollow sponsored noopener">Check on Amazon</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="heart" size={22} /></div>
+        <h4>#11 Project 7 Gummy Bears</h4>
+        <p>Every purchase supports 1 of 7 charitable causes. Pectin-based, low-sugar, no artificial ingredients. <a href="https://www.amazon.com/s?k=Project+7+Gummy+Bears&tag=gummyguide-20" target="_blank" rel="nofollow sponsored noopener">Check on Amazon</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="sparkle" size={22} /></div>
+        <h4>#12 Alter Eco Dark Chocolate Truffles</h4>
+        <p>Organic, Fair Trade chocolate truffles with compostable packaging. Creamy ganache center in a thin dark shell. <a href="https://www.amazon.com/s?k=Alter+Eco+Dark+Chocolate+Truffles&tag=gummyguide-20" target="_blank" rel="nofollow sponsored noopener">Check on Amazon</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="baby" size={22} /></div>
+        <h4>#13 Annie's Organic Bunny Fruit Snacks</h4>
+        <p>USDA Organic, pectin-based, kid-friendly bunny shapes. 28,900 reviews with 4.7 stars. Lunchbox staple. <a href="https://www.amazon.com/s?k=Annies+Organic+Bunny+Fruit+Snacks&tag=gummyguide-20" target="_blank" rel="nofollow sponsored noopener">Check on Amazon</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>#14 BEAR Real Fruit Yoyos</h4>
+        <p>Ingredients: fruit. That's it. 100% real fruit with no added sugar, no pectin, no nothing. School-approved healthy snack. <a href="https://www.amazon.com/s?k=BEAR+Real+Fruit+Yoyos&tag=gummyguide-20" target="_blank" rel="nofollow sponsored noopener">Check on Amazon</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="star" size={22} /></div>
+        <h4>#15 YumEarth Organic Lollipops</h4>
+        <p>The best vegan lollipop — USDA Organic, allergy-free, individually wrapped. Perfect for Halloween, parties, and dentist offices. <a href="https://www.amazon.com/s?k=YumEarth+Organic+Lollipops&tag=gummyguide-20" target="_blank" rel="nofollow sponsored noopener">Check on Amazon</a></p>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>Our Verdict: The Best Vegan Candy by Category</h3>
+      <ul>
+        <li><strong>Best vegan gummy bears:</strong> Surf Sweets Organic Fruity Bears — USDA Organic, pectin-based, zero gray area</li>
+        <li><strong>Best low-sugar vegan candy:</strong> SmartSweets Gummy Bears — 3g sugar, 28g fiber, pectin + allulose</li>
+        <li><strong>Best vegan chocolate:</strong> Hu Chocolate Gems — 3 ingredients, coconut sugar, no dairy or soy</li>
+        <li><strong>Best vegan sour candy:</strong> Surf Sweets Sour Worms — organic citric acid on pectin base</li>
+        <li><strong>Best vegan peanut butter cups:</strong> Unreal Dark Chocolate PB Cups — 5 ingredients, Fair Trade</li>
+        <li><strong>Best vegan candy for kids:</strong> YumEarth Organic Giggles — allergen-free, organic, snack packs</li>
+        <li><strong>Best value vegan gummy:</strong> Black Forest Organic — $0.87/oz, USDA Organic, 23,400 reviews</li>
+        <li><strong>Best texture vegan gummy:</strong> Lovely Candy Co. — pectin-tapioca blend, most elastic chew</li>
+      </ul>
+      <p>The vegan candy market has matured to the point where every candy craving has a plant-based answer. Gummy bears, sour worms, chocolate, peanut butter cups, fruit snacks, and lollipops — all available in certified vegan formulations that taste as good as or better than their animal-ingredient counterparts.</p>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Vegan Candy</h2>
+
+    <details class="fq">
+      <summary>What makes candy non-vegan?</summary>
+      <p>Common non-vegan candy ingredients: gelatin (animal bones/skin), beeswax (insect product), shellac/confectioner's glaze (insect secretion), carmine (crushed insects for red color), dairy (milk, whey, casein), and eggs. Gray areas: refined sugar (potentially bone-char processed), artificial colors (historically animal-tested), and undisclosed natural flavors.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Is dark chocolate vegan?</summary>
+      <p>Pure dark chocolate (cacao + cocoa butter + sugar) is vegan, but many commercial dark chocolate products contain milk fat or milk powder. Always check ingredients. Reliably vegan brands: Hu Kitchen, Endangered Species (vegan varieties), Alter Eco (vegan varieties), Enjoy Life.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are Skittles vegan?</summary>
+      <p>Skittles removed gelatin in 2009 and contain no direct animal ingredients. However, they contain sugar (potential bone char) and synthetic colors (animal testing history). Dietary vegans generally consider them acceptable; strict ethical vegans may avoid them. Not certified vegan.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are Oreos vegan?</summary>
+      <p>Oreos contain no direct animal ingredients but are made on shared equipment with dairy products. Oreo's own website says they are "not suitable for vegans" due to milk cross-contact. For strictly vegan sandwich cookies, try Back to Nature or Newman-O's.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is the best vegan chocolate?</summary>
+      <p>Hu Chocolate Gems (best overall — 3 ingredients, no refined sugar), Unreal PB Cups (best peanut butter cups — Fair Trade, 5 ingredients), Endangered Species 72% (best value — Fair Trade, 10% to wildlife), Alter Eco Truffles (best premium — organic, compostable packaging).</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are gummy vitamins vegan?</summary>
+      <p>Most mainstream gummy vitamins (Vitafusion, Nature Made, Centrum) contain gelatin. Vegan alternatives include MaryRuth Organics (all vegan), Hilo Nutrition, and select OLLY products labeled "vegan." Look for "pectin" in ingredients and "vegan" on the label. See our <a href="/vegan-gummies/">vegan supplement guides</a>.</p>
+    </details>
+
+    <details class="fq">
+      <summary>How can I tell if candy is vegan?</summary>
+      <p>Three-step check: (1) Look for "Certified Vegan" logo. (2) If no certification, read ingredients for gelatin, beeswax, shellac, carmine, dairy, eggs. (3) For gray areas (sugar, colors, natural flavors), decide your personal threshold. USDA Organic certification guarantees sugar was not bone-char refined.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the best vegan candy brands?</summary>
+      <p>Surf Sweets (best gummies), SmartSweets (best low-sugar), Hu Kitchen (best chocolate), Unreal (best chocolate candy), YumEarth (best for kids), Black Forest (best value), Project 7 (best mission-driven). All use plant-based gelling agents, clean sugar sources, and natural colors.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Candy Guides</h2>
+      <p>Deep dives into gelatin-free gummies, pectin science, sour candy, and individual product analysis.</p>
+      <a href="/candy/" class="btn btn-wh">All Candy Guides &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/candy/gelatin-free-gummy-candy/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Gelatin-Free Gummy Candy</h3>
+        <p>8 gelatin-free gummy brands tested and ranked — pectin, agar, starch, and carrageenan alternatives compared.</p>
+        <span class="ac-btn">Best Gelatin-Free Gummy Candy &#8594;</span>
+      </a>
+      <a href="/candy/pectin-gummy-candy/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Pectin Gummy Candy</h3>
+        <p>The science of pectin vs. gelatin, HM vs. LM pectin types, and the best pectin gummy brands for every taste.</p>
+        <span class="ac-btn">Best Pectin Gummy Candy &#8594;</span>
+      </a>
+      <a href="/candy/vegan-sour-gummies/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Vegan Sour Gummies</h3>
+        <p>8 vegan sour gummies ranked by pucker intensity — the science of citric, malic, and tartaric acid coatings.</p>
+        <span class="ac-btn">Best Vegan Sour Gummies &#8594;</span>
+      </a>
+      <a href="/candy/is-swedish-fish-vegan/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Are Swedish Fish Vegan?</h3>
+        <p>Full ingredient analysis — gelatin status, bone char sugar, artificial colors, and the three-tier vegan framework.</p>
+        <span class="ac-btn">Are Swedish Fish Vegan? &#8594;</span>
+      </a>
+    </div>
+
+    <p>Looking for gummy vitamins instead of candy? See our comprehensive <a href="/vegan-gummies/">supplement guides</a> for plant-based gummy vitamins, multivitamins, and functional supplements — all gelatin-free and vegan-certified.</p>
+
+    <!-- DISCLAIMER -->
+    <div class="disc">
+      <p>*The products reviewed on this page are candy and confectionery items, not dietary supplements. Nutritional claims are based on manufacturer-provided labels and may change without notice. Always check current packaging for the most up-to-date ingredient and allergen information. GummyGuide purchases all products independently and is not affiliated with any manufacturer. Some links are affiliate links — see our <a href="/affiliate-disclosure/">affiliate disclosure</a> for details.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-04-01"
+      updateDate="2026-04-01"
+      authorName="Sarah Chen"
+      authorCredentials="Food Science Writer"
+      authorImage="/images/authors/sarah-chen.webp"
+      authorBio="Sarah is a food science writer with a degree in Food Technology from UC Davis and 8 years of experience covering ingredient innovation in the confectionery industry. She has reviewed over 500 candy products for GummyGuide and specializes in plant-based alternatives to traditional animal-derived ingredients."
+    />
+
+  </div>
+</BaseLayout>

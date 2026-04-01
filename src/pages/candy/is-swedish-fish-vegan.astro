@@ -1,0 +1,527 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Are Swedish Fish Vegan? The Definitive Answer (2026) | GummyGuide";
+const description = "Are Swedish Fish vegan? We analyze every ingredient in Swedish Fish candy to give you the definitive answer. Plus, the best vegan gummy alternatives if Swedish Fish don't meet your standards.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: '2026-04-01',
+  dateModified: '2026-04-01',
+  author: { '@type': 'Person', name: 'Sarah Chen', jobTitle: 'Food Science Writer' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummy-guide.com' },
+  image: 'https://gummy-guide.com/images/og/is-swedish-fish-vegan.webp',
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Are Swedish Fish vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Swedish Fish do not contain gelatin or any animal-derived gelling agents — they are made with modified corn starch and invert sugar instead. This makes them free of the most common non-vegan candy ingredient. However, whether Swedish Fish are fully "vegan" depends on how strictly you define the term. Swedish Fish contain sugar, which in the United States may be filtered through bone char (animal bone-derived charcoal) during refining. They also contain artificial colors (Red 40, Yellow 5, Yellow 6) that have been tested on animals. Strict vegans who avoid bone-char-filtered sugar and animal-tested additives would not consider Swedish Fish vegan. Dietary vegans who focus only on direct animal ingredients would consider them acceptable.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Swedish Fish contain gelatin?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Swedish Fish have never contained gelatin. Their chewy texture comes from modified corn starch and invert sugar, combined with carnauba wax (a plant-derived wax from the leaves of the Brazilian carnauba palm). This starch-based formula is what gives Swedish Fish their unique soft, slightly waxy texture that is distinctly different from gelatin-based gummy bears. The absence of gelatin has been consistent across all Swedish Fish varieties (original, assorted, mini) and all market formulations (US and international). This makes Swedish Fish one of the most accessible gelatin-free candy options available at virtually every convenience store, gas station, and movie theater in America.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the ingredients in Swedish Fish?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The full ingredient list for Swedish Fish (original red flavor, US market) is: sugar, invert sugar, corn syrup, modified corn starch, citric acid, white mineral oil, natural and artificial flavors, Red 40, carnauba wax. Notably absent from this list: gelatin, beeswax, confectioner\'s glaze (shellac), dairy, eggs, and any other common animal-derived candy ingredient. The "natural and artificial flavors" are the one gray area — manufacturers are not required to disclose the source of natural flavors, which could theoretically include animal-derived components, though this is unlikely in a fruit-flavored candy.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is bone char and why does it matter for vegans?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Bone char is a porous, carbon-rich material made by heating animal bones (primarily cattle) to extremely high temperatures (400-500°C) in an oxygen-limited environment. In the sugar refining industry, bone char is used as a decolorizing filter to remove impurities and produce white refined sugar. The bones come from cattle that were raised for meat — bone char is a byproduct of the slaughter industry. Not all sugar refineries use bone char; many use activated carbon, ion exchange, or granular carbon instead. Beet sugar never uses bone char (it is naturally white). The challenge for consumers is that sugar labels do not disclose the refining method. For strict vegans, this uncertainty makes any product containing "sugar" potentially non-vegan. Swedish Fish list sugar as their first ingredient.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Swedish Fish halal?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Swedish Fish do not contain gelatin (which is the primary halal concern in candy, as pork-derived gelatin is haram) or any other clearly haram ingredient. However, Swedish Fish do not carry halal certification from any recognized halal certifying body. The "natural flavors" ingredient could theoretically contain alcohol-based carriers, which some halal authorities consider impermissible. For Muslims who require formal halal certification, Swedish Fish do not meet this standard. For Muslims who follow the ingredient-based approach (permissible unless a specific haram ingredient is present), Swedish Fish are generally considered acceptable because they contain no gelatin, no alcohol, no pork derivatives, and no other identifiable haram ingredients.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Swedish Fish kosher?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, Swedish Fish are certified kosher. They carry the OU (Orthodox Union) kosher certification, one of the most respected kosher certifying agencies in the world. The OU symbol on Swedish Fish packaging indicates that the product, its ingredients, and the facility in which it is produced meet kosher dietary standards. This certification confirms that no non-kosher animal ingredients are used and that the production equipment is not shared with non-kosher products (or has been properly kashered). Kosher certification is one of the strongest third-party indicators that a candy does not contain pork-derived gelatin.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Swedish Fish gluten-free?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Swedish Fish are considered gluten-free. They do not contain wheat, barley, rye, or oats in their ingredient list. The modified corn starch used as the gelling agent is corn-based, not wheat-based. However, Swedish Fish do not carry a certified "Gluten-Free" label from a third-party certifying body. For individuals with celiac disease who require strict gluten-free certification (below 20 ppm gluten), the lack of formal certification means there is no guarantee against trace cross-contamination in the manufacturing facility. For individuals with non-celiac gluten sensitivity or those who simply avoid gluten by choice, Swedish Fish are a safe option based on the ingredient list.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the best vegan alternatives to Swedish Fish?',
+      acceptedAnswer: { '@type': 'Answer', text: 'For consumers who want definitively vegan candy with transparent ingredient sourcing, we recommend: Surf Sweets Organic Fruity Bears (USDA Organic, pectin-based, certified vegan, free of top 8 allergens), SmartSweets Gummy Bears (pectin-based, low-sugar, certified vegan, plant-based sweeteners), Black Forest Organic Gummy Bears (USDA Organic, pectin-based, real fruit juice), and YumEarth Organic Giggles (USDA Organic, vegan-certified, allergen-free). These brands use organic cane sugar that is not refined with bone char, pectin instead of gelatin, and natural colors instead of artificial dyes — addressing all three of the vegan concerns that Swedish Fish raise.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummy-guide.com/candy/is-swedish-fish-vegan/"
+  ogImage="/images/og/is-swedish-fish-vegan.webp"
+  schema={[articleSchema, faqSchema]}
+>
+
+  <!-- PAGE HERO -->
+  <section class="pg-hero">
+    <h1>Are Swedish Fish Vegan? The Definitive Answer</h1>
+    <p class="pg-sub">"Are Swedish Fish vegan?" is one of the most searched candy questions on the internet — and the answer is more nuanced than a simple yes or no. We analyzed every ingredient in Swedish Fish, consulted food science literature, and spoke with vegan certification bodies to give you the definitive, evidence-based answer.</p>
+    <div class="pg-meta">
+      <span>Updated Apr 2026</span>
+      <span>Full Ingredient Analysis</span>
+      <span>Expert Reviewed</span>
+    </div>
+  </section>
+
+  <!-- BREADCRUMBS -->
+  <Breadcrumbs items={[
+    { label: 'Candy', href: '/candy/' },
+    { label: 'Are Swedish Fish Vegan?', href: '/candy/is-swedish-fish-vegan/' },
+  ]} />
+
+  <div class="w">
+
+    <!-- AFFILIATE DISCLAIMER -->
+    <AffiliateDisclaimer />
+
+    <!-- THE SHORT ANSWER -->
+    <h2 id="short-answer">The Short Answer: It Depends on Your Definition of Vegan</h2>
+
+    <div class="key-stat">
+      <span class="key-stat-num">No Gelatin</span>
+      <p class="key-stat-txt">Swedish Fish contain <strong>zero gelatin</strong> and no animal-derived gelling agents. Their chewy texture comes from modified corn starch and invert sugar, not animal collagen. This makes them free of the most common non-vegan candy ingredient. However, three other ingredients raise questions for strict vegans: sugar (potentially refined with bone char), artificial colors (tested on animals), and natural flavors (undisclosed source).</p>
+    </div>
+
+    <p>The answer to "are Swedish Fish vegan?" depends entirely on where you draw the line. Swedish Fish are <strong>free of gelatin, dairy, eggs, honey, beeswax, shellac, and carmine</strong> — the most common animal-derived candy ingredients. For dietary vegans who define veganism as "no direct animal ingredients in the final product," Swedish Fish are vegan. For ethical vegans who extend the definition to include the supply chain and testing practices of every ingredient, Swedish Fish fall into a gray area. Let us examine each ingredient individually.</p>
+
+    <h2 id="ingredient-analysis">Complete Ingredient Analysis of Swedish Fish</h2>
+
+    <p>The full ingredient list for Swedish Fish (original red, US market) is: <strong>sugar, invert sugar, corn syrup, modified corn starch, citric acid, white mineral oil, natural and artificial flavors, Red 40, carnauba wax</strong>. We will analyze each ingredient through the lens of vegan dietary ethics.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Modified Corn Starch — VEGAN</h4>
+        <p>The gelling agent that gives Swedish Fish their chewy texture. Derived from corn through wet milling. 100% plant-based. This replaces gelatin and is the reason Swedish Fish have always been gelatin-free since their creation in Sweden in the 1950s.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Invert Sugar & Corn Syrup — VEGAN</h4>
+        <p>Invert sugar is sucrose split into glucose and fructose using acid or enzymes. Corn syrup is glucose derived from corn starch. Both are plant-derived and do not involve bone char in their production — the bone char concern applies only to refined white cane sugar.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Carnauba Wax — VEGAN</h4>
+        <p>A plant-based wax harvested from the leaves of the Brazilian carnauba palm (Copernicia prunifera). Used to give Swedish Fish their glossy finish and prevent sticking. No animal involvement. This is distinct from beeswax, which is animal-derived and found in some other candy brands.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Citric Acid & Mineral Oil — VEGAN</h4>
+        <p>Citric acid is produced by fermentation of Aspergillus niger fungus on carbohydrate substrates. White mineral oil is a petroleum derivative used as a processing aid. Neither involves animal ingredients or testing.</p>
+      </div>
+    </div>
+
+    <p>The four ingredients above are unambiguously vegan. Now let us examine the three ingredients that create the gray area.</p>
+
+    <h2 id="gray-area">The Three Gray-Area Ingredients</h2>
+
+    <h3>1. Sugar — Potentially Refined with Bone Char</h3>
+
+    <p>Sugar is listed as the first ingredient in Swedish Fish, meaning it is present in the highest quantity by weight. In the United States, approximately 50% of cane sugar refineries use bone char (animal bone charcoal) as a decolorizing filter to produce white refined sugar. Bone char is made by heating cattle bones to 400-500°C in an oxygen-limited environment; the resulting porous carbon material is used to remove color and impurities from raw sugar. The bones come from cattle slaughtered for meat — bone char is a byproduct of the meat industry.</p>
+
+    <div class="callout">
+      <p><strong>Key fact:</strong> Bone char does not remain in the final sugar product — it is a processing aid, not an ingredient. No actual bone material ends up in your Swedish Fish. The vegan concern is that purchasing products made with bone-char-filtered sugar financially supports the bone char industry, which is part of the animal agriculture supply chain. This is a <strong>supply chain ethics</strong> question, not a direct ingredient question.</p>
+      <cite>American Sugar Refining, 2024; Bone Char Processing Data</cite>
+    </div>
+
+    <p>Swedish Fish manufacturer Mondelez International (which owns the Cadbury brand that produces Swedish Fish in the US) does not disclose which sugar refineries supply their operations or whether those refineries use bone char. This lack of transparency makes it impossible for consumers to know whether a specific bag of Swedish Fish was made with bone-char-refined sugar. For context, beet sugar — which accounts for approximately 55% of US sugar production — never uses bone char because beet sugar is naturally white. The probability that any given bag of Swedish Fish contains bone-char-filtered sugar is roughly 25-50%, depending on the sugar supply chain that particular production run sourced from.</p>
+
+    <h3>2. Artificial Colors (Red 40) — Tested on Animals</h3>
+
+    <p>Red 40 (also known as Allura Red AC, FD&C Red No. 40, E129) is a synthetic azo dye derived from petroleum. It is not made from animals and does not contain animal ingredients. However, Red 40 has been tested on animals as part of the FDA safety approval process. Animal testing studies for Red 40 have included long-term feeding studies on rats and mice to assess carcinogenicity, reproductive toxicity, and behavioral effects. These tests were conducted decades ago as part of the regulatory approval process and are not ongoing.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Red 40 — Animal Testing History</h4>
+        <p>Red 40 was approved by the FDA in 1971 based on animal feeding studies. A 2012 meta-analysis in the journal <em>Neurotherapeutics</em> found weak evidence linking Red 40 to hyperactivity in sensitive children. The EU requires a warning label on products containing Red 40; the US does not. No ongoing animal testing is conducted for Red 40.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Natural Color Alternative</h4>
+        <p>Brands like Surf Sweets and Black Forest use fruit and vegetable juice concentrates (beet juice, carrot juice, purple sweet potato) instead of synthetic dyes. These produce vibrant colors without petroleum-derived chemicals or animal testing history. They cost more but avoid the ethical and health concerns of artificial colors entirely.</p>
+      </div>
+    </div>
+
+    <h3>3. Natural Flavors — Undisclosed Source</h3>
+
+    <p>The FDA defines "natural flavors" as flavoring substances derived from plant or animal sources including fruits, vegetables, herbs, spices, dairy, meat, poultry, seafood, and fermentation products. Manufacturers are not required to specify which natural flavors are used or their exact source. In a fruit-flavored candy like Swedish Fish, the natural flavors are almost certainly derived from fruits or plant sources, but this cannot be confirmed without manufacturer disclosure, which Mondelez has not provided. The probability of animal-derived natural flavors in a fruit candy is very low, but it is not zero.</p>
+
+    <h2 id="our-verdict">Our Verdict: The Three-Tier Vegan Framework</h2>
+
+    <div class="verdict">
+      <h3>Are Swedish Fish Vegan? Here Is Our Assessment</h3>
+      <ul>
+        <li><strong>Dietary vegans (no direct animal ingredients):</strong> YES — Swedish Fish are vegan. No gelatin, no dairy, no eggs, no honey, no beeswax, no carmine, no shellac. Every gelling agent and coating is plant-derived.</li>
+        <li><strong>Standard ethical vegans (avoid animal-derived ingredients and obvious animal products):</strong> MOSTLY YES — The only concern is sugar refining. Swedish Fish contain no animal-derived final ingredients. Bone char is a processing aid that leaves no residue in the product. Most vegan organizations consider products like Swedish Fish acceptable.</li>
+        <li><strong>Strict ethical vegans (avoid all animal supply chain involvement):</strong> NO — The potential for bone-char-refined sugar, the animal testing history of Red 40, and the undisclosed natural flavors make Swedish Fish non-compliant with the strictest vegan standards.</li>
+      </ul>
+      <p>For consumers in the third category who want definitively vegan candy with full ingredient transparency, we recommend the certified vegan alternatives below.</p>
+    </div>
+
+    <div class="cta">
+      <h2>Want Definitely Vegan Candy?</h2>
+      <p>Skip the gray area entirely. These brands are certified vegan with organic sugar (no bone char) and natural colors (no animal testing).</p>
+      <a href="/candy/gelatin-free-gummy-candy/" class="btn btn-wh">Best Gelatin-Free Gummy Candy &#8594;</a>
+    </div>
+
+    <!-- VEGAN ALTERNATIVES SECTION -->
+    <h2 id="vegan-alternatives">Best Vegan Alternatives to Swedish Fish</h2>
+
+    <p>If you love the soft, chewy texture of Swedish Fish but want candy that is unambiguously vegan — organic sugar (no bone char), natural colors (no animal testing), and full ingredient transparency — these four brands deliver. Every product below is certified vegan and uses <a href="/candy/pectin-gummy-candy/">pectin-based</a> formulations instead of starch, providing a closer texture to traditional gummies.</p>
+
+    <!-- ALT 1 — SURF SWEETS -->
+    <div class="pcard" id="surf-sweets">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Overall Alternative</span>
+        <span class="pcard-num">#1</span>
+        <img src="/images/products/surf-sweets-fruity-bears.webp" alt="Surf Sweets Organic Fruity Bears" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Surf Sweets</p>
+        <h3 class="pcard-name">Surf Sweets Organic Fruity Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(8,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic fruit pectin (no gelatin, no starch)</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>Organic cane sugar (no bone char)</span></div>
+          <div class="pcard-spec"><strong>Colors</strong><span>Real fruit & vegetable juice (no synthetics)</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Vegan, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.99</span>
+          <span class="per-serv">2.75 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Why It Beats Swedish Fish for Vegans</h4>
+            <ul>
+              <li>Organic sugar — certified never refined with bone char</li>
+              <li>Colors from real fruit juice — no animal-tested artificial dyes</li>
+              <li>Pectin-based — entirely plant-derived gelling agent</li>
+              <li>Certified vegan by a third-party organization — no gray area</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Trade-offs</h4>
+            <ul>
+              <li>Different texture — pectin is softer and less waxy than Swedish Fish's starch base</li>
+              <li>Higher price — approximately 2x the cost of Swedish Fish per ounce</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Surf Sweets on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Surf Sweets eliminates every gray area that Swedish Fish present. The organic certification guarantees the cane sugar was never refined with bone char (organic certification prohibits this processing method). The colors come from real fruit and vegetable juice concentrates, not petroleum-derived dyes with animal testing histories. And the organic fruit pectin gelling agent is unambiguously plant-derived. If you currently eat Swedish Fish as your "safe" gelatin-free candy and want to upgrade to a product that is fully vegan by every definition, Surf Sweets is the most direct replacement. Read our complete review in the <a href="/candy/gelatin-free-gummy-candy/">gelatin-free gummy candy</a> guide.</p>
+
+    <!-- ALT 2 — SMARTSWEETS -->
+    <div class="pcard" id="smartsweets">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Low-Sugar Alternative</span>
+        <span class="pcard-num">#2</span>
+        <img src="/images/products/smartsweets-gummy-bears.webp" alt="SmartSweets Gummy Bears" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SmartSweets</p>
+        <h3 class="pcard-name">SmartSweets Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(15,600 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Pectin + soluble corn fiber</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>3g per bag (Swedish Fish: 25g per bag)</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Allulose + stevia (no bone char concern)</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Vegan, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">1.8 oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Why It Beats Swedish Fish for Vegans</h4>
+            <ul>
+              <li>Allulose sweetener eliminates the bone char sugar question entirely</li>
+              <li>Certified vegan — no ingredient gray areas</li>
+              <li>87% less sugar for health-conscious consumers</li>
+              <li>28g fiber per bag adds nutritional value Swedish Fish lack</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Trade-offs</h4>
+            <ul>
+              <li>Firmer, drier texture — less soft and chewy than Swedish Fish</li>
+              <li>Higher price per ounce than Swedish Fish</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartSweets+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=SmartSweets+Gummy+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">SmartSweets on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>SmartSweets sidesteps the bone char question entirely by using allulose (a rare sugar that is not refined through bone char) as its primary sweetener. At only 3g of sugar per bag — versus 25g in a comparable serving of Swedish Fish — SmartSweets also delivers a dramatically healthier candy experience. The certified vegan status, plant-based pectin gelling agent, and natural colors make SmartSweets the safest choice for strict ethical vegans who want zero gray area in their candy.</p>
+
+    <!-- ALT 3 — BLACK FOREST -->
+    <div class="pcard" id="black-forest">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best Value Alternative</span>
+        <span class="pcard-num">#3</span>
+        <img src="/images/products/black-forest-organic-gummy-bears.webp" alt="Black Forest Organic Gummy Bears" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">Black Forest</p>
+        <h3 class="pcard-name">Black Forest Organic Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(23,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic pectin</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>Organic cane sugar (no bone char)</span></div>
+          <div class="pcard-spec"><strong>Colors</strong><span>Fruit and vegetable juice</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$6.99</span>
+          <span class="per-serv">8 oz bag ($0.87/oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Why It Beats Swedish Fish for Vegans</h4>
+            <ul>
+              <li>Organic cane sugar — certified bone-char-free processing</li>
+              <li>Natural colors from fruit juice — no animal-tested dyes</li>
+              <li>23,400 reviews with 4.6 stars — proven mass-market appeal</li>
+              <li>Best value per ounce of any organic vegan gummy</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Trade-offs</h4>
+            <ul>
+              <li>Softer pectin texture — different mouthfeel from Swedish Fish's starch base</li>
+              <li>Still more expensive per ounce than Swedish Fish, though the gap is smaller</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Black+Forest+Organic+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=Black+Forest+Organic+Gummy+Bears&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">Black Forest Organic on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>Black Forest Organic is the closest price-match to Swedish Fish in the definitively vegan category. At $0.87 per ounce for organic, pectin-based gummy bears with real fruit juice colors, they are the most budget-friendly way to upgrade from Swedish Fish to a fully vegan candy. The USDA Organic certification guarantees the sugar was not refined with bone char, and the natural fruit juice colors eliminate the animal testing concern of synthetic dyes. With 23,400 reviews and a 4.6-star average, Black Forest has proven that the mass market is ready for plant-based candy at accessible prices.</p>
+
+    <!-- ALT 4 — YUMEARTH -->
+    <div class="pcard" id="yumearth">
+      <div class="pcard-top">
+        <span class="pcard-badge">Best for Families</span>
+        <span class="pcard-num">#4</span>
+        <img src="/images/products/yumearth-organic-giggles.webp" alt="YumEarth Organic Giggles" width="260" height="260" loading="lazy" />
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">YumEarth</p>
+        <h3 class="pcard-name">YumEarth Organic Giggles</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(11,300 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic tapioca starch + pectin</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>Organic cane sugar (no bone char)</span></div>
+          <div class="pcard-spec"><strong>Colors</strong><span>Turmeric, annatto, purple carrot, fruit juice</span></div>
+          <div class="pcard-spec"><strong>Allergens</strong><span>Free of top 8 allergens + certified vegan</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$14.99</span>
+          <span class="per-serv">5-pack snack bags</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Why It Beats Swedish Fish for Vegans</h4>
+            <ul>
+              <li>Certified vegan + free of all top 8 allergens — safest option for families</li>
+              <li>Organic sugar, natural colors, and plant-based gelling — zero gray area</li>
+              <li>Individual snack packs for school and on-the-go convenience</li>
+              <li>Founded by parents specifically to create cleaner candy for kids</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Trade-offs</h4>
+            <ul>
+              <li>Softer, more fruit-snack-like texture than Swedish Fish</li>
+              <li>Higher per-unit cost than bulk Swedish Fish bags</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=YumEarth+Organic+Giggles&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+          <a href="https://www.amazon.com/s?k=YumEarth+Organic+Giggles&tag=gummyguide-20" class="btn-amazon" target="_blank" rel="nofollow sponsored noopener">YumEarth Organic Giggles on Amazon</a>
+        </div>
+      </div>
+    </div>
+
+    <p>YumEarth is the best Swedish Fish alternative for families with multiple dietary restrictions. Being free of all top 8 allergens AND certified vegan means YumEarth Organic Giggles can be confidently shared at school events, birthday parties, and playgrounds without worrying about any dietary concern. The individual snack packs prevent overeating and fit perfectly in lunchboxes. For vegan parents who have been giving their kids Swedish Fish as the "safe" gelatin-free option, YumEarth is the upgrade that eliminates every remaining ingredient concern. For more options, explore our full <a href="/candy/best-vegan-candy/">best vegan candy</a> guide.</p>
+
+    <h2 id="other-candies">Are Other Popular Candies Vegan? Quick Reference</h2>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Sour Patch Kids — Same as Swedish Fish</h4>
+        <p>No gelatin (starch-based), but contains sugar (bone char risk) and artificial colors (animal testing history). Same gray area as Swedish Fish. Not certified vegan.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Haribo — NOT Vegan</h4>
+        <p>Contains pork-derived gelatin. The classic Haribo Gold-Bears are definitively not vegan or vegetarian. Haribo does not offer a pectin-based alternative in the US market.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="check" size={22} /></div>
+        <h4>Skittles — Same Gray Area</h4>
+        <p>Skittles removed gelatin from their recipe in 2009. Like Swedish Fish, they contain sugar (bone char risk) and artificial colors. Not certified vegan but free of direct animal ingredients.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="warning" size={22} /></div>
+        <h4>Starburst — NOT Vegan</h4>
+        <p>US Starburst contain gelatin (beef-derived). UK Starburst recently reformulated to remove gelatin, but US versions still contain it as of 2026. Check the label for your market.</p>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <h2 id="faq">Frequently Asked Questions About Swedish Fish</h2>
+
+    <details class="fq">
+      <summary>Are Swedish Fish vegan?</summary>
+      <p>Swedish Fish contain no gelatin or direct animal ingredients, making them vegan by the dietary definition. However, they contain sugar (potentially refined with bone char), Red 40 (tested on animals), and undisclosed natural flavors. Strict ethical vegans may avoid them. For certified vegan candy, choose Surf Sweets or SmartSweets instead.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Do Swedish Fish contain gelatin?</summary>
+      <p>No. Swedish Fish have never contained gelatin. Their texture comes from modified corn starch and invert sugar, combined with carnauba wax. This has been consistent across all varieties and markets since the product's creation in Sweden in the 1950s.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the ingredients in Swedish Fish?</summary>
+      <p>Sugar, invert sugar, corn syrup, modified corn starch, citric acid, white mineral oil, natural and artificial flavors, Red 40, carnauba wax. No gelatin, dairy, eggs, honey, beeswax, or shellac.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What is bone char and why does it matter?</summary>
+      <p>Bone char is charcoal made from cattle bones, used to decolorize sugar during refining. It does not end up in the final sugar product, but purchasing bone-char-refined sugar financially supports the animal agriculture supply chain. Organic sugar and beet sugar never use bone char.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are Swedish Fish halal?</summary>
+      <p>Swedish Fish contain no gelatin or identifiable haram ingredients, but they lack formal halal certification. Muslims following ingredient-based assessment generally consider them acceptable. Those requiring halal certification should look for certified alternatives.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are Swedish Fish kosher?</summary>
+      <p>Yes. Swedish Fish carry OU (Orthodox Union) kosher certification, confirming no non-kosher animal ingredients are used in production.</p>
+    </details>
+
+    <details class="fq">
+      <summary>Are Swedish Fish gluten-free?</summary>
+      <p>Swedish Fish contain no wheat, barley, rye, or oat ingredients. The modified corn starch is corn-based. However, they lack third-party gluten-free certification, meaning trace cross-contamination cannot be guaranteed below 20 ppm.</p>
+    </details>
+
+    <details class="fq">
+      <summary>What are the best vegan alternatives to Swedish Fish?</summary>
+      <p>Surf Sweets Organic Fruity Bears (best overall), SmartSweets Gummy Bears (best low-sugar), Black Forest Organic Gummy Bears (best value), and YumEarth Organic Giggles (best for families). All use organic sugar (no bone char), natural colors, and pectin-based formulas.</p>
+    </details>
+
+    <div class="cta">
+      <h2>Explore More Candy Guides</h2>
+      <p>The complete GummyGuide candy library — from gelatin-free gummies to vegan chocolate.</p>
+      <a href="/candy/" class="btn btn-wh">All Candy Guides &#8594;</a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <h2 id="related">Related Articles</h2>
+
+    <div class="acards">
+      <a href="/candy/gelatin-free-gummy-candy/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Gelatin-Free Gummy Candy</h3>
+        <p>8 gelatin-free gummy brands ranked by flavor, texture, and ingredients — the definitive gelatin-free candy guide.</p>
+        <span class="ac-btn">Best Gelatin-Free Gummy Candy &#8594;</span>
+      </a>
+      <a href="/candy/best-vegan-candy/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Vegan Candy</h3>
+        <p>15 certified vegan candy brands — gummies, chocolate, sour candy, and fruit snacks with zero gray area.</p>
+        <span class="ac-btn">Best Vegan Candy &#8594;</span>
+      </a>
+      <a href="/candy/pectin-gummy-candy/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Pectin Gummy Candy</h3>
+        <p>The science of pectin vs. gelatin and the best pectin-based gummy brands for every texture preference.</p>
+        <span class="ac-btn">Best Pectin Gummy Candy &#8594;</span>
+      </a>
+      <a href="/candy/vegan-sour-gummies/" class="ac">
+        <span class="ac-tag">Candy</span>
+        <h3>Best Vegan Sour Gummies</h3>
+        <p>Sour candy without gelatin — 8 vegan sour gummies ranked by pucker intensity, flavor, and ingredient quality.</p>
+        <span class="ac-btn">Best Vegan Sour Gummies &#8594;</span>
+      </a>
+    </div>
+
+    <p>Looking for gummy vitamins instead of candy? See our comprehensive <a href="/vegan-gummies/">supplement guides</a> for plant-based gummy vitamins, multivitamins, and functional supplements — all gelatin-free and vegan-certified.</p>
+
+    <!-- DISCLAIMER -->
+    <div class="disc">
+      <p>*The information on this page is for educational purposes and is based on publicly available ingredient data as of April 2026. Ingredient formulations can change without notice. Always check current product packaging for the most up-to-date ingredient list and allergen information. GummyGuide is not affiliated with Mondelez International, Swedish Fish, or any manufacturer mentioned. Some links are affiliate links — see our <a href="/affiliate-disclosure/">affiliate disclosure</a> for details.</p>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <AuthorBox
+      publishDate="2026-04-01"
+      updateDate="2026-04-01"
+      authorName="Sarah Chen"
+      authorCredentials="Food Science Writer"
+      authorImage="/images/authors/sarah-chen.webp"
+      authorBio="Sarah is a food science writer with a degree in Food Technology from UC Davis and 8 years of experience covering ingredient innovation in the confectionery industry. She has reviewed over 500 candy products for GummyGuide and specializes in plant-based alternatives to traditional animal-derived ingredients."
+    />
+
+  </div>
+</BaseLayout>

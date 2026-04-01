@@ -134,6 +134,15 @@ const schemas = [
           <a href="/editorial-process/" class="hdr-nav-link">How We Test</a>
         </div>
       </nav>
+      <div class="search-wrap" id="search-wrap">
+        <button class="search-toggle" id="search-toggle" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <div class="search-box" id="search-box">
+          <input type="text" id="search-input" placeholder="Search guides, products, topics..." autocomplete="off" />
+          <div class="search-results" id="search-results"></div>
+        </div>
+      </div>
       <button class="hdr-menu" aria-label="Menu" id="hdr-toggle"><i></i></button>
     </div>
     <!-- Mobile menu -->
@@ -262,6 +271,86 @@ const schemas = [
     document.addEventListener('DOMContentLoaded',function(){
       var mt=document.getElementById('hdr-toggle'),mm=document.getElementById('mob-menu');
       if(mt&&mm){mt.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();mm.classList.toggle('mob-open');mt.classList.toggle('hdr-menu-active');});}
+
+      // Search functionality
+      var pages=[
+        {t:"Best Creatine Gummies",u:"/best-creatine-gummies/",k:"creatine muscle fitness sports"},
+        {t:"Best Melatonin Gummies",u:"/best-melatonin-gummies/",k:"melatonin sleep night rest"},
+        {t:"Best Ashwagandha Gummies",u:"/best-ashwagandha-gummies/",k:"ashwagandha stress cortisol adaptogen"},
+        {t:"Best Mushroom Gummies",u:"/best-mushroom-gummies/",k:"mushroom lions mane reishi cordyceps"},
+        {t:"Best Sleep Gummies",u:"/best-sleep-gummies/",k:"sleep rest melatonin night"},
+        {t:"Best ACV Gummies",u:"/best-apple-cider-vinegar-gummies/",k:"apple cider vinegar acv digestion weight"},
+        {t:"Best Fiber Gummies",u:"/best-fiber-gummies/",k:"fiber digestion prebiotic gut"},
+        {t:"Best Sea Moss Gummies",u:"/best-sea-moss-gummies/",k:"sea moss minerals thyroid irish"},
+        {t:"Best Prenatal Gummies",u:"/best-prenatal-gummies/",k:"prenatal pregnancy folate dha iron"},
+        {t:"Best Hair Growth Gummies",u:"/best-hair-growth-gummies/",k:"hair growth biotin collagen keratin"},
+        {t:"Best Elderberry Gummies",u:"/best-elderberry-gummies/",k:"elderberry immune cold flu zinc"},
+        {t:"Shilajit Gummies",u:"/trending/shilajit-gummies/",k:"shilajit fulvic acid energy testosterone"},
+        {t:"Berberine Gummies",u:"/trending/berberine-gummies/",k:"berberine blood sugar metabolism ozempic"},
+        {t:"Focus Gummies",u:"/trending/focus-gummies/",k:"focus nootropic brain cognitive concentration"},
+        {t:"Magnesium Gummies",u:"/sleep/magnesium-gummies/",k:"magnesium sleep calm glycinate citrate"},
+        {t:"Calm & Stress Gummies",u:"/sleep/calm-gummies-review/",k:"calm stress anxiety relaxation gaba theanine"},
+        {t:"Collagen Gummies",u:"/beauty/collagen-gummies/",k:"collagen skin joints beauty anti-aging"},
+        {t:"Biotin Gummies",u:"/beauty/biotin-gummies/",k:"biotin hair nails skin vitamin b7"},
+        {t:"Pre-Workout Gummies",u:"/sports/pre-workout-gummies/",k:"pre workout energy gym fitness"},
+        {t:"Protein Gummies",u:"/sports/best-protein-gummies/",k:"protein muscle recovery whey plant"},
+        {t:"Energy Gummies",u:"/sports/energy-gummies/",k:"energy endurance running cycling workout"},
+        {t:"Lion's Mane Gummies",u:"/mushroom/lions-mane-gummies/",k:"lions mane brain focus memory nerve"},
+        {t:"Iron Gummies",u:"/vitamins/iron-gummies/",k:"iron anemia deficiency gentle"},
+        {t:"Vitamin D Gummies",u:"/vitamins/vitamin-d-gummies/",k:"vitamin d d3 sunshine bone immune"},
+        {t:"Probiotic Gummies",u:"/vitamins/probiotic-gummies/",k:"probiotic gut bacteria digestive"},
+        {t:"B12 Gummies",u:"/vitamins/b12-gummies/",k:"b12 vitamin energy brain methylcobalamin"},
+        {t:"Vitamin C Gummies",u:"/immunity/vitamin-c-gummies/",k:"vitamin c immune antioxidant cold"},
+        {t:"Turmeric Gummies",u:"/immunity/turmeric-gummies/",k:"turmeric curcumin inflammation joint pain"},
+        {t:"Zinc Gummies",u:"/immunity/zinc-gummies/",k:"zinc immune skin cold"},
+        {t:"Weight Loss Gummies",u:"/weight-loss/best-weight-loss-gummies/",k:"weight loss fat metabolism diet"},
+        {t:"Vegan Gummies",u:"/vegan-gummies/",k:"vegan plant based gelatin free pectin"},
+        {t:"Sugar-Free Gummies",u:"/sugar-free-gummies/",k:"sugar free keto diabetic stevia monk fruit"},
+        {t:"Multivitamin Gummies",u:"/vitamins/best-multivitamin-gummies/",k:"multivitamin daily health complete"},
+        {t:"Omega-3 Gummies",u:"/vitamins/omega-3-gummies/",k:"omega 3 fish oil dha epa brain heart"},
+        {t:"Gummies for Women",u:"/vitamins/best-gummies-for-women/",k:"women female health beauty"},
+        {t:"Gummies for Men",u:"/vitamins/best-gummies-for-men/",k:"men male testosterone prostate"},
+        {t:"Gummies for Kids",u:"/vitamins/best-gummies-for-kids/",k:"kids children pediatric"},
+        {t:"Gummies vs Pills",u:"/gummies-vs-pills/",k:"pills capsules tablets comparison effective"},
+        {t:"Do Gummy Vitamins Work?",u:"/blog/do-gummy-vitamins-work/",k:"effective work science evidence"},
+        {t:"Melatonin Dosage Guide",u:"/blog/how-many-melatonin-gummies-should-i-take/",k:"dosage how many take dose"},
+        {t:"Melatonin Safety",u:"/blog/how-much-melatonin-is-safe/",k:"safe safety side effects maximum"},
+        {t:"Ashwagandha Guide",u:"/blog/do-ashwagandha-gummies-work/",k:"ashwagandha work effective cortisol"},
+        {t:"Reishi Gummies",u:"/mushroom/reishi-gummies/",k:"reishi sleep calm stress mushroom"},
+        {t:"Cordyceps Gummies",u:"/mushroom/cordyceps-gummies/",k:"cordyceps energy endurance atp"},
+        {t:"CoQ10 Gummies",u:"/trending/coq10-gummies/",k:"coq10 heart energy ubiquinol"},
+        {t:"Nootropic Gummies",u:"/trending/nootropic-gummies/",k:"nootropic brain smart cognitive"},
+        {t:"Maca Gummies",u:"/trending/best-maca-gummies/",k:"maca energy libido hormone"},
+        {t:"Echinacea Gummies",u:"/immunity/echinacea-gummies/",k:"echinacea cold flu immune herb"},
+        {t:"Valerian Root Gummies",u:"/sleep/best-valerian-root-gummies/",k:"valerian root sleep herbal"},
+        {t:"L-Theanine Gummies",u:"/sleep/best-l-theanine-gummies/",k:"theanine calm relax focus alpha"},
+        {t:"GABA Gummies",u:"/sleep/best-gaba-gummies/",k:"gaba neurotransmitter calm anxiety"},
+        {t:"Chamomile Gummies",u:"/sleep/best-chamomile-gummies/",k:"chamomile tea relax calm sleep"},
+        {t:"Keratin Gummies",u:"/beauty/keratin-gummies/",k:"keratin hair strength protein"},
+        {t:"Hyaluronic Acid Gummies",u:"/beauty/best-hyaluronic-acid-gummies/",k:"hyaluronic acid skin hydration moisture"},
+        {t:"Hair Skin Nails Gummies",u:"/beauty/best-hair-skin-nails-gummies/",k:"hair skin nails beauty all-in-one"},
+        {t:"Keto Gummies",u:"/weight-loss/best-keto-gummies/",k:"keto ketogenic bhb low carb"},
+        {t:"Metabolism Gummies",u:"/weight-loss/metabolism-gummies/",k:"metabolism fat burn thermogenic"},
+        {t:"Detox Gummies",u:"/weight-loss/best-detox-gummies/",k:"detox cleanse liver toxin"},
+        {t:"Electrolyte Gummies",u:"/sports/electrolyte-gummies/",k:"electrolyte hydration sodium potassium"},
+        {t:"Testosterone Gummies",u:"/sports/best-testosterone-gummies/",k:"testosterone men hormone boost"},
+        {t:"Calcium Gummies",u:"/vitamins/calcium-gummies/",k:"calcium bone health osteoporosis"},
+        {t:"Folic Acid Gummies",u:"/vitamins/folic-acid-gummies/",k:"folic acid folate methylfolate mthfr pregnancy"},
+        {t:"Iodine Gummies",u:"/vitamins/best-iodine-gummies/",k:"iodine thyroid kelp"},
+        {t:"Selenium Gummies",u:"/vitamins/best-selenium-gummies/",k:"selenium thyroid antioxidant"},
+        {t:"Vegan Gummy Bears",u:"/vegan-gummies/",k:"vegan gummy bears candy pectin plant"},
+      ];
+      var st=document.getElementById('search-toggle'),sb=document.getElementById('search-box'),si=document.getElementById('search-input'),sr=document.getElementById('search-results');
+      if(st&&sb){
+        st.addEventListener('click',function(e){e.stopPropagation();sb.classList.toggle('search-open');if(sb.classList.contains('search-open'))si.focus();});
+        si.addEventListener('input',function(){
+          var q=si.value.toLowerCase().trim();
+          if(q.length<2){sr.innerHTML='';return;}
+          var results=pages.filter(function(p){return p.t.toLowerCase().indexOf(q)>-1||p.k.indexOf(q)>-1;}).slice(0,8);
+          sr.innerHTML=results.map(function(r){return'<a href="'+r.u+'" class="search-result">'+r.t+'</a>';}).join('');
+        });
+        document.addEventListener('click',function(e){if(!sb.contains(e.target)&&!st.contains(e.target)){sb.classList.remove('search-open');}});
+      }
     });
   </script>
 </body>

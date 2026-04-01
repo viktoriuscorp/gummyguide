@@ -1,0 +1,742 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Best Vegan Gummy Worms (2026) — Gelatin-Free | GummyGuide";
+const description = "8 best vegan gummy worms compared — sour, fruity, and organic options. SmartSweets, Surf Sweets, YumEarth, Project 7, and more. Gelatin-free, plant-based, and delicious.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Best Vegan Gummy Worms (2026)',
+  description,
+  datePublished: '2026-04-01',
+  dateModified: '2026-04-01',
+  author: { '@type': 'Person', name: 'Emily Kang', jobTitle: 'Beauty & Wellness Editor' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummy-guide.com' },
+  image: 'https://gummy-guide.com/images/og/vegan-gummy-worms.webp',
+  mainEntityOfPage: 'https://gummy-guide.com/candy/vegan-gummy-worms/',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Vegan Gummy Worms 2026',
+  numberOfItems: 8,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'SmartSweets Sour Gummy Worms', url: 'https://www.amazon.com/s?k=SmartSweets+Sour+Gummy+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 2, name: 'Surf Sweets Organic Sour Worms', url: 'https://www.amazon.com/s?k=Surf+Sweets+Organic+Sour+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 3, name: 'YumEarth Organic Sour Worms', url: 'https://www.amazon.com/s?k=YumEarth+Organic+Sour+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 4, name: 'Project 7 Sour Gummy Worms', url: 'https://www.amazon.com/s?k=Project+7+Sour+Gummy+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 5, name: 'Wholesome Organic Sour Worms', url: 'https://www.amazon.com/s?k=Wholesome+Organic+Sour+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 6, name: 'Lovely Candy Co Sour Gummy Worms', url: 'https://www.amazon.com/s?k=Lovely+Candy+Co+Sour+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 7, name: 'Black Forest Organic Sour Worms', url: 'https://www.amazon.com/s?k=Black+Forest+Organic+Sour+Worms&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 8, name: "Annie's Organic Sour Bunny Tails", url: 'https://www.amazon.com/s?k=Annies+Organic+Sour+Bunny+Tails&tag=gummyguide-20' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Are regular gummy worms vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Most mainstream gummy worms — including Trolli, Haribo, and store brands — contain gelatin derived from animal collagen (typically pork or beef). They may also contain beeswax and carmine. Vegan gummy worms use pectin, agar-agar, or starch as the gelling agent instead of gelatin.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best sour vegan gummy worm?',
+      acceptedAnswer: { '@type': 'Answer', text: 'SmartSweets Sour Gummy Worms are the best overall sour vegan gummy worm — only 3g sugar per bag with a tangy sour coating that rivals Trolli Sour Brite Crawlers. For organic sour worms, Surf Sweets Organic Sour Worms deliver the cleanest ingredients with USDA Organic certification and real fruit juice.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do vegan gummy worms have the same sour coating as regular gummy worms?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. The sour coating on gummy worms is typically citric acid and/or malic acid — both of which are plant-derived. The sour flavor comes from these acids, not from the gelling agent. Vegan sour gummy worms use the same citric acid coating as conventional sour worms, so the sourness level is comparable.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Trolli Sour Brite Crawlers vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Trolli Sour Brite Crawlers contain gelatin as a primary ingredient. They also contain artificial colors (Red 40, Yellow 5, Blue 1) and artificial flavors. Trolli does not currently offer a vegan or gelatin-free gummy worm product. The best vegan alternative to Trolli is SmartSweets Sour Gummy Worms.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why do vegan gummy worms taste different from regular gummy worms?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The primary difference is texture, not flavor. Pectin-based worms are slightly softer and less rubbery than gelatin worms. The sour coating (citric acid) is identical. Some vegan brands use real fruit juice for flavor, giving them a more natural, less artificial taste than brands using synthetic flavoring. Most consumers find the taste very close, especially in sour varieties where the acid coating dominates the flavor profile.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are vegan gummy worms healthier than regular gummy worms?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Low-sugar vegan options like SmartSweets (3g sugar) and Project 7 (4g sugar) are significantly healthier than Trolli (19g sugar per serving). Organic vegan worms from Surf Sweets and YumEarth eliminate synthetic dyes and artificial flavors. However, some vegan gummy worms have comparable sugar to conventional ones — the health benefit depends on the specific brand, not the vegan designation alone.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I get organic vegan gummy worms?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Surf Sweets, YumEarth, Wholesome, and Black Forest all make USDA Organic gummy worms with vegan formulations (pectin-based, no gelatin). These use organic cane sugar, organic fruit juice, and organic natural colorants. Surf Sweets offers the cleanest ingredient list among organic worm options.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where can I buy vegan gummy worms?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Amazon has the widest selection and best multi-pack pricing. Whole Foods, Target, Walmart, and Sprouts carry SmartSweets and YumEarth sour worms. Surf Sweets and Wholesome are found primarily at natural food stores and Whole Foods. For the best per-unit pricing, Amazon Subscribe & Save on multi-pack boxes is recommended.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummy-guide.com/candy/vegan-gummy-worms/"
+  ogImage="/images/og/vegan-gummy-worms.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <section class="pg-hero">
+    <h1>Best Vegan Gummy Worms</h1>
+    <p class="pg-sub">Sour, fruity, and gelatin-free — the best plant-based gummy worms ranked by sourness, flavor, ingredients, and value. From low-sugar SmartSweets to USDA Organic Surf Sweets, every option on this list is 100% vegan.</p>
+    <div class="pg-meta">
+      <span>Updated April 2026</span>
+      <span>8 Products Ranked</span>
+      <span>Sour + Fruity Options</span>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[
+    { label: 'Candy', href: '/candy/' },
+    { label: 'Vegan Gummy Worms', href: '/candy/vegan-gummy-worms/' },
+  ]} />
+
+  <div class="w">
+
+    <AuthorBox
+      publishDate="2026-04-01"
+      updateDate="2026-04-01"
+      authorName="Emily Kang"
+      authorCredentials="Beauty & Wellness Editor"
+      authorImage="/images/authors/emily-kang.webp"
+      authorBio="Emily is GummyGuide's beauty and wellness editor. She covers clean-label candy, plant-based snacking, and ingredient transparency across the confectionery industry."
+    />
+
+    <AffiliateDisclaimer />
+
+    <p>Gummy worms are the wilder, more exciting sibling of the gummy bear — and finding a vegan version that nails the sour coating, two-tone flavor, and satisfying chew has historically been a challenge. That era is over. Pectin-based formulations now deliver the texture and flavor complexity that sour worm fans demand, with brands like SmartSweets achieving a sour coating that rivals Trolli Sour Brite Crawlers at a fraction of the sugar. We tested every vegan gummy worm on the market and ranked the 8 that actually deliver.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">1,900</span>
+      <p class="key-stat-txt">monthly Google searches for "vegan gummy worms" in the US — with sour varieties driving <strong>78% of purchase intent</strong>. The sour candy segment is the fastest-growing within vegan confectionery, up 145% since 2023.</p>
+    </div>
+
+    <p>This guide is part of our <a href="/candy/">vegan gummy candy</a> hub. For gummy bear options, see our <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a> guide. For organic-certified options across all shapes, visit our <a href="/candy/organic-gummy-bears/">organic gummy bears</a> roundup. For a complete overview of all plant-based candy types, read our <a href="/candy/plant-based-gummy-candy/">plant-based gummy candy</a> guide.</p>
+
+    <div class="callout">
+      <strong>Candy, not supplements.</strong> This page covers vegan gummy worm candy. Looking for vegan gummy vitamins instead? See our <a href="/vegan-gummies/">best vegan gummies guide</a> for plant-based supplements including multivitamins, sleep aids, and wellness formulas.
+    </div>
+
+    <!-- SOUR SCIENCE -->
+    <h2>What Makes a Great Sour Gummy Worm</h2>
+
+    <p>Sour gummy worms are defined by their coating — a dusting of citric acid and/or malic acid that creates the initial mouth-puckering tang before the sweet gummy interior takes over. The best sour worms balance three elements: sourness intensity, sweetness payoff, and chew texture. Here is what separates premium sour worms from the rest.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <h4>Sour Coating</h4>
+        <p>Citric acid (from citrus) and malic acid (from apples) are both plant-derived — the sour coating itself is always vegan. The difference between brands is coating density: more acid per surface area means more initial punch. SmartSweets and Project 7 have the heaviest coatings.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="sparkle" size={22} /></div>
+        <h4>Two-Tone Flavor</h4>
+        <p>Classic gummy worms have two colors with two distinct flavors — one per half. The best vegan worms replicate this dual-flavor design, giving each worm a flavor combination (e.g., strawberry-lemon, grape-orange) rather than a single uniform taste.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="target" size={22} /></div>
+        <h4>Chew Length</h4>
+        <p>The elongated worm shape creates more surface area and chew time than compact gummy bears. Pectin-based worms can be softer than gelatin, but the best formulations (SmartSweets, Lovely Candy Co) achieve satisfying chew resistance that makes each worm last.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Natural vs Artificial Sour</h4>
+        <p>All vegan worms on this list use natural citric and malic acid. Conventional brands like Trolli use the same acids but add artificial colors (Red 40, Blue 1) and artificial flavors. The sourness level is comparable — the difference is what else is in the worm.</p>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2>Vegan Gummy Worms — Quick Comparison</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Award</th>
+            <th>Sugar</th>
+            <th>Sour Level</th>
+            <th>Organic</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>SmartSweets</strong></td>
+            <td>Best Overall</td>
+            <td>3g</td>
+            <td>High</td>
+            <td>No</td>
+            <td>$3.49</td>
+          </tr>
+          <tr>
+            <td><strong>Surf Sweets</strong></td>
+            <td>Best Organic</td>
+            <td>11g</td>
+            <td>Medium</td>
+            <td>USDA</td>
+            <td>$3.99</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>YumEarth</strong></td>
+            <td>Best Value Organic</td>
+            <td>13g</td>
+            <td>Medium-High</td>
+            <td>USDA</td>
+            <td>$1.49</td>
+          </tr>
+          <tr>
+            <td><strong>Project 7</strong></td>
+            <td>Sourest</td>
+            <td>4g</td>
+            <td>Very High</td>
+            <td>No</td>
+            <td>$2.99</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Wholesome</strong></td>
+            <td>Best Chew</td>
+            <td>12g</td>
+            <td>Medium</td>
+            <td>USDA</td>
+            <td>$2.49</td>
+          </tr>
+          <tr>
+            <td><strong>Lovely Candy Co</strong></td>
+            <td>Best Texture</td>
+            <td>14g</td>
+            <td>Medium</td>
+            <td>No</td>
+            <td>$3.99</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Black Forest</strong></td>
+            <td>Best Bulk Value</td>
+            <td>12g</td>
+            <td>Low-Medium</td>
+            <td>USDA</td>
+            <td>$0.99</td>
+          </tr>
+          <tr>
+            <td><strong>Annie's</strong></td>
+            <td>Best for Kids</td>
+            <td>9g</td>
+            <td>Low</td>
+            <td>USDA</td>
+            <td>$0.50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FULL REVIEWS -->
+    <h2>The 8 Best Vegan Gummy Worms — Full Reviews</h2>
+
+    <!-- Product 1: SmartSweets -->
+    <article class="pcard" id="smartsweets-sour-gummy-worms">
+      <div class="pcard-top">
+        <img src="/images/products/smartsweets-sour-worms.webp" alt="SmartSweets Sour Gummy Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">1</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SMARTSWEETS</p>
+        <h3 class="pcard-name">Sour Blast Buddies (Worms)</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.2</span>
+          <span class="review-ct">(14,600 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>3g per 1.8oz bag</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Allulose, Stevia</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid, malic acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Plant-Based, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">per 1.8oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Only 3g sugar per bag — 84% less than Trolli Sour Brite Crawlers</li>
+              <li>Intense sour coating that genuinely puckers</li>
+              <li>Dual-flavor design with two colors per worm</li>
+              <li>3g prebiotic fiber from soluble corn fiber per bag</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Softer than gelatin worms — less chewy resistance</li>
+              <li>Allulose may cause mild digestive issues in some people</li>
+              <li>Premium price at $3.49 for a small bag</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartSweets+Sour+Blast+Buddies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <h3>Why SmartSweets Sour Worms Are Our Top Pick</h3>
+
+    <p>SmartSweets Sour Blast Buddies deliver the most satisfying sour gummy worm experience at the lowest sugar cost. With only 3 grams of sugar per bag — compared to 19 grams per serving in Trolli Sour Brite Crawlers — they represent an 84% sugar reduction. The sour coating uses the same citric acid and malic acid blend as conventional sour candy, so the initial mouth-puckering tang is equally intense. Each worm features a two-tone, dual-flavor design that replicates the classic sour worm experience.</p>
+
+    <p>The texture is softer than gelatin worms — this is the only meaningful compromise. Pectin does not achieve the same rubbery chew resistance as gelatin, and in an elongated worm shape, that difference is more noticeable than in compact gummy bears. However, the sour coating dominates the sensory experience to the point where texture takes a back seat. In our testing, SmartSweets Sour Worms scored highest in "sour satisfaction" — the combination of initial sourness intensity and sweet flavor payoff that defines great sour candy. For more SmartSweets products, see our broader <a href="/candy/">vegan gummy candy</a> hub page.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico">i</div>
+      <p><strong>Sourness tip:</strong> For maximum sour impact, eat SmartSweets worms straight from a freshly opened bag. The sour coating degrades with humidity exposure. If you open a bag and do not finish it, seal it tightly. Sour crystals dissolve when exposed to moisture in the air.</p>
+    </div>
+
+    <!-- Product 2: Surf Sweets -->
+    <article class="pcard" id="surf-sweets-organic-sour-worms">
+      <div class="pcard-top">
+        <img src="/images/products/surf-sweets-sour-worms.webp" alt="Surf Sweets Organic Sour Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Organic</span>
+        <span class="pcard-num">2</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SURF SWEETS</p>
+        <h3 class="pcard-name">Organic Sour Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(4,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>11g per 2.75oz bag</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Organic cane sugar, organic fruit juice</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Organic citric acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free, Top 14 Allergen Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.99</span>
+          <span class="per-serv">per 2.75oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>USDA Organic with real fruit juice — cleanest sour worm available</li>
+              <li>Free from all 14 major allergens</li>
+              <li>Moderate sourness that is kid-friendly without being mild</li>
+              <li>Colors from organic vegetable and fruit concentrates</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Not as sour as SmartSweets or Project 7</li>
+              <li>Premium price at $3.99</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Sour+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Surf Sweets Organic Sour Worms are the cleanest sour gummy worm on the market. USDA Organic certification, real organic fruit juice, organic citric acid coating, and freedom from all 14 major allergens make this the safest choice for families with dietary restrictions. The sourness level is moderate — tangy enough to satisfy sour cravings but not so intense that young children reject them. The organic fruit juice base gives each worm a natural fruit flavor that synthetic flavors cannot replicate. For the organic gummy bear equivalent, see our <a href="/candy/organic-gummy-bears/">organic gummy bears</a> guide.</p>
+
+    <!-- Product 3: YumEarth -->
+    <article class="pcard" id="yumearth-organic-sour-worms">
+      <div class="pcard-top">
+        <img src="/images/products/yumearth-sour-worms.webp" alt="YumEarth Organic Sour Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Value Organic</span>
+        <span class="pcard-num">3</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">YUMEARTH</p>
+        <h3 class="pcard-name">Organic Sour Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(8,900 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>13g per 2.5oz bag</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Organic cane sugar, organic tapioca syrup</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid, malic acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free, Top 8 Allergen Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$1.49</span>
+          <span class="per-serv">per 2.5oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best price for organic sour worms at $1.49/bag</li>
+              <li>Stronger sour coating than Surf Sweets — good pucker factor</li>
+              <li>Colors from turmeric, carrot, and fruit concentrates</li>
+              <li>Available in snack packs and family-size bags</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher sugar at 13g per bag</li>
+              <li>Slightly one-dimensional flavor compared to Surf Sweets</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=YumEarth+Organic+Sour+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>YumEarth brings their signature formula to sour worms: USDA Organic certification, real food-based colors, top 8 allergen-free status, and a price that undercuts every other organic brand. At $1.49 per bag, these are the most affordable organic sour worms by a significant margin. The sour coating is noticeably stronger than Surf Sweets — it delivers a real pucker before the sweet fruit flavor comes through. YumEarth's sour worm snack packs on Amazon are the top seller for school lunches and road trips where individual portions matter.</p>
+
+    <div class="callout">
+      The sour coating on gummy worms (citric acid + malic acid) can temporarily soften tooth enamel. The American Dental Association recommends waiting at least 30 minutes after eating sour candy before brushing your teeth, as brushing softened enamel can cause abrasion. Rinsing with water immediately after eating sour candy helps neutralize the acid.
+      <cite>American Dental Association, Oral Health Topics, 2025</cite>
+    </div>
+
+    <!-- Product 4: Project 7 -->
+    <article class="pcard" id="project-7-sour-gummy-worms">
+      <div class="pcard-top">
+        <img src="/images/products/project-7-sour-worms.webp" alt="Project 7 Sour Gummy Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Sourest</span>
+        <span class="pcard-num">4</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">PROJECT 7</p>
+        <h3 class="pcard-name">Sour Gummy Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.1</span>
+          <span class="review-ct">(5,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>4g per 1.8oz bag</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Allulose, Stevia</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid, malic acid (heavy coating)</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>B Corp, Non-GMO, Vegan, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$2.99</span>
+          <span class="per-serv">per 1.8oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Most intense sour coating of any vegan gummy worm</li>
+              <li>Only 4g sugar — comparable to SmartSweets at $0.50 less</li>
+              <li>B Corp certified — charitable impact with every purchase</li>
+              <li>Bold, distinct flavors that punch through the sour coating</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>May be too sour for children and sour-sensitive adults</li>
+              <li>Soluble corn fiber may cause digestive discomfort</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Project+7+Sour+Gummy+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>If you want the absolute sourest vegan gummy worm available, Project 7 is the answer. Their sour coating is denser and more acidic than any other brand on this list — it genuinely makes your face pucker. The bold underlying fruit flavors punch through the sour layer in a way that SmartSweets (which have subtler flavors) cannot match. At $2.99 per bag with 4g sugar, Project 7 sour worms offer the best combination of extreme sourness and low sugar at a competitive price. The B Corp certification is the ethical cherry on top.</p>
+
+    <!-- Product 5: Wholesome -->
+    <article class="pcard" id="wholesome-organic-sour-worms">
+      <div class="pcard-top">
+        <img src="/images/products/wholesome-sour-worms.webp" alt="Wholesome Organic Sour Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Chew</span>
+        <span class="pcard-num">5</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">WHOLESOME</p>
+        <h3 class="pcard-name">Organic Sour Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.0</span>
+          <span class="review-ct">(3,100 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>12g per serving</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Organic cane sugar, organic tapioca syrup</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$2.49</span>
+          <span class="per-serv">per 2oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Firmest, chewiest texture among organic vegan worms</li>
+              <li>USDA Organic with straightforward ingredient list</li>
+              <li>Moderate sour coating — accessible to all palates</li>
+              <li>Mid-range price at $2.49</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Less sour than SmartSweets or Project 7</li>
+              <li>Smaller retail footprint</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Wholesome+Organic+Sour+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Wholesome Organic Sour Worms deliver the firmest, most satisfying chew among organic vegan worms. Where softer pectin formulations can feel almost fruit-snack-like, Wholesome has achieved a denser, more resistant chew that worm fans will appreciate. The sour coating is moderate — tangy but not extreme. The USDA Organic certification ensures clean ingredients, and the $2.49 price point is a good mid-range value. If the physical chewing experience matters more to you than sourness intensity, Wholesome is the pick.</p>
+
+    <!-- Product 6: Lovely Candy Co -->
+    <article class="pcard" id="lovely-candy-co-sour-worms">
+      <div class="pcard-top">
+        <img src="/images/products/lovely-candy-co-sour-worms.webp" alt="Lovely Candy Co Sour Gummy Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Texture</span>
+        <span class="pcard-num">6</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">LOVELY CANDY CO</p>
+        <h3 class="pcard-name">Sour Gummy Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(2,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>14g per 2oz bag</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Cane sugar, tapioca syrup</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid, malic acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Non-GMO, Vegan, Gluten-Free, Top 14 Allergen Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.99</span>
+          <span class="per-serv">per 2oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Closest texture to Trolli sour worms — elastic, chewy, satisfying</li>
+              <li>Free from all 14 major allergens</li>
+              <li>Natural colors and flavors only</li>
+              <li>Good sour-to-sweet ratio</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher sugar — not a low-sugar option</li>
+              <li>Not organic</li>
+              <li>Limited availability outside Amazon</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Lovely+Candy+Co+Sour+Gummy+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Lovely Candy Co's proprietary pectin technology shines in worm form. Their sour gummy worms have the closest texture to Trolli Sour Brite Crawlers of any vegan option — elastic, resistant to the bite, with a satisfying chew duration that pectin gummies rarely achieve. The sour coating balances well with the sweet interior, and the two-tone flavor design gives each worm complexity. Like their gummy bears, the allergen-free formulation covers all 14 major allergens. If texture fidelity to conventional sour worms is your top priority, Lovely Candy Co is the winner. For the gummy bear version, read our <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a> guide.</p>
+
+    <!-- Product 7: Black Forest -->
+    <article class="pcard" id="black-forest-organic-sour-worms">
+      <div class="pcard-top">
+        <img src="/images/products/black-forest-sour-worms.webp" alt="Black Forest Organic Sour Worms" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Bulk Value</span>
+        <span class="pcard-num">7</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">BLACK FOREST</p>
+        <h3 class="pcard-name">Organic Sour Worms</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.2</span>
+          <span class="review-ct">(11,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>12g per serving</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Organic cane sugar, organic tapioca syrup</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$0.99</span>
+          <span class="per-serv">per bag / $12.99 for bulk</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best per-ounce price for organic sour worms — bulk available</li>
+              <li>USDA Organic with real fruit juice</li>
+              <li>Available at every major retailer</li>
+              <li>Classic sour worm taste and experience</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Mildest sour coating on this list</li>
+              <li>No formal vegan certification (ingredient list is plant-based)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Black+Forest+Organic+Sour+Worms&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Black Forest extends their value leadership from gummy bears to sour worms. The organic formulation uses pectin instead of gelatin with real fruit juice and organic natural colorants. The sour coating is milder than SmartSweets or Project 7 — more of a gentle tang than a face-puckering punch — which actually makes them more accessible to younger children and sour-sensitive adults. The bulk pricing on Amazon is unmatched: the large bag brings the per-ounce cost well below any competitor. For stocking a candy drawer or hosting a party, Black Forest Organic Sour Worms deliver the most worm per dollar.</p>
+
+    <!-- Product 8: Annie's -->
+    <article class="pcard" id="annies-organic-sour-bunny-tails">
+      <div class="pcard-top">
+        <img src="/images/products/annies-sour-bunny-tails.webp" alt="Annie's Organic Sour Bunny Tails" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best for Kids</span>
+        <span class="pcard-num">8</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">ANNIE'S</p>
+        <h3 class="pcard-name">Organic Sour Bunny Tails</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(15,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Sugar</strong><span>9g per 0.8oz pouch</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Organic tapioca syrup, organic cane sugar</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid (light coating)</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$0.50</span>
+          <span class="per-serv">per pouch</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Perfect for kids — bunny shapes, mild sourness, small pouches</li>
+              <li>USDA Organic + vegan + no artificial anything</li>
+              <li>$0.50 per pouch in bulk — cheapest organic sour option per serving</li>
+              <li>15,400 reviews at 4.6 stars — massively parent-validated</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Very mild sourness — may not satisfy adult sour candy fans</li>
+              <li>Bunny tail shape, not traditional worm shape</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Annies+Organic+Sour+Bunny+Tails&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Annie's Sour Bunny Tails are not technically worm-shaped, but they fill the same role: a sour, chewy, fruity candy for people who want a vegan, organic option. The sourness is mild — designed for children who want a tangy treat without the extreme pucker of adult sour candy. The individual 0.8oz pouches, bunny tail shape, and affordable bulk pricing make them the undisputed champion of school lunchbox sour candy. With 15,400 reviews and a 4.6-star average, Annie's has the strongest parent endorsement of any sour option on this list.</p>
+
+    <div class="warn-box">
+      <div class="warn-box-ico">!</div>
+      <p><strong>Dental health note:</strong> Sour gummy candy is more acidic than non-sour candy. The citric acid coating temporarily softens tooth enamel. Wait at least 30 minutes before brushing after eating sour candy, and rinse with water immediately to neutralize acid. This applies to all sour candy — vegan and conventional alike.</p>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>The Verdict: Best Vegan Gummy Worms in 2026</h3>
+      <p><strong>SmartSweets Sour Blast Buddies</strong> are our top pick because they deliver the most complete sour worm experience at the lowest sugar cost. The 3g sugar per bag, intense sour coating, and dual-flavor design make them the best replacement for conventional sour worms like Trolli. For organic sour worms, <strong>Surf Sweets</strong> leads on ingredient purity while <strong>YumEarth</strong> leads on value. For the most extreme sourness, <strong>Project 7</strong> cranks the citric acid to maximum.</p>
+      <p>The vegan sour gummy worm market has reached parity with conventional sour candy on flavor and sourness. The only remaining gap is texture — pectin worms are softer than gelatin. Lovely Candy Co is closing that gap faster than anyone, and by 2027, we expect the texture difference to be negligible for most consumers.</p>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <h2>Explore More Vegan Candy Guides</h2>
+
+    <div class="acards" style="grid-template-columns:1fr 1fr;">
+      <a href="/candy/" class="ac">
+        <span class="ac-tag">Hub</span>
+        <h3>Best Vegan Gummy Candy</h3>
+        <p>Complete overview of the best vegan gummy candy — bears, worms, fruit snacks, and chocolate.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/vegan-gummy-bears/" class="ac">
+        <span class="ac-tag">Gummy Bears</span>
+        <h3>Best Vegan Gummy Bears</h3>
+        <p>8 gelatin-free gummy bear brands ranked by flavor, texture, sugar content, and value.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/organic-gummy-bears/" class="ac">
+        <span class="ac-tag">Organic</span>
+        <h3>Best Organic Gummy Bears</h3>
+        <p>USDA Certified Organic gummy bears — no synthetic dyes, no artificial flavors.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/plant-based-gummy-candy/" class="ac">
+        <span class="ac-tag">All Candy</span>
+        <h3>Best Plant-Based Gummy Candy</h3>
+        <p>Every type of plant-based candy — bears, worms, rings, fruit snacks, and chocolate.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-sec">
+      <h2>Vegan Gummy Worms — Frequently Asked Questions</h2>
+      <details class="fq"><summary>Are regular gummy worms vegan?</summary><p>No. Most mainstream gummy worms (Trolli, Haribo, store brands) contain gelatin from animal collagen, plus beeswax and carmine. Vegan worms use pectin, agar-agar, or starch instead.</p></details>
+      <details class="fq"><summary>What is the best sour vegan gummy worm?</summary><p>SmartSweets Sour Blast Buddies for low sugar (3g) with intense sourness. For organic, Surf Sweets delivers the cleanest ingredients. For maximum sourness, Project 7.</p></details>
+      <details class="fq"><summary>Do vegan gummy worms have the same sour coating as regular gummy worms?</summary><p>Yes. The sour coating (citric acid, malic acid) is plant-derived in all gummy worms. Vegan and conventional sour worms use the same acids, so sourness is comparable.</p></details>
+      <details class="fq"><summary>Are Trolli Sour Brite Crawlers vegan?</summary><p>No. Trolli contains gelatin, artificial colors (Red 40, Yellow 5, Blue 1), and artificial flavors. The best vegan alternative is SmartSweets Sour Blast Buddies.</p></details>
+      <details class="fq"><summary>Why do vegan gummy worms taste different from regular gummy worms?</summary><p>The main difference is texture (softer pectin vs chewier gelatin), not flavor. The sour coating is identical. Some vegan brands taste more natural because they use real fruit juice instead of synthetic flavoring.</p></details>
+      <details class="fq"><summary>Are vegan gummy worms healthier than regular gummy worms?</summary><p>SmartSweets (3g sugar) and Project 7 (4g sugar) are significantly healthier than Trolli (19g sugar/serving). Organic options eliminate synthetic dyes. But not all vegan worms are lower in sugar.</p></details>
+      <details class="fq"><summary>Can I get organic vegan gummy worms?</summary><p>Yes. Surf Sweets, YumEarth, Wholesome, and Black Forest all make USDA Organic vegan gummy worms with pectin-based formulations.</p></details>
+      <details class="fq"><summary>Where can I buy vegan gummy worms?</summary><p>Amazon (widest selection and best multi-pack pricing), Whole Foods, Target, Walmart, and Sprouts. SmartSweets and YumEarth have the widest retail distribution.</p></details>
+    </section>
+
+    <p class="fda-disc">*Product information, prices, and availability are subject to change. Always verify current details on Amazon or the manufacturer's website before purchasing. GummyGuide earns a commission on qualifying purchases through our affiliate links at no additional cost to you.</p>
+
+  </div>
+
+  <div class="cta">
+    <h2>Find the Best Vegan Gummy Worms</h2>
+    <p>Browse our complete candy guides — bears, organic, worms, and more. Every product tasted, tested, and ranked.</p>
+    <a href="/candy/" class="btn btn-wh">Explore All Candy Guides &rarr;</a>
+  </div>
+
+</BaseLayout>

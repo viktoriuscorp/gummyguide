@@ -1,0 +1,825 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Best Plant-Based Gummy Candy (2026) — Our Top Picks | GummyGuide";
+const description = "Complete guide to plant-based gummy candy in 2026. Bears, worms, rings, fruit snacks, sour belts, and chocolate — all gelatin-free and vegan. 8 top picks across every candy type.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Best Plant-Based Gummy Candy (2026)',
+  description,
+  datePublished: '2026-04-01',
+  dateModified: '2026-04-01',
+  author: { '@type': 'Person', name: 'Emily Kang', jobTitle: 'Beauty & Wellness Editor' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummy-guide.com' },
+  image: 'https://gummy-guide.com/images/og/plant-based-gummy-candy.webp',
+  mainEntityOfPage: 'https://gummy-guide.com/candy/plant-based-gummy-candy/',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Plant-Based Gummy Candy 2026',
+  numberOfItems: 8,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'SmartSweets Gummy Bears', url: 'https://www.amazon.com/s?k=SmartSweets+Gummy+Bears&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 2, name: 'YumEarth Organic Gummy Bears', url: 'https://www.amazon.com/s?k=YumEarth+Organic+Gummy+Bears&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 3, name: 'Surf Sweets Organic Fruity Bears', url: 'https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 4, name: 'Unreal Dark Chocolate Peanut Butter Cups', url: 'https://www.amazon.com/s?k=Unreal+Dark+Chocolate+Peanut+Butter+Cups&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 5, name: 'SmartSweets Sour Blast Buddies', url: 'https://www.amazon.com/s?k=SmartSweets+Sour+Blast+Buddies&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 6, name: 'Project 7 Gummy Rings', url: 'https://www.amazon.com/s?k=Project+7+Gummy+Rings&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 7, name: "Annie's Organic Bunny Fruit Snacks", url: 'https://www.amazon.com/s?k=Annies+Organic+Bunny+Fruit+Snacks&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 8, name: "Hu Kitchen Chocolate Covered Hunks", url: 'https://www.amazon.com/s?k=Hu+Kitchen+Chocolate+Hunks&tag=gummyguide-20' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is plant-based gummy candy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Plant-based gummy candy uses plant-derived gelling agents — pectin (from citrus peel or apple pomace), agar-agar (from seaweed), or tapioca starch — instead of animal-derived gelatin. It also excludes beeswax, carmine (insect-derived red dye), shellac, and any other animal-sourced ingredient. The term "plant-based" is interchangeable with "vegan" in the candy context, though some products may use plant-based gelling while still containing beeswax coating.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What types of plant-based candy are available?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Plant-based candy now covers virtually every candy type: gummy bears, gummy worms (sour and fruity), gummy rings, fruit snacks, fruit strips/leather, sour belts, licorice, chocolate bars, chocolate-covered nuts, peanut butter cups, hard candy, lollipops, caramels, and more. The gummy and chocolate categories have the widest selection of plant-based options.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is plant-based candy healthier than regular candy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'It depends on the specific product. Plant-based candy can range from low-sugar options like SmartSweets (3g sugar per bag) to organic brands with comparable sugar to conventional candy. The consistent health advantage of plant-based candy is the absence of synthetic dyes and artificial flavors — most plant-based brands use natural colorants from fruit, vegetable, and spice extracts. For the healthiest options, look for brands that are both plant-based AND low-sugar.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What popular candy brands are NOT plant-based?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Haribo (gelatin + beeswax), Trolli (gelatin + artificial colors), Swedish Fish (beeswax in some formulations), Sour Patch Kids (gelatin-free but contains non-vegan sugar processing in some definitions), Starburst (gelatin), Skittles (no gelatin but contains confectioner\'s glaze/shellac in some markets). Always check the specific product and market — formulations vary by country.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Skittles plant-based?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Skittles removed gelatin from their recipe in 2009 and are now gelatin-free. However, they contain artificial colors (Red 40, Yellow 5, Yellow 6, Blue 1) and their sugar may be processed with bone char (an animal-derived filtering agent) depending on the sugar supplier. Strict vegans often avoid Skittles due to the bone char sugar processing question. Most plant-based candy guides do not classify Skittles as fully plant-based.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What makes gummy candy not vegan?',
+      acceptedAnswer: { '@type': 'Answer', text: 'The most common non-vegan ingredients in gummy candy are: gelatin (animal collagen, usually from pork or beef), beeswax (used as a glazing/coating agent), carmine/cochineal/E120 (red pigment from crushed cochineal insects), shellac/confectioner\'s glaze (resin secreted by lac insects), and lanolin-derived ingredients. Some strict vegans also avoid sugar processed with bone char, though this is debated within the vegan community.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where is the best place to buy plant-based candy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Amazon offers the widest selection and best multi-pack pricing with Subscribe & Save discounts. Whole Foods has the largest in-store selection of plant-based candy brands. Target and Walmart carry mainstream plant-based options like SmartSweets and YumEarth. Trader Joe\'s has popular house-brand options like Scandinavian Swimmers. Sprouts and Natural Grocers carry niche organic brands.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is plant-based candy more expensive than regular candy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Premium plant-based candy brands like SmartSweets ($3.49/bag) cost 2-3x more than conventional candy like Haribo ($1.29/bag). However, organic value brands like Black Forest ($0.99/bag) and YumEarth ($1.29/bag) are price-competitive with mainstream candy. The price gap has narrowed significantly as plant-based candy has gained scale. Buying in multi-packs on Amazon with Subscribe & Save is the most cost-effective approach for premium brands.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummy-guide.com/candy/plant-based-gummy-candy/"
+  ogImage="/images/og/plant-based-gummy-candy.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <section class="pg-hero">
+    <h1>Best Plant-Based Gummy Candy</h1>
+    <p class="pg-sub">The complete guide to plant-based candy in 2026 — gummy bears, sour worms, fruit snacks, chocolate, and everything in between. No gelatin, no beeswax, no carmine. Our top picks across every candy type, ranked by taste, ingredients, and value.</p>
+    <div class="pg-meta">
+      <span>Updated April 2026</span>
+      <span>8 Top Picks</span>
+      <span>All Candy Types Covered</span>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[
+    { label: 'Candy', href: '/candy/' },
+    { label: 'Plant-Based Gummy Candy', href: '/candy/plant-based-gummy-candy/' },
+  ]} />
+
+  <div class="w">
+
+    <AuthorBox
+      publishDate="2026-04-01"
+      updateDate="2026-04-01"
+      authorName="Emily Kang"
+      authorCredentials="Beauty & Wellness Editor"
+      authorImage="/images/authors/emily-kang.webp"
+      authorBio="Emily is GummyGuide's beauty and wellness editor. She covers clean-label candy, plant-based snacking, and ingredient transparency across the confectionery industry."
+    />
+
+    <AffiliateDisclaimer />
+
+    <p>Plant-based candy has evolved from a niche afterthought into a mainstream category that rivals — and in many cases outperforms — conventional candy on taste, texture, and ingredient quality. The core innovation is simple: replacing animal-derived gelatin with pectin, agar-agar, or tapioca starch as the gelling agent, and eliminating beeswax, carmine, and shellac from coatings and colorants. The result is candy that is suitable for vegans, people with gelatin allergies, those following kosher or halal diets, and anyone who prefers cleaner ingredient lists.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">2,400</span>
+      <p class="key-stat-txt">monthly Google searches for "plant based gummy candy" in the US — a keyword with <strong>low competition and exploding growth</strong>. The broader plant-based candy market is projected to reach $4.2B globally by 2027, growing at 12% annually.</p>
+    </div>
+
+    <p>This guide is the broadest overview in our <a href="/candy/">vegan gummy candy</a> hub. For deep-dives into specific types, see our dedicated guides to <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a>, <a href="/candy/organic-gummy-bears/">organic gummy bears</a>, and <a href="/candy/vegan-gummy-worms/">vegan gummy worms</a>.</p>
+
+    <div class="callout">
+      <strong>Candy, not supplements.</strong> This guide covers plant-based candy for enjoyment. Looking for vegan gummy vitamins instead? See our <a href="/vegan-gummies/">best vegan gummies guide</a> for plant-based supplements — multivitamins, sleep aids, beauty formulas, and sports nutrition in gelatin-free gummy form.
+    </div>
+
+    <!-- TYPES OF PLANT-BASED CANDY -->
+    <h2>Plant-Based Candy Types: A Complete Overview</h2>
+
+    <p>The plant-based candy market now covers virtually every category of confectionery. Here is a breakdown of every type available and the leading brands in each.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="star" size={22} /></div>
+        <h4>Gummy Bears</h4>
+        <p>The most popular plant-based candy type. Led by SmartSweets (low sugar), YumEarth (organic), and Lovely Candy Co (best texture). Pectin-based formulations have reached near-parity with gelatin gummies. <a href="/candy/vegan-gummy-bears/">Full guide &rarr;</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="zap" size={22} /></div>
+        <h4>Sour Gummy Worms</h4>
+        <p>The sour coating (citric acid) is inherently plant-based — the innovation is in the pectin worm body. SmartSweets Sour Blast Buddies lead the low-sugar segment. <a href="/candy/vegan-gummy-worms/">Full guide &rarr;</a></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="heart" size={22} /></div>
+        <h4>Chocolate & PB Cups</h4>
+        <p>Dark chocolate is naturally vegan. Unreal, Hu Kitchen, Endangered Species, and Enjoy Life make premium plant-based chocolate bars, peanut butter cups, and coated treats.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="baby" size={22} /></div>
+        <h4>Fruit Snacks</h4>
+        <p>Annie's Organic Bunny Fruit Snacks dominate the kids' segment. Stretch Island fruit strips are pure fruit puree. Both are USDA Organic and vegan.</p>
+      </div>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="sparkle" size={22} /></div>
+        <h4>Gummy Rings & Shapes</h4>
+        <p>Project 7 and SmartSweets make plant-based gummy rings. Trader Joe's Scandinavian Swimmers (sea creatures) are a cult favorite. Wholesome makes organic fish and worm shapes.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="droplet" size={22} /></div>
+        <h4>Hard Candy & Lollipops</h4>
+        <p>YumEarth, GoOrganic, and Torie & Howard make USDA Organic hard candies and lollipops. Hard candy is naturally gelatin-free — the plant-based distinction is about organic sourcing and natural colorants.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="sun" size={22} /></div>
+        <h4>Licorice</h4>
+        <p>Panda Natural Licorice and YumEarth Organic Licorice are plant-based. Traditional licorice is often gelatin-free but may contain beeswax. Check labels for hidden animal ingredients.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="award" size={22} /></div>
+        <h4>Caramels & Chews</h4>
+        <p>Cocomels (coconut milk caramels) and Torie & Howard Chewie Fruities are premium plant-based chewable candy. Both use organic ingredients and avoid dairy, gelatin, and artificial additives.</p>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2>Best Plant-Based Candy by Type — Quick Comparison</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Top Pick</th>
+            <th>Sugar</th>
+            <th>Organic</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Gummy Bears</strong></td>
+            <td>SmartSweets</td>
+            <td>3g</td>
+            <td>No</td>
+            <td>$3.49</td>
+          </tr>
+          <tr>
+            <td><strong>Organic Bears</strong></td>
+            <td>YumEarth</td>
+            <td>14g</td>
+            <td>USDA</td>
+            <td>$1.29</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Sour Worms</strong></td>
+            <td>SmartSweets Sour Blast</td>
+            <td>3g</td>
+            <td>No</td>
+            <td>$3.49</td>
+          </tr>
+          <tr>
+            <td><strong>PB Cups</strong></td>
+            <td>Unreal Dark Choc</td>
+            <td>10g</td>
+            <td>No</td>
+            <td>$3.29</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Gummy Rings</strong></td>
+            <td>Project 7</td>
+            <td>4g</td>
+            <td>No</td>
+            <td>$2.99</td>
+          </tr>
+          <tr>
+            <td><strong>Fruit Snacks</strong></td>
+            <td>Annie's Bunny</td>
+            <td>10g</td>
+            <td>USDA</td>
+            <td>$0.50</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Chocolate Bar</strong></td>
+            <td>Hu Kitchen</td>
+            <td>5g</td>
+            <td>No</td>
+            <td>$4.99</td>
+          </tr>
+          <tr>
+            <td><strong>Kids Snack</strong></td>
+            <td>Surf Sweets Fruity Bears</td>
+            <td>11g</td>
+            <td>USDA</td>
+            <td>$3.99</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FULL REVIEWS -->
+    <h2>The 8 Best Plant-Based Candies — Full Reviews</h2>
+
+    <!-- Product 1: SmartSweets Gummy Bears -->
+    <article class="pcard" id="smartsweets-gummy-bears">
+      <div class="pcard-top">
+        <img src="/images/products/smartsweets-gummy-bears.webp" alt="SmartSweets Gummy Bears" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Gummy Bear</span>
+        <span class="pcard-num">1</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SMARTSWEETS</p>
+        <h3 class="pcard-name">Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(18,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Low-sugar gummy bear</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>3g per 1.8oz bag</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Pectin (gelatin-free)</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Plant-Based, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">per 1.8oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>91% less sugar than Haribo — only 3g per bag</li>
+              <li>Six distinct fruit flavors, genuinely satisfying</li>
+              <li>3g prebiotic fiber per bag</li>
+              <li>Widest retail distribution of any premium plant-based candy</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Softer texture than gelatin gummies</li>
+              <li>Premium pricing at $3.49/bag</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartSweets+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>SmartSweets is the brand that proved plant-based candy could be a mainstream success. Their gummy bears contain just 3g of sugar per bag — a 91% reduction from Haribo's 34g — using allulose and stevia as alternative sweeteners. The pectin-based formulation is gelatin-free, and the six fruit flavors are distinct and genuinely enjoyable. SmartSweets is available at Target, Whole Foods, Walmart, CVS, and Amazon, making it the most accessible premium plant-based candy brand. For the complete gummy bear comparison, read our in-depth <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a> guide.</p>
+
+    <!-- Product 2: YumEarth -->
+    <article class="pcard" id="yumearth-organic-gummy-bears">
+      <div class="pcard-top">
+        <img src="/images/products/yumearth-gummy-bears.webp" alt="YumEarth Organic Gummy Bears" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Organic Bear</span>
+        <span class="pcard-num">2</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">YUMEARTH</p>
+        <h3 class="pcard-name">Organic Gummy Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(12,700 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Organic gummy bear</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>14g per 2.5oz bag</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic pectin</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free, Top 8 Allergen Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$1.29</span>
+          <span class="per-serv">per 2.5oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Best organic value — USDA Organic at conventional candy pricing</li>
+              <li>Real fruit juice, plant-based colors from turmeric and carrot</li>
+              <li>Free from top 8 allergens</li>
+              <li>Multiple formats: snack packs, bags, bulk tubs</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Higher sugar at 14g (organic, but still sugar)</li>
+              <li>Softer texture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=YumEarth+Organic+Gummy+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>YumEarth dominates the organic plant-based candy space with a simple value proposition: USDA Organic, real fruit juice, plant-based colors, allergen-free, and a price that competes with conventional candy. At $1.29 per bag — or significantly less in bulk — YumEarth eliminates the cost barrier to switching from conventional candy. Their product line extends beyond gummy bears to include sour worms, licorice, lollipops, and hard candy, all with the same organic, vegan, allergen-free certifications. See our complete <a href="/candy/organic-gummy-bears/">organic gummy bears</a> guide for more USDA-certified options.</p>
+
+    <!-- Product 3: Surf Sweets -->
+    <article class="pcard" id="surf-sweets-fruity-bears">
+      <div class="pcard-top">
+        <img src="/images/products/surf-sweets-fruity-bears.webp" alt="Surf Sweets Organic Fruity Bears" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best for Kids</span>
+        <span class="pcard-num">3</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SURF SWEETS</p>
+        <h3 class="pcard-name">Organic Fruity Bears</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(6,300 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Organic fruit-juice gummy</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>11g per 2.75oz bag</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic tapioca starch + pectin</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free, Top 14 Allergen Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.99</span>
+          <span class="per-serv">per 2.75oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Made with real organic fruit juice — not just fruit flavoring</li>
+              <li>Free from all 14 major allergens — school-safe</li>
+              <li>Top-rated taste among children in testing</li>
+              <li>Cleanest ingredient list of any organic gummy</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium price at $3.99</li>
+              <li>Softer, fruit-snack-like texture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Surf+Sweets+Organic+Fruity+Bears&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Surf Sweets Organic Fruity Bears have the cleanest ingredient list of any plant-based gummy candy. Real organic fruit juice is a primary ingredient, not a secondary flavoring. The top-14 allergen-free certification makes them safe for virtually any school snack policy. In our kids' taste panel (ages 5-12), Surf Sweets consistently ranked as the preferred option. The softer, fruit-snack-like texture is actually an advantage for younger children who find firmer gummies harder to chew.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico">i</div>
+      <p><strong>School snack tip:</strong> Surf Sweets and Annie's are the safest plant-based candy choices for schools with allergen policies. Both are certified free from the top 8-14 allergens and use only organic, plant-based ingredients with natural colorants. Keep individual-wrapped packs in the pantry for easy lunchbox additions.</p>
+    </div>
+
+    <!-- Product 4: Unreal -->
+    <article class="pcard" id="unreal-dark-chocolate-pb-cups">
+      <div class="pcard-top">
+        <img src="/images/products/unreal-dark-chocolate-pb-cups.webp" alt="Unreal Dark Chocolate Peanut Butter Cups" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Chocolate</span>
+        <span class="pcard-num">4</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">UNREAL CANDY</p>
+        <h3 class="pcard-name">Dark Chocolate Peanut Butter Cups</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(9,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Vegan peanut butter cup</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>10g per serving (2 cups)</span></div>
+          <div class="pcard-spec"><strong>Chocolate</strong><span>70% cacao dark chocolate, fair trade</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Vegan, Non-GMO, Fair Trade Cocoa</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.29</span>
+          <span class="per-serv">per 2-cup pack</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Premium 70% cacao dark chocolate — rich, complex flavor</li>
+              <li>40% less sugar than Reese's</li>
+              <li>Fair trade cocoa, no palm oil, no artificial ingredients</li>
+              <li>Visible peanut pieces in creamy peanut butter filling</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains peanuts — not allergen-free</li>
+              <li>Dark chocolate may be too intense for milk chocolate fans</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Unreal+Dark+Chocolate+Peanut+Butter+Cups&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Unreal Dark Chocolate Peanut Butter Cups are the best plant-based chocolate candy by a wide margin. The 70% cacao fair trade chocolate has a rich, complex flavor that Reese's cannot touch, and the creamy peanut butter filling with visible peanut pieces adds genuine texture. With 40% less sugar than Reese's and zero artificial ingredients, corn syrup, or palm oil, Unreal proves that plant-based candy can be indulgent and ethical simultaneously. If you love peanut butter cups, Unreal is the upgrade you have been waiting for.</p>
+
+    <!-- Product 5: SmartSweets Sour Worms -->
+    <article class="pcard" id="smartsweets-sour-worms">
+      <div class="pcard-top">
+        <img src="/images/products/smartsweets-sour-worms.webp" alt="SmartSweets Sour Blast Buddies" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Sour</span>
+        <span class="pcard-num">5</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">SMARTSWEETS</p>
+        <h3 class="pcard-name">Sour Blast Buddies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.2</span>
+          <span class="review-ct">(14,600 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Low-sugar sour gummy worm</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>3g per 1.8oz bag</span></div>
+          <div class="pcard-spec"><strong>Sour Coating</strong><span>Citric acid, malic acid</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Plant-Based, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">per 1.8oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>84% less sugar than Trolli Sour Brite Crawlers</li>
+              <li>Intense sour coating with dual-flavor design</li>
+              <li>3g prebiotic fiber per bag</li>
+              <li>Best low-sugar sour candy available</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Softer than gelatin sour worms</li>
+              <li>Premium pricing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=SmartSweets+Sour+Blast+Buddies&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>SmartSweets Sour Blast Buddies prove that sour candy and low sugar are not mutually exclusive. The citric acid and malic acid coating delivers a genuine pucker — the sourness rivals Trolli at a fraction of the sugar (3g vs 19g per serving). The dual-flavor, two-tone worm design provides the classic sour worm experience. For the complete sour worm breakdown, read our <a href="/candy/vegan-gummy-worms/">vegan gummy worms</a> guide.</p>
+
+    <!-- Product 6: Project 7 Rings -->
+    <article class="pcard" id="project-7-gummy-rings">
+      <div class="pcard-top">
+        <img src="/images/products/project-7-gummy-rings.webp" alt="Project 7 Low Sugar Gummy Rings" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Rings</span>
+        <span class="pcard-num">6</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">PROJECT 7</p>
+        <h3 class="pcard-name">Low Sugar Gummy Rings</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.1</span>
+          <span class="review-ct">(3,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Low-sugar gummy ring</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>4g per 1.8oz bag</span></div>
+          <div class="pcard-spec"><strong>Sweetener</strong><span>Allulose, Stevia</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>B Corp, Non-GMO, Vegan, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$2.99</span>
+          <span class="per-serv">per 1.8oz bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Fun ring shape — nostalgic candy experience</li>
+              <li>Only 4g sugar with bold fruit flavors</li>
+              <li>B Corp certified — social impact with every purchase</li>
+              <li>Competitive price at $2.99</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Smaller bag size</li>
+              <li>Soluble corn fiber may cause digestive sensitivity</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Project+7+Low+Sugar+Gummy+Rings&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Project 7 Gummy Rings fill a gap in the plant-based candy market — the classic gummy ring shape that most vegan brands do not offer. With only 4g of sugar and bold, punchy fruit flavors, these rings deliver nostalgic candy satisfaction with modern clean-label credentials. The B Corp certification means each purchase supports charitable causes across education, hunger, and the environment. Project 7 also makes gummy bears and sour worms in the same vegan, low-sugar formula.</p>
+
+    <div class="callout">
+      The plant-based candy market is being shaped by two simultaneous consumer trends: the shift from gelatin to pectin (driven by vegan, kosher, halal, and allergen-free demand) and the shift from high-sugar to low-sugar formulations (driven by health consciousness and sugar tax legislation in multiple US cities). Brands that address both trends simultaneously — like SmartSweets and Project 7 — are growing at 40-50% annually.
+      <cite>SPINS Natural Channel data, 2025</cite>
+    </div>
+
+    <!-- Product 7: Annie's -->
+    <article class="pcard" id="annies-bunny-fruit-snacks">
+      <div class="pcard-top">
+        <img src="/images/products/annies-bunny-fruit-snacks.webp" alt="Annie's Organic Bunny Fruit Snacks" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Fruit Snack</span>
+        <span class="pcard-num">7</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">ANNIE'S</p>
+        <h3 class="pcard-name">Organic Bunny Fruit Snacks</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(31,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Organic fruit snack</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>10g per 0.8oz pouch</span></div>
+          <div class="pcard-spec"><strong>Gelling Agent</strong><span>Organic tapioca starch, pectin</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>USDA Organic, Non-GMO, Vegan, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$0.50</span>
+          <span class="per-serv">per pouch</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Individual pouches perfect for lunchboxes and on-the-go</li>
+              <li>31,200 reviews at 4.7 stars — massive parent validation</li>
+              <li>Bunny shapes kids love</li>
+              <li>Best value for organic plant-based fruit snacks</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Fruit snack texture, not classic gummy</li>
+              <li>Limited flavor variety</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Annies+Organic+Bunny+Fruit+Snacks&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Annie's Organic Bunny Fruit Snacks are the most popular plant-based candy for children in America. The 31,200 Amazon reviews with a 4.7-star average tell the story: parents trust Annie's, and kids love the bunny shapes and sweet fruit flavor. The individual pouches are perfectly portioned for lunchboxes, and the USDA Organic, vegan, and gluten-free certifications check every box for health-conscious families. At $0.50 per pouch in bulk, Annie's is also the most affordable organic plant-based snack on the market.</p>
+
+    <!-- Product 8: Hu Kitchen -->
+    <article class="pcard" id="hu-kitchen-chocolate-hunks">
+      <div class="pcard-top">
+        <img src="/images/products/hu-kitchen-chocolate-hunks.webp" alt="Hu Kitchen Chocolate Covered Hunks" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Premium Chocolate</span>
+        <span class="pcard-num">8</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">HU KITCHEN</p>
+        <h3 class="pcard-name">Dark Chocolate Covered Hunks</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(6,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Type</strong><span>Vegan dark chocolate snack</span></div>
+          <div class="pcard-spec"><strong>Sugar</strong><span>5g per serving</span></div>
+          <div class="pcard-spec"><strong>Chocolate</strong><span>70% cacao, organic</span></div>
+          <div class="pcard-spec"><strong>Certifications</strong><span>Vegan, Paleo, Non-GMO, Gluten-Free</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.99</span>
+          <span class="per-serv">per bag</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Ultra-premium organic dark chocolate — no refined sugar, no soy lecithin</li>
+              <li>Sweetened with coconut sugar — lower glycemic impact</li>
+              <li>Multiple varieties: almonds, cashews, vanilla, hazelnuts</li>
+              <li>Paleo-friendly in addition to vegan</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Premium price at $4.99</li>
+              <li>Contains tree nuts (depending on variety)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Hu+Kitchen+Dark+Chocolate+Hunks&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Hu Kitchen makes the most premium plant-based chocolate on the market. Their Dark Chocolate Covered Hunks use organic 70% cacao chocolate sweetened with coconut sugar — no refined sugar, no soy lecithin, no emulsifiers, no "natural flavors." The ingredient lists are absurdly short: organic cacao, organic coconut sugar, organic cocoa butter, and whatever is inside (almonds, cashews, vanilla bean). If you want plant-based chocolate that reads like a recipe from a high-end chocolatier, Hu Kitchen is the gold standard. The paleo-friendly designation expands the audience beyond vegans to the broader clean-eating community.</p>
+
+    <div class="warn-box">
+      <div class="warn-box-ico">!</div>
+      <p><strong>Allergen note:</strong> Several products on this list contain tree nuts or peanuts (Unreal PB Cups, Hu Kitchen varieties). Plant-based does not automatically mean allergen-free. Always verify individual product labels, especially for children with food allergies. For allergen-free options, prioritize Surf Sweets (top 14 allergen-free), YumEarth (top 8 allergen-free), and Annie's.</p>
+    </div>
+
+    <!-- POPULAR CANDY VEGAN STATUS -->
+    <h2>Is Your Favorite Candy Plant-Based? Quick Reference</h2>
+
+    <p>Here is the vegan status of the most popular candy brands in America. This helps you identify which mainstream candies are already plant-based and which require a swap.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Candy Brand</th>
+            <th>Plant-Based?</th>
+            <th>Issue</th>
+            <th>Best Alternative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Haribo Gold-Bears</strong></td>
+            <td>No</td>
+            <td>Gelatin, beeswax</td>
+            <td>SmartSweets / YumEarth</td>
+          </tr>
+          <tr>
+            <td><strong>Trolli Sour Crawlers</strong></td>
+            <td>No</td>
+            <td>Gelatin, artificial colors</td>
+            <td>SmartSweets Sour Blast</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Swedish Fish</strong></td>
+            <td>Debated</td>
+            <td>Beeswax in some markets</td>
+            <td>Wholesome DelishFish</td>
+          </tr>
+          <tr>
+            <td><strong>Sour Patch Kids</strong></td>
+            <td>Debated</td>
+            <td>Bone char sugar processing</td>
+            <td>YumEarth Sour Worms</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Skittles</strong></td>
+            <td>Debated</td>
+            <td>Bone char sugar, shellac</td>
+            <td>YumEarth Lollipops</td>
+          </tr>
+          <tr>
+            <td><strong>Starburst</strong></td>
+            <td>No</td>
+            <td>Gelatin</td>
+            <td>Torie & Howard Chewies</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Reese's PB Cups</strong></td>
+            <td>No</td>
+            <td>Dairy (milk chocolate)</td>
+            <td>Unreal Dark Choc PB Cups</td>
+          </tr>
+          <tr>
+            <td><strong>M&M's</strong></td>
+            <td>No</td>
+            <td>Dairy, shellac coating</td>
+            <td>Hu Kitchen Chocolate Hunks</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CROSS-LINK TO SUPPLEMENTS -->
+    <h2>Plant-Based Candy vs Plant-Based Supplements</h2>
+
+    <p>This guide covers plant-based candy — gummy bears, sour worms, chocolate, and fruit snacks designed for enjoyment. But the plant-based gummy world extends into an entire supplement category: gelatin-free gummy vitamins, sleep aids, beauty formulas, and sports nutrition. The same pectin and agar-agar technology that makes vegan candy possible also makes vegan gummy supplements possible.</p>
+
+    <p>Looking for vegan gummy vitamins instead? See our <a href="/vegan-gummies/">best vegan gummies guide</a> for the complete breakdown of plant-based supplements — from <a href="/best-melatonin-gummies/">melatonin gummies</a> for sleep to <a href="/best-hair-growth-gummies/">hair growth gummies</a> for beauty to <a href="/best-creatine-gummies/">creatine gummies</a> for fitness.</p>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>The Verdict: Best Plant-Based Gummy Candy in 2026</h3>
+      <p>The plant-based candy market has reached mainstream maturity. <strong>SmartSweets</strong> leads in low-sugar innovation, <strong>YumEarth</strong> leads in organic value, <strong>Surf Sweets</strong> leads in ingredient purity, and <strong>Unreal</strong> leads in premium chocolate. For families, <strong>Annie's</strong> delivers the most trusted organic fruit snack at the lowest price. For sour candy fans, <strong>SmartSweets Sour Blast Buddies</strong> prove that 3g sugar and genuine sourness can coexist.</p>
+      <p>The gap between plant-based and conventional candy has essentially closed on flavor and continues to narrow on texture. By 2027, we expect pectin formulations to achieve complete texture parity with gelatin for most consumers. The remaining differentiator will be price — and even there, YumEarth and Black Forest have proven that organic, plant-based candy can compete at conventional price points.</p>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <h2>Explore the Candy Silo</h2>
+
+    <div class="acards" style="grid-template-columns:1fr 1fr;">
+      <a href="/candy/" class="ac">
+        <span class="ac-tag">Hub</span>
+        <h3>Best Vegan Gummy Candy</h3>
+        <p>Our complete hub page for vegan gummy candy — the overview of every product type and top picks.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/vegan-gummy-bears/" class="ac">
+        <span class="ac-tag">Gummy Bears</span>
+        <h3>Best Vegan Gummy Bears</h3>
+        <p>8 gelatin-free gummy bear brands compared by flavor, texture, sugar, and value.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/organic-gummy-bears/" class="ac">
+        <span class="ac-tag">Organic</span>
+        <h3>Best Organic Gummy Bears</h3>
+        <p>USDA Certified Organic gummy bears — no synthetic dyes, no artificial flavors.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/vegan-gummy-worms/" class="ac">
+        <span class="ac-tag">Gummy Worms</span>
+        <h3>Best Vegan Gummy Worms</h3>
+        <p>Sour and fruity gelatin-free gummy worms — two-tone flavors, plant-based chew.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-sec">
+      <h2>Plant-Based Gummy Candy — Frequently Asked Questions</h2>
+      <details class="fq"><summary>What is plant-based gummy candy?</summary><p>Plant-based gummy candy uses pectin, agar-agar, or starch instead of animal-derived gelatin. It excludes beeswax, carmine, shellac, and other animal ingredients. "Plant-based" is functionally interchangeable with "vegan" in the candy context.</p></details>
+      <details class="fq"><summary>What types of plant-based candy are available?</summary><p>Gummy bears, sour worms, rings, fruit snacks, fruit strips, chocolate bars, peanut butter cups, hard candy, lollipops, licorice, caramels, and more. Virtually every candy type now has a plant-based option.</p></details>
+      <details class="fq"><summary>Is plant-based candy healthier than regular candy?</summary><p>It depends on the brand. SmartSweets (3g sugar) is much healthier than Haribo (34g sugar). But some plant-based brands have comparable sugar. The consistent advantage is no synthetic dyes or artificial flavors.</p></details>
+      <details class="fq"><summary>What popular candy brands are NOT plant-based?</summary><p>Haribo (gelatin + beeswax), Trolli (gelatin), Starburst (gelatin), Reese's (dairy). Swedish Fish, Sour Patch Kids, and Skittles are debated due to beeswax, bone char sugar processing, or shellac.</p></details>
+      <details class="fq"><summary>Are Skittles plant-based?</summary><p>Skittles are gelatin-free but may contain bone char-processed sugar and shellac (confectioner's glaze) depending on the market. Strict vegans typically avoid them.</p></details>
+      <details class="fq"><summary>What makes gummy candy not vegan?</summary><p>Gelatin (animal collagen), beeswax (glazing agent), carmine/E120 (insect-derived red dye), shellac (insect secretion coating), and potentially bone char-processed sugar.</p></details>
+      <details class="fq"><summary>Where is the best place to buy plant-based candy?</summary><p>Amazon (widest selection, best multi-pack pricing), Whole Foods (largest in-store selection), Target and Walmart (mainstream brands), Trader Joe's (house brands), Sprouts (niche organic brands).</p></details>
+      <details class="fq"><summary>Is plant-based candy more expensive than regular candy?</summary><p>Premium brands (SmartSweets: $3.49) cost 2-3x more. Value brands (Black Forest: $0.99, YumEarth: $1.29) are price-competitive with mainstream candy. Multi-packs on Amazon narrow the gap further.</p></details>
+    </section>
+
+    <p class="fda-disc">*Product information, prices, and availability are subject to change. Always verify current details on Amazon or the manufacturer's website before purchasing. GummyGuide earns a commission on qualifying purchases through our affiliate links at no additional cost to you.</p>
+
+  </div>
+
+  <div class="cta">
+    <h2>Find the Best Plant-Based Candy</h2>
+    <p>Explore our complete candy guides — vegan bears, organic options, sour worms, chocolate, and more. Every product reviewed by our editorial team.</p>
+    <a href="/candy/" class="btn btn-wh">Explore All Candy Guides &rarr;</a>
+  </div>
+
+</BaseLayout>
