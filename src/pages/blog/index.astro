@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = 'GummyGuide Blog — Science-Backed Supplement Guides';
+const description = 'Expert articles on gummy supplement dosing, safety, and effectiveness. Written by registered dietitians with cited clinical research.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'GummyGuide Blog',
+  description,
+  url: 'https://gummy-guide.com/blog/',
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummy-guide.com' },
+};
+
+const posts = [
+  {
+    href: '/blog/how-many-melatonin-gummies-should-i-take/',
+    title: 'How Many Melatonin Gummies Should I Take?',
+    description: 'A registered dietitian\'s complete dosing guide by age, with safety chart and brand comparisons.',
+    tag: 'Dosing Guide',
+    date: 'March 29, 2026',
+    volume: '3,600/mo',
+  },
+  {
+    href: '/blog/how-much-melatonin-is-safe/',
+    title: 'How Much Melatonin Is Safe? Maximum Dosage & Side Effects',
+    description: 'Maximum safe doses by age, side effects, drug interactions, and when to see a doctor.',
+    tag: 'Safety',
+    date: 'March 29, 2026',
+    volume: '2,900/mo',
+  },
+  {
+    href: '/blog/do-gummy-vitamins-work/',
+    title: 'Do Gummy Vitamins Actually Work? What the Science Says',
+    description: 'We reviewed 23 clinical studies on gummy vitamin effectiveness. The evidence-based answer.',
+    tag: 'Science',
+    date: 'March 29, 2026',
+    volume: '1,900/mo',
+  },
+  {
+    href: '/blog/do-ashwagandha-gummies-work/',
+    title: 'Do Ashwagandha Gummies Work? A Dietitian Reviews the Evidence',
+    description: 'KSM-66 vs Sensoril, clinical doses, how long to work, and who should avoid them.',
+    tag: 'Science',
+    date: 'March 29, 2026',
+    volume: '1,000/mo',
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={[articleSchema]}
+>
+
+  <div class="pg-hero">
+    <h1>GummyGuide Blog</h1>
+    <p class="pg-sub">Science-backed guides on supplement dosing, safety, and effectiveness. Written by registered dietitians.</p>
+    <div class="pg-meta">
+      <span>Expert Written</span>
+      <span>Clinically Cited</span>
+      <span>Updated 2026</span>
+    </div>
+  </div>
+
+  <Breadcrumbs items={[{ label: 'Blog', href: '/blog/' }]} />
+
+  <div class="w">
+
+    <div class="key-stat">
+      <div class="key-stat-num">23+</div>
+      <p class="key-stat-txt">clinical studies reviewed across our blog articles. Every claim is backed by <strong>peer-reviewed research</strong> from PubMed and NIH databases.</p>
+    </div>
+
+    <h2>Latest Articles</h2>
+
+    <div class="acards">
+      {posts.map((post) => (
+        <a href={post.href} class="ac">
+          <span class="ac-tag">{post.tag}</span>
+          <h3>{post.title}</h3>
+          <p>{post.description}</p>
+          <span class="ac-btn">{post.title} →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="cta">
+      <h2>Explore Our Product Reviews</h2>
+      <p>Expert-tested buying guides across 9 gummy supplement categories.</p>
+      <a href="/#picks" class="btn btn-wh">See All Top Picks →</a>
+    </div>
+
+  </div>
+
+</BaseLayout>
