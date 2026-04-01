@@ -147,6 +147,11 @@ const schemas = [
     </div>
     <!-- Mobile menu -->
     <div class="mob-menu" id="mob-menu">
+      <div class="mob-section mob-search">
+        <h4>Search</h4>
+        <input type="text" id="mob-search-input" placeholder="Search guides, products, topics..." autocomplete="off" class="mob-search-input" />
+        <div id="mob-search-results" class="mob-search-results"></div>
+      </div>
       <div class="mob-section">
         <h4>Popular Guides</h4>
         <a href="/best-creatine-gummies/">Best Creatine Gummies</a>
@@ -350,6 +355,17 @@ const schemas = [
           sr.innerHTML=results.map(function(r){return'<a href="'+r.u+'" class="search-result">'+r.t+'</a>';}).join('');
         });
         document.addEventListener('click',function(e){if(!sb.contains(e.target)&&!st.contains(e.target)){sb.classList.remove('search-open');}});
+      }
+
+      // Mobile search
+      var msi=document.getElementById('mob-search-input'),msr=document.getElementById('mob-search-results');
+      if(msi&&msr){
+        msi.addEventListener('input',function(){
+          var q=msi.value.toLowerCase().trim();
+          if(q.length<2){msr.innerHTML='';return;}
+          var results=pages.filter(function(p){return p.t.toLowerCase().indexOf(q)>-1||p.k.indexOf(q)>-1;}).slice(0,6);
+          msr.innerHTML=results.map(function(r){return'<a href="'+r.u+'" class="mob-search-link">'+r.t+'</a>';}).join('');
+        });
       }
     });
   </script>
