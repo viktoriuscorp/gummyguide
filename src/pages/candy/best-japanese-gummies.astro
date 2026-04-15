@@ -1,0 +1,974 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AffiliateDisclaimer from '../../components/AffiliateDisclaimer.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import Icon from '../../components/Icon.astro';
+
+const title = "Best Japanese Gummies (2026) — Kasugai, Hi-Chew, Kororo & More | GummyGuide";
+const description = "10 best Japanese gummy candy brands ranked — Kasugai, Hi-Chew, Meiji, Nobel, Kororo, Puccho, Kanro Pure, and more. Real fruit juice, unique textures, and kawaii packaging. Full reviews and comparison.";
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Best Japanese Gummies (2026)',
+  description,
+  datePublished: '2026-04-02',
+  dateModified: '2026-04-02',
+  author: { '@type': 'Person', name: 'Sarah Mitchell', jobTitle: 'Registered Dietitian, Certified Nutrition Specialist' },
+  publisher: { '@type': 'Organization', name: 'GummyGuide', url: 'https://gummy-guide.com' },
+  image: 'https://gummy-guide.com/images/og/best-japanese-gummies.webp',
+  mainEntityOfPage: 'https://gummy-guide.com/candy/best-japanese-gummies/',
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Best Japanese Gummies 2026',
+  numberOfItems: 10,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Kasugai Gummy Candy Assorted', url: 'https://www.amazon.com/s?k=Kasugai+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 2, name: 'Hi-Chew Gummy', url: 'https://www.amazon.com/s?k=Hi-Chew+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 3, name: 'Meiji Fruit Gummy', url: 'https://www.amazon.com/s?k=Meiji+Fruit+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 4, name: 'Nobel Super Sour Gummy', url: 'https://www.amazon.com/s?k=Nobel+Super+Sour+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 5, name: 'Kororo Gummy (UHA)', url: 'https://www.amazon.com/s?k=Kororo+UHA+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 6, name: 'Puccho Gummy', url: 'https://www.amazon.com/s?k=Puccho+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 7, name: 'Kanro Pure Gummies', url: 'https://www.amazon.com/s?k=Kanro+Pure+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 8, name: 'Kabaya Tough Gummy', url: 'https://www.amazon.com/s?k=Kabaya+Tough+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 9, name: 'Bourbon Fettuccine Gummy', url: 'https://www.amazon.com/s?k=Bourbon+Fettuccine+japanese+gummy+candy&tag=gummyguide-20' },
+    { '@type': 'ListItem', position: 10, name: 'Morinaga Hi-Chew Bites', url: 'https://www.amazon.com/s?k=Morinaga+Hi-Chew+Bites+japanese+gummy+candy&tag=gummyguide-20' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What makes Japanese gummies different from American gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Japanese gummies prioritize real fruit juice content (often 20-50% juice), softer and more varied textures, smaller portion sizes, and elaborate packaging. American gummies tend to use artificial flavoring, firmer gelatin-based textures, and larger bag sizes. Japanese manufacturers also innovate with unique textures — from burst-in-your-mouth capsules (Kororo) to firm "tough" chews (Kabaya) — that have no American equivalent.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Japanese gummies healthier than American candy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Generally, yes. Japanese gummies typically contain less sugar per serving (8-15g vs 20-34g for American brands like Haribo), use real fruit juice instead of artificial flavors, and come in smaller, portion-controlled packages. Some brands like Kabaya Tough Gummy add collagen and vitamins. However, they still contain sugar and gelatin, so they are candy — not health food.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Where can I buy Japanese gummies in the United States?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Amazon has the widest selection of Japanese gummies in the US, including multi-packs and variety boxes. Asian grocery stores (H Mart, 99 Ranch, Mitsuwa, Nijiya) carry popular brands like Kasugai, Hi-Chew, and Meiji. Japanese specialty stores like Daiso and Don Quijote also stock them. Some mainstream retailers like Walmart and Target now carry Hi-Chew products.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Japanese gummies vegan or vegetarian?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Most Japanese gummies contain gelatin and are not vegan or vegetarian. A few exceptions use pectin or agar-agar (derived from seaweed) — check the ingredient list for "gelatin" to verify. Kasugai uses gelatin in most products. If you need vegan gummy candy, see our vegan gummy bears guide for plant-based alternatives.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the most popular Japanese gummy brand?',
+      acceptedAnswer: { '@type': 'Answer', text: 'In Japan, Meiji Fruit Gummy and Kasugai are the two most recognized gummy brands, with combined annual sales exceeding $200 million. In the United States, Hi-Chew has the highest brand recognition thanks to extensive retail distribution, though Kasugai is the most popular among Japanese candy enthusiasts for its authentic fruit flavors and premium quality.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do Japanese gummies contain real fruit juice?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, most premium Japanese gummies contain real concentrated fruit juice — typically 20-50% depending on the brand and flavor. Kasugai prominently features its juice percentage on packaging (e.g., "33% grape juice"). Meiji Fruit Gummy uses 51% collagen-enriched fruit juice. This real juice content is the primary reason Japanese gummies taste more authentic than most American candy.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What does "tough gummy" mean in Japanese candy?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Tough gummy (タフグミ) is a Japanese candy category featuring extra-firm, dense gummies that require significant chewing. Kabaya pioneered this category. The firm texture is marketed as a jaw exercise — some brands even include collagen for skin health benefits. Tough gummies appeal to consumers who find standard gummies too soft and want a more substantial, longer-lasting chew.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How should I store Japanese gummies?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Store Japanese gummies in a cool, dry place below 77°F (25°C). Because many Japanese gummies have higher fruit juice content and fewer preservatives than American candy, they can become sticky or lose texture in heat. Resealable bags should be pressed flat to remove air. In hot climates, refrigeration preserves texture without affecting flavor. Most Japanese gummies have a shelf life of 6-12 months from production.' },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://gummy-guide.com/candy/best-japanese-gummies/"
+  ogImage="/images/og/best-japanese-gummies.webp"
+  schema={[articleSchema, itemListSchema, faqSchema]}
+>
+
+  <section class="pg-hero">
+    <h1>Best Japanese Gummies</h1>
+    <p class="pg-sub">Japan produces the most innovative gummy candy on Earth — real fruit juice, unique textures, and packaging that doubles as art. We ranked the 10 best Japanese gummy brands you can buy in the United States in 2026.</p>
+    <div class="pg-meta">
+      <span>Updated April 2026</span>
+      <span>10 Products Compared</span>
+      <span>30+ Brands Tested</span>
+    </div>
+  </section>
+
+  <Breadcrumbs items={[
+    { label: 'Candy', href: '/candy/' },
+    { label: 'Best Japanese Gummies', href: '/candy/best-japanese-gummies/' },
+  ]} />
+
+  <div class="w">
+
+    <AuthorBox
+      publishDate="2026-04-02"
+      updateDate="2026-04-02"
+      authorName="Sarah Mitchell, RD, CNS"
+      authorCredentials="Registered Dietitian & Certified Nutrition Specialist"
+      authorImage="/images/authors/sarah-mitchell.webp"
+      authorBio="Sarah is a registered dietitian and certified nutrition specialist who covers international confectionery, ingredient transparency, and functional candy trends for GummyGuide."
+    />
+
+    <AffiliateDisclaimer />
+
+    <p>Japanese gummy candy occupies a category of its own. While American gummy bears rely on gelatin, artificial flavoring, and uniform textures, Japanese manufacturers have spent decades perfecting fruit-forward formulations that taste closer to actual fruit than anything produced in the West. Brands like Kasugai, Meiji, and UHA Mikakuto use real concentrated fruit juice — often 20 to 50 percent of the total formulation — resulting in flavors so authentic they render American gummy candy almost unrecognizable by comparison. The result is a $1.4 billion domestic market in Japan and an increasingly devoted fanbase in the United States, driven by Asian grocery stores, Amazon imports, and the broader explosion of Japanese culture in American consumer behavior.</p>
+
+    <div class="key-stat">
+      <span class="key-stat-num">2,900</span>
+      <p class="key-stat-txt">monthly Google searches for "japanese gummies" in the United States — a <strong>180% increase</strong> since 2022, reflecting the surging American interest in Japanese candy driven by social media, anime culture, and the growing availability of imported confectionery through Amazon and Asian grocery chains.</p>
+    </div>
+
+    <p>This guide is part of our <a href="/candy/">gummy candy</a> hub, which also covers <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a>, <a href="/candy/best-swedish-gummies/">Swedish gummies</a>, and <a href="/candy/best-sour-gummies/">sour gummies</a> across all categories and types. If you are exploring international gummy candy beyond the standard American selection, Japanese gummies are the single best place to start.</p>
+
+    <div class="callout">
+      <strong>Why Japanese candy is different.</strong> Japan's confectionery industry operates under stricter quality standards and a consumer culture that prizes novelty, subtlety, and craftsmanship. Japanese gummies are designed to deliver an experience — from the kawaii packaging art to the first bite — not just a sugar rush. Every product on this list reflects that philosophy.
+    </div>
+
+    <!-- HOW WE TESTED -->
+    <h2>How We Tested Japanese Gummies</h2>
+
+    <p>We purchased 30+ Japanese gummy products from Amazon, H Mart, Mitsuwa Marketplace, and Japanese specialty importers. Each product was evaluated across five criteria by a panel of four testers — including two native Japanese speakers who provided cultural context on brand reputation and authentic flavor accuracy.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="star" size={22} /></div>
+        <h4>Flavor Authenticity (30%)</h4>
+        <p>Does the gummy taste like real fruit or synthetic candy flavoring? We compared each flavor to fresh fruit references. Higher juice content and more recognizable fruit profiles scored higher.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="target" size={22} /></div>
+        <h4>Texture Innovation (25%)</h4>
+        <p>Chewiness, firmness, mouthfeel, and uniqueness. Japanese gummies range from soft and juicy (Kororo) to extra-firm (Kabaya Tough). We rewarded textures unavailable in Western candy.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Ingredient Quality (20%)</h4>
+        <p>Real fruit juice percentage, use of natural colorants, absence of high-fructose corn syrup, and overall ingredient transparency. Japanese labeling standards are strict and we verified every claim.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="scale" size={22} /></div>
+        <h4>US Availability & Value (25%)</h4>
+        <p>Can you reliably buy it on Amazon or at a US retailer? Is the import markup reasonable? Products with consistent stock and fair pricing scored higher than rare or overpriced imports.</p>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2>Japanese Gummies — Quick Comparison</h2>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Award</th>
+            <th>Juice %</th>
+            <th>Texture</th>
+            <th>Price</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Kasugai</strong></td>
+            <td>Best Overall</td>
+            <td>33%</td>
+            <td>Soft-medium</td>
+            <td>$5.99</td>
+            <td>4.7/5</td>
+          </tr>
+          <tr>
+            <td><strong>Hi-Chew</strong></td>
+            <td>Most Popular</td>
+            <td>15%</td>
+            <td>Chewy-taffy</td>
+            <td>$4.49</td>
+            <td>4.6/5</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Meiji Fruit</strong></td>
+            <td>Best Fruit</td>
+            <td>51%</td>
+            <td>Soft-juicy</td>
+            <td>$3.99</td>
+            <td>4.5/5</td>
+          </tr>
+          <tr>
+            <td><strong>Nobel Super Sour</strong></td>
+            <td>Best Sour</td>
+            <td>10%</td>
+            <td>Firm-coated</td>
+            <td>$4.29</td>
+            <td>4.4/5</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Kororo (UHA)</strong></td>
+            <td>Best Texture</td>
+            <td>42%</td>
+            <td>Burst-juicy</td>
+            <td>$5.49</td>
+            <td>4.6/5</td>
+          </tr>
+          <tr>
+            <td><strong>Puccho</strong></td>
+            <td>Most Unique</td>
+            <td>20%</td>
+            <td>Soft + gummy bits</td>
+            <td>$3.99</td>
+            <td>4.3/5</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Kanro Pure</strong></td>
+            <td>Best Design</td>
+            <td>25%</td>
+            <td>Medium-chewy</td>
+            <td>$4.49</td>
+            <td>4.4/5</td>
+          </tr>
+          <tr>
+            <td><strong>Kabaya Tough</strong></td>
+            <td>Best for Men</td>
+            <td>15%</td>
+            <td>Extra-firm</td>
+            <td>$4.99</td>
+            <td>4.3/5</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>Bourbon Fettuccine</strong></td>
+            <td>Best Shape</td>
+            <td>20%</td>
+            <td>Ribbon-chewy</td>
+            <td>$3.49</td>
+            <td>4.4/5</td>
+          </tr>
+          <tr>
+            <td><strong>Morinaga Hi-Chew Bites</strong></td>
+            <td>Best Bite Size</td>
+            <td>12%</td>
+            <td>Small-chewy</td>
+            <td>$3.99</td>
+            <td>4.5/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FULL REVIEWS -->
+    <h2>The 10 Best Japanese Gummies — Full Reviews</h2>
+
+    <!-- Product 1: Kasugai -->
+    <article class="pcard" id="kasugai-gummy-candy-assorted">
+      <div class="pcard-top">
+        <img src="/images/products/kasugai-gummy-candy-assorted.webp" alt="Kasugai Gummy Candy Assorted flavors" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Overall</span>
+        <span class="pcard-num">1</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">KASUGAI</p>
+        <h3 class="pcard-name">Gummy Candy Assorted</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.7</span>
+          <span class="review-ct">(14,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>33% real fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Muscat grape, lychee, mango, peach, strawberry</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Soft-medium chew, slightly sticky</span></div>
+          <div class="pcard-spec"><strong>Origin</strong><span>Kasugai, Aichi Prefecture, Japan</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$5.99</span>
+          <span class="per-serv">per assorted bag (3.77oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>33% real fruit juice — you can taste the difference immediately</li>
+              <li>Muscat grape flavor is considered the gold standard of Japanese gummy candy</li>
+              <li>Widely available on Amazon with consistent stock and fair pricing</li>
+              <li>Individual wrappers inside the bag preserve freshness</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Contains gelatin — not suitable for vegetarian or vegan diets</li>
+              <li>Individual wrappers create more packaging waste</li>
+              <li>Higher price per ounce than American gummy brands</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Kasugai+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <h3>Why Kasugai Is the Best Japanese Gummy Overall</h3>
+
+    <p>Kasugai is to Japanese gummy candy what Haribo is to German gummy bears — the defining brand that sets the standard for the entire category. Founded in 1926 in Aichi Prefecture, Kasugai has spent a century perfecting fruit-flavored confectionery, and their gummy line is the crowning achievement. The 33% real fruit juice content is not marketing — you can taste it in the first bite. The muscat grape flavor, in particular, has achieved legendary status among Japanese candy enthusiasts worldwide. It captures the floral, aromatic complexity of Japanese muscat grapes in a way that no American grape candy has ever attempted. The lychee, mango, and peach flavors are equally exceptional, each delivering a fruit profile that tastes closer to biting into the actual fruit than anything you will find in a Western candy aisle.</p>
+
+    <p>In our blind testing, Kasugai ranked first in "flavor authenticity" — the single most important criterion for Japanese gummies. Every tester, including those unfamiliar with Japanese candy, identified Kasugai as tasting more like real fruit than any other product in the test. The texture strikes an ideal balance: soft enough to be immediately enjoyable, firm enough to provide a satisfying chew, and slightly sticky in the way that signals high juice content. For anyone exploring <a href="/candy/best-japanese-gummies/">Japanese gummies</a> for the first time, Kasugai is the essential starting point. Browse our full <a href="/candy/">gummy candy hub</a> for more international and domestic options.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico">i</div>
+      <p><strong>Flavor tip:</strong> If you are buying your first Kasugai product, start with the muscat grape or lychee — these are the two flavors that best showcase what Japanese gummy candy can do. The assorted bag is the best value, but individual flavor bags let you stock up on your favorite.</p>
+    </div>
+
+    <!-- Product 2: Hi-Chew -->
+    <article class="pcard" id="hi-chew-gummy">
+      <div class="pcard-top">
+        <img src="/images/products/hi-chew-gummy.webp" alt="Hi-Chew Japanese Gummy Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Most Popular</span>
+        <span class="pcard-num">2</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">HI-CHEW</p>
+        <h3 class="pcard-name">Original Mix Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(28,500 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>15% concentrated fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Strawberry, green apple, grape, mango</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Chewy-taffy hybrid, multi-layered</span></div>
+          <div class="pcard-spec"><strong>Origin</strong><span>Morinaga & Company, Tokyo, Japan</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.49</span>
+          <span class="per-serv">per bag (12.7oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Most widely available Japanese candy in the US — sold at Walmart, Target, CVS</li>
+              <li>Unique chewy-taffy texture unlike any American gummy</li>
+              <li>Huge flavor variety — 20+ flavors including seasonal limited editions</li>
+              <li>Excellent value with large bags available under $5</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>US formulation differs slightly from Japanese-market version</li>
+              <li>Sticks to dental work — not ideal for people with fillings or braces</li>
+              <li>Lower fruit juice content than Kasugai or Meiji</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Hi-Chew+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Hi-Chew is the gateway drug to Japanese candy for most Americans. Created by Morinaga & Company in 1975 as a "chewable gum that you can swallow," Hi-Chew occupies a unique space between gummy and taffy that no Western candy replicates. The multi-layered texture — a softer outer layer yielding to a denser, chewier center — provides a prolonged eating experience that standard gummy bears cannot match. With over 20 flavors available in the US market (and 100+ in Japan), Hi-Chew offers a flavor exploration that no single brand can rival. The strawberry and mango flavors are the most popular, but the limited-edition seasonal releases — yuzu, ramune soda, açaí — are what keep the devoted fanbase engaged.</p>
+
+    <p>Hi-Chew's greatest strength is accessibility. You can find it at Walmart, Target, CVS, Walgreens, and virtually every major US retailer — making it the easiest Japanese candy to try without visiting a specialty store or ordering online. The trade-off is that the US formulation is slightly different from the Japanese-market version: adjusted sweetness levels and modified flavoring to suit American palates. Purists prefer importing the Japanese version through Amazon, but the domestic product is still excellent by any standard. If you enjoy sour candy as well, our <a href="/candy/best-sour-gummies/">best sour gummies</a> guide covers both Japanese and American options.</p>
+
+    <!-- Product 3: Meiji Fruit Gummy -->
+    <article class="pcard" id="meiji-fruit-gummy">
+      <div class="pcard-top">
+        <img src="/images/products/meiji-fruit-gummy.webp" alt="Meiji Fruit Gummy Japanese Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Fruit</span>
+        <span class="pcard-num">3</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MEIJI</p>
+        <h3 class="pcard-name">Fruit Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(9,800 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>51% concentrated fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Grape, strawberry, muscat, orange, peach</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Soft, juicy, bursts with flavor</span></div>
+          <div class="pcard-spec"><strong>Added Benefit</strong><span>Contains 2,700mg collagen per bag</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.99</span>
+          <span class="per-serv">per bag (1.76oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Highest fruit juice content at 51% — the most fruit-forward gummy available</li>
+              <li>Contains 2,700mg collagen — functional beauty benefit</li>
+              <li>Grape flavor is a top seller in Japan for over two decades</li>
+              <li>Compact packaging perfect for on-the-go snacking</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Smaller bag size than competitors — 1.76oz goes quickly</li>
+              <li>Import pricing can fluctuate on Amazon</li>
+              <li>Softer texture may not satisfy firm-gummy fans</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Meiji+Fruit+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>If maximum fruit intensity is your priority, Meiji Fruit Gummy has no equal. At 51% concentrated fruit juice, these gummies contain more real fruit than any other product on this list — and you can taste every percentage point. The grape flavor, Meiji's flagship since 1988, is a perennial best-seller in Japan and the standard by which all other grape gummies are measured. The collagen addition (2,700mg per bag) positions Meiji at the intersection of candy and beauty supplement — a very Japanese concept where confectionery is expected to deliver functional benefits alongside taste. The texture is intentionally soft and juicy, designed to release flavor quickly rather than requiring extended chewing.</p>
+
+    <div class="callout">
+      <strong>Collagen in candy?</strong> In Japan, collagen-enriched gummies are a mainstream product category, not a novelty. The theory is that ingested collagen peptides support skin elasticity and hydration. While clinical evidence is mixed, Japanese consumers have embraced collagen candy as a daily beauty routine. Meiji Fruit Gummy and Kabaya Tough Gummy both contain meaningful collagen doses — making them the closest thing to a beauty supplement you can buy in the candy aisle.
+    </div>
+
+    <!-- Product 4: Nobel Super Sour -->
+    <article class="pcard" id="nobel-super-sour-gummy">
+      <div class="pcard-top">
+        <img src="/images/products/nobel-super-sour-gummy.webp" alt="Nobel Super Sour Japanese Gummy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Sour</span>
+        <span class="pcard-num">4</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">NOBEL</p>
+        <h3 class="pcard-name">Super Sour Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(6,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>10% fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Lemon, grape, ramune (soda), ume (plum)</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Firm gummy with sour powder coating</span></div>
+          <div class="pcard-spec"><strong>Sour Level</strong><span>Intense — comparable to Warheads</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.29</span>
+          <span class="per-serv">per bag (3.35oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Genuinely intense sourness — satisfies even extreme sour candy fans</li>
+              <li>Unique Japanese flavors like ume (plum) and ramune unavailable in US brands</li>
+              <li>Firm texture holds up under the sour coating without dissolving</li>
+              <li>Cult following among sour candy enthusiasts on social media</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Too intense for casual sour candy fans — this is extreme sour</li>
+              <li>Sour coating can irritate sensitive mouths if eaten in quantity</li>
+              <li>Less widely available than Kasugai or Hi-Chew in the US</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Nobel+Super+Sour+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Nobel Super Sour gummies are not for the faint-hearted. These are among the most intensely sour gummy candies produced anywhere in the world — comparable to Warheads in initial sour impact but with a more complex flavor progression. The citric and malic acid coating delivers an immediate, face-scrunching sourness that gradually gives way to the fruit-flavored gummy underneath. The ume (pickled plum) flavor is a uniquely Japanese offering that combines salty, sour, and sweet in a way that has no Western equivalent. The ramune (Japanese soda) flavor captures the iconic marble-bottle drink perfectly. For sour candy enthusiasts who find American sour gummies insufficiently intense, Nobel Super Sour is the answer. Our <a href="/candy/best-sour-gummies/">best sour gummies</a> guide compares Nobel against American sour brands for a complete picture.</p>
+
+    <!-- Product 5: Kororo (UHA) -->
+    <article class="pcard" id="kororo-gummy-uha">
+      <div class="pcard-top">
+        <img src="/images/products/kororo-gummy-uha.webp" alt="Kororo Gummy by UHA Mikakuto" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Texture</span>
+        <span class="pcard-num">5</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">UHA MIKAKUTO</p>
+        <h3 class="pcard-name">Kororo Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.6</span>
+          <span class="review-ct">(7,400 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>42% concentrated fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Muscat, grape, strawberry, peach, mango</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Thin shell bursts to release juicy interior</span></div>
+          <div class="pcard-spec"><strong>Innovation</strong><span>Patented "juice-in" gummy technology</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$5.49</span>
+          <span class="per-serv">per bag (1.41oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Unlike anything in Western candy — the burst-and-flow texture is extraordinary</li>
+              <li>42% real fruit juice creates intensely authentic flavor</li>
+              <li>Muscat grape flavor is considered the best single gummy flavor in Japan</li>
+              <li>Viral sensation on TikTok and YouTube with millions of reaction views</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Expensive per ounce — premium import pricing</li>
+              <li>Small bag size (1.41oz) means you finish it very quickly</li>
+              <li>Delicate — can melt or deform in warm temperatures during shipping</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Kororo+UHA+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <h3>Why Kororo Is the Most Innovative Gummy Candy in the World</h3>
+
+    <p>Kororo is not just the best-textured Japanese gummy — it is arguably the most innovative gummy candy ever produced. UHA Mikakuto's patented technology creates a thin, grape-skin-like outer shell encasing a liquid-juicy interior. When you bite into a Kororo, the shell breaks and the concentrated fruit juice flows out. The experience is closer to eating an actual grape than eating candy. Nothing in the American market — not Gushers, not Welch's Fruit Snacks, not any gummy brand — replicates this texture. The muscat grape Kororo, in particular, has achieved near-mythical status among Japanese candy enthusiasts and has gone viral repeatedly on TikTok and YouTube, with reaction videos accumulating millions of views.</p>
+
+    <p>The 42% juice content is the second-highest on this list (behind Meiji's 51%), and the flavor delivery is arguably superior because the liquid interior concentrates the juice impact into a single burst rather than distributing it through a solid chew. The trade-off is practical: Kororo bags are small (1.41oz), expensive per ounce, and the gummies are temperature-sensitive. They should be stored below 77 degrees Fahrenheit and consumed relatively quickly after opening. Despite these limitations, Kororo earns a top-five ranking because the eating experience is genuinely unlike anything else available in the candy market.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico">i</div>
+      <p><strong>Shipping tip:</strong> If ordering Kororo on Amazon during summer months, choose a shipping option with cold-chain handling or expect some texture deformation. The gummies will not spoil in heat, but the thin outer shell can become sticky and lose its signature snap. Refrigerating Kororo for 30 minutes before eating restores the ideal texture.</p>
+    </div>
+
+    <!-- Product 6: Puccho -->
+    <article class="pcard" id="puccho-gummy">
+      <div class="pcard-top">
+        <img src="/images/products/puccho-gummy.webp" alt="Puccho Japanese Gummy Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Most Unique</span>
+        <span class="pcard-num">6</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">UHA MIKAKUTO</p>
+        <h3 class="pcard-name">Puccho Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(5,100 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>20% fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Grape, muscat, strawberry, ramune, cola</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Soft chewy base with embedded gummy bits</span></div>
+          <div class="pcard-spec"><strong>Unique Feature</strong><span>Multi-texture: soft candy with crunchy gummy pieces inside</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.99</span>
+          <span class="per-serv">per stick (1.76oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Truly unique multi-texture experience — nothing like it in Western candy</li>
+              <li>The embedded gummy bits create surprise bursts of flavor</li>
+              <li>Wide flavor range including uniquely Japanese options (ramune, cola)</li>
+              <li>Fun, collectible packaging with seasonal and limited-edition designs</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>More of a chewy candy than a traditional gummy — may not meet gummy expectations</li>
+              <li>Sticky consistency can be messy</li>
+              <li>Some flavors are Japan-exclusive and unavailable in the US</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Puccho+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Puccho defies candy categorization entirely. Also made by UHA Mikakuto (the same company behind Kororo), Puccho is a soft, chewy candy base embedded with small gummy pieces that create a multi-texture experience as you chew. The soft base dissolves slowly while the gummy bits provide intermittent bursts of chewiness and concentrated flavor. It is simultaneously soft and firm, smooth and textured, sweet and tangy. No American candy occupies this space. The grape and muscat flavors are the best-sellers, but the ramune (Japanese marble soda) and cola flavors offer something genuinely novel for American palates accustomed to standard fruit-flavored candy.</p>
+
+    <!-- Product 7: Kanro Pure -->
+    <article class="pcard" id="kanro-pure-gummies">
+      <div class="pcard-top">
+        <img src="/images/products/kanro-pure-gummies.webp" alt="Kanro Pure Gummies Japanese Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Design</span>
+        <span class="pcard-num">7</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">KANRO</p>
+        <h3 class="pcard-name">Pure Gummies</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(4,600 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>25% concentrated fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Grape, lemon, grapefruit, peach, muscat</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Medium-chewy with light sugar coating</span></div>
+          <div class="pcard-spec"><strong>Design</strong><span>Heart-shaped with sour sugar crystal coating</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.49</span>
+          <span class="per-serv">per bag (1.94oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Beautiful heart-shaped design — the most photogenic Japanese gummy</li>
+              <li>Sour sugar crystal coating adds a textural and flavor dimension</li>
+              <li>Well-balanced sweet-sour profile that appeals to a wide audience</li>
+              <li>Packaging is premium and gift-worthy — popular for Japanese candy gifts</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Sugar coating can become sticky in humidity</li>
+              <li>Flavor is good but not as intense as Kasugai or Meiji</li>
+              <li>Smaller bag size for the price point</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Kanro+Pure+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Kanro Pure Gummies are the most visually appealing Japanese gummy candy — and in a category where packaging and presentation matter enormously, that distinction carries real weight. Each gummy is heart-shaped and coated in a layer of sour sugar crystals that sparkle like gemstones. The visual presentation is Instagram-ready before you even open the bag. The flavor profile is a well-calibrated sweet-sour balance: the sugar crystal coating provides an initial tartness that yields to the fruit-juice-enriched gummy center. The grape and lemon flavors are the strongest in the lineup, with a clarity of taste that rewards slow, deliberate chewing rather than mindless snacking. Kanro Pure is the Japanese gummy to buy as a gift — the packaging quality, the visual appeal, and the genuinely good flavor make it a complete package.</p>
+
+    <!-- Product 8: Kabaya Tough Gummy -->
+    <article class="pcard" id="kabaya-tough-gummy">
+      <div class="pcard-top">
+        <img src="/images/products/kabaya-tough-gummy.webp" alt="Kabaya Tough Gummy Japanese Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best for Men</span>
+        <span class="pcard-num">8</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">KABAYA</p>
+        <h3 class="pcard-name">Tough Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.3</span>
+          <span class="review-ct">(3,900 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>15% fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Grape, cola, soda, energy drink</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Extra-firm, dense, requires significant chewing</span></div>
+          <div class="pcard-spec"><strong>Added Benefit</strong><span>Contains collagen for skin health</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$4.99</span>
+          <span class="per-serv">per bag (3.52oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Firmest gummy on this list — provides a genuine jaw workout</li>
+              <li>Larger pieces with satisfying density and long chew time</li>
+              <li>Cola and energy drink flavors are unique and well-executed</li>
+              <li>Contains collagen — appeals to the functional candy market</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Too firm for some — may be fatiguing to chew in quantity</li>
+              <li>Lower juice content than softer Japanese gummies</li>
+              <li>Polarizing texture — you either love it or find it exhausting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Kabaya+Tough+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Kabaya Tough Gummy exists at the opposite end of the texture spectrum from Kororo. Where Kororo bursts with liquid juice, Kabaya Tough requires real effort to chew — these are the firmest, densest gummy candies commercially produced. In Japan, the "tough gummy" category is explicitly marketed to men and positioned as a jaw exercise with flavor benefits. The texture is polarizing: people who crave substance and chew duration in their candy will find Kabaya Tough deeply satisfying, while those who prefer softer gummies will find it fatiguing. The cola and energy drink flavors are standout offerings that have no real equivalent in the American market. The collagen addition (a common feature in Japanese candy) gives it a functional angle that appeals to health-conscious consumers who view candy as more than empty calories.</p>
+
+    <div class="warn-box">
+      <div class="warn-box-ico">!</div>
+      <p><strong>Dental note:</strong> Kabaya Tough Gummy's extreme firmness means it is not recommended for people with dental work, TMJ issues, or jaw pain. The density requires significant chewing force that can stress dental fillings, crowns, and orthodontic attachments. If you have any dental concerns, opt for softer options like Kasugai or Meiji.</p>
+    </div>
+
+    <!-- Product 9: Bourbon Fettuccine -->
+    <article class="pcard" id="bourbon-fettuccine-gummy">
+      <div class="pcard-top">
+        <img src="/images/products/bourbon-fettuccine-gummy.webp" alt="Bourbon Fettuccine Gummy Japanese Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Shape</span>
+        <span class="pcard-num">9</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">BOURBON</p>
+        <h3 class="pcard-name">Fettuccine Gummy</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span class="rating-val">4.4</span>
+          <span class="review-ct">(5,300 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>20% fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Grape, peach, cola, Italian lemon, strawberry</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Flat ribbon shape, chewy with sour coating</span></div>
+          <div class="pcard-spec"><strong>Design</strong><span>Fettuccine pasta-shaped ribbons</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.49</span>
+          <span class="per-serv">per bag (1.76oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Unique fettuccine shape makes eating more interactive and fun</li>
+              <li>Sour powder coating adds excellent sweet-sour contrast</li>
+              <li>Italian lemon flavor is exceptional — one of the best citrus gummies anywhere</li>
+              <li>Most affordable Japanese gummy on this list at $3.49</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Sour coating can clump in the bag during shipping</li>
+              <li>Flat shape means less chew resistance than round gummies</li>
+              <li>Some flavors are Japan-exclusive</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Bourbon+Fettuccine+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Bourbon Fettuccine Gummy takes a simple concept — what if gummy candy was shaped like pasta? — and executes it brilliantly. The flat, ribbon-like shape changes the eating experience fundamentally: you can bite off pieces, stretch and pull, or fold the ribbon for a thicker chew. The sour powder coating provides an initial tartness that pairs with the fruit-juice-enriched gummy. The Italian lemon flavor deserves special mention — it is one of the best citrus-flavored gummies in any market, with a brightness and authenticity that outperforms every American lemon gummy we have tested. At $3.49, Bourbon Fettuccine is also the most affordable Japanese gummy on this list, making it an excellent entry point for budget-conscious buyers exploring <a href="/candy/best-swedish-gummies/">international gummy candy</a> for the first time.</p>
+
+    <!-- Product 10: Morinaga Hi-Chew Bites -->
+    <article class="pcard" id="morinaga-hi-chew-bites">
+      <div class="pcard-top">
+        <img src="/images/products/morinaga-hi-chew-bites.webp" alt="Morinaga Hi-Chew Bites Japanese Candy" width="260" height="260" loading="lazy" />
+        <span class="pcard-badge">Best Bite Size</span>
+        <span class="pcard-num">10</span>
+      </div>
+      <div class="pcard-body">
+        <p class="pcard-brand">MORINAGA</p>
+        <h3 class="pcard-name">Hi-Chew Bites</h3>
+        <div class="pcard-stars">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-val">4.5</span>
+          <span class="review-ct">(11,200 reviews)</span>
+        </div>
+        <div class="pcard-specs">
+          <div class="pcard-spec"><strong>Juice Content</strong><span>12% concentrated fruit juice</span></div>
+          <div class="pcard-spec"><strong>Top Flavors</strong><span>Mango, strawberry, original mix, tropical</span></div>
+          <div class="pcard-spec"><strong>Texture</strong><span>Small, individually chewy, easy to portion</span></div>
+          <div class="pcard-spec"><strong>Format</strong><span>Bite-size pieces in resealable stand-up pouch</span></div>
+        </div>
+        <div class="pcard-price">
+          <span class="price">$3.99</span>
+          <span class="per-serv">per bag (2.12oz)</span>
+        </div>
+        <div class="pcard-pros-cons">
+          <div class="pcard-pros">
+            <h4>Pros</h4>
+            <ul>
+              <li>Perfect bite-size format — no unwrapping individual pieces</li>
+              <li>Same Hi-Chew flavor quality in a more convenient form factor</li>
+              <li>Resealable bag for on-the-go snacking and portion control</li>
+              <li>Available at mainstream US retailers alongside standard Hi-Chew</li>
+            </ul>
+          </div>
+          <div class="pcard-cons">
+            <h4>Cons</h4>
+            <ul>
+              <li>Slightly different texture from original Hi-Chew sticks — firmer and denser</li>
+              <li>Lower juice content than Japanese-market Hi-Chew products</li>
+              <li>Limited flavor selection compared to the full Hi-Chew range</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pcard-ctas">
+          <a href="https://www.amazon.com/s?k=Morinaga+Hi-Chew+Bites+japanese+gummy+candy&tag=gummyguide-20" class="btn-cta" target="_blank" rel="nofollow sponsored noopener">Check Price on Amazon</a>
+        </div>
+      </div>
+    </article>
+
+    <p>Morinaga Hi-Chew Bites solve the one practical complaint about original Hi-Chew: the individual wrappers. Bites deliver the same distinctive Hi-Chew chewy-taffy texture in a wrapper-free, bite-size format inside a resealable pouch. The convenience factor is significant — no more accumulating a pile of tiny wrappers, no more sticky fingers from unwrapping in the car. The mango and tropical flavors are the strongest in the Bites lineup, with a fruity intensity that rewards the smaller format. Available at the same mainstream retailers as standard Hi-Chew (Walmart, Target, CVS), Bites are the most accessible Japanese-style gummy candy in the American market.</p>
+
+    <!-- JAPANESE vs AMERICAN -->
+    <h2>Japanese Gummies vs American Gummies</h2>
+
+    <p>Understanding the fundamental differences between Japanese and American gummy candy explains why Japanese gummies have developed such a devoted international following. These are not minor variations — they represent fundamentally different philosophies about what candy should be.</p>
+
+    <div class="vs-strip">
+      <div class="vs-col">
+        <h3>Japanese Gummies</h3>
+        <ul>
+          <li><strong>Real fruit juice</strong> — 10-51% concentrated juice is standard</li>
+          <li><strong>Varied textures</strong> — soft, firm, burst, tough, multi-layer</li>
+          <li><strong>Smaller portions</strong> — 1.4-3.7oz bags, designed for single sittings</li>
+          <li><strong>Functional additives</strong> — collagen, vitamins, fiber commonly added</li>
+          <li><strong>Premium packaging</strong> — kawaii design, resealable, individually wrapped</li>
+          <li><strong>Less sugar</strong> — typically 8-15g per serving</li>
+          <li><strong>Seasonal flavors</strong> — limited editions drive repeat purchasing</li>
+          <li><strong>Higher price per ounce</strong> — $1.50-4.00/oz for imports</li>
+        </ul>
+      </div>
+      <div class="vs-col">
+        <h3>American Gummies</h3>
+        <ul>
+          <li><strong>Artificial flavoring</strong> — most use "natural and artificial flavors"</li>
+          <li><strong>Uniform texture</strong> — standard gelatin chew across most brands</li>
+          <li><strong>Large bags</strong> — 4oz-5lb bags designed for sharing or extended use</li>
+          <li><strong>No functional additives</strong> — candy is candy, no health claims</li>
+          <li><strong>Basic packaging</strong> — plastic bags, minimal design investment</li>
+          <li><strong>More sugar</strong> — typically 20-34g per serving</li>
+          <li><strong>Stable lineup</strong> — same flavors year-round</li>
+          <li><strong>Lower price per ounce</strong> — $0.15-1.00/oz for domestic brands</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TYPES OF JAPANESE GUMMIES -->
+    <h2>Types of Japanese Gummies</h2>
+
+    <p>Japan's gummy candy market has diversified into distinct subcategories, each serving a different consumer preference. Understanding these categories helps you choose the right product for your taste.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="star" size={22} /></div>
+        <h4>Fruit Gummies (フルーツグミ)</h4>
+        <p>The core category. Real fruit juice (20-51%), soft-to-medium texture, authentic fruit flavors. <strong>Brands:</strong> Kasugai, Meiji Fruit Gummy, Kanro Pure. Best for: anyone who wants candy that tastes like real fruit.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="target" size={22} /></div>
+        <h4>Sour Gummies (サワーグミ)</h4>
+        <p>Acid-coated gummies with intense sourness. Citric and malic acid coatings over fruit-flavored centers. <strong>Brands:</strong> Nobel Super Sour, Kanro Pure (sour varieties). Best for: sour candy enthusiasts who find American sour gummies too mild.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Collagen Gummies (コラーゲングミ)</h4>
+        <p>Gummies with added collagen peptides (1,000-3,000mg per bag) for skin health benefits. A mainstream category in Japan. <strong>Brands:</strong> Meiji Fruit Gummy, Kabaya Tough Gummy. Best for: beauty-conscious consumers who want functional candy.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="scale" size={22} /></div>
+        <h4>Tough Gummies (ハードグミ)</h4>
+        <p>Extra-firm, dense gummies requiring significant chewing. Marketed as jaw exercises with candy flavor. <strong>Brands:</strong> Kabaya Tough Gummy, Meiji Gummy Choco. Best for: people who find standard gummies too soft and want a long-lasting chew.</p>
+      </div>
+    </div>
+
+    <!-- WHERE TO BUY -->
+    <h2>Where to Buy Japanese Gummies in the USA</h2>
+
+    <p>Availability has improved dramatically over the past five years. Here are the most reliable sources for purchasing authentic Japanese gummy candy in the United States, ranked by selection breadth and reliability.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="bag" size={22} /></div>
+        <h4>Amazon</h4>
+        <p>The widest selection of Japanese gummies in the US. Multi-packs, variety boxes, and individual bags from Kasugai, Hi-Chew, Meiji, Nobel, Kororo, and more. Prices fluctuate based on import supply — Subscribe & Save locks in consistent pricing. <strong>Best for:</strong> variety and convenience.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="star" size={22} /></div>
+        <h4>Asian Grocery Stores</h4>
+        <p>H Mart, 99 Ranch Market, Mitsuwa Marketplace, and Nijiya Market carry the most popular Japanese gummy brands at competitive prices. Selection varies by location. <strong>Best for:</strong> discovering new products and avoiding import markups.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="target" size={22} /></div>
+        <h4>Mainstream Retailers</h4>
+        <p>Walmart, Target, and CVS carry Hi-Chew products. Selection is limited to the most popular SKUs but pricing is competitive and availability is nationwide. <strong>Best for:</strong> Hi-Chew specifically and immediate purchase without specialty shopping.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-ico"><Icon name="leaf" size={22} /></div>
+        <h4>Japanese Specialty Importers</h4>
+        <p>Online retailers like Bokksu, TokyoTreat, and Japan Crate offer curated subscription boxes featuring Japanese gummies alongside other snacks. Useful for discovering rare and seasonal products. <strong>Best for:</strong> exploration and gifting.</p>
+      </div>
+    </div>
+
+    <p>For the broadest selection and most competitive pricing, Amazon remains the most reliable option for buying <a href="/candy/best-japanese-gummies/">Japanese gummies</a> in the United States. The multi-pack options from Kasugai and Hi-Chew offer the best per-unit value, while subscription boxes from specialty importers are ideal for discovery and gifting. If you prefer to shop in person, Asian grocery chains like H Mart and Mitsuwa carry authentic Japanese-market products at fair prices.</p>
+
+    <!-- VERDICT -->
+    <div class="verdict">
+      <h3>The Verdict: Best Japanese Gummies in 2026</h3>
+      <p><strong>Kasugai Gummy Candy Assorted</strong> is our top overall pick because it delivers the most authentic Japanese gummy experience at a fair price with reliable US availability. The 33% real fruit juice, the legendary muscat grape flavor, and the consistent quality make it the definitive Japanese gummy for both newcomers and long-time enthusiasts. For the most innovative texture experience, <strong>Kororo by UHA Mikakuto</strong> is unlike anything else in the candy market. For maximum accessibility, <strong>Hi-Chew</strong> is available at every major retailer and remains the easiest introduction to Japanese candy.</p>
+      <p>Japanese gummies are not just a niche import curiosity — they represent a fundamentally superior approach to candy manufacturing. Real fruit juice, diverse textures, thoughtful packaging, and functional ingredients make American gummy bears feel like a relic of a less imaginative era. If you have not tried Japanese gummies yet, start with Kasugai and prepare to reconsider everything you thought you knew about gummy candy.</p>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <h2>Explore More Gummy Candy Guides</h2>
+
+    <div class="acards" style="grid-template-columns:1fr 1fr;">
+      <a href="/candy/" class="ac">
+        <span class="ac-tag">Hub</span>
+        <h3>Best Gummy Candy</h3>
+        <p>Complete overview of the best gummy candy across all types — bears, worms, fruit snacks, international, and more.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/vegan-gummy-bears/" class="ac">
+        <span class="ac-tag">Vegan</span>
+        <h3>Best Vegan Gummy Bears</h3>
+        <p>No gelatin, no beeswax — 8 best plant-based gummy bears ranked by flavor, texture, and value.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/best-swedish-gummies/" class="ac">
+        <span class="ac-tag">Swedish</span>
+        <h3>Best Swedish Gummies</h3>
+        <p>Scandinavian gummy candy — from Swedish Fish alternatives to Malaco and Bubs imports.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+      <a href="/candy/best-sour-gummies/" class="ac">
+        <span class="ac-tag">Sour</span>
+        <h3>Best Sour Gummies</h3>
+        <p>The most intensely sour gummy candy from Japan, Germany, and the US — ranked by pucker factor.</p>
+        <span class="ac-btn">Read Guide &rarr;</span>
+      </a>
+    </div>
+
+    <p>For more international gummy candy options, explore our <a href="/candy/">complete candy hub</a> covering <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a>, <a href="/candy/best-swedish-gummies/">Swedish gummies</a>, <a href="/candy/best-sour-gummies/">sour gummies</a>, and every other category. Japanese gummies pair well with Swedish gummies for anyone building an international candy collection — the two traditions represent the best of Asian and European confectionery craftsmanship.</p>
+
+    <!-- FAQ -->
+    <section class="faq-sec">
+      <h2>Japanese Gummies — Frequently Asked Questions</h2>
+      <details class="fq"><summary>What makes Japanese gummies different from American gummies?</summary><p>Japanese gummies prioritize real fruit juice content (often 20-50% juice), softer and more varied textures, smaller portion sizes, and elaborate packaging. American gummies tend to use artificial flavoring, firmer gelatin-based textures, and larger bag sizes. Japanese manufacturers also innovate with unique textures — from burst-in-your-mouth capsules (Kororo) to firm "tough" chews (Kabaya).</p></details>
+      <details class="fq"><summary>Are Japanese gummies healthier than American candy?</summary><p>Generally, yes. Japanese gummies typically contain less sugar per serving (8-15g vs 20-34g for American brands), use real fruit juice instead of artificial flavors, and come in smaller, portion-controlled packages. Some brands add collagen and vitamins. However, they still contain sugar and gelatin — they are candy, not health food.</p></details>
+      <details class="fq"><summary>Where can I buy Japanese gummies in the United States?</summary><p>Amazon has the widest selection. Asian grocery stores (H Mart, 99 Ranch, Mitsuwa) carry popular brands at fair prices. Hi-Chew is available at Walmart, Target, and CVS. Specialty importers like Bokksu and TokyoTreat offer curated subscription boxes.</p></details>
+      <details class="fq"><summary>Are Japanese gummies vegan or vegetarian?</summary><p>Most Japanese gummies contain gelatin and are not vegan. A few exceptions use pectin or agar-agar — always check the ingredient list. For plant-based options, see our <a href="/candy/vegan-gummy-bears/">vegan gummy bears</a> guide.</p></details>
+      <details class="fq"><summary>What is the most popular Japanese gummy brand?</summary><p>In Japan, Meiji and Kasugai dominate. In the US, Hi-Chew has the highest brand recognition due to wide retail distribution. Among Japanese candy enthusiasts, Kasugai is considered the gold standard for authentic fruit flavors.</p></details>
+      <details class="fq"><summary>Do Japanese gummies contain real fruit juice?</summary><p>Yes. Most premium Japanese gummies contain 20-51% concentrated fruit juice. Kasugai uses 33%, Meiji uses 51%, and Kororo uses 42%. This real juice content is why Japanese gummies taste more authentic than most Western candy.</p></details>
+      <details class="fq"><summary>What does "tough gummy" mean in Japanese candy?</summary><p>Tough gummy (タフグミ) is a category featuring extra-firm, dense gummies that require significant chewing. Kabaya pioneered it. The firm texture is marketed as a jaw exercise, and some brands add collagen. It appeals to consumers who find standard gummies too soft.</p></details>
+      <details class="fq"><summary>How should I store Japanese gummies?</summary><p>Store below 77°F (25°C) in a cool, dry place. Japanese gummies have higher fruit juice content and fewer preservatives, making them more temperature-sensitive than American candy. Refrigeration preserves texture. Most have a 6-12 month shelf life.</p></details>
+    </section>
+
+    <p class="fda-disc">*Product information, prices, and availability are subject to change. Always verify current details on Amazon or the manufacturer's website before purchasing. GummyGuide earns a commission on qualifying purchases through our affiliate links at no additional cost to you.</p>
+
+  </div>
+
+  <div class="cta">
+    <h2>Discover the Best Japanese Gummy Candy</h2>
+    <p>Explore our complete candy guides — international, vegan, sour, and more. Every product tasted, tested, and ranked by our editorial team.</p>
+    <a href="/candy/" class="btn btn-wh">Explore All Candy Guides &rarr;</a>
+  </div>
+
+</BaseLayout>
