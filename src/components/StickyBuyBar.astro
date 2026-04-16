@@ -1,0 +1,164 @@
+---
+/**
+ * Mobile sticky buy bar.
+ * Auto-detects first /dp/ASIN link on page and surfaces it as a fixed CTA.
+ * Shown only on screens <900px. Dismissable.
+ */
+interface Props {
+  label?: string;
+}
+const { label = 'Our #1 Pick' } = Astro.props;
+---
+
+<div id="sbb" class="sbb" hidden>
+  <div class="sbb-inner">
+    <div class="sbb-txt">
+      <span class="sbb-lbl">{label}</span>
+      <span class="sbb-nm" id="sbb-nm">—</span>
+    </div>
+    <a id="sbb-cta" class="sbb-cta" href="#" rel="nofollow sponsored noopener" target="_blank">Check Price →</a>
+    <button class="sbb-close" aria-label="Close" id="sbb-close">×</button>
+  </div>
+</div>
+
+<style>
+  .sbb {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    box-shadow: 0 -6px 18px rgba(0,0,0,0.08);
+    z-index: 50;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    transform: translateY(0);
+    transition: transform 0.25s ease;
+  }
+  .sbb-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .sbb-txt {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .sbb-lbl {
+    font-size: 11px;
+    font-weight: 600;
+    color: #3D4F2F;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .sbb-nm {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sbb-cta {
+    flex: 0 0 auto;
+    background: #FF9900;
+    color: #111111;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(255,153,0,0.3);
+  }
+  .sbb-cta:active { transform: scale(0.97); }
+  .sbb-close {
+    flex: 0 0 auto;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    color: #6B6B6B;
+    cursor: pointer;
+    padding: 4px 6px;
+  }
+  .sbb.hidden { transform: translateY(110%); }
+
+  /* Desktop: never show */
+  @media (min-width: 900px) {
+    .sbb { display: none; }
+  }
+</style>
+
+<script is:inline>
+  (function(){
+    var bar = document.getElementById('sbb');
+    if (!bar) return;
+
+    // Don't show if user dismissed this session
+    try {
+      if (sessionStorage.getItem('sbb-dismissed') === '1') return;
+    } catch(e) {}
+
+    // Find first /dp/ASIN link
+    var firstLink = null;
+    var links = document.querySelectorAll('a[href*="/dp/"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = a.getAttribute('href') || '';
+      if (/\/dp\/[A-Z0-9]{10}/.test(href)) {
+        firstLink = a;
+        break;
+      }
+    }
+    if (!firstLink) return;
+
+    // Extract product name: prefer nearest <h3> before the link, else <h2>, else alt of img, else link text
+    var name = '';
+    var el = firstLink;
+    while (el && el !== document.body) {
+      if (el.previousElementSibling) {
+        var prev = el.previousElementSibling;
+        var heading = prev.querySelector ? prev.querySelector('h3, h2, h4') : null;
+        if (heading && heading.textContent.trim()) { name = heading.textContent.trim(); break; }
+      }
+      el = el.parentElement;
+      if (el) {
+        var h = el.querySelector ? el.querySelector('h3, h2, h4') : null;
+        if (h && h.textContent.trim()) { name = h.textContent.trim(); break; }
+      }
+    }
+    if (!name) {
+      var img = firstLink.closest ? firstLink.closest('article, div').querySelector('img[alt]') : null;
+      if (img) name = img.alt;
+    }
+    if (!name) name = 'Top Pick';
+
+    // Trim name to ~40 chars
+    if (name.length > 45) name = name.substring(0, 42) + '…';
+
+    document.getElementById('sbb-nm').textContent = name;
+    var cta = document.getElementById('sbb-cta');
+    cta.href = firstLink.href;
+
+    // Show after 600px scroll to avoid covering hero initially
+    var shown = false;
+    function maybeShow() {
+      if (shown) return;
+      if (window.scrollY > 600) {
+        bar.hidden = false;
+        shown = true;
+      }
+    }
+    window.addEventListener('scroll', maybeShow, { passive: true });
+    setTimeout(maybeShow, 1200);
+
+    document.getElementById('sbb-close').addEventListener('click', function(){
+      bar.classList.add('hidden');
+      try { sessionStorage.setItem('sbb-dismissed', '1'); } catch(e) {}
+    });
+  })();
+</script>

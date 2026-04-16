@@ -1306,3 +1306,63 @@ article h3 { margin-top: 28px; margin-bottom: 14px; }
 .score-bar-track { flex: 1; height: 8px; background: #E0DDD6; border-radius: 4px; overflow: hidden; }
 .score-bar-fill { height: 100%; background: #3D4F2F; border-radius: 4px; }
 .score-bar-val { font-size: 13px; font-weight: 600; color: #1A1A1A; width: 36px; text-align: right; }
+
+/* ===================================
+   CRO enhancements (non-destructive)
+   =================================== */
+
+/* Goli direct links: badge "Save 26%" auto-added via CSS */
+a[href*="goli.com"][href*="discount_code="]::after {
+  content: " SAVE 26%";
+  display: inline-block;
+  background: #DB2777;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Trust badges row (for pcards that want to show certifications) */
+.trust-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 12px 0;
+}
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #F0F2ED;
+  color: #3D4F2F;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 14px;
+  letter-spacing: 0.02em;
+}
+.trust-badge::before {
+  content: "✓";
+  font-weight: 800;
+  color: #3D4F2F;
+}
+.trust-badge.usp { background: #EFF6FF; color: #1E40AF; }
+.trust-badge.usp::before { color: #1E40AF; }
+.trust-badge.nsf { background: #F0FDF4; color: #15803D; }
+.trust-badge.nsf::before { color: #15803D; }
+.trust-badge.informed { background: #FEF3C7; color: #92400E; }
+.trust-badge.informed::before { color: #92400E; }
+.trust-badge.gmp { background: #FAF5FF; color: #7E22CE; }
+.trust-badge.gmp::before { color: #7E22CE; }
+
+/* Padding-bottom boost on mobile so sticky buy bar doesn't cover footer */
+@media (max-width: 899px) {
+  body { padding-bottom: 72px; }
+}
