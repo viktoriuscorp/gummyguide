@@ -1,0 +1,15 @@
+# 301 redirects — fix canonibalizaciones (2026-04-27)
+# Each line: source → destination → 301 (permanent)
+# Cloudflare Pages aplica estos antes de servir archivos estáticos.
+
+# CASO 1: CoQ10 — duplicado exacto en 2 silos
+/trending/coq10-gummies/  /vitamins/coq10-gummies/  301
+/trending/coq10-gummies   /vitamins/coq10-gummies/  301
+
+# CASO 2: Biotin — titles idénticos en mismo silo /beauty/
+/beauty/best-biotin-gummies-for-hair-growth/  /beauty/biotin-gummies/  301
+/beauty/best-biotin-gummies-for-hair-growth   /beauty/biotin-gummies/  301
+
+# CASO 3: Ashwagandha — "for Stress" vs "for Anxiety" (Google los trata igual)
+/trending/best-ashwagandha-gummies-for-anxiety/  /best-ashwagandha-gummies/  301
+/trending/best-ashwagandha-gummies-for-anxiety   /best-ashwagandha-gummies/  301
