@@ -1,5 +1,16 @@
 /* GummyGuide — Clean, simple, mobile-first */
 
+/* Inter metric-matched fallback to eliminate CLS during font swap.
+   Values from https://github.com/seek-oss/capsize for Inter vs Arial. */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
 /* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,7 +24,7 @@ html, body {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: #1A1A1A;
@@ -334,7 +345,7 @@ em { font-style: italic; }
 .sec-warm { background: #ECEAE4; border-radius: 16px; margin: 0 20px; padding: 28px 20px; }
 .sec-t { font-size: 22px; margin-bottom: 6px; }
 .sec-t em { font-weight: 400; }
-.sec-d { font-size: 14px; color: #6B6B6B; margin-bottom: 20px; }
+.sec-d { font-size: 14px; color: #5A5A5A; margin-bottom: 20px; }
 
 @media (min-width: 768px) {
   .sec { padding: 40px 0; }
@@ -388,7 +399,7 @@ em { font-style: italic; }
 .ph-nfo h3 { font-size: 18px; margin-bottom: 6px; }
 .ph-nfo p { font-size: 13px; margin-bottom: 12px; }
 .ph-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.ph-stars { color: #F5A623; font-weight: 600; font-size: 14px; }
+.ph-stars { color: #8B5A00; font-weight: 600; font-size: 14px; }
 .ph-price { font-size: 20px; font-weight: 700; }
 
 @media (min-width: 768px) {
@@ -416,7 +427,7 @@ em { font-style: italic; }
 .pk-cat { font-size: 10px; color: #3D4F2F; font-weight: 600; text-transform: uppercase; }
 .pk-nfo h4 { font-size: 13px; font-weight: 600; margin: 2px 0 4px; }
 .pk-pr { font-size: 13px; font-weight: 700; }
-.pk-st { font-size: 11px; color: #F5A623; margin-left: 6px; }
+.pk-st { font-size: 11px; color: #8B5A00; margin-left: 6px; font-weight: 600; }
 
 @media (min-width: 640px) {
   .pk { flex-direction: column; }
@@ -536,16 +547,16 @@ tr.hl { background: #E8EDDF; }
 .au-bio, .author-box__bio { font-size: 13px; color: #9E9E9E; margin: 4px 0 0; line-height: 1.5; }
 
 /* Footer */
-.ftr { background: #1A1A1A; color: #999; padding: 40px 20px 20px; margin-top: 56px; }
+.ftr { background: #1A1A1A; color: #C4C4C4; padding: 40px 20px 20px; margin-top: 56px; }
 .ftr-g { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto; }
 @media (min-width: 768px) { .ftr-g { grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; } }
 .ftr-c h3 { color: #fff; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; font-weight: 500; }
 .ftr-c ul { list-style: none; padding: 0; }
 .ftr-c li { margin-bottom: 6px; }
-.ftr-c a { color: #777; font-size: 13px; }
+.ftr-c a { color: #C4C4C4; font-size: 13px; }
 .ftr-c a:hover { color: #fff; opacity: 1; }
 .ftr-b { border-top: 1px solid #333; padding-top: 14px; text-align: center; max-width: 1100px; margin: 0 auto; }
-.ftr-b p { font-size: 11px; color: #555; margin: 0; }
+.ftr-b p { font-size: 11px; color: #B0B0B0; margin: 0; }
 
 /* Cookie */
 .ck {
@@ -727,7 +738,7 @@ tr.hl { background: #E8EDDF; }
   gap: 6px;
   margin-bottom: 14px;
 }
-.pcard-stars .stars { color: #F5A623; font-size: 16px; letter-spacing: 1px; }
+.pcard-stars .stars { color: #8B5A00; font-size: 16px; letter-spacing: 1px; }
 .pcard-stars .rating-val { font-weight: 700; font-size: 14px; color: #1A1A1A; }
 .pcard-stars .review-ct { font-size: 13px; color: #9E9E9E; }
 
@@ -985,7 +996,7 @@ article h3 { margin-top: 28px; margin-bottom: 14px; }
   overflow: hidden;
   margin: 32px 0;
 }
-.ctbl-hint { text-align: center; font-size: 11px; color: #9E9E9E; padding: 8px; }
+.ctbl-hint { text-align: center; font-size: 11px; color: #6B6B6B; padding: 8px; }
 @media (min-width: 768px) { .ctbl-hint { display: none; } }
 .ctbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .ctbl table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px; }
@@ -1000,7 +1011,7 @@ article h3 { margin-top: 28px; margin-bottom: 14px; }
 .ctbl .prod-cell { display: flex; align-items: center; gap: 10px; }
 .ctbl .prod-cell img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; }
 .ctbl .prod-cell strong { color: #1A1A1A; }
-.ctbl .prod-cell span { display: block; font-size: 11px; color: #9E9E9E; }
+.ctbl .prod-cell span { display: block; font-size: 11px; color: #6B6B6B; }
 
 /* FAQ section for content pages */
 .faq-sec { margin-top: 40px; }
@@ -1090,7 +1101,7 @@ article h3 { margin-top: 28px; margin-bottom: 14px; }
 .mini-card h4 { font-size: 14px; margin-bottom: 4px; }
 .mini-card .mini-brand { font-size: 12px; color: #9E9E9E; margin-bottom: 8px; }
 .mini-card .mini-price { font-size: 16px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px; }
-.mini-card .mini-stars { color: #F5A623; font-size: 13px; margin-bottom: 12px; }
+.mini-card .mini-stars { color: #8B5A00; font-size: 13px; margin-bottom: 12px; }
 .mini-card .mini-btn {
   display: block; background: #3D4F2F; color: #fff; padding: 10px; border-radius: 10px;
   font-size: 13px; font-weight: 600; text-decoration: none;
@@ -1169,7 +1180,7 @@ article h3 { margin-top: 28px; margin-bottom: 14px; }
 .callout cite {
   display: block;
   font-size: 13px;
-  color: #9E9E9E;
+  color: #6B6B6B;
   font-weight: 400;
   font-style: normal;
   margin-top: 8px;
