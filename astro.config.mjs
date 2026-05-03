@@ -11,11 +11,16 @@ export default defineConfig({
   site: 'https://gummy-guide.com',
   integrations: [
     sitemap({
+      // NO lastmod — un lastmod global con la fecha del build hace que TODAS las
+      // URLs muten en cada deploy ("lastmod stampede"), Google lo lee como
+      // inestabilidad y baja el crawl budget. Mejor sin lastmod que mintiendo.
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date(),
       serialize(item) {
         const path = new URL(item.url).pathname;
+
+        // Garantizar que ningún lastmod se cuele desde defaults del plugin
+        delete item.lastmod;
 
         if (path === '/') {
           item.priority = 1.0;
