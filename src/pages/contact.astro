@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const pageTitle = 'Contact GummyGuide — Editorial, Corrections & Press';
+const pageDescription = 'Contact the GummyGuide editorial team for corrections, press inquiries, product submission guidelines, affiliate questions, and supplement review feedback.';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact GummyGuide',
+  description: pageDescription,
+  url: 'https://gummy-guide.com/contact/',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'GummyGuide',
+    url: 'https://gummy-guide.com',
+    email: 'hello@gummy-guide.com',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'editorial corrections',
+        email: 'hello@gummy-guide.com',
+        availableLanguage: 'English',
+        areaServed: 'US',
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'press inquiries',
+        email: 'hello@gummy-guide.com',
+        availableLanguage: 'English',
+        areaServed: 'US',
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} canonical="https://gummy-guide.com/contact/" schema={contactSchema}>
+
+  <div class="pg-hero">
+    <h1>Contact GummyGuide</h1>
+    <p class="pg-sub">Editorial questions, corrections, press inquiries, and product submission guidelines.</p>
+    <div class="pg-meta">
+      <span>Editorial Team</span>
+      <span>48 Business Hours</span>
+      <span>US Coverage</span>
+    </div>
+  </div>
+
+  <Breadcrumbs items={[{ label: 'Contact', href: '/contact/' }]} />
+
+  <div class="w">
+    <p>Use this page to reach the GummyGuide editorial team. We review all messages manually and prioritize corrections, safety questions, and source updates for published supplement guides.</p>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <h3>Editorial Corrections</h3>
+        <p>Send corrections for product labels, ingredient doses, pricing, availability, certifications, or scientific references cited in our guides.</p>
+      </div>
+      <div class="info-card">
+        <h3>Press Inquiries</h3>
+        <p>Contact us for quotes, trend data, expert commentary, or background on the gummy supplement market in the United States.</p>
+      </div>
+      <div class="info-card">
+        <h3>Product Submissions</h3>
+        <p>Brands may send product information for editorial consideration. We do not accept paid placements, sponsored rankings, or free-product review guarantees.</p>
+      </div>
+      <div class="info-card">
+        <h3>Affiliate Questions</h3>
+        <p>Questions about affiliate links, Amazon Associates disclosure, or direct brand partnerships are handled separately from product rankings.</p>
+      </div>
+    </div>
+
+    <h2>Email</h2>
+    <p>For all inquiries, email <strong>hello@gummy-guide.com</strong>. Include the relevant page URL when contacting us about a correction so our editors can review the specific claim quickly.</p>
+
+    <div class="tip-box">
+      <div class="tip-box-ico">i</div>
+      <p><strong>Product submission note:</strong> GummyGuide purchases products independently for testing. Sending a product pitch does not guarantee coverage, ranking, or inclusion in a buying guide.</p>
+    </div>
+
+    <h2>Medical Questions</h2>
+    <p>GummyGuide cannot provide personal medical advice, diagnose conditions, or recommend supplements for individual treatment plans. If your question involves pregnancy, medications, chronic disease, allergies, or a child, consult a qualified healthcare professional.</p>
+
+    <div class="warn-box">
+      <div class="warn-box-ico">!</div>
+      <p><strong>Important:</strong> Our content is for informational purposes only and should not replace advice from your physician, registered dietitian, pharmacist, or other licensed healthcare provider.</p>
+    </div>
+
+    <h2>Helpful Links</h2>
+    <div class="acards">
+      <a class="ac" href="/editorial-process/">
+        <span class="ac-tag">Trust</span>
+        <h3>Editorial Process</h3>
+        <p>How we test, score, and update gummy supplement recommendations.</p>
+        <span class="ac-btn">How We Test &rarr;</span>
+      </a>
+      <a class="ac" href="/affiliate-disclosure/">
+        <span class="ac-tag">Disclosure</span>
+        <h3>Affiliate Disclosure</h3>
+        <p>How GummyGuide earns revenue and protects editorial independence.</p>
+        <span class="ac-btn">Read Disclosure &rarr;</span>
+      </a>
+    </div>
+
+    <div class="cta">
+      <h2>Need a Starting Point?</h2>
+      <p>Browse our main buying guides for tested gummy supplement recommendations.</p>
+      <a href="/#guides" class="btn btn-wh">Explore Guides &rarr;</a>
+    </div>
+  </div>
+
+</BaseLayout>

@@ -39,7 +39,15 @@ const schemas = [
     name: 'GummyGuide',
     url: site,
     logo: `${site}/favicon.svg`,
-    sameAs: [],
+    email: 'hello@gummy-guide.com',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'editorial inquiries',
+      email: 'hello@gummy-guide.com',
+      availableLanguage: 'English',
+      areaServed: 'US',
+    },
+    publishingPrinciples: `${site}/editorial-process/`,
   },
   {
     '@context': 'https://schema.org',
@@ -84,6 +92,7 @@ const schemas = [
   {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
   <link rel="alternate" hreflang="en-US" href={canonicalUrl} />
   <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+  <link rel="llms" href="/llms.txt" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
@@ -119,6 +128,7 @@ const schemas = [
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="hdr">
     <div class="hdr-bar">
@@ -276,12 +286,13 @@ const schemas = [
         <h4>Company</h4>
         <a href="/about/">About</a>
         <a href="/editorial-process/">How We Test</a>
+        <a href="/contact/">Contact</a>
         <a href="/affiliate-disclosure/">Disclosure</a>
       </div>
     </div>
   </header>
 
-  <main><slot /></main>
+  <main id="main"><slot /></main>
 
   <footer class="ftr">
     <div class="ftr-g">
@@ -350,6 +361,7 @@ const schemas = [
         <ul>
           <li><a href="/about/">About GummyGuide</a></li>
           <li><a href="/editorial-process/">How We Test</a></li>
+          <li><a href="/contact/">Contact</a></li>
           <li><a href="/affiliate-disclosure/">Affiliate Disclosure</a></li>
           <li><a href="/legal/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/legal/terms/">Terms of Service</a></li>
@@ -358,6 +370,7 @@ const schemas = [
     </div>
     <div class="ftr-b">
       <p>&copy; {new Date().getFullYear()} GummyGuide. All rights reserved. Independent supplement reviews.</p>
+      <p>Medical disclaimer: GummyGuide content is for informational purposes only and is not medical advice. Always consult a qualified healthcare professional before starting a new supplement.</p>
     </div>
   </footer>
 

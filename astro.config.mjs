@@ -32,7 +32,7 @@ export default defineConfig({
           item.priority = 0.7;
           item.changefreq = 'monthly';
         } else if (
-          ['/about/', '/affiliate-disclosure/', '/editorial-process/'].includes(path) ||
+          ['/about/', '/affiliate-disclosure/', '/contact/', '/editorial-process/'].includes(path) ||
           path.startsWith('/legal/')
         ) {
           item.priority = 0.3;
