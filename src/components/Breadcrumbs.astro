@@ -9,17 +9,19 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const site = 'https://gummy-guide.com';
+const absoluteUrl = (href: string) => new URL(href, site).href;
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://gummy-guide.com/' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
     ...items.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 2,
       name: item.label,
-      ...(i < items.length - 1 ? { item: `https://gummy-guide.com${item.href}` } : {}),
+      item: absoluteUrl(item.href),
     })),
   ],
 };
@@ -36,7 +38,10 @@ const breadcrumbSchema = {
         {i < items.length - 1 ? (
           <a href={item.href} itemprop="item"><span itemprop="name">{item.label}</span></a>
         ) : (
-          <span itemprop="name" aria-current="page">{item.label}</span>
+          <>
+            <span itemprop="name" aria-current="page">{item.label}</span>
+            <meta itemprop="item" content={absoluteUrl(item.href)} />
+          </>
         )}
         <meta itemprop="position" content={String(i + 2)} />
       </li>
