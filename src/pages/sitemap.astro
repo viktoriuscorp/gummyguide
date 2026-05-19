@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { getAllCategories } from '../data/categories';
+
+const pageModules = import.meta.glob('./**/*.{astro,mdx}', { eager: true });
+
+const hubUrls = [...getAllCategories().map((category) => category.prefix), '/blog/', '/candy/'];
+const companyUrls = ['/about/', '/affiliate-disclosure/', '/contact/', '/editorial-process/', '/sitemap/'];
+
+const sectionDefs = [
+  { title: 'Core Buying Guides', test: (url: string) => url === '/' || (url.split('/').filter(Boolean).length === 1 && !companyUrls.includes(url) && !hubUrls.includes(url)) },
+  ...getAllCategories().map((category) => ({
+    title: category.name,
+    test: (url: string) => url.startsWith(category.prefix),
+  })),
+  { title: 'Candy & Vegan Candy', test: (url: string) => url.startsWith('/candy/') },
+  { title: 'Educational Blog', test: (url: string) => url.startsWith('/blog/') },
+  { title: 'Company & Legal', test: (url: string) => companyUrls.includes(url) || url.startsWith('/legal/') },
+];
+
+const acronymMap: Record<string, string> = {
+  acv: 'ACV',
+  bcaa: 'BCAA',
+  coq10: 'CoQ10',
+  d3: 'D3',
+  dha: 'DHA',
+  fda: 'FDA',
+  gaba: 'GABA',
+  k2: 'K2',
+  l: 'L',
+  nmn: 'NMN',
+  nr: 'NR',
+};
+
+function routeFromFile(file: string) {
+  let route = file.replace(/^\.\//, '/').replace(/\.(astro|mdx)$/, '/');
+  route = route.replace(/\/index\/$/, '/');
+  return route;
+}
+
+function titleFromUrl(url: string) {
+  if (url === '/') return 'GummyGuide Home';
+  const slug = url.split('/').filter(Boolean).at(-1) || '';
+  return slug
+    .split('-')
+    .map((word) => acronymMap[word] || word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+    .replace('Vs', 'vs')
+    .replace('And', 'and')
+    .replace('For', 'for')
+    .replace('With', 'with')
+    .replace('Without', 'without');
+}
+
+const urls = Object.keys(pageModules)
+  .map(routeFromFile)
+  .filter((url) => url !== '/404/')
+  .sort((a, b) => a.localeCompare(b));
+
+const sections = sectionDefs
+  .map((section) => ({
+    title: section.title,
+    links: urls
+      .filter(section.test)
+      .map((url) => ({ url, title: titleFromUrl(url) })),
+  }))
+  .filter((section) => section.links.length > 0);
+---
+
+<BaseLayout
+  title="HTML Sitemap | GummyGuide"
+  description="Browse every GummyGuide buying guide, supplement review, blog article, and legal page from one crawlable HTML sitemap."
+  canonical="https://gummy-guide.com/sitemap/"
+>
+  <section class="pg-hero">
+    <h1>GummyGuide Sitemap</h1>
+    <p class="pg-sub">A complete, crawlable index of our supplement gummy buying guides, educational articles, category hubs, and company pages.</p>
+    <div class="pg-meta">
+      <span>{urls.length} Pages</span>
+      <span>Updated Automatically</span>
+      <span>HTML Sitemap</span>
+    </div>
+  </section>
+
+  <div class="w">
+    <Breadcrumbs items={[{ label: 'Sitemap', href: '/sitemap/' }]} />
+
+    <div class="callout">Use this page to jump directly to any GummyGuide resource. It also gives search engines a clean HTML path to every important URL on the site.</div>
+
+    {sections.map((section) => (
+      <section class="sitemap-section">
+        <h2>{section.title}</h2>
+        <div class="sitemap-grid">
+          {section.links.map((link) => (
+            <a href={link.url} class="sitemap-link">{link.title}</a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</BaseLayout>
