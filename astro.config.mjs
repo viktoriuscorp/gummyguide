@@ -7,12 +7,52 @@ const SILO_HUBS = [
   'weight-loss', 'immunity', 'trending', 'candy', 'blog',
 ];
 
+// Indexation recovery mode (May 2026): Google has crawled ~100 URLs but is
+// holding them as "Crawled - currently not indexed". Keep only the strongest
+// URLs in the XML sitemap for now, then re-add long-tail pages in small batches.
+const RECOVERY_SITEMAP_URLS = new Set([
+  '/',
+  '/about/',
+  '/affiliate-disclosure/',
+  '/editorial-process/',
+  '/sitemap/',
+  '/beauty/',
+  '/sports/',
+  '/sleep/',
+  '/vitamins/',
+  '/mushroom/',
+  '/weight-loss/',
+  '/immunity/',
+  '/trending/',
+  '/candy/',
+  '/blog/',
+  '/best-creatine-gummies/',
+  '/best-melatonin-gummies/',
+  '/best-ashwagandha-gummies/',
+  '/best-prenatal-gummies/',
+  '/best-sea-moss-gummies/',
+  '/best-sleep-gummies/',
+  '/best-mushroom-gummies/',
+  '/best-apple-cider-vinegar-gummies/',
+  '/best-elderberry-gummies/',
+  '/best-fiber-gummies/',
+  '/best-iron-gummies/',
+  '/best-gummies-for-women/',
+  '/best-gummies-for-men/',
+  '/gummies-vs-pills/',
+  '/sugar-free-gummies/',
+  '/vegan-gummies/',
+]);
+
 export default defineConfig({
   site: 'https://gummy-guide.com',
   integrations: [
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
+      filter(page) {
+        return RECOVERY_SITEMAP_URLS.has(new URL(page).pathname);
+      },
       serialize(item) {
         const path = new URL(item.url).pathname;
 
