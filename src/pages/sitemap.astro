@@ -5,6 +5,40 @@ import { getAllCategories } from '../data/categories';
 
 const pageModules = import.meta.glob('./**/*.{astro,mdx}', { eager: true });
 
+const recoveryUrls = new Set([
+  '/',
+  '/about/',
+  '/affiliate-disclosure/',
+  '/editorial-process/',
+  '/sitemap/',
+  '/beauty/',
+  '/sports/',
+  '/sleep/',
+  '/vitamins/',
+  '/mushroom/',
+  '/weight-loss/',
+  '/immunity/',
+  '/trending/',
+  '/candy/',
+  '/blog/',
+  '/best-creatine-gummies/',
+  '/best-melatonin-gummies/',
+  '/best-ashwagandha-gummies/',
+  '/best-prenatal-gummies/',
+  '/best-sea-moss-gummies/',
+  '/best-sleep-gummies/',
+  '/best-mushroom-gummies/',
+  '/best-apple-cider-vinegar-gummies/',
+  '/best-elderberry-gummies/',
+  '/best-fiber-gummies/',
+  '/best-iron-gummies/',
+  '/best-gummies-for-women/',
+  '/best-gummies-for-men/',
+  '/gummies-vs-pills/',
+  '/sugar-free-gummies/',
+  '/vegan-gummies/',
+]);
+
 const hubUrls = [...getAllCategories().map((category) => category.prefix), '/blog/', '/candy/'];
 const companyUrls = ['/about/', '/affiliate-disclosure/', '/contact/', '/editorial-process/', '/sitemap/'];
 
@@ -55,7 +89,7 @@ function titleFromUrl(url: string) {
 
 const urls = Object.keys(pageModules)
   .map(routeFromFile)
-  .filter((url) => url !== '/404/')
+  .filter((url) => recoveryUrls.has(url))
   .sort((a, b) => a.localeCompare(b));
 
 const sections = sectionDefs
@@ -70,12 +104,12 @@ const sections = sectionDefs
 
 <BaseLayout
   title="HTML Sitemap | GummyGuide"
-  description="Browse every GummyGuide buying guide, supplement review, blog article, and legal page from one crawlable HTML sitemap."
+  description="Browse the priority GummyGuide buying guides, supplement hubs, and company pages currently submitted for Google indexing."
   canonical="https://gummy-guide.com/sitemap/"
 >
   <section class="pg-hero">
     <h1>GummyGuide Sitemap</h1>
-    <p class="pg-sub">A complete, crawlable index of our supplement gummy buying guides, educational articles, category hubs, and company pages.</p>
+    <p class="pg-sub">A focused crawlable index of the priority supplement gummy guides and hubs currently submitted for Google indexing.</p>
     <div class="pg-meta">
       <span>{urls.length} Pages</span>
       <span>Updated Automatically</span>
@@ -86,7 +120,7 @@ const sections = sectionDefs
   <div class="w">
     <Breadcrumbs items={[{ label: 'Sitemap', href: '/sitemap/' }]} />
 
-    <div class="callout">Use this page to jump directly to any GummyGuide resource. It also gives search engines a clean HTML path to every important URL on the site.</div>
+    <div class="callout">Use this page to jump directly to the priority GummyGuide resources currently submitted for indexing. Additional long-tail guides remain live and will be reintroduced in smaller batches.</div>
 
     {sections.map((section) => (
       <section class="sitemap-section">
